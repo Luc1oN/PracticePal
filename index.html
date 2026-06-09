@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BasketBrain — Receipt Upload</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f9f9f7;
+      color: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 40px;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    h1 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+    .subtitle { font-size: 14px; color: #666; margin-bottom: 32px; }
+    label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: #333; }
+    select, input[type="text"] {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 15px;
+      margin-bottom: 20px;
+      background: white;
+    }
+    .upload-area {
+      border: 2px dashed #ddd;
+      border-radius: 10px;
+      padding: 32px;
+      text-align: center;
+      cursor: pointer;
+      margin-bottom: 20px;
+      transition: border-color 0.2s;
+    }
+    .upload-area:hover { border-color: #888; }
+    .upload-area.has-file { border-color: #2d6a4f; background: #f0faf4; }
+    .upload-area input { display: none; }
+    .upload-label { font-size: 14px; color: #666; }
+    .upload-label strong { color: #1a1a1a; }
+    #preview { max-width: 100%; border-radius: 8px; margin-top: 12px; display: none; }
+    button {
+      width: 100%;
+      padding: 14px;
+      background: #1a1a1a;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover { background: #333; }
+    button:disabled { background: #aaa; cursor: not-allowed; }
+    .status {
+      margin-top: 16px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      display: none;
+    }
+    .status.success { background: #f0faf4; color: #2d6a4f; display: block; }
+    .status.error { background: #fff0f0; color: #c0392b; display: block; }
+    .status.loading { background: #f5f5f5; color: #555; display: block; }
+  </style>
+</head>
+<body>
+<div class="card">
+  <h1>BasketBrain</h1>
+  <p class="subtitle">Photograph your receipt and help build Ireland's grocery price dataset.</p>
+
+  <label for="store">Store</label>
+  <select id="store">
+    <option value="">Select store...</option>
+    <option>Tesco</option>
+    <option>Dunnes Stores</option>
+    <option>SuperValu</option>
+    <option>Lidl</option>
+    <option>Aldi</option>
+    <option>Marks & Spencer</option>
+    <option>Other</option>
+  </select>
+
+  <label>Receipt photo</label>
+  <div class="upload-area" id="uploadArea" onclick="document.getElementById('fileInput').click()">
+    <input type="file" id="fileInput" accept="image/*" onchange="handleFile(this)">
+    <p class="upload-label"><strong>Tap to upload</strong> or drag and drop</p>
+    <img id="preview" alt="Receipt preview">
+  </div>
+
+  <button id="submitBtn" onclick="submitReceipt()" disabled>Submit Receipt</button>
+  <div class="status" id="status"></div>
+</div>
+
+<script>
+  // ── CONFIG ──────────────────────────────────────────────
+  const SUPABASE_URL = 'https://tfnlygofikamyoscdrik.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRmbmx5Z29maWthbXlvc2NkcmlrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEwMTUxNzIsImV4cCI6MjA5NjU5MTE3Mn0.6uTGpXK_BpnQcxTbWbrB_uu_iRBqWxWSvN5PLw797WE';
+  const ANTHROPIC_API_KEY = 'YOUR_ANTHROPIC_API_KEY'; // ← paste yours here
+  // ────────────────────────────────────────────────────────
+
+  let selectedFile = null;
+
+  function handleFile(input) {
+    const file = input.files[0];
+    if (!file) return;
+    selectedFile = file;
+    const preview = document.getElementById('preview');
+    preview.src = URL.createObjectURL(file);
+    preview.style.display = 'block';
+    document.getElementById('uploadArea').classList.add('has-file');
+    document.getElementById('submitBtn').disabled = false;
+  }
+
+  async function submitReceipt() {
+    const store = document.getElementById('store').value;
+    const btn = document.getElementById('submitBtn');
+
+    if (!selectedFile) return setStatus('Please select a receipt image.', 'error');
+    if (!store) return setStatus('Please select a store.', 'error');
+
+    btn.disabled = true;
+    setStatus('Uploading receipt...', 'loading');
+
+    try {
+      // 1. Upload image to Supabase Storage
+      const filename = `${Date.now()}-${selectedFile.name}`;
+      const uploadRes = await fetch(`${SUPABASE_URL}/storage/v1/object/receipts/${filename}`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+          'Content-Type': selectedFile.type
+        },
+        body: selectedFile
+      });
+      if (!uploadRes.ok) {
+        const err = await uploadRes.text();
+        throw new Error(`Image upload failed: ${err}`);
+      }
+      const imageUrl = `${SUPABASE_URL}/storage/v1/object/public/receipts/${filename}`;
+
+      // 2. Insert receipt record
+      setStatus('Parsing receipt with AI...', 'loading');
+      const receiptRes = await fetch(`${SUPABASE_URL}/rest/v1/receipts`, {
+        method: 'POST',
+        headers: {
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+          'Content-Type': 'application/json',
+          'Prefer': 'return=representation'
+        },
+        body: JSON.stringify({
+          store_name: store,
+          store_normalised: store.toLowerCase().replace(/\s+/g, '_'),
+          raw_image_url: imageUrl,
+          parsed_status: 'processing'
+        })
+      });
+      const [receipt] = await receiptRes.json();
+
+      // 3. Parse with Claude
+      const base64 = await toBase64(selectedFile);
+      const parseRes = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 1000,
+          messages: [{
+            role: 'user',
+            content: [
+              {
+                type: 'image',
+                source: { type: 'base64', media_type: selectedFile.type, data: base64 }
+              },
+              { type: 'text', text: PARSE_PROMPT }
+            ]
+          }]
+        })
+      });
+      const parseData = await parseRes.json();
+      const rawText = parseData.content.map(b => b.text || '').join('');
+      const clean = rawText.replace(/```json|```/g, '').trim();
+      const parsed = JSON.parse(clean);
+
+      // 4. Write items to Supabase
+      if (parsed.items && parsed.items.length > 0) {
+        const items = parsed.items.map(item => ({ ...item, receipt_id: receipt.id }));
+        await fetch(`${SUPABASE_URL}/rest/v1/items`, {
+          method: 'POST',
+          headers: {
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(items)
+        });
+      }
+
+      // 5. Mark receipt as complete
+      await fetch(`${SUPABASE_URL}/rest/v1/receipts?id=eq.${receipt.id}`, {
+        method: 'PATCH',
+        headers: {
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          parsed_status: 'complete',
+          purchase_date: parsed.purchase_date || null
+        })
+      });
+
+      setStatus(`Done. ${parsed.items?.length || 0} items extracted from your ${store} receipt.`, 'success');
+
+    } catch (err) {
+      console.error(err);
+      setStatus(`Something went wrong: ${err.message}`, 'error');
+    } finally {
+      btn.disabled = false;
+    }
+  }
+
+  function toBase64(file) {
+    return new Promise((res, rej) => {
+      const r = new FileReader();
+      r.onload = () => res(r.result.split(',')[1]);
+      r.onerror = rej;
+      r.readAsDataURL(file);
+    });
+  }
+
+  function setStatus(msg, type) {
+    const el = document.getElementById('status');
+    el.textContent = msg;
+    el.className = `status ${type}`;
+  }
+
+  const PARSE_PROMPT = `You are a grocery receipt parser. Extract all line items from this Irish grocery receipt.
+
+Return ONLY valid JSON, no preamble, no markdown fences. Use this exact structure:
+
+{
+  "purchase_date": "YYYY-MM-DD or null if not visible",
+  "items": [
+    {
+      "raw_name": "exact text from receipt",
+      "normalised_name": "clean readable product name",
+      "brand": "brand name or null",
+      "category": "one of: dairy, bakery, meat, fish, produce, frozen, grocery, drinks, household, personal_care, alcohol, other",
+      "quantity": 1,
+      "unit": "each / kg / g / l / ml or null",
+      "price_per_unit": 0.00,
+      "total_price": 0.00,
+      "is_offer": false,
+      "offer_description": "e.g. 2 for 3 or null"
+    }
+  ]
+}
+
+Rules:
+- If an item is weight-based (e.g. chicken 0.45kg @ €9.99/kg), calculate price_per_unit from the receipt
+- If a multibuy offer applies, set is_offer true and describe it in offer_description
+- If you cannot read an item clearly, include it with raw_name filled and other fields null
+- Do not include subtotals, totals, loyalty points, bag charges, or VAT lines as items
+- purchase_date: look for date printed on receipt, return null if not found`;
+</script>
+</body>
+</html>

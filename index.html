@@ -253,8 +253,28 @@
   }
   .drawer-account button:hover { border-color: color-mix(in srgb, var(--gold) 40%, transparent); color: var(--gold-hi); }
 
-  /* ── Auth gate ─────────────────────────────────────────── */
-  #authScreen { display: flex; align-items: center; min-height: 80vh; }
+  /* ── Sign-in prompt (contextual modal, not a gate) ───────── */
+  .auth-veil {
+    position: fixed; inset: 0; z-index: 84; background: rgba(3,12,8,.7);
+    backdrop-filter: blur(5px); opacity: 0; transition: opacity .22s ease;
+  }
+  .auth-veil.open { opacity: 1; }
+  .auth-modal {
+    position: fixed; z-index: 85; left: 50%; top: 50%;
+    width: min(88vw, 380px);
+    transform: translate(-50%, calc(-50% + 14px)); opacity: 0;
+    transition: transform .28s cubic-bezier(.22,.9,.3,1), opacity .24s ease;
+    pointer-events: none;
+  }
+  .auth-modal.open { transform: translate(-50%, -50%); opacity: 1; pointer-events: auto; }
+  .auth-close {
+    position: absolute; top: -14px; right: -14px; z-index: 1;
+    width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%;
+    background: linear-gradient(180deg, var(--glass-hi), var(--glass-lo));
+    border: 1px solid var(--stroke); color: var(--chalk); cursor: pointer;
+    box-shadow: var(--inner-light), 0 6px 16px rgba(3,12,8,.5);
+  }
+  .auth-close svg { width: 15px; height: 15px; }
   .auth-card {
     width: 100%; margin: 0 auto; max-width: 380px; text-align: center;
     background: linear-gradient(180deg, var(--glass-hi), var(--glass-lo));
@@ -725,30 +745,8 @@
 <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
 <div class="frame">
 
-  <!-- ══ GATE · SIGN IN ═════════════════════════════════ -->
-  <main id="authScreen">
-    <div class="auth-card">
-      <div class="auth-mark">🎾</div>
-      <h2 class="fraunces">Sign in to PracticePal</h2>
-      <p class="sub">No password — just tap the link we send you.</p>
-
-      <div id="authFormStep">
-        <label class="auth-lab" for="authEmail">Email</label>
-        <input id="authEmail" type="email" placeholder="you@email.com" autocomplete="email" inputmode="email">
-        <button class="auth-btn" id="authSendBtn">Send me a sign-in link</button>
-        <div class="auth-err" id="authErr" hidden></div>
-      </div>
-
-      <div id="authSentStep" hidden>
-        <div class="auth-sent-icon">📬</div>
-        <p class="auth-sent-msg">Check <strong id="authSentEmail"></strong> for your link — open it on this device to sign in.</p>
-        <button class="auth-linkbtn" id="authResendBtn">Use a different email</button>
-      </div>
-    </div>
-  </main>
-
   <!-- ══ STATE A · ASK ══════════════════════════════════ -->
-  <main id="askScreen" hidden>
+  <main id="askScreen">
     <header class="hero" id="hero">
       <svg class="court" viewBox="0 0 390 190" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
         <!-- top-down court, drawn on load -->
@@ -856,6 +854,32 @@
   <div class="drawer-account" id="drawerAccount"></div>
 </aside>
 
+<!-- sign-in prompt (only appears when opening Past sessions while signed out) -->
+<div class="auth-veil" id="authVeil" hidden></div>
+<div class="auth-modal" id="authModal" aria-hidden="true">
+  <button class="auth-close" id="authCloseBtn" aria-label="Close">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+  </button>
+  <div class="auth-card">
+    <div class="auth-mark">🎾</div>
+    <h2 class="fraunces">Save your sessions</h2>
+    <p class="sub">Sign in to keep a history and redo any past session — no password, just an email link.</p>
+
+    <div id="authFormStep">
+      <label class="auth-lab" for="authEmail">Email</label>
+      <input id="authEmail" type="email" placeholder="you@email.com" autocomplete="email" inputmode="email">
+      <button class="auth-btn" id="authSendBtn">Send me a sign-in link</button>
+      <div class="auth-err" id="authErr" hidden></div>
+    </div>
+
+    <div id="authSentStep" hidden>
+      <div class="auth-sent-icon">📬</div>
+      <p class="auth-sent-msg">Check <strong id="authSentEmail"></strong> for your link — open it on this device to sign in.</p>
+      <button class="auth-linkbtn" id="authResendBtn">Use a different email</button>
+    </div>
+  </div>
+</div>
+
 <!-- remix sheet -->
 <div class="sheet-veil" id="sheetVeil" hidden></div>
 <div class="sheet" id="remixSheet" aria-hidden="true">
@@ -903,14 +927,22 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 let currentUser = null;
 
-function showAuthGate() {
-  $('authScreen').hidden = false;
-  $('askScreen').hidden = true;
-  $('planScreen').hidden = true;
+// The auth modal only ever appears when a signed-out user asks for something
+// that needs an account (right now: opening Past sessions from the menu).
+function openAuthModal() {
+  $('authSentStep').hidden = true;
+  $('authFormStep').hidden = false;
+  $('authErr').hidden = true;
+  $('authEmail').value = '';
+  $('authVeil').hidden = false;
+  requestAnimationFrame(() => { $('authVeil').classList.add('open'); $('authModal').classList.add('open'); });
+  $('authModal').setAttribute('aria-hidden', 'false');
 }
-function showApp() {
-  $('authScreen').hidden = true;
-  if (state.plan) { $('planScreen').hidden = false; } else { $('askScreen').hidden = false; }
+function closeAuthModal() {
+  $('authVeil').classList.remove('open');
+  $('authModal').classList.remove('open');
+  $('authModal').setAttribute('aria-hidden', 'true');
+  setTimeout(() => { $('authVeil').hidden = true; }, 250);
 }
 
 async function sendMagicLink() {
@@ -1362,6 +1394,7 @@ function renderShelf() {
 
 // left drawer holding the session record
 function openDrawer() {
+  if (!currentUser) { openAuthModal(); return; }
   $('drawerVeil').hidden = false;
   requestAnimationFrame(() => { $('drawerVeil').classList.add('open'); $('drawer').classList.add('open'); });
   $('drawer').setAttribute('aria-hidden', 'false');
@@ -1812,15 +1845,22 @@ $('dismissBtn').addEventListener('click', hideOverlay);
 $('authSendBtn').addEventListener('click', sendMagicLink);
 $('authResendBtn').addEventListener('click', backToEmailStep);
 $('authEmail').addEventListener('keydown', (e) => { if (e.key === 'Enter') sendMagicLink(); });
+$('authCloseBtn').addEventListener('click', closeAuthModal);
+$('authVeil').addEventListener('click', closeAuthModal);
 
 function handleAuthChange(session) {
+  const was = currentUser;
   currentUser = session?.user || null;
-  if (currentUser) {
-    showApp();
-    renderAccountRow();
-    refreshHistory();
-  } else {
-    showAuthGate();
+  renderAccountRow();
+  refreshHistory();
+  if (currentUser && !was) {
+    // just completed sign-in — if they got here via the "see past sessions" prompt, finish that job
+    if (!$('authVeil').hidden) {
+      closeAuthModal();
+      openDrawer();
+    }
+  } else if (!currentUser && was) {
+    closeDrawer();
   }
 }
 sb.auth.onAuthStateChange((_event, session) => handleAuthChange(session));

@@ -290,12 +290,27 @@
     display: block; text-align: left; font-size: 10.5px; font-weight: 700;
     letter-spacing: 1.6px; text-transform: uppercase; color: var(--chalk-faint); margin-bottom: 8px;
   }
-  #authEmail {
+  .auth-seg {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
+    background: rgba(4,14,10,.4); border: 1px solid var(--stroke-soft); border-radius: 99px;
+    padding: 4px; margin-bottom: 22px;
+  }
+  .auth-seg button {
+    border: none; background: transparent; color: var(--chalk-muted);
+    font: inherit; font-size: 13.5px; font-weight: 600; padding: 9px 4px; border-radius: 99px;
+    cursor: pointer; transition: all .18s ease;
+  }
+  .auth-seg button.on {
+    background: linear-gradient(180deg, #FDFBF4, #EDE5CE); color: var(--bg0);
+    box-shadow: 0 3px 12px -2px rgba(247,243,232,.3);
+  }
+  #authEmail, #authPassword {
     width: 100%; background: rgba(4,14,10,.5); border: 1px solid var(--stroke-soft); border-radius: var(--r-btn);
-    color: var(--chalk); font: inherit; font-size: 15px; padding: 13px 15px; outline: none; margin-bottom: 18px;
+    color: var(--chalk); font: inherit; font-size: 15px; padding: 13px 15px; outline: none; margin-bottom: 16px;
     box-shadow: inset 0 2px 6px rgba(0,0,0,.3); transition: border-color .18s ease;
   }
-  #authEmail:focus { border-color: color-mix(in srgb, var(--gold) 60%, transparent); }
+  #authEmail:focus, #authPassword:focus { border-color: color-mix(in srgb, var(--gold) 60%, transparent); }
+  #authForgotBtn { margin-top: 14px; }
   .auth-btn {
     width: 100%; padding: 15px; border-radius: var(--r-btn); border: 1px solid rgba(163,116,220,.5);
     background: linear-gradient(180deg, #6A35A8, #4A2180 60%, var(--purple-deep)); color: var(--chalk);
@@ -863,19 +878,27 @@
   <div class="auth-card">
     <div class="auth-mark">🎾</div>
     <h2 class="fraunces">Save your sessions</h2>
-    <p class="sub">Sign in to keep a history and redo any past session — no password, just an email link.</p>
+    <p class="sub">Sign in to keep a history and redo any past session.</p>
+
+    <div class="auth-seg" id="authSeg">
+      <button type="button" class="on" data-mode="signin">Sign in</button>
+      <button type="button" data-mode="signup">Sign up</button>
+    </div>
 
     <div id="authFormStep">
       <label class="auth-lab" for="authEmail">Email</label>
       <input id="authEmail" type="email" placeholder="you@email.com" autocomplete="email" inputmode="email">
-      <button class="auth-btn" id="authSendBtn">Send me a sign-in link</button>
+      <label class="auth-lab" for="authPassword">Password</label>
+      <input id="authPassword" type="password" placeholder="••••••••" autocomplete="current-password">
+      <button class="auth-btn" id="authSubmitBtn">Sign in</button>
+      <button class="auth-linkbtn" id="authForgotBtn">Forgot password?</button>
       <div class="auth-err" id="authErr" hidden></div>
     </div>
 
     <div id="authSentStep" hidden>
       <div class="auth-sent-icon">📬</div>
-      <p class="auth-sent-msg">Check <strong id="authSentEmail"></strong> for your link — open it on this device to sign in.</p>
-      <button class="auth-linkbtn" id="authResendBtn">Use a different email</button>
+      <p class="auth-sent-msg" id="authSentMsg"></p>
+      <button class="auth-linkbtn" id="authBackBtn">Back</button>
     </div>
   </div>
 </div>
@@ -929,11 +952,23 @@ let currentUser = null;
 
 // The auth modal only ever appears when a signed-out user asks for something
 // that needs an account (right now: opening Past sessions from the menu).
+let authMode = 'signin'; // 'signin' | 'signup'
+
+function setAuthMode(mode) {
+  authMode = mode;
+  $('authSeg').querySelectorAll('button').forEach((b) => b.classList.toggle('on', b.dataset.mode === mode));
+  $('authSubmitBtn').textContent = mode === 'signin' ? 'Sign in' : 'Create account';
+  $('authPassword').autocomplete = mode === 'signin' ? 'current-password' : 'new-password';
+  $('authErr').hidden = true;
+}
+
 function openAuthModal() {
+  setAuthMode('signin');
   $('authSentStep').hidden = true;
   $('authFormStep').hidden = false;
   $('authErr').hidden = true;
   $('authEmail').value = '';
+  $('authPassword').value = '';
   $('authVeil').hidden = false;
   requestAnimationFrame(() => { $('authVeil').classList.add('open'); $('authModal').classList.add('open'); });
   $('authModal').setAttribute('aria-hidden', 'false');
@@ -945,34 +980,61 @@ function closeAuthModal() {
   setTimeout(() => { $('authVeil').hidden = true; }, 250);
 }
 
-async function sendMagicLink() {
-  const email = $('authEmail').value.trim();
-  $('authErr').hidden = true;
-  if (!email || !email.includes('@')) {
-    $('authErr').textContent = 'Enter a valid email.';
-    $('authErr').hidden = false;
-    return;
-  }
-  const btn = $('authSendBtn');
-  btn.disabled = true;
-  btn.textContent = 'Sending…';
-  const { error } = await sb.auth.signInWithOtp({
-    email,
-    options: { emailRedirectTo: window.location.origin + window.location.pathname },
-  });
-  btn.disabled = false;
-  btn.textContent = 'Send me a sign-in link';
-  if (error) {
-    $('authErr').textContent = error.message || 'Could not send the link. Try again.';
-    $('authErr').hidden = false;
-    return;
-  }
-  $('authSentEmail').textContent = email;
+function showAuthErr(msg) {
+  $('authErr').textContent = msg;
+  $('authErr').hidden = false;
+}
+function showAuthSent(html) {
   $('authFormStep').hidden = true;
   $('authSentStep').hidden = false;
+  $('authSentMsg').innerHTML = html;
 }
 
-function backToEmailStep() {
+async function submitAuthForm() {
+  const email = $('authEmail').value.trim();
+  const password = $('authPassword').value;
+  $('authErr').hidden = true;
+  if (!email || !email.includes('@')) { showAuthErr('Enter a valid email.'); return; }
+  if (!password || password.length < 6) { showAuthErr('Password must be at least 6 characters.'); return; }
+
+  const btn = $('authSubmitBtn');
+  const original = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = authMode === 'signin' ? 'Signing in…' : 'Creating account…';
+
+  if (authMode === 'signin') {
+    const { error } = await sb.auth.signInWithPassword({ email, password });
+    btn.disabled = false;
+    btn.textContent = original;
+    if (error) showAuthErr(error.message || 'Could not sign in.');
+    // success: onAuthStateChange picks it up, closes the modal, opens the drawer.
+  } else {
+    const { data, error } = await sb.auth.signUp({
+      email, password,
+      options: { emailRedirectTo: window.location.origin + window.location.pathname },
+    });
+    btn.disabled = false;
+    btn.textContent = original;
+    if (error) { showAuthErr(error.message || 'Could not create account.'); return; }
+    if (!data.session) {
+      // email confirmation is on for this project — one-time only, future logins need no email.
+      showAuthSent(`Check <strong>${esc(email)}</strong> — tap the confirmation link, then come back and sign in.`);
+    }
+  }
+}
+
+async function forgotPassword() {
+  const email = $('authEmail').value.trim();
+  if (!email || !email.includes('@')) { showAuthErr('Enter your email above first.'); return; }
+  $('authErr').hidden = true;
+  const { error } = await sb.auth.resetPasswordForEmail(email, {
+    redirectTo: window.location.origin + window.location.pathname,
+  });
+  if (error) { showAuthErr(error.message || 'Could not send a reset link.'); return; }
+  showAuthSent(`Check <strong>${esc(email)}</strong> for a password reset link.`);
+}
+
+function backToAuthForm() {
   $('authSentStep').hidden = true;
   $('authFormStep').hidden = false;
   $('authErr').hidden = true;
@@ -1842,9 +1904,14 @@ document.querySelectorAll('#remixSheet .opts button').forEach((b) => {
 $('retryBtn').addEventListener('click', () => { if (state.lastRequest) requestPlan(state.lastRequest); });
 $('dismissBtn').addEventListener('click', hideOverlay);
 
-$('authSendBtn').addEventListener('click', sendMagicLink);
-$('authResendBtn').addEventListener('click', backToEmailStep);
-$('authEmail').addEventListener('keydown', (e) => { if (e.key === 'Enter') sendMagicLink(); });
+$('authSeg').querySelectorAll('button').forEach((b) => {
+  b.addEventListener('click', () => setAuthMode(b.dataset.mode));
+});
+$('authSubmitBtn').addEventListener('click', submitAuthForm);
+$('authForgotBtn').addEventListener('click', forgotPassword);
+$('authBackBtn').addEventListener('click', backToAuthForm);
+$('authEmail').addEventListener('keydown', (e) => { if (e.key === 'Enter') submitAuthForm(); });
+$('authPassword').addEventListener('keydown', (e) => { if (e.key === 'Enter') submitAuthForm(); });
 $('authCloseBtn').addEventListener('click', closeAuthModal);
 $('authVeil').addEventListener('click', closeAuthModal);
 

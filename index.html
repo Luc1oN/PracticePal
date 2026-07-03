@@ -56,7 +56,7 @@
     color: var(--chalk);
     min-height: 100vh; line-height: 1.5; overflow-x: hidden;
   }
-  .frame { max-width: 520px; margin: 0 auto; padding: 0 var(--gutter) 48px; position: relative; z-index: 1; }
+  .frame { max-width: 520px; margin: 0 auto; padding: env(safe-area-inset-top) var(--gutter) 48px; position: relative; z-index: 1; }
 
   /* ── Ambient aurora: the light the glass refracts ─────── */
   .aurora { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
@@ -233,13 +233,65 @@
     width: min(84vw, 340px); overflow-y: auto; overscroll-behavior: contain;
     background: linear-gradient(180deg, rgba(16,40,29,.96), rgba(8,26,19,.97));
     border-right: 1px solid var(--stroke);
-    padding: 26px 18px calc(26px + env(safe-area-inset-bottom));
+    padding: calc(26px + env(safe-area-inset-top)) 18px calc(26px + env(safe-area-inset-bottom));
     transform: translateX(-105%); transition: transform .3s cubic-bezier(.22,.9,.3,1);
     box-shadow: 24px 0 60px rgba(3,12,8,.6);
   }
   .drawer.open { transform: none; }
   .drawer h3 { font-size: 21px; margin-bottom: 2px; }
   .drawer .sub { font-family: 'Fraunces', serif; font-style: italic; font-size: 13px; color: var(--chalk-muted); margin-bottom: 18px; }
+  .drawer-account {
+    margin-top: 22px; padding-top: 16px; border-top: 1px solid var(--stroke);
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    font-size: 12.5px; color: var(--chalk-faint);
+  }
+  .drawer-account .acct-email { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .drawer-account button {
+    background: transparent; border: 1px solid var(--stroke); border-radius: 99px;
+    color: var(--chalk-muted); font: inherit; font-size: 12px; font-weight: 600;
+    padding: 6px 12px; cursor: pointer; flex: 0 0 auto; transition: border-color .16s ease, color .16s ease;
+  }
+  .drawer-account button:hover { border-color: color-mix(in srgb, var(--gold) 40%, transparent); color: var(--gold-hi); }
+
+  /* ── Auth gate ─────────────────────────────────────────── */
+  #authScreen { display: flex; align-items: center; min-height: 80vh; }
+  .auth-card {
+    width: 100%; margin: 0 auto; max-width: 380px; text-align: center;
+    background: linear-gradient(180deg, var(--glass-hi), var(--glass-lo));
+    border: 1px solid var(--stroke); border-radius: var(--r-card);
+    box-shadow: var(--inner-light), var(--shadow-card);
+    backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    padding: 38px 26px 32px;
+  }
+  .auth-mark { font-size: 34px; margin-bottom: 12px; }
+  .auth-card h2 { font-size: 25px; font-weight: 600; }
+  .auth-card .sub { font-family: 'Fraunces', serif; font-style: italic; font-size: 14px; color: var(--chalk-muted); margin: 6px 0 26px; }
+  .auth-lab {
+    display: block; text-align: left; font-size: 10.5px; font-weight: 700;
+    letter-spacing: 1.6px; text-transform: uppercase; color: var(--chalk-faint); margin-bottom: 8px;
+  }
+  #authEmail {
+    width: 100%; background: rgba(4,14,10,.5); border: 1px solid var(--stroke-soft); border-radius: var(--r-btn);
+    color: var(--chalk); font: inherit; font-size: 15px; padding: 13px 15px; outline: none; margin-bottom: 18px;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,.3); transition: border-color .18s ease;
+  }
+  #authEmail:focus { border-color: color-mix(in srgb, var(--gold) 60%, transparent); }
+  .auth-btn {
+    width: 100%; padding: 15px; border-radius: var(--r-btn); border: 1px solid rgba(163,116,220,.5);
+    background: linear-gradient(180deg, #6A35A8, #4A2180 60%, var(--purple-deep)); color: var(--chalk);
+    font: inherit; font-family: 'Fraunces', serif; font-size: 17px; font-weight: 600; cursor: pointer;
+    box-shadow: inset 0 1px 0 rgba(247,243,232,.22), 0 10px 28px -6px rgba(106,53,168,.6);
+    transition: transform .15s ease, opacity .15s ease;
+  }
+  .auth-btn:active { transform: scale(.98); }
+  .auth-btn:disabled { opacity: .55; cursor: default; }
+  .auth-err { margin-top: 12px; font-size: 13px; color: #E28A73; }
+  .auth-sent-icon { font-size: 32px; margin-bottom: 12px; }
+  .auth-sent-msg { font-size: 14.5px; color: var(--chalk-muted); line-height: 1.55; }
+  .auth-linkbtn {
+    margin-top: 20px; background: transparent; border: none; color: var(--gold-hi);
+    font: inherit; font-size: 13.5px; font-weight: 600; cursor: pointer; text-decoration: underline;
+  }
   .shelf-empty {
     display: flex; align-items: center; gap: 10px; color: var(--chalk-muted);
     font-family: 'Fraunces', serif; font-style: italic; font-size: 14.5px;
@@ -673,8 +725,30 @@
 <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
 <div class="frame">
 
+  <!-- ══ GATE · SIGN IN ═════════════════════════════════ -->
+  <main id="authScreen">
+    <div class="auth-card">
+      <div class="auth-mark">🎾</div>
+      <h2 class="fraunces">Sign in to PracticePal</h2>
+      <p class="sub">No password — just tap the link we send you.</p>
+
+      <div id="authFormStep">
+        <label class="auth-lab" for="authEmail">Email</label>
+        <input id="authEmail" type="email" placeholder="you@email.com" autocomplete="email" inputmode="email">
+        <button class="auth-btn" id="authSendBtn">Send me a sign-in link</button>
+        <div class="auth-err" id="authErr" hidden></div>
+      </div>
+
+      <div id="authSentStep" hidden>
+        <div class="auth-sent-icon">📬</div>
+        <p class="auth-sent-msg">Check <strong id="authSentEmail"></strong> for your link — open it on this device to sign in.</p>
+        <button class="auth-linkbtn" id="authResendBtn">Use a different email</button>
+      </div>
+    </div>
+  </main>
+
   <!-- ══ STATE A · ASK ══════════════════════════════════ -->
-  <main id="askScreen">
+  <main id="askScreen" hidden>
     <header class="hero" id="hero">
       <svg class="court" viewBox="0 0 390 190" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
         <!-- top-down court, drawn on load -->
@@ -779,6 +853,7 @@
   <h3 class="fraunces">Past sessions</h3>
   <p class="sub">Tap one to replay it — exactly as it was.</p>
   <div id="recentShelf"></div>
+  <div class="drawer-account" id="drawerAccount"></div>
 </aside>
 
 <!-- remix sheet -->
@@ -818,10 +893,69 @@
 
 <div class="toast" id="toast"></div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script>
 // ── Config ────────────────────────────────────────────────
 const SUPABASE_URL = 'https://wpqpubbyqvqhcwxmzhwu.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndwcXB1YmJ5cXZxaGN3eG16aHd1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1NjY3MzEsImV4cCI6MjA5NjE0MjczMX0.ZRQwj4IDNPctaU2zgyDz16MOBjIU4XrRMS5UeBULe8A';
+
+// ── Auth (Supabase, magic-link — no passwords) ────────────
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+let currentUser = null;
+
+function showAuthGate() {
+  $('authScreen').hidden = false;
+  $('askScreen').hidden = true;
+  $('planScreen').hidden = true;
+}
+function showApp() {
+  $('authScreen').hidden = true;
+  if (state.plan) { $('planScreen').hidden = false; } else { $('askScreen').hidden = false; }
+}
+
+async function sendMagicLink() {
+  const email = $('authEmail').value.trim();
+  $('authErr').hidden = true;
+  if (!email || !email.includes('@')) {
+    $('authErr').textContent = 'Enter a valid email.';
+    $('authErr').hidden = false;
+    return;
+  }
+  const btn = $('authSendBtn');
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  const { error } = await sb.auth.signInWithOtp({
+    email,
+    options: { emailRedirectTo: window.location.origin + window.location.pathname },
+  });
+  btn.disabled = false;
+  btn.textContent = 'Send me a sign-in link';
+  if (error) {
+    $('authErr').textContent = error.message || 'Could not send the link. Try again.';
+    $('authErr').hidden = false;
+    return;
+  }
+  $('authSentEmail').textContent = email;
+  $('authFormStep').hidden = true;
+  $('authSentStep').hidden = false;
+}
+
+function backToEmailStep() {
+  $('authSentStep').hidden = true;
+  $('authFormStep').hidden = false;
+  $('authErr').hidden = true;
+}
+
+async function signOut() {
+  await sb.auth.signOut();
+}
+
+function renderAccountRow() {
+  const el = $('drawerAccount');
+  if (!currentUser) { el.innerHTML = ''; return; }
+  el.innerHTML = `<span class="acct-email">${esc(currentUser.email)}</span><button id="signOutBtn">Sign out</button>`;
+  $('signOutBtn').addEventListener('click', signOut);
+}
 
 // ── Design data ───────────────────────────────────────────
 const ICONS = {
@@ -1149,14 +1283,44 @@ function saveDefaults() {
   const { personaId, players, courts, duration, level, focus } = state;
   localStorage.setItem('pp_last', JSON.stringify({ personaId, players, courts, duration, level, focus }));
 }
-function getHistory() {
-  try { return JSON.parse(localStorage.getItem('pp_history') || '[]'); } catch { return []; }
+// Past sessions live in Supabase now, scoped to the signed-in user (RLS).
+let historyCache = [];
+function getHistory() { return historyCache; }
+
+function fmtWhen(iso) {
+  return new Date(iso).toLocaleDateString('en-IE', { weekday: 'short', day: 'numeric', month: 'short' });
 }
-function saveToHistory(entry) {
-  const h = getHistory();
-  h.unshift(entry);
-  localStorage.setItem('pp_history', JSON.stringify(h.slice(0, 20)));
+
+async function refreshHistory() {
+  if (!currentUser) { historyCache = []; renderShelf(); return; }
+  const { data, error } = await sb.from('practicepal_sessions')
+    .select('id, created_at, persona_id, players, courts, duration, level, focus, plan')
+    .order('created_at', { ascending: false })
+    .limit(20);
+  if (error) { console.error('history fetch failed', error); historyCache = []; renderShelf(); return; }
+  historyCache = (data || []).map((row) => ({
+    id: row.id,
+    when: fmtWhen(row.created_at),
+    inputs: {
+      personaId: row.persona_id, players: row.players, courts: row.courts,
+      duration: row.duration, level: row.level, focus: row.focus || '',
+    },
+    plan: row.plan,
+  }));
   renderShelf();
+}
+
+async function saveToHistory(entry) {
+  if (!currentUser) return;
+  const { inputs, plan } = entry;
+  const { error } = await sb.from('practicepal_sessions').insert({
+    user_id: currentUser.id,
+    persona_id: inputs.personaId, players: inputs.players, courts: inputs.courts,
+    duration: inputs.duration, level: inputs.level, focus: inputs.focus || null,
+    plan,
+  });
+  if (error) console.error('save session failed', error);
+  await refreshHistory();
 }
 function clamp(k, v) {
   const n = Math.round(Number(v));
@@ -1362,11 +1526,7 @@ async function requestPlan(payload) {
     };
     state.currentBlock = -1;
     saveDefaults();
-    saveToHistory({
-      when: new Date().toLocaleDateString('en-IE', { weekday: 'short', day: 'numeric', month: 'short' }),
-      inputs: state.sessionInputs,
-      plan: state.plan,
-    });
+    saveToHistory({ inputs: state.sessionInputs, plan: state.plan });
     hideOverlay();
     showPlan(true);
     toast('Saved to Past sessions');
@@ -1648,6 +1808,23 @@ document.querySelectorAll('#remixSheet .opts button').forEach((b) => {
 });
 $('retryBtn').addEventListener('click', () => { if (state.lastRequest) requestPlan(state.lastRequest); });
 $('dismissBtn').addEventListener('click', hideOverlay);
+
+$('authSendBtn').addEventListener('click', sendMagicLink);
+$('authResendBtn').addEventListener('click', backToEmailStep);
+$('authEmail').addEventListener('keydown', (e) => { if (e.key === 'Enter') sendMagicLink(); });
+
+function handleAuthChange(session) {
+  currentUser = session?.user || null;
+  if (currentUser) {
+    showApp();
+    renderAccountRow();
+    refreshHistory();
+  } else {
+    showAuthGate();
+  }
+}
+sb.auth.onAuthStateChange((_event, session) => handleAuthChange(session));
+sb.auth.getSession().then(({ data }) => handleAuthChange(data.session));
 </script>
 </body>
 </html>

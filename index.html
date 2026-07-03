@@ -55,10 +55,15 @@
   .aurora i {
     position: absolute; border-radius: 50%; filter: blur(70px); opacity: .16;
     will-change: transform;
+    transition: background-color 1.2s ease, opacity .5s ease;
   }
-  .aurora i:nth-child(1) { width: 60vw; height: 60vw; max-width: 460px; max-height: 460px; top: -12%; left: -18%; background: #6A35A8; animation: float1 26s ease-in-out infinite alternate; }
+  /* orb 1 wears the selected persona's colour — choosing a coach re-lights the room */
+  .aurora i:nth-child(1) { width: 60vw; height: 60vw; max-width: 460px; max-height: 460px; top: -12%; left: -18%; background: var(--pw, #6A35A8); animation: float1 26s ease-in-out infinite alternate; }
   .aurora i:nth-child(2) { width: 46vw; height: 46vw; max-width: 380px; max-height: 380px; top: 4%; right: -16%; background: #C9A445; opacity: .1; animation: float2 32s ease-in-out infinite alternate; }
   .aurora i:nth-child(3) { width: 70vw; height: 70vw; max-width: 540px; max-height: 540px; bottom: -22%; left: 8%; background: #1E5C42; opacity: .28; animation: float3 38s ease-in-out infinite alternate; }
+  .aurora.surge i:nth-child(1) { opacity: .34; }
+  .aurora.surge i:nth-child(2) { opacity: .22; }
+  .aurora.surge i:nth-child(3) { opacity: .48; }
   @keyframes float1 { to { transform: translate(9vw, 7vh) scale(1.12); } }
   @keyframes float2 { to { transform: translate(-7vw, 12vh) scale(.94); } }
   @keyframes float3 { to { transform: translate(-6vw, -8vh) scale(1.08); } }
@@ -389,6 +394,13 @@
     content: ""; position: absolute; left: 8px; top: 6px; bottom: 6px; width: 0;
     border-left: 2px dashed var(--chalkline);
   }
+  .timeline::after { /* gold fill walks the line as you scroll */
+    content: ""; position: absolute; left: 8px; top: 6px; width: 0;
+    height: var(--chalk-fill, 0px); max-height: calc(100% - 12px);
+    border-left: 2px solid var(--gold);
+    filter: drop-shadow(0 0 6px rgba(201,164,69,.55));
+    pointer-events: none;
+  }
   .block {
     position: relative; border-radius: var(--r-card);
     padding: 17px 17px 16px; margin-bottom: 14px;
@@ -415,6 +427,11 @@
     font-size: 9.5px; font-weight: 700; letter-spacing: 1.6px; color: var(--bg0);
     background: var(--p); border-radius: 99px; padding: 3.5px 10px;
     opacity: 0; transform: scale(.6); transition: all .25s cubic-bezier(.34,1.5,.5,1);
+  }
+  .block.passed::before { /* node lit once the gold line reaches it */
+    background: color-mix(in srgb, var(--gold) 35%, var(--bg1));
+    border-color: var(--gold);
+    box-shadow: 0 0 10px rgba(201,164,69,.45);
   }
   .block.current .now { opacity: 1; transform: none; animation: pulse 2s ease infinite; }
   @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--p) 55%, transparent); } 55% { box-shadow: 0 0 0 8px transparent; } }
@@ -505,6 +522,24 @@
     box-shadow: inset 0 1px 0 rgba(247,243,232,.05);
   }
   .sheet .opts button:active { transform: scale(.95); border-color: var(--gold); color: var(--gold-hi); }
+
+  /* ── Serve set piece: full-screen ball flight ─────────── */
+  .serve-stage {
+    position: fixed; inset: 0; z-index: 66; pointer-events: none;
+    background: rgba(6,22,16,0); transition: background .45s ease;
+  }
+  .serve-stage.dim { background: rgba(6,22,16,.85); }
+  .sball {
+    position: fixed; left: 0; top: 0; width: 13px; height: 13px; border-radius: 50%;
+    background: var(--ball); opacity: 0;
+    box-shadow: 0 0 18px rgba(223,242,94,.85), 0 0 52px rgba(223,242,94,.35);
+  }
+  .strail {
+    position: fixed; width: 6px; height: 6px; border-radius: 50%;
+    background: rgba(247,243,232,.75); pointer-events: none;
+    animation: trailfade .5s ease-out forwards;
+  }
+  @keyframes trailfade { to { opacity: 0; transform: scale(.2) translateY(4px); } }
 
   /* ── Loading / error overlay ──────────────────────────── */
   .overlay {
@@ -674,6 +709,9 @@
   </div>
 </div>
 
+<!-- serve set piece stage -->
+<div class="serve-stage" id="serveStage" hidden><span class="sball" id="serveBall"></span></div>
+
 <!-- loading / error overlay -->
 <div class="overlay" id="overlay" hidden>
   <div>
@@ -739,6 +777,12 @@ const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const personaById = (id) => PERSONAS.find((p) => p.id === id) || PERSONAS[0];
 const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// the whole app re-lights in the selected persona's colour
+function setWorldTint(color) {
+  document.documentElement.style.setProperty('--pw', color);
+  document.documentElement.style.setProperty('--p', color);
+}
 
 // hero court draws itself on load
 requestAnimationFrame(() => requestAnimationFrame(() => $('hero').classList.add('drawn')));
@@ -816,6 +860,7 @@ function renderPersonas() {
   row.querySelectorAll('.persona').forEach((card) => {
     card.addEventListener('click', () => {
       state.personaId = card.dataset.id;
+      setWorldTint(personaById(card.dataset.id).color);
       row.querySelectorAll('.persona').forEach((c) => c.classList.toggle('selected', c === card));
       card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     });
@@ -953,7 +998,55 @@ function generate() {
     persona: state.personaId, players: state.players, courts: state.courts,
     duration: state.duration, level: state.level, focus: state.focus,
   };
-  setTimeout(() => requestPlan(payload), 480); // let the serve land first
+  if (REDUCED) { requestPlan(payload); return; }
+  runServeMoment(() => requestPlan(payload));
+}
+
+// full-screen serve: dim the house, surge the lights, ball flies to centre
+// court where the loading ball takes over.
+function runServeMoment(done) {
+  const stage = $('serveStage'), ball = $('serveBall');
+  const aurora = document.querySelector('.aurora');
+  const r = $('generateBtn').getBoundingClientRect();
+  const W = innerWidth, H = innerHeight;
+  const p0 = { x: r.left + 34, y: r.top + r.height / 2 };
+  const p1 = { x: W * 0.74, y: H * 0.08 };  // apex of the arc
+  const p2 = { x: W / 2 - 7, y: H * 0.42 }; // lands where the loading ball bounces
+  const frames = [];
+  for (let i = 0; i <= 22; i++) {
+    const t = i / 22;
+    const x = (1 - t) * (1 - t) * p0.x + 2 * (1 - t) * t * p1.x + t * t * p2.x;
+    const y = (1 - t) * (1 - t) * p0.y + 2 * (1 - t) * t * p1.y + t * t * p2.y;
+    frames.push({ transform: `translate(${x}px, ${y}px)` });
+  }
+  stage.hidden = false;
+  requestAnimationFrame(() => stage.classList.add('dim'));
+  aurora.classList.add('surge');
+  ball.style.transform = `translate(${p0.x}px, ${p0.y}px)`;
+  ball.style.opacity = 1;
+  const anim = ball.animate(frames, { duration: 640, easing: 'cubic-bezier(.3,.1,.45,1)', delay: 180 });
+  let trailCount = 0;
+  const trailTimer = setInterval(() => {
+    const br = ball.getBoundingClientRect();
+    if (br.width === 0) return;
+    const d = document.createElement('span');
+    d.className = 'strail';
+    d.style.left = (br.left + 3.5) + 'px';
+    d.style.top = (br.top + 3.5) + 'px';
+    stage.appendChild(d);
+    setTimeout(() => d.remove(), 520);
+    if (++trailCount > 16) clearInterval(trailTimer);
+  }, 42);
+  anim.onfinish = () => {
+    clearInterval(trailTimer);
+    ball.style.opacity = 0;
+    done(); // loading overlay (above the stage) takes over seamlessly
+    setTimeout(() => {
+      stage.classList.remove('dim');
+      stage.hidden = true;
+      aurora.classList.remove('surge');
+    }, 450);
+  };
 }
 
 // ── Plan screen rendering ─────────────────────────────────
@@ -990,6 +1083,22 @@ function fmtRange(b) {
 const revealer = new IntersectionObserver((entries) => {
   entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('in'); revealer.unobserve(en.target); } });
 }, { threshold: 0.12 });
+
+// gold chalk line walks down the timeline as you scroll, lighting each node
+function updateChalkFill() {
+  if ($('planScreen').hidden) return;
+  const tl = $('timeline');
+  const r = tl.getBoundingClientRect();
+  if (r.height === 0) return;
+  const focusY = innerHeight * 0.55;
+  const p = Math.min(Math.max((focusY - r.top) / r.height, 0), 1);
+  const fillPx = p * r.height;
+  tl.style.setProperty('--chalk-fill', fillPx + 'px');
+  tl.querySelectorAll('.block').forEach((b) => {
+    b.classList.toggle('passed', b.offsetTop + 26 <= fillPx);
+  });
+}
+addEventListener('scroll', () => requestAnimationFrame(updateChalkFill), { passive: true });
 
 function showPlan(animate) {
   const plan = state.plan, inp = state.sessionInputs;
@@ -1039,6 +1148,7 @@ function showPlan(animate) {
     document.querySelectorAll('#planScreen .reveal').forEach((el) => {
       if (REDUCED) el.classList.add('in'); else revealer.observe(el);
     });
+    requestAnimationFrame(updateChalkFill);
   };
   if (animate && !REDUCED) {
     $('askScreen').classList.add('exit');
@@ -1132,6 +1242,7 @@ function remix(variation) {
 
 // ── Wire up ───────────────────────────────────────────────
 loadDefaults();
+setWorldTint(personaById(state.personaId).color);
 renderShelf();
 renderPersonas();
 renderSteppers();

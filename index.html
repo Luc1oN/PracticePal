@@ -576,6 +576,8 @@
     border-radius: 50%; background: var(--bg1); border: 2px solid var(--chalk-faint);
     transition: all .22s ease;
   }
+  .block-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .block-head .badges { display: flex; align-items: center; gap: 6px; }
   .block .time {
     display: inline-block; font-family: 'Fraunces', serif; font-size: 12.5px; font-weight: 600;
     color: var(--gold-hi); letter-spacing: 1px; font-variant-numeric: tabular-nums;
@@ -588,10 +590,25 @@
   .block .desc { font-size: 14px; color: var(--chalk-muted); }
   .block .cue { font-family: 'Fraunces', serif; font-style: italic; font-size: 13.5px; color: var(--chalk-faint); margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--stroke-soft); }
   .block .now {
-    position: absolute; top: 15px; right: 15px;
+    display: inline-block;
     font-size: 9.5px; font-weight: 700; letter-spacing: 1.6px; color: var(--bg0);
     background: var(--p); border-radius: 99px; padding: 3.5px 10px;
     opacity: 0; transform: scale(.6); transition: all .25s cubic-bezier(.34,1.5,.5,1);
+  }
+  .block-diagram-btn {
+    width: 30px; height: 30px; flex: 0 0 auto; display: grid; place-items: center; border-radius: 50%;
+    background: color-mix(in srgb, var(--p) 14%, transparent);
+    border: 1px solid color-mix(in srgb, var(--p) 38%, transparent);
+    color: var(--p); cursor: pointer; transition: transform .15s ease, background .18s ease;
+    position: relative; z-index: 1;
+  }
+  .block-diagram-btn:active { transform: scale(.88); }
+  .block-diagram-btn svg { width: 15px; height: 15px; }
+  .finisher .block-diagram-btn {
+    position: absolute; top: 16px; right: 16px;
+    background: color-mix(in srgb, var(--gold) 16%, transparent);
+    border-color: color-mix(in srgb, var(--gold) 42%, transparent);
+    color: var(--gold-hi);
   }
   .block.passed::before { /* node lit once the gold line reaches it */
     background: color-mix(in srgb, var(--gold) 35%, var(--bg1));
@@ -687,6 +704,52 @@
     box-shadow: inset 0 1px 0 rgba(247,243,232,.05);
   }
   .sheet .opts button:active { transform: scale(.95); border-color: var(--gold); color: var(--gold-hi); }
+
+  /* ── Drill diagram sheet ───────────────────────────────── */
+  .diagram-sheet { padding-top: 20px; }
+  .diagram-close {
+    position: absolute; top: -14px; right: 20px; z-index: 1;
+    width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%;
+    background: linear-gradient(180deg, var(--glass-hi), var(--glass-lo));
+    border: 1px solid var(--stroke); color: var(--chalk); cursor: pointer;
+    box-shadow: var(--inner-light), 0 6px 16px rgba(3,12,8,.5);
+  }
+  .diagram-close svg { width: 15px; height: 15px; }
+  .diag-svg-wrap {
+    margin-top: 4px; border-radius: 14px; overflow: hidden;
+    background: rgba(4,14,10,.35); border: 1px solid var(--stroke-soft);
+  }
+  .diag-svg { display: block; width: 100%; height: auto; }
+  .diag-court-rect { fill: rgba(99,181,127,0.08); stroke: rgba(247,243,232,0.4); stroke-width: 1.5; }
+  .diag-court-line { stroke: rgba(247,243,232,0.55); stroke-width: 2; stroke-dasharray: 4 4; }
+  .diag-court-inner { fill: none; stroke: rgba(247,243,232,0.26); stroke-width: 1; }
+  .diag-dot { fill: var(--p); }
+  .diag-dot-dim { fill: var(--chalk-faint); opacity: .5; }
+  .diag-feeder { fill: none; stroke: var(--p); stroke-width: 2; }
+  .diag-arrow { fill: none; stroke: var(--gold); stroke-width: 2; stroke-dasharray: 5 5; opacity: .85; }
+  .diag-target { fill: color-mix(in srgb, var(--p) 22%, transparent); stroke: var(--p); stroke-width: 1.5; stroke-dasharray: 3 3; }
+  .diag-ball {
+    r: 6; fill: var(--ball); filter: drop-shadow(0 0 5px rgba(223,242,94,.75));
+    offset-rotate: 0deg;
+  }
+  .diag-ball.path-diag { offset-path: path('M 105 42 L 215 118'); animation: diagBallMove 2.6s ease-in-out infinite alternate; }
+  .diag-ball.path-straight { offset-path: path('M 105 42 L 215 42'); animation: diagBallMove 2.2s ease-in-out infinite alternate; }
+  .diag-ball.path-feed { offset-path: path('M 105 118 Q 160 55 215 42'); animation: diagBallFeed 2.4s cubic-bezier(.4,0,.4,1) infinite; }
+  @keyframes diagBallMove { from { offset-distance: 0%; } to { offset-distance: 100%; } }
+  @keyframes diagBallFeed {
+    0% { offset-distance: 0%; opacity: 0; }
+    8% { opacity: 1; }
+    92% { opacity: 1; }
+    100% { offset-distance: 100%; opacity: 0; }
+  }
+  .diag-caption { margin-top: 12px; font-size: 13.5px; color: var(--chalk-muted); text-align: center; }
+  /* static echo of the ball's route, for reduced motion — hidden by default,
+     swapped in for the moving ball so direction still reads without motion */
+  .diag-arrow-echo { fill: none; stroke: var(--ball); stroke-width: 2; stroke-dasharray: 5 5; opacity: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    .diag-ball { display: none !important; }
+    .diag-arrow-echo { opacity: .9; }
+  }
 
   /* ── Serve set piece: full-screen ball flight ─────────── */
   .serve-stage {
@@ -916,6 +979,17 @@
   </div>
 </div>
 
+<!-- drill diagram sheet -->
+<div class="sheet-veil" id="diagramVeil" hidden></div>
+<div class="sheet diagram-sheet" id="diagramSheet" aria-hidden="true">
+  <button class="diagram-close" id="diagramCloseBtn" aria-label="Close">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+  </button>
+  <h3 class="fraunces" id="diagramTitle"></h3>
+  <p class="sub" id="diagramSub"></p>
+  <div class="diag-svg-wrap" id="diagramSvgWrap"></div>
+</div>
+
 <!-- serve set piece stage -->
 <div class="serve-stage" id="serveStage" hidden><span class="sball" id="serveBall"></span></div>
 
@@ -1058,6 +1132,7 @@ const ICONS = {
   flame: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>',
   trophy: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>',
   users: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+  court: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1.5"/><line x1="12" y1="5" x2="12" y2="19"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/></svg>',
 };
 
 const PERSONAS = [
@@ -1080,59 +1155,65 @@ const TEMPLATES = [
    "focus": ""
   },
   "plan": {
-   "title": "Cross-Court Command",
+   "title": "Forehand Forge",
    "timeline": [
     {
      "start": 0,
-     "end": 8,
-     "title": "Mini-Tennis Diagonal Warm-Up",
-     "description": "All 4 players split into two pairs, each pair rallying cross-court within the service boxes on opposite diagonals (deuce-to-deuce and ad-to-ad) so both pairs hit simultaneously. Cooperative rally, count consecutive balls in, reset if it breaks down. Everyone is hitting from ball one, no standing around.",
-     "cue": "Soft hands, contact out in front of your hip, eyes on the ball into the strings."
+     "end": 10,
+     "title": "Mini-Tennis Ignition",
+     "description": "Split into two pairs, one in each service box, and rally cross-court off short, cooperative feeds. Everyone hits continuously — aim for 15+ ball exchanges per pair before resetting. Switch pairs to the other box halfway through.",
+     "cue": "Soft hands, low-to-high swing path, contact out in front — wake up the stroke before we build it.",
+     "diagram": "cross_court_rally"
     },
     {
-     "start": 8,
-     "end": 20,
-     "title": "Contact Point Feeds",
-     "description": "Same two pairs, now from full baseline: one player in each pair feeds (hand-feed or gentle rack feed) crosscourt, the other grooves forehand or backhand crosscourt returns, aiming at a cone/target zone. Switch feeder and hitter every 3 minutes, then swap which stroke (forehand/backhand) each pair drills so everyone gets both sides.",
-     "cue": "Turn shoulders early, strike the ball at hip-to-shoulder height, finish with racquet over the opposite shoulder."
+     "start": 10,
+     "end": 22,
+     "title": "Forehand Groove: Fed Reps",
+     "description": "One player hits forehands cross-court off basket feeds from the coach, aiming at a cone target deep in the corner. Rotate every 6 balls: hitter to feeder, feeder to ball-shagger, shagger to queue — all four stay involved every rotation.",
+     "cue": "Unit turn early, racquet head above the wrist at contact, brush up the back of the ball for topspin.",
+     "diagram": "fed_drill"
     },
     {
-     "start": 20,
-     "end": 32,
-     "title": "Movement Feeds - Recover and Repeat",
-     "description": "Feeder now varies feed depth and width (short angle, deep corner) so the hitter must move to the ball and recover to a base position between shots. Continue in the same two simultaneous diagonal pairs, rotating feeder/hitter every 3 minutes so all 4 players get equal movement reps.",
-     "cue": "Split step as the feed leaves the strings, plant outside foot, push off to recover to center."
+     "start": 22,
+     "end": 34,
+     "title": "Forehand on the Move",
+     "description": "Feeder alternates wide and short balls so the hitter must split-step, adjust footwork, and strike the forehand cross-court, then recover to center. Rotate roles every 3 minutes so all 4 players cycle through hitting, feeding, and shagging.",
+     "cue": "Small adjustment steps into the ball, plant the outside foot, hit and recover — don't lunge for it.",
+     "diagram": "fed_drill"
     },
     {
-     "start": 32,
-     "end": 44,
-     "title": "Live Cross-Court Rally Battle",
-     "description": "Both pairs now rally live (no feeding) cross-court only, each pair keeping their own running score of consecutive balls in before an error - beat your previous best each round. Reset and restart immediately after any miss so contact stays continuous.",
-     "cue": "Low-to-high swing path, brush up the back of the ball, hold the cross-court target until you're in rhythm."
+     "start": 34,
+     "end": 46,
+     "title": "Live Cross-Court Pressure",
+     "description": "Split the court into deuce and ad diagonals: two simultaneous cross-court rallies running at once so all 4 are hitting live balls continuously. Each pair counts consecutive forehand-to-forehand exchanges, resetting after errors, chasing a new high score.",
+     "cue": "Same contact point every time — hip-height, arm extended, eyes on the ball through contact, not the target.",
+     "diagram": "cross_court_rally"
     },
     {
-     "start": 44,
-     "end": 52,
-     "title": "Pattern Into Points",
-     "description": "Combine the two pairs into one rotation on the full court: two players play mini-points (starting every point with a cross-court feed to start the rally, then opening up the court after 4 shots) while the other two feed the start ball and retrieve, rotating in after every 2 points so all 4 play and all 4 feed.",
-     "cue": "Win the cross-court rally first, only go down the line once you've earned the short ball."
+     "start": 46,
+     "end": 54,
+     "title": "Feed-to-Point Forehand",
+     "description": "Coach feeds a cross-court ball to start each mini-point on the full court; players must land the first forehand in a marked deep-corner zone before the point opens up. Rotate pairs after every 2 points so everyone plays and scores.",
+     "cue": "Construct the point with that same swing path — deep and heavy first, then look to attack.",
+     "diagram": "target_zone"
     },
     {
-     "start": 52,
+     "start": 54,
      "end": 60,
-     "title": "Cross-Court Kings Finisher",
-     "description": "Doubles-style scoring: two teams of 2, every point must start with a cross-court feed and cross-court exchange before the court opens up - first team to 11 points wins. Server calls the score after each ball, keeping the pace brisk and everyone accountable.",
-     "cue": "Trust the cross-court pattern you built tonight - patience wins the point before power does."
+     "title": "King of the Court Finisher",
+     "description": "Singles winner-stays-on: every point must open with 3 cross-court forehands before the court goes live. Winner stays on, first to 4 points wins the game, losers rotate through queue keeping score and feeding the next ball in.",
+     "cue": "Trust the groove we built tonight — same contact, same path, now make it count.",
+     "diagram": "king_of_court"
     }
    ],
    "rotation": {
-    "summary": "For the drilling blocks, the 4 players split into two pairs working simultaneous cross-court diagonals on the same court, swapping feeder/hitter roles every 2-3 minutes so nobody is idle. For the final two blocks the group merges into one rotation (feed-and-play or doubles teams) so all 4 are always either hitting, feeding, or scoring.",
-    "needs_diagram": true
+    "summary": "With 4 players and 1 court, roles rotate constantly between hitter, feeder, and ball-shagger so nobody stands idle, and pairs swap sides or partners every drill segment. In the final two blocks the group shifts from paired rally work to a singles queue so every player gets equal live-ball reps and match time.",
+    "needs_diagram": false
    },
    "finisher": {
-    "title": "Cross-Court Kings Finisher",
-    "description": "Two doubles teams of 2 play a race-to-11 game where every point must open with a cross-court exchange before players can go down the line or attack the middle. Points won on a clean cross-court winner count double; the winning team gets bragging rights as tonight's Cross-Court Kings.",
-    "cue": null
+    "title": "King of the Court Finisher",
+    "description": "Singles winner-stays-on format where every point must open with 3 cross-court forehands before players can go for winners. Winner stays on court, first to 4 points takes the game, and the queue rotates in feeding and scoring — bragging rights to whoever survives the longest reign.",
+    "diagram": "king_of_court"
    }
   }
  },
@@ -1146,59 +1227,57 @@ const TEMPLATES = [
    "focus": ""
   },
   "plan": {
-   "title": "Cross-Court Chess Match",
+   "title": "Open Court Chess",
    "timeline": [
     {
      "start": 0,
-     "end": 9,
-     "title": "Warm-Up: Dual Diagonal Rally",
-     "description": "Split into two pairs — one rallies cross-court deuce-to-deuce, the other backhand cross-court ad-to-ad, both working simultaneously on their half of the court. Start mini-tennis length, then push back to full baseline once 10 balls in a row land consistently. Everyone is hitting live from ball one.",
-     "cue": "Watch the ball come off their strings before you decide where yours is going."
+     "end": 10,
+     "title": "Cross-Court Engine Warm-Up",
+     "description": "Split the court diagonally: Pair A rallies cross-court deuce-to-deuce, Pair B rallies cross-court ad-to-ad, both pairs hitting live at the same time. Cooperative rallies building to full length after 5 minutes, then pairs switch diagonals.",
+     "cue": "Hit the same ball back every time — same spin, same target, same tempo. Rhythm first, decisions later.",
+     "diagram": "cross_court_rally"
     },
     {
-     "start": 9,
-     "end": 21,
+     "start": 10,
+     "end": 22,
      "title": "Cross-Court to Open the Line",
-     "description": "Same pairs, same diagonals: rally cross-court and count shots aloud. On the coach's call of 'line' (or once a short ball appears), one player changes direction down the line to the open space — point plays out. Rotate which pair is 'live' vs. 'feeding balls in/collecting' every 3 minutes so all four get serve and rally reps.",
-     "cue": "Cross-court is your safety net — the line is your reward for making them uncomfortable first."
+     "description": "Two players rally live cross-court, points start with a cooperative feed then played out; a cross-court ball forces the opponent wide, and the reward is hitting behind them down the line. The other two feed the first ball and shag, rotating on every 3 points so all four play both roles.",
+     "cue": "Cross-court is your safety net, down-the-line is your reward — only go there once you've pulled them off the court.",
+     "diagram": "cross_court_rally"
     },
     {
-     "start": 21,
-     "end": 33,
+     "start": 22,
+     "end": 34,
      "title": "Serve+1 Patterns",
-     "description": "Full court, one pair plays out points starting with a serve, aiming serve wide then the +1 shot into the open court; the other pair stands ready at the net-post area feeding stray balls back in and calling score, then swapping after every 4 points served. Target: 4 games to 4 points, server always tries to dictate with shot #1 and #2.",
-     "cue": "Your serve asks the question — your next shot better already know the answer."
+     "description": "Server hits a serve then must construct the point with a planned 3rd ball into the open space; returner tries to neutralize back to the middle. Feeder/net player from the non-hitting pair feeds new balls to keep points flowing fast; rotate server-returner-feeder-shagger every 3 minutes so everyone serves and returns.",
+     "cue": "Decide your serve+1 target before you toss — wide serve, ball comes back crosscourt, you finish inside-out.",
+     "diagram": "fed_drill"
     },
     {
-     "start": 33,
-     "end": 45,
-     "title": "Construct the Point (2v2 Live Points)",
-     "description": "Full doubles points, but with a rule: every point must include at least 3 cross-court shots before anyone is allowed to go down the line or to the net. Play first to 7, losers rotate out for the next server. All four are hitting every point — no dead time between points, ball goes straight back in.",
-     "cue": "Patience builds the opening — impatience gives it away."
+     "start": 34,
+     "end": 46,
+     "title": "Doubles Formation Live Points",
+     "description": "Full doubles points with a tactical constraint: the serving team must get to an up-and-back formation by the 3rd shot, while the returning team stays two-back until they see a short ball. Play to 4 points then rotate partners so all combinations are tried.",
+     "cue": "Watch the ball, not your partner — your position on court should answer to where the ball is, not where your feet feel comfortable.",
+     "diagram": "doubles_formation"
     },
     {
-     "start": 45,
-     "end": 53,
-     "title": "Doubles Formation: Approach & Poach",
-     "description": "Two versus two, live points started with a feed to the baseline pair; net pair practices poaching on any cross-court ball that floats, baseline pair practices approaching behind a deep, heavy shot. Play 8 points, then switch net/baseline roles between pairs so everyone reps both positions.",
-     "cue": "Move on your partner's contact, not on the bounce — anticipate the poach."
-    },
-    {
-     "start": 53,
+     "start": 46,
      "end": 60,
-     "title": "Finisher: Cross-Court King",
-     "description": "1v1 cross-court-only battles inside the singles line to service line box — winner stays on, loser rotates off, other two feed the next ball in and keep score. First to 4 points wins the throne; whoever is 'king' after the final rotation gets bragging rights for the week.",
-     "cue": "Same target, different pace — win the rally before you ever go for the line."
+     "title": "King of the Court",
+     "description": "Singles winner-stays-on format: first to 4 points wins and stays, loser rotates off and challenger comes on. Bonus point awarded any time a player wins a rally by hitting an approach shot down the line after opening the court cross-court — rewarding the pattern all session was built on.",
+     "cue": "You've earned the right to go down the line all night — now prove you know when.",
+     "diagram": "king_of_court"
     }
    ],
    "rotation": {
-    "summary": "With 4 players on 1 court, pairs alternate every 3-4 minutes between 'live hitting' and 'feeding/collecting/scoring' roles so nobody is ever idle. Every block is structured so the two players not in the main point are actively feeding balls, calling score, or waiting for their turn to serve — always racquet-in-hand and involved.",
+    "summary": "Players work in shifting pairs of two on court at all times; the two players not rallying are always feeding balls, shagging, or keeping score — never idle. Roles (hitter, feeder, server, returner) rotate every 3-4 minutes so all four players get equal reps in every pattern by the end of the session.",
     "needs_diagram": false
    },
    "finisher": {
-    "title": "Cross-Court King",
-    "description": "Quick 1v1 rallies confined to the cross-court box, winner stays on and the loser rotates out while the other two feed balls in and keep score. First to 4 points takes the throne, and the player with the most wins across rotations is crowned Cross-Court King for the week — bragging rights on the line.",
-    "needs_diagram": false
+    "title": "King of the Court",
+    "description": "Singles winner-stays-on: first to 4 points wins and stays on, next challenger rotates in immediately so no one waits more than one game. Bonus point for winning a point by opening the court cross-court then finishing down the line — the session's whole theme cashed in for glory and bragging rights.",
+    "diagram": "king_of_court"
    }
   }
  },
@@ -1212,58 +1291,57 @@ const TEMPLATES = [
    "focus": ""
   },
   "plan": {
-   "title": "Corner-to-Corner Grind",
+   "title": "Corner Crusher Grind",
    "timeline": [
     {
      "start": 0,
      "end": 8,
-     "title": "Mini-Tennis Ignition",
-     "description": "All 4 players split into 2 pairs in opposite service boxes, rallying cooperatively cross-court. Target 20+ ball contacts each in the first 4 minutes, then swap pairs to the other box for variety.",
-     "cue": "Racquet up, split-step every ball — get those feet alive early."
+     "title": "Mini-Tennis Diagonal Warm-Up",
+     "description": "Split into 2 pairs, each pair rallies cross-court inside the service boxes on opposite diagonals at the same time. Count consecutive controlled shots as a team, restart at 10. Switch diagonals halfway through so everyone hits both directions.",
+     "cue": "Soft hands, quick feet — bounce on your toes between every ball.",
+     "diagram": "cross_court_rally"
     },
     {
      "start": 8,
-     "end": 20,
-     "title": "Corner-to-Corner Rally Ladder",
-     "description": "Two players rally full-court cross-court groundstrokes, aiming corner to corner, while the other two feed loose balls in from the fence to keep the rally alive and count contacts aloud. Rotate hitters every 3 minutes so everyone gets two live reps; target beating the previous pair's ball count.",
-     "cue": "Recover to center after every ball — no standing flat-footed."
+     "end": 24,
+     "title": "Cross-Court Grinder",
+     "description": "One pair rallies full-court cross-court (deuce-to-deuce), target 20-ball rallies before resetting; the other two feed retrieved balls back in from the fence to keep the rally alive with zero dead time. Rotate pairs every 4 minutes so all 4 get full rally time and feeder reps.",
+     "cue": "Split step every single shot — legs never stop moving.",
+     "diagram": "cross_court_rally"
     },
     {
-     "start": 20,
-     "end": 32,
-     "title": "Feed & Finish Approach Drill",
-     "description": "One player feeds a short ball, partner approaches and hits an approach shot then closes to net for a volley finish against a live feed from the other side; rotate every 90 seconds so all 4 players cycle through feeder/hitter/volleyer roles with no standing around. Target 3 clean finishes per rotation.",
-     "cue": "Split-step at the net before every volley — legs decide the point."
+     "start": 24,
+     "end": 36,
+     "title": "Down-the-Line Discipline",
+     "description": "Same rotation structure, now hitting down the line into a target zone 3 feet inside the sideline. Rally pair aims for 15 clean reps in the zone before the next pair swaps in; non-hitters feed extra balls from the baseline corner to keep ball count high.",
+     "cue": "Recover to center after every ball — no lazy feet on the line shot.",
+     "diagram": "down_the_line_rally"
     },
     {
-     "start": 32,
-     "end": 44,
-     "title": "King of the Court Points",
-     "description": "Play fast singles points to 4, winner stays on, loser rotates off and immediately feeds the next point in. With 4 players this keeps constant ball-in-play with only a few seconds between reps. Track wins on a whiteboard for bragging rights.",
-     "cue": "First ball out of the point, recover and reset — always be moving to neutral."
+     "start": 36,
+     "end": 48,
+     "title": "Rapid-Fire Feed Reps",
+     "description": "Coach basket-feeds each player in turn: 15 fast-paced groundstrokes, then 10 volleys at net, targeting max contacts per minute. Waiting players collect balls into buckets and immediately step in when it's their turn — no standing around.",
+     "cue": "Split, punch, recover — treat every feed like match ball.",
+     "diagram": "fed_drill"
     },
     {
-     "start": 44,
-     "end": 52,
-     "title": "Rapid Recovery Rally",
-     "description": "Two players rally cross-court with a strict short recovery window — must touch the center mark between every shot — while the other two feed extra balls in the moment a rally breaks down to keep contacts maximal. Rotate pairs at 4-minute mark, target 25+ contacts per minute per hitter.",
-     "cue": "Touch the middle, then explode to the ball — recovery wins rallies."
-    },
-    {
-     "start": 52,
+     "start": 48,
      "end": 60,
-     "title": "Grinder's Gauntlet Finisher",
-     "description": "Sudden-death King of the Court: singles games to 7 points, winner stays on court, loser swaps out immediately and next player feeds in within 5 seconds to keep it live. Whoever survives the most games in the 8 minutes is crowned Grinder Champion.",
-     "cue": "Every ball like it's match point — legs first, racquet second."
+     "title": "King of the Court Finisher",
+     "description": "Singles winner-stays-on: rally to 4 points, loser rotates off and next challenger steps in immediately from the queue. Track total wins per player to crown the King of the Court.",
+     "cue": "Sprint the split step — legs decide who stays king.",
+     "diagram": "king_of_court"
     }
    ],
    "rotation": {
-    "summary": "With 4 players and 1 court, players rotate in pairs or via fast winner-stays-on formats so two are always live-hitting while the other two feed balls, keep score, or wait mere seconds to rotate back in. No player is ever idle without a racquet and ball in hand.",
+    "summary": "With 4 players and 1 court, players rotate in pairs between active rally and active feeding roles every 3-4 minutes so nobody is idle; in the finisher, players queue as challengers so each gets continuous reps between points.",
     "needs_diagram": false
    },
    "finisher": {
-    "title": "Grinder's Gauntlet",
-    "description": "Sudden-death King of the Court singles to 7 points; winner stays on, loser rotates off and the next player feeds in within 5 seconds to keep intensity high. Most games survived in the final 8 minutes wins bragging rights as tonight's Grinder Champion."
+    "title": "King of the Court",
+    "description": "Singles winner-stays-on format: play out points to 4, winner stays, loser goes to back of the queue and next player steps in immediately. Whoever has the most wins when time expires is crowned King of the Court — bragging rights on the line.",
+    "diagram": "king_of_court"
    }
   }
  },
@@ -1277,51 +1355,57 @@ const TEMPLATES = [
    "focus": ""
   },
   "plan": {
-   "title": "Court Kings Showdown",
+   "title": "Chaos Court Kings",
    "timeline": [
     {
      "start": 0,
      "end": 8,
-     "title": "Double-Lane Mini Rally",
-     "description": "Split the court into deuce and ad lanes using the service boxes; two players rally cross-court in each lane simultaneously, controlled soft shots only. Switch lanes and partners at 4 minutes so everyone hits both sides. Target: keep rallies alive past 10 shots.",
-     "cue": "Racquets up, balls in, let's hear that first bounce!"
+     "title": "Mini-Tennis Mayhem Warm-Up",
+     "description": "Split the court into two diagonal service-box mini-tennis games, two players per box, cross-court only. Count consecutive shots aloud, reset if you hit the tape or net cord. Switch partners at 4 minutes so everyone's paired with someone new.",
+     "cue": "Racquets up, chins up — first ball's already flying, let's go!",
+     "diagram": "cross_court_rally"
     },
     {
      "start": 8,
      "end": 20,
-     "title": "Rotating Doubles Points",
-     "description": "All four play continuous doubles points to 7, server and returner rotating clockwise after every point so everyone serves, returns, and volleys equally. No changeovers, no standing around, ball stays live the whole block.",
-     "cue": "Next point, next role, keep the chaos moving!"
+     "title": "Target Zone Challenge",
+     "description": "Mark two 4ft target squares in the deep deuce and ad corners. Two players rally cross-court aiming for the zones — 2 points for a target hit, 1 for any ball in play, first to 11 wins. The other two feed balls back in and keep score loudly, then swap roles at 6 minutes so everyone gets a full round hitting.",
+     "cue": "Paint the corners, not the fence — make it count double!",
+     "diagram": "target_zone"
     },
     {
      "start": 20,
      "end": 32,
-     "title": "King of the Court Singles",
-     "description": "Two players battle singles points to 4 while the other two stand at the net feeding fresh balls in and calling score loudly. Loser swaps out immediately for the next challenger; rotate roles every 3 minutes so all four get court time.",
-     "cue": "Winner stays, loser feeds — earn your throne!"
+     "title": "Doubles Attack Drill",
+     "description": "Play live doubles points with one team up-and-back and the other two-back, resetting after every point to reinforce shape. Rotate formations every 3 points so all four players experience both roles. Track cumulative points won per team on a mini scoreboard.",
+     "cue": "Own your zone — if it bounces near you, it's yours!",
+     "diagram": "doubles_formation"
     },
     {
      "start": 32,
-     "end": 48,
-     "title": "Partner-Swap Tiebreak Ladder",
-     "description": "Play four mini tiebreaks to 5 points, swapping partners each time so every possible pairing happens once. Track cumulative wins on a scoreboard to build a running leaderboard for bragging rights. Everyone is on court hitting every tiebreak — no sitting out.",
-     "cue": "New partner, new plan, same hunger to win!"
+     "end": 44,
+     "title": "King of the Court Shootout",
+     "description": "Singles, winner-stays-on, first to 4 points wins the throne. The two waiting players aren't idle — one feeds balls to restart rallies quickly, the other keeps score and heckles. Losers rotate straight back in as feeders for the next match.",
+     "cue": "Defend that throne like your snacks depend on it!",
+     "diagram": "king_of_court"
     },
     {
-     "start": 48,
+     "start": 44,
      "end": 60,
-     "title": "Golden Point Gladiator Finale",
-     "description": "King of the court sudden-death format: one player defends against challengers in single golden points (first shot in wins the point). Winner stays on, loser rotates to the back of the queue but keeps hitting by feeding the next point in. First to 5 defended points is crowned Court King.",
-     "cue": "One point, one shot at glory — bring the drama!"
+     "title": "Golden Point Tiebreak Ladder",
+     "description": "Doubles tiebreak to 7, partners rotating every 4 points so everyone plays with and against everyone. Any point won from break point counts as a 'Golden Point' worth double. Final scores crown the night's Champions of the Court, bragging rights guaranteed until next session.",
+     "cue": "Golden points, golden glory — go get greedy!",
+     "diagram": "doubles_formation"
     }
    ],
    "rotation": {
-    "summary": "With 4 players and 1 court, doubles blocks keep everyone hitting simultaneously, while singles blocks use the non-playing pair as active ball-feeders and scorekeepers so no one is idle. Roles rotate every few minutes to guarantee equal court time and contacts for all four players.",
+    "summary": "With 4 players on 1 court, every block pairs two players hitting live while the other two feed, score, or rotate in as partners — nobody stands still for more than a few seconds. Roles and partners flip on a strict timer within each block so total court time and ball contacts stay even across all four players.",
     "needs_diagram": false
    },
    "finisher": {
-    "title": "Golden Point Gladiator Finale",
-    "description": "One player defends the court against rotating challengers in single sudden-death points, with the losing challenger immediately feeding the next ball in to stay active. First player to defend 5 points is crowned Court King and earns bragging rights for the week. Fast, loud, and chaotic — perfect finish to the session."
+    "title": "Golden Point Tiebreak Ladder",
+    "description": "Doubles tiebreak to 7, with partners rotating every 4 points so all combinations get tested. Any point won from break point is a 'Golden Point' worth double value, adding chaos and drama to the finish. The highest cumulative score crowns the night's Champions of the Court — pure bragging rights on the line.",
+    "diagram": "doubles_formation"
    }
   }
  }
@@ -1716,6 +1800,106 @@ function courtDiagram(players) {
   </svg>`;
 }
 
+// ── Drill diagrams: fixed pattern library, not AI-generated ───────────────
+// Claude only ever picks a pattern name (see the edge function prompt); the
+// diagrams themselves are hand-built here so they always render sensibly.
+const DIAG_ARROWHEAD_DEFS = `<defs><marker id="diagArrowHead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--gold)"/></marker></defs>`;
+
+const DIAG_COURT_BASE = `
+  <rect class="diag-court-rect" x="20" y="12" width="280" height="136" rx="4"/>
+  <line class="diag-court-line" x1="160" y1="12" x2="160" y2="148"/>
+  <rect class="diag-court-inner" x="90" y="34" width="140" height="92"/>
+  <line class="diag-court-inner" x1="90" y1="80" x2="230" y2="80"/>
+`;
+
+const DIAG_BODIES = {
+  cross_court_rally: `
+    <circle class="diag-dot" cx="105" cy="42" r="8"/>
+    <circle class="diag-dot" cx="215" cy="118" r="8"/>
+    <path class="diag-arrow-echo" d="M 105 42 L 215 118" marker-end="url(#diagArrowHead)"/>
+    <circle class="diag-ball path-diag" cx="0" cy="0" r="6"/>
+  `,
+  down_the_line_rally: `
+    <circle class="diag-dot" cx="105" cy="42" r="8"/>
+    <circle class="diag-dot" cx="215" cy="42" r="8"/>
+    <path class="diag-arrow-echo" d="M 105 42 L 215 42" marker-end="url(#diagArrowHead)"/>
+    <circle class="diag-ball path-straight" cx="0" cy="0" r="6"/>
+  `,
+  fed_drill: `
+    <rect class="diag-feeder" x="99" y="112" width="12" height="12" rx="2"/>
+    <circle class="diag-dot" cx="215" cy="42" r="8"/>
+    <path class="diag-arrow-echo" d="M 105 118 Q 160 55 215 42" marker-end="url(#diagArrowHead)"/>
+    <circle class="diag-ball path-feed" cx="0" cy="0" r="6"/>
+  `,
+  target_zone: `
+    <circle class="diag-dot" cx="105" cy="42" r="8"/>
+    <ellipse class="diag-target" cx="215" cy="118" rx="22" ry="16"/>
+    <path class="diag-arrow-echo" d="M 105 42 L 215 118" marker-end="url(#diagArrowHead)"/>
+    <circle class="diag-ball path-diag" cx="0" cy="0" r="6"/>
+  `,
+  rotation_queue: `
+    <circle class="diag-dot" cx="105" cy="42" r="7"/>
+    <circle class="diag-dot" cx="215" cy="42" r="7"/>
+    <circle class="diag-dot" cx="215" cy="118" r="7"/>
+    <circle class="diag-dot" cx="105" cy="118" r="7"/>
+    <path class="diag-arrow" d="M 118 38 Q 160 20 202 38" marker-end="url(#diagArrowHead)"/>
+    <path class="diag-arrow" d="M 219 55 Q 235 80 219 105" marker-end="url(#diagArrowHead)"/>
+    <path class="diag-arrow" d="M 202 122 Q 160 140 118 122" marker-end="url(#diagArrowHead)"/>
+    <path class="diag-arrow" d="M 101 105 Q 85 80 101 55" marker-end="url(#diagArrowHead)"/>
+  `,
+  king_of_court: `
+    <circle class="diag-dot" cx="160" cy="80" r="9"/>
+    <circle class="diag-dot-dim" cx="318" cy="55" r="6"/>
+    <circle class="diag-dot-dim" cx="318" cy="80" r="6"/>
+    <circle class="diag-dot-dim" cx="318" cy="105" r="6"/>
+    <path class="diag-arrow" d="M 305 80 Q 250 80 178 80" marker-end="url(#diagArrowHead)"/>
+  `,
+  doubles_formation: `
+    <circle class="diag-dot" cx="105" cy="42" r="8"/>
+    <circle class="diag-dot" cx="130" cy="80" r="8"/>
+    <circle class="diag-dot-dim" cx="215" cy="42" r="7"/>
+    <circle class="diag-dot-dim" cx="215" cy="118" r="7"/>
+    <path class="diag-arrow" d="M 140 72 Q 175 60 205 75" marker-end="url(#diagArrowHead)"/>
+  `,
+};
+
+const DIAG_META = {
+  cross_court_rally: { label: 'Cross-Court Rally', sub: 'Ball travels diagonally, corner to corner.' },
+  down_the_line_rally: { label: 'Down-the-Line Rally', sub: 'Ball travels straight, same side of the court.' },
+  fed_drill: { label: 'Fed Drill', sub: 'One player feeds, the other hits — repeat.' },
+  target_zone: { label: 'Target Zone', sub: 'Aim for the marked landing area.' },
+  rotation_queue: { label: 'Rotation', sub: 'Players cycle through these positions in order.' },
+  king_of_court: { label: 'King of the Court', sub: 'Winner stays on, next challenger rotates in.' },
+  doubles_formation: { label: 'Doubles Formation', sub: 'Net player poaches while the back player covers.' },
+};
+
+function buildDrillDiagramSvg(pattern) {
+  const body = DIAG_BODIES[pattern];
+  if (!body) return '';
+  return `<svg class="diag-svg" viewBox="0 0 340 160" xmlns="http://www.w3.org/2000/svg">
+    ${DIAG_ARROWHEAD_DEFS}
+    ${DIAG_COURT_BASE}
+    ${body}
+  </svg>`;
+}
+
+function openDiagramSheet(pattern) {
+  const meta = DIAG_META[pattern];
+  if (!meta) return;
+  $('diagramTitle').textContent = meta.label;
+  $('diagramSub').textContent = meta.sub;
+  $('diagramSvgWrap').innerHTML = buildDrillDiagramSvg(pattern);
+  $('diagramVeil').hidden = false;
+  requestAnimationFrame(() => { $('diagramVeil').classList.add('open'); $('diagramSheet').classList.add('open'); });
+  $('diagramSheet').setAttribute('aria-hidden', 'false');
+}
+function closeDiagramSheet() {
+  $('diagramVeil').classList.remove('open');
+  $('diagramSheet').classList.remove('open');
+  $('diagramSheet').setAttribute('aria-hidden', 'true');
+  setTimeout(() => { $('diagramVeil').hidden = true; }, 250);
+}
+
 function fmtRange(b) {
   const s = Number(b.start), e = Number(b.end);
   return Number.isFinite(s) && Number.isFinite(e) ? `${s}–${e}` : '';
@@ -1753,11 +1937,17 @@ function showPlan(animate) {
     <h2>${esc(plan.title)}</h2>
     <div class="meta">${esc(metaLine(inp))}${inp.focus ? ' · ' + esc(inp.focus) : ''}</div>`;
 
+  const diagBtn = (pattern) => (pattern && pattern !== 'none' && DIAG_META[pattern]
+    ? `<button class="block-diagram-btn" data-diagram="${pattern}" aria-label="Show court diagram">${ICONS.court}</button>`
+    : '');
+
   const blocks = Array.isArray(plan.timeline) ? plan.timeline : [];
   $('timeline').innerHTML = blocks.map((b, i) => `
     <div class="block reveal" data-i="${i}" style="transition-delay:${Math.min(i * 60, 240)}ms">
-      <span class="now">NOW</span>
-      <div class="time">${esc(fmtRange(b))}</div>
+      <div class="block-head">
+        <span class="badges"><span class="time">${esc(fmtRange(b))}</span><span class="now">NOW</span></span>
+        ${diagBtn(b.diagram)}
+      </div>
       <h3>${esc(b.title)}</h3>
       <div class="desc">${esc(b.description)}</div>
       ${b.cue ? `<div class="cue">"${esc(b.cue)}"</div>` : ''}
@@ -1778,9 +1968,16 @@ function showPlan(animate) {
   $('finisherSlot').innerHTML = fin && fin.title ? `
     <div class="card finisher reveal">
       <div class="tag">${ICONS.trophy} Competitive finisher</div>
+      ${diagBtn(fin.diagram)}
       <h3>${esc(fin.title)}</h3>
       <p>${esc(fin.description)}</p>
     </div>` : '';
+
+  $('timeline').querySelectorAll('.block-diagram-btn').forEach((btn) => {
+    btn.addEventListener('click', (e) => { e.stopPropagation(); openDiagramSheet(btn.dataset.diagram); });
+  });
+  const finDiagBtn = document.querySelector('#finisherSlot .block-diagram-btn');
+  if (finDiagBtn) finDiagBtn.addEventListener('click', () => openDiagramSheet(finDiagBtn.dataset.diagram));
 
   const swap = () => {
     $('askScreen').hidden = true;
@@ -1901,6 +2098,8 @@ $('sheetVeil').addEventListener('click', closeSheet);
 document.querySelectorAll('#remixSheet .opts button').forEach((b) => {
   b.addEventListener('click', () => remix(b.dataset.var));
 });
+$('diagramCloseBtn').addEventListener('click', closeDiagramSheet);
+$('diagramVeil').addEventListener('click', closeDiagramSheet);
 $('retryBtn').addEventListener('click', () => { if (state.lastRequest) requestPlan(state.lastRequest); });
 $('dismissBtn').addEventListener('click', hideOverlay);
 

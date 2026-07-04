@@ -304,12 +304,12 @@
     background: linear-gradient(180deg, #FDFBF4, #EDE5CE); color: var(--bg0);
     box-shadow: 0 3px 12px -2px rgba(247,243,232,.3);
   }
-  #authEmail, #authPassword {
+  #authEmail, #authPassword, #authNewPassword {
     width: 100%; background: rgba(4,14,10,.5); border: 1px solid var(--stroke-soft); border-radius: var(--r-btn);
     color: var(--chalk); font: inherit; font-size: 15px; padding: 13px 15px; outline: none; margin-bottom: 16px;
     box-shadow: inset 0 2px 6px rgba(0,0,0,.3); transition: border-color .18s ease;
   }
-  #authEmail:focus, #authPassword:focus { border-color: color-mix(in srgb, var(--gold) 60%, transparent); }
+  #authEmail:focus, #authPassword:focus, #authNewPassword:focus { border-color: color-mix(in srgb, var(--gold) 60%, transparent); }
   #authForgotBtn { margin-top: 14px; }
   .auth-btn {
     width: 100%; padding: 15px; border-radius: var(--r-btn); border: 1px solid rgba(163,116,220,.5);
@@ -949,8 +949,8 @@
   </button>
   <div class="auth-card">
     <div class="auth-mark">🎾</div>
-    <h2 class="fraunces">Save your sessions</h2>
-    <p class="sub">Sign in to keep a history and redo any past session.</p>
+    <h2 class="fraunces" id="authTitle">Save your sessions</h2>
+    <p class="sub" id="authSub">Sign in to keep a history and redo any past session.</p>
 
     <div class="auth-seg" id="authSeg">
       <button type="button" class="on" data-mode="signin">Sign in</button>
@@ -971,6 +971,13 @@
       <div class="auth-sent-icon">📬</div>
       <p class="auth-sent-msg" id="authSentMsg"></p>
       <button class="auth-linkbtn" id="authBackBtn">Back</button>
+    </div>
+
+    <div id="authResetStep" hidden>
+      <label class="auth-lab" for="authNewPassword">New password</label>
+      <input id="authNewPassword" type="password" placeholder="••••••••" autocomplete="new-password">
+      <button class="auth-btn" id="authResetBtn">Set new password</button>
+      <div class="auth-err" id="authResetErr" hidden></div>
     </div>
   </div>
 </div>
@@ -1047,7 +1054,11 @@ function setAuthMode(mode) {
 
 function openAuthModal() {
   setAuthMode('signin');
+  $('authTitle').textContent = 'Save your sessions';
+  $('authSub').textContent = 'Sign in to keep a history and redo any past session.';
+  $('authSeg').hidden = false;
   $('authSentStep').hidden = true;
+  $('authResetStep').hidden = true;
   $('authFormStep').hidden = false;
   $('authErr').hidden = true;
   $('authEmail').value = '';
@@ -1055,6 +1066,45 @@ function openAuthModal() {
   $('authVeil').hidden = false;
   requestAnimationFrame(() => { $('authVeil').classList.add('open'); $('authModal').classList.add('open'); });
   $('authModal').setAttribute('aria-hidden', 'false');
+}
+
+// Opens when the user arrives via a password-reset email link. The link signs
+// them in with a temporary session; this step sets the real password.
+function openResetModal() {
+  $('authTitle').textContent = 'Choose a new password';
+  $('authSub').textContent = 'Your reset link worked — set a new password to finish.';
+  $('authSeg').hidden = true;
+  $('authFormStep').hidden = true;
+  $('authSentStep').hidden = true;
+  $('authResetStep').hidden = false;
+  $('authResetErr').hidden = true;
+  $('authNewPassword').value = '';
+  $('authVeil').hidden = false;
+  requestAnimationFrame(() => { $('authVeil').classList.add('open'); $('authModal').classList.add('open'); });
+  $('authModal').setAttribute('aria-hidden', 'false');
+}
+
+async function submitNewPassword() {
+  const password = $('authNewPassword').value;
+  $('authResetErr').hidden = true;
+  if (!password || password.length < 6) {
+    $('authResetErr').textContent = 'Password must be at least 6 characters.';
+    $('authResetErr').hidden = false;
+    return;
+  }
+  const btn = $('authResetBtn');
+  btn.disabled = true;
+  btn.textContent = 'Saving…';
+  const { error } = await sb.auth.updateUser({ password });
+  btn.disabled = false;
+  btn.textContent = 'Set new password';
+  if (error) {
+    $('authResetErr').textContent = error.message || 'Could not update the password.';
+    $('authResetErr').hidden = false;
+    return;
+  }
+  closeAuthModal();
+  toast('Password updated — you’re signed in.');
 }
 function closeAuthModal() {
   $('authVeil').classList.remove('open');
@@ -2217,6 +2267,8 @@ $('authSeg').querySelectorAll('button').forEach((b) => {
 $('authSubmitBtn').addEventListener('click', submitAuthForm);
 $('authForgotBtn').addEventListener('click', forgotPassword);
 $('authBackBtn').addEventListener('click', backToAuthForm);
+$('authResetBtn').addEventListener('click', submitNewPassword);
+$('authNewPassword').addEventListener('keydown', (e) => { if (e.key === 'Enter') submitNewPassword(); });
 $('authEmail').addEventListener('keydown', (e) => { if (e.key === 'Enter') submitAuthForm(); });
 $('authPassword').addEventListener('keydown', (e) => { if (e.key === 'Enter') submitAuthForm(); });
 $('authCloseBtn').addEventListener('click', closeAuthModal);
@@ -2237,8 +2289,22 @@ function handleAuthChange(session) {
     closeDrawer();
   }
 }
-sb.auth.onAuthStateChange((_event, session) => handleAuthChange(session));
+sb.auth.onAuthStateChange((event, session) => {
+  handleAuthChange(session);
+  if (event === 'PASSWORD_RECOVERY') openResetModal();
+});
 sb.auth.getSession().then(({ data }) => handleAuthChange(data.session));
+
+// Expired/invalid email links land back here with the error in the URL hash —
+// surface it instead of silently doing nothing.
+(() => {
+  const hash = new URLSearchParams(window.location.hash.slice(1));
+  const desc = hash.get('error_description');
+  if (desc) {
+    toast(desc.replace(/\+/g, ' '));
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
+})();
 </script>
 </body>
 </html>

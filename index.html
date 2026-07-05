@@ -604,15 +604,18 @@
     background: var(--p); border-radius: 99px; padding: 3.5px 10px;
     opacity: 0; transform: scale(.6); transition: all .25s cubic-bezier(.34,1.5,.5,1);
   }
-  .block-diagram-btn {
+  .block-diagram-btn, .block-reroll-btn {
     width: 30px; height: 30px; flex: 0 0 auto; display: grid; place-items: center; border-radius: 50%;
     background: color-mix(in srgb, var(--p) 14%, transparent);
     border: 1px solid color-mix(in srgb, var(--p) 38%, transparent);
     color: var(--p); cursor: pointer; transition: transform .15s ease, background .18s ease;
     position: relative; z-index: 1;
   }
-  .block-diagram-btn:active { transform: scale(.88); }
-  .block-diagram-btn svg { width: 15px; height: 15px; }
+  .block-diagram-btn:active, .block-reroll-btn:active { transform: scale(.88); }
+  .block-diagram-btn svg, .block-reroll-btn svg { width: 15px; height: 15px; }
+  .block-reroll-btn.spinning { pointer-events: none; opacity: .7; }
+  .block-reroll-btn.spinning svg { animation: rerollSpin 1s linear infinite; }
+  @keyframes rerollSpin { to { transform: rotate(360deg); } }
   .finisher .block-diagram-btn {
     position: absolute; top: 16px; right: 16px;
     background: color-mix(in srgb, var(--gold) 16%, transparent);
@@ -691,6 +694,122 @@
     backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   }
   .plan-pad { height: 98px; }
+  .btn-live {
+    background: linear-gradient(180deg, #3E8E5C, #2D6B44 60%, #1E4A2F); color: var(--chalk);
+    border: 1px solid rgba(99,181,127,.55);
+    box-shadow: inset 0 1px 0 rgba(247,243,232,.22), inset 0 -2px 0 rgba(0,0,0,.26), 0 10px 28px -6px rgba(46,107,68,.6);
+  }
+
+  .pc-star {
+    flex: none; font-size: 19px; line-height: 1; padding: 4px 6px 4px 0; cursor: pointer;
+    color: var(--chalk-faint); opacity: .5; transition: color .15s ease, opacity .15s ease, transform .12s ease;
+  }
+  .pc-star.on { color: var(--gold-hi); opacity: 1; }
+  .pc-star:active { transform: scale(1.25); }
+
+  /* ── Post-session feedback sheet ───────────────────────── */
+  .feedback-sheet .fb-row {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    padding: 9px 0; border-bottom: 1px solid var(--stroke-soft);
+  }
+  .feedback-sheet .fb-title { font-size: 14px; color: var(--chalk-muted); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .feedback-sheet .fb-faces { display: flex; gap: 6px; flex: none; }
+  .feedback-sheet .fb-face {
+    width: 40px; height: 40px; border-radius: 50%; font-size: 19px; cursor: pointer;
+    background: transparent; border: 1px solid var(--stroke-soft);
+    display: grid; place-items: center; filter: grayscale(1) opacity(.55);
+    transition: transform .12s ease, filter .15s ease;
+  }
+  .feedback-sheet .fb-face.on { filter: none; border-color: color-mix(in srgb, var(--p) 55%, transparent); background: color-mix(in srgb, var(--p) 14%, transparent); transform: scale(1.08); }
+  #fbNote {
+    width: 100%; margin-top: 14px; padding: 12px 14px; border-radius: 12px; font: inherit; font-size: 14.5px;
+    background: rgba(4,14,10,.4); border: 1px solid var(--stroke); color: var(--chalk);
+  }
+  .fb-actions { display: flex; gap: 10px; margin-top: 14px; }
+  .fb-actions button {
+    border-radius: var(--r-btn); cursor: pointer; font: inherit; font-weight: 700; font-size: 15px; padding: 14px 0;
+  }
+  #fbSkipBtn { flex: 1; background: transparent; color: var(--chalk-muted); border: 1px solid var(--stroke); }
+  #fbSubmitBtn {
+    flex: 2; background: linear-gradient(180deg, #3E8E5C, #2D6B44 60%, #1E4A2F); color: var(--chalk);
+    border: 1px solid rgba(99,181,127,.55);
+  }
+
+  /* ── Live Mode ─────────────────────────────────────────── */
+  .live-bar {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 52;
+    padding: 10px var(--gutter) calc(12px + env(safe-area-inset-bottom));
+    background: linear-gradient(180deg, transparent, var(--bg0) 36%);
+    display: flex; gap: 8px; max-width: 520px; margin: 0 auto; align-items: stretch;
+  }
+  .live-main {
+    flex: 1; display: flex; align-items: center; gap: 10px; min-width: 0;
+    padding: 12px 14px; border-radius: var(--r-btn); cursor: pointer; font: inherit;
+    background: linear-gradient(180deg, var(--glass-hi), var(--glass-lo)); color: var(--chalk);
+    border: 1px solid color-mix(in srgb, var(--p) 55%, transparent);
+    box-shadow: var(--inner-light), 0 10px 28px -10px rgba(4,14,10,.7);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  }
+  .live-main .pulse-dot {
+    width: 9px; height: 9px; border-radius: 50%; background: var(--p); flex: none;
+    animation: pulse 1.6s ease infinite;
+  }
+  .live-main.paused .pulse-dot { animation: none; background: var(--chalk-faint); }
+  .live-clock { font-weight: 800; font-variant-numeric: tabular-nums; font-size: 17px; flex: none; }
+  .live-block {
+    font-size: 13.5px; color: var(--chalk-muted); white-space: nowrap;
+    overflow: hidden; text-overflow: ellipsis; min-width: 0; text-align: left; flex: 1;
+  }
+  .live-main .expandic { width: 16px; height: 16px; flex: none; color: var(--gold); }
+  .live-ctl {
+    flex: none; width: 50px; border-radius: var(--r-btn); cursor: pointer; font: inherit;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(180deg, var(--glass-hi), var(--glass-lo)); color: var(--chalk);
+    border: 1px solid var(--stroke-soft); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  }
+  .live-ctl svg { width: 18px; height: 18px; }
+  .live-ctl.live-end { color: #E08A8A; font-weight: 700; font-size: 13px; }
+  .live-ctl.live-end.confirm { background: #7A2E2E; color: var(--chalk); border-color: #A44; }
+
+  .glance {
+    position: fixed; inset: 0; z-index: 70; background: var(--bg0);
+    display: flex; flex-direction: column; padding: 0 22px calc(18px + env(safe-area-inset-bottom));
+    opacity: 0; pointer-events: none; transition: opacity .25s ease;
+  }
+  .glance.open { opacity: 1; pointer-events: auto; }
+  .glance-progress { position: absolute; top: 0; left: 0; height: 4px; background: var(--p); transition: width 1s linear; }
+  .glance-top {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: calc(14px + env(safe-area-inset-top)) 0 0; color: var(--chalk-muted); font-size: 14px;
+  }
+  .glance-top .range { font-variant-numeric: tabular-nums; }
+  .glance-mid { flex: 1; display: flex; flex-direction: column; justify-content: center; text-align: center; gap: 6px; min-height: 0; }
+  .glance-count {
+    font-size: clamp(72px, 24vw, 120px); font-weight: 800; line-height: 1;
+    font-variant-numeric: tabular-nums; letter-spacing: -2px; color: var(--chalk);
+  }
+  .glance-count.ending { color: var(--gold-hi); animation: pulse 1s ease infinite; }
+  .glance-lab { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--chalk-faint); }
+  .glance-title { font-family: 'Fraunces', serif; font-size: clamp(26px, 8vw, 38px); color: var(--chalk); margin-top: 10px; }
+  .glance-aim { font-size: clamp(18px, 5.5vw, 24px); color: var(--chalk-muted); }
+  .glance-target {
+    display: inline-block; margin: 10px auto 0; padding: 8px 16px; border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent); color: var(--gold-hi);
+    font-size: clamp(15px, 4.5vw, 19px); font-weight: 700;
+  }
+  .glance-next { text-align: center; color: var(--chalk-faint); font-size: 14.5px; padding: 10px 0 14px; }
+  .glance-next strong { color: var(--chalk-muted); }
+  .glance-ctls { display: flex; gap: 10px; }
+  .glance-ctls button {
+    border-radius: var(--r-btn); cursor: pointer; font: inherit; font-weight: 700; font-size: 15px;
+    display: flex; align-items: center; justify-content: center; gap: 8px; padding: 18px 0;
+    background: linear-gradient(180deg, var(--glass-hi), var(--glass-lo)); color: var(--chalk);
+    border: 1px solid var(--stroke-soft);
+  }
+  .glance-ctls svg { width: 20px; height: 20px; }
+  .glance-ctls .g-pause { flex: 2; border-color: color-mix(in srgb, var(--p) 55%, transparent); }
+  .glance-ctls .g-skip { flex: 1; }
+  .glance-ctls .g-close { flex: 1; color: var(--chalk-muted); }
 
   /* remix sheet */
   .sheet-veil { position: fixed; inset: 0; z-index: 60; background: rgba(3,12,8,.68); backdrop-filter: blur(5px); opacity: 0; transition: opacity .22s ease; }
@@ -960,7 +1079,11 @@
     <section id="finisherSlot"></section>
     <div class="plan-pad"></div>
 
-    <div class="action-bar">
+    <div class="action-bar" id="actionBar">
+      <button class="btn-live" id="startLiveBtn">
+        <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="6 4 20 12 6 20"/></svg>
+        Start
+      </button>
       <button class="btn-share" id="shareBtn">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>
         Share
@@ -971,6 +1094,62 @@
       </button>
     </div>
   </main>
+</div>
+
+<!-- Live Mode: running-session bar -->
+<div class="live-bar" id="liveBar" hidden>
+  <button class="live-main" id="liveMain" aria-label="Open glance view">
+    <span class="pulse-dot"></span>
+    <span class="live-clock" id="liveClock">0:00</span>
+    <span class="live-block" id="liveBlockName"></span>
+    <svg class="expandic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+  </button>
+  <button class="live-ctl" id="livePauseBtn" aria-label="Pause session">
+    <svg id="livePauseIcon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+  </button>
+  <button class="live-ctl live-end" id="liveEndBtn" aria-label="End session">End</button>
+</div>
+
+<!-- Live Mode: full-screen glance view -->
+<div class="glance" id="glance" aria-hidden="true">
+  <div class="glance-progress" id="glanceProgress"></div>
+  <div class="glance-top">
+    <span id="glanceSession"></span>
+    <span class="range" id="glanceRange"></span>
+  </div>
+  <div class="glance-mid">
+    <div class="glance-lab">left in this block</div>
+    <div class="glance-count" id="glanceCount">0:00</div>
+    <div class="glance-title" id="glanceTitle"></div>
+    <div class="glance-aim" id="glanceAim"></div>
+    <div id="glanceTargetWrap"></div>
+  </div>
+  <div class="glance-next" id="glanceNext"></div>
+  <div class="glance-ctls">
+    <button class="g-close" id="glanceCloseBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="14" y1="10" x2="21" y2="3"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+    </button>
+    <button class="g-pause" id="glancePauseBtn">
+      <svg id="glancePauseIcon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+      <span id="glancePauseLab">Pause</span>
+    </button>
+    <button class="g-skip" id="glanceSkipBtn" aria-label="Skip to next block">
+      <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 4 15 12 5 20"/><rect x="17" y="4" width="3" height="16" rx="1"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- post-session feedback sheet -->
+<div class="sheet-veil" id="fbVeil" hidden></div>
+<div class="sheet feedback-sheet" id="fbSheet" aria-hidden="true">
+  <h3 class="fraunces">How did it go?</h3>
+  <p class="sub">One tap per drill — it makes every future session better.</p>
+  <div id="fbRows"></div>
+  <input id="fbNote" type="text" placeholder="Anything to remember? (optional)" maxlength="200">
+  <div class="fb-actions">
+    <button id="fbSkipBtn">Skip</button>
+    <button id="fbSubmitBtn">Save feedback</button>
+  </div>
 </div>
 
 <!-- past sessions drawer -->
@@ -1056,7 +1235,7 @@
     <div id="ovLoading">
       <div class="ballwrap"><div class="bounce"></div><div class="courtshadow"></div></div>
       <div class="ism" id="coachIsm">Mowing the lawn…</div>
-      <div class="sub">Your coach is thinking</div>
+      <div class="sub" id="ovStage">Your coach is thinking</div>
     </div>
     <div id="ovError" hidden>
       <div class="err-emoji">🎾</div>
@@ -1227,6 +1406,7 @@ function renderAccountRow() {
 
 // ── Design data ───────────────────────────────────────────
 const ICONS = {
+  reroll: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>',
   target: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>',
   compass: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>',
   flame: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>',
@@ -2423,6 +2603,23 @@ const COACH_ISMS = [
   'Polishing the trophy…', 'Chilling the strawberries…', 'Hushing the crowd…',
   'New balls, please…',
 ];
+// Persona-voiced wait banter, mixed in with the generic isms above.
+const PERSONA_ISMS = {
+  technician: ['Measuring your contact point…', 'Checking swing paths twice…', 'Filing the grips…', 'Rehearsing the progressions…'],
+  tactician: ['Studying the angles…', 'Plotting the cross-court trap…', 'Moving the chess pieces…', 'Reading the opponent’s mind…'],
+  grinder: ['Counting your ball budget…', 'Shortening the rest windows…', 'Warming up the legs…', 'Stacking the ball hoppers…'],
+  entertainer: ['Inflating the bragging rights…', 'Rigging the scoreboard…', 'Inventing chaos rules…', 'Queuing the walk-on music…'],
+};
+// Honest-but-fun progress narrative for the ~60-100s generation wait.
+const GEN_STAGES = [
+  [0, 'Reading tonight’s brief'],
+  [8, 'Structuring the warm-up'],
+  [20, 'Designing the main drills'],
+  [40, 'Choreographing the court diagrams'],
+  [62, 'Building the competitive finisher'],
+  [80, 'Final polish — almost there'],
+  [100, 'Any second now'],
+];
 
 const LIMITS = { players: [1, 16], courts: [1, 6], duration: [30, 180] };
 const STEPS = { players: 1, courts: 1, duration: 15 };
@@ -2477,12 +2674,14 @@ function fmtWhen(iso) {
 async function refreshHistory() {
   if (!currentUser) { historyCache = []; renderShelf(); return; }
   const { data, error } = await sb.from('practicepal_sessions')
-    .select('id, created_at, persona_id, players, courts, duration, level, focus, plan')
+    .select('id, created_at, persona_id, players, courts, duration, level, focus, plan, favourite')
+    .order('favourite', { ascending: false })
     .order('created_at', { ascending: false })
     .limit(20);
   if (error) { console.error('history fetch failed', error); historyCache = []; renderShelf(); return; }
   historyCache = (data || []).map((row) => ({
     id: row.id,
+    favourite: !!row.favourite,
     when: fmtWhen(row.created_at),
     inputs: {
       personaId: row.persona_id, players: row.players, courts: row.courts,
@@ -2491,6 +2690,12 @@ async function refreshHistory() {
     plan: row.plan,
   }));
   renderShelf();
+}
+
+async function toggleFavourite(id, fav) {
+  const { error } = await sb.from('practicepal_sessions').update({ favourite: fav }).eq('id', id);
+  if (error) { console.error('favourite toggle failed', error); return; }
+  await refreshHistory();
 }
 
 async function saveToHistory(entry) {
@@ -2523,6 +2728,7 @@ function renderShelf() {
   shelf.innerHTML = h.map((e, i) => {
     const p = personaById(e.inputs.personaId);
     return `<button class="past-card" data-i="${i}" style="--pcol:${p.color}">
+      <span class="pc-star ${e.favourite ? 'on' : ''}" role="button" tabindex="0" aria-label="${e.favourite ? 'Unpin favourite' : 'Pin as favourite'}">★</span>
       <div class="pc-main">
         <div class="pc-title">${esc(e.plan.title)}</div>
         <div class="pc-meta">${esc(metaLine(e.inputs))} · ${esc(e.when)}</div>
@@ -2539,6 +2745,11 @@ function renderShelf() {
       state.currentBlock = -1;
       closeDrawer();
       showPlan(false);
+    });
+    btn.querySelector('.pc-star').addEventListener('click', (ev) => {
+      ev.stopPropagation();
+      const e = getHistory()[Number(btn.dataset.i)];
+      if (e) toggleFavourite(e.id, !e.favourite);
     });
   });
 }
@@ -2665,31 +2876,55 @@ function renderFocus() {
 
 // ── Generate flow ─────────────────────────────────────────
 let ismTimer = null;
-function showLoading() {
+let stageTimer = null;
+function showLoading(personaId) {
   $('ovLoading').hidden = false;
   $('ovError').hidden = true;
   $('overlay').hidden = false;
-  let i = Math.floor(Math.random() * COACH_ISMS.length);
+  // banter: the chosen coach's lines shuffled in with the house isms
+  const lines = [...(PERSONA_ISMS[personaId] || []), ...COACH_ISMS].sort(() => Math.random() - .5);
+  let i = 0;
   const el = $('coachIsm');
-  el.textContent = COACH_ISMS[i];
+  el.textContent = lines[0];
   clearInterval(ismTimer);
   ismTimer = setInterval(() => {
     el.style.opacity = 0;
-    setTimeout(() => { i = (i + 1) % COACH_ISMS.length; el.textContent = COACH_ISMS[i]; el.style.opacity = 1; }, 300);
-  }, 1900);
+    setTimeout(() => { i = (i + 1) % lines.length; el.textContent = lines[i]; el.style.opacity = 1; }, 300);
+  }, 2600);
+  // staged narrative: what the generator is (honestly, roughly) doing
+  const started = Date.now();
+  const stageEl = $('ovStage');
+  stageEl.textContent = GEN_STAGES[0][1];
+  clearInterval(stageTimer);
+  stageTimer = setInterval(() => {
+    const sec = (Date.now() - started) / 1000;
+    let label = GEN_STAGES[0][1];
+    for (const [at, text] of GEN_STAGES) if (sec >= at) label = text;
+    stageEl.textContent = label;
+  }, 2000);
 }
 function showError(msg) {
   clearInterval(ismTimer);
+  clearInterval(stageTimer);
   $('ovLoading').hidden = true;
   $('ovError').hidden = false;
   $('errMsg').textContent = msg;
   $('overlay').hidden = false;
 }
-function hideOverlay() { clearInterval(ismTimer); $('overlay').hidden = true; }
+function hideOverlay() { clearInterval(ismTimer); clearInterval(stageTimer); $('overlay').hidden = true; }
+
+// One-time hint that the app installs to the home screen — after the first
+// successful generation, and never when already running installed.
+function maybeInstallNudge() {
+  if (localStorage.getItem('pp_install_hinted')) return;
+  if (matchMedia('(display-mode: standalone)').matches || navigator.standalone) return;
+  localStorage.setItem('pp_install_hinted', '1');
+  setTimeout(() => toast('Tip: add PracticePal to your Home Screen for the full app experience.', 5200), 2600);
+}
 
 async function requestPlan(payload) {
   state.lastRequest = payload;
-  showLoading();
+  showLoading(payload.persona);
   try {
     const res = await fetch(`${SUPABASE_URL}/functions/v1/practicepal`, {
       method: 'POST',
@@ -2714,8 +2949,42 @@ async function requestPlan(payload) {
     hideOverlay();
     showPlan(true);
     toast('Saved to Past sessions');
+    maybeInstallNudge();
   } catch (err) {
     showError(err.message || 'Something went wrong.');
+  }
+}
+
+// Swap one drill for a different one — the rest of the plan stays untouched.
+async function rerollBlock(i, btn) {
+  if (state.live) { toast('End the session before swapping drills.'); return; }
+  if (btn.classList.contains('spinning')) return;
+  btn.classList.add('spinning');
+  try {
+    const inp = state.sessionInputs || {};
+    const res = await fetch(`${SUPABASE_URL}/functions/v1/practicepal`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+        'apikey': SUPABASE_ANON_KEY,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        persona: inp.personaId, players: inp.players, courts: inp.courts,
+        duration: inp.duration, level: inp.level, focus: inp.focus,
+        reroll: { index: i, plan: { title: state.plan.title, timeline: state.plan.timeline } },
+      }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || !data.block) throw new Error(data.error || 'That swap came back scrambled.');
+    state.plan.timeline[i] = data.block;
+    const y = window.scrollY;
+    showPlan(false);
+    window.scrollTo({ top: y });
+    toast(`Swapped in: ${data.block.title}`);
+  } catch (err) {
+    btn.classList.remove('spinning');
+    toast(err.message || 'Could not swap that drill.');
   }
 }
 
@@ -3070,6 +3339,7 @@ function updateChalkFill() {
 addEventListener('scroll', () => requestAnimationFrame(updateChalkFill), { passive: true });
 
 function showPlan(animate) {
+  if (state.live) endLive(true); // a new plan replaces any running session
   const plan = state.plan, inp = state.sessionInputs;
   const persona = personaById(inp.personaId);
   setWorldTint(persona.color); // the whole room lights in this session's colour
@@ -3089,6 +3359,7 @@ function showPlan(animate) {
     <div class="block reveal" data-i="${i}" style="transition-delay:${Math.min(i * 60, 240)}ms">
       <div class="block-head">
         <span class="badges"><span class="time">${esc(fmtRange(b))}</span><span class="now">NOW</span></span>
+        ${i < blocks.length - 1 ? `<button class="block-reroll-btn" aria-label="Swap this drill for another">${ICONS.reroll}</button>` : ''}
         ${diagBtn(b)}
       </div>
       <h3>${esc(b.title)}</h3>
@@ -3096,7 +3367,10 @@ function showPlan(animate) {
       ${b.cue ? `<div class="cue">"${esc(b.cue)}"</div>` : ''}
     </div>`).join('');
   $('timeline').querySelectorAll('.block').forEach((el) => {
-    el.addEventListener('click', () => setCurrentBlock(Number(el.dataset.i)));
+    el.addEventListener('click', () => {
+      const i = Number(el.dataset.i);
+      if (state.live) liveJumpTo(i); else setCurrentBlock(i);
+    });
   });
 
   const rot = plan.rotation;
@@ -3122,6 +3396,12 @@ function showPlan(animate) {
       openDiagramSheet(blocks[Number(btn.closest('.block').dataset.i)]);
     });
   });
+  $('timeline').querySelectorAll('.block-reroll-btn').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      rerollBlock(Number(btn.closest('.block').dataset.i), btn);
+    });
+  });
   const finDiagBtn = document.querySelector('#finisherSlot .block-diagram-btn');
   if (finDiagBtn) finDiagBtn.addEventListener('click', () => openDiagramSheet(fin));
 
@@ -3143,6 +3423,9 @@ function showPlan(animate) {
 
 function setCurrentBlock(i) {
   state.currentBlock = state.currentBlock === i ? -1 : i;
+  paintCurrentBlock();
+}
+function paintCurrentBlock() {
   $('timeline').querySelectorAll('.block').forEach((el) => {
     const idx = Number(el.dataset.i);
     el.classList.toggle('current', idx === state.currentBlock);
@@ -3150,7 +3433,209 @@ function setCurrentBlock(i) {
   });
 }
 
+// ── Live Mode ─────────────────────────────────────────────
+// A running session: real clock, auto-advancing NOW badge, chime on block
+// change, wake lock while running, and a full-screen glance view. Tapping a
+// timeline block while live jumps the clock to that block's start.
+let chimeCtx = null;
+let wakeLock = null;
+
+function liveElapsedMin() {
+  const l = state.live;
+  if (!l) return 0;
+  const now = l.pausedAt || Date.now();
+  return (now - l.startedAt) / 60000;
+}
+function liveBlocks() { return Array.isArray(state.plan?.timeline) ? state.plan.timeline : []; }
+function liveBlockAt(min) {
+  const blocks = liveBlocks();
+  for (let i = 0; i < blocks.length; i++) if (min < Number(blocks[i].end)) return i;
+  return -1; // past the end
+}
+function fmtClock(min) {
+  const s = Math.max(0, Math.round(min * 60));
+  return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+}
+
+function chime() {
+  try {
+    chimeCtx = chimeCtx || new (window.AudioContext || window.webkitAudioContext)();
+    const t = chimeCtx.currentTime;
+    [[880, 0, .7], [1174.66, .15, .9]].forEach(([freq, delay, dur]) => {
+      const o = chimeCtx.createOscillator(), g = chimeCtx.createGain();
+      o.connect(g); g.connect(chimeCtx.destination);
+      o.frequency.value = freq;
+      g.gain.setValueAtTime(.0001, t + delay);
+      g.gain.exponentialRampToValueAtTime(.16, t + delay + .03);
+      g.gain.exponentialRampToValueAtTime(.0001, t + dur);
+      o.start(t + delay); o.stop(t + dur + .05);
+    });
+  } catch { /* audio blocked — vibration still fires */ }
+  if (navigator.vibrate) navigator.vibrate([120, 80, 120]);
+}
+
+async function acquireWakeLock() {
+  try { wakeLock = await navigator.wakeLock?.request('screen'); } catch { /* unsupported/denied — non-fatal */ }
+}
+function releaseWakeLock() {
+  try { wakeLock?.release(); } catch { /* already released */ }
+  wakeLock = null;
+}
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible' && state.live && !state.live.pausedAt) acquireWakeLock();
+});
+
+function saveLive() {
+  if (!state.live) { localStorage.removeItem('pp_live'); return; }
+  localStorage.setItem('pp_live', JSON.stringify({
+    startedAt: state.live.startedAt, pausedAt: state.live.pausedAt,
+    plan: state.plan, inputs: state.sessionInputs,
+  }));
+}
+
+function startLive(resumeData) {
+  if (state.live || !state.plan) return;
+  state.live = resumeData
+    ? { startedAt: resumeData.startedAt, pausedAt: resumeData.pausedAt, tick: null }
+    : { startedAt: Date.now(), pausedAt: null, tick: null };
+  chimeCtx = chimeCtx || (() => { try { return new (window.AudioContext || window.webkitAudioContext)(); } catch { return null; } })();
+  $('actionBar').style.display = 'none';
+  $('liveBar').hidden = false;
+  document.querySelector('.tap-hint').textContent = 'Tap a block to jump the clock there';
+  if (!state.live.pausedAt) acquireWakeLock();
+  paintPause();
+  state.live.tick = setInterval(liveTick, 1000);
+  liveTick(true);
+  saveLive();
+  if (!resumeData) toast('Session started — screen will stay awake.');
+}
+
+function endLive(silent) {
+  if (!state.live) return;
+  clearInterval(state.live.tick);
+  state.live = null;
+  releaseWakeLock();
+  localStorage.removeItem('pp_live');
+  $('liveBar').hidden = true;
+  $('actionBar').style.display = '';
+  closeGlance();
+  const hint = document.querySelector('.tap-hint');
+  if (hint) hint.textContent = 'Tap a block to mark where you are';
+  const endBtn = $('liveEndBtn');
+  endBtn.classList.remove('confirm'); endBtn.textContent = 'End';
+  if (!silent) toast('Session ended. Well played.');
+}
+
+function pauseLive() {
+  const l = state.live;
+  if (!l) return;
+  if (l.pausedAt) {
+    l.startedAt += Date.now() - l.pausedAt; // shift start so elapsed freezes across the pause
+    l.pausedAt = null;
+    acquireWakeLock();
+  } else {
+    l.pausedAt = Date.now();
+    releaseWakeLock();
+  }
+  paintPause();
+  liveTick(true);
+  saveLive();
+}
+function paintPause() {
+  const paused = !!state.live?.pausedAt;
+  $('liveMain').classList.toggle('paused', paused);
+  const play = '<polygon points="6 4 20 12 6 20"/>';
+  const bars = '<rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/>';
+  $('livePauseIcon').innerHTML = paused ? play : bars;
+  $('glancePauseIcon').innerHTML = paused ? play : bars;
+  $('glancePauseLab').textContent = paused ? 'Resume' : 'Pause';
+}
+
+function liveJumpTo(i) {
+  const b = liveBlocks()[i];
+  if (!state.live || !b) return;
+  const now = Date.now();
+  state.live.startedAt = now - Number(b.start) * 60000;
+  if (state.live.pausedAt) state.live.pausedAt = now; // stay paused, but at the new point
+  liveTick(true);
+  saveLive();
+}
+
+function liveTick(force) {
+  const l = state.live;
+  if (!l) return;
+  const min = liveElapsedMin();
+  const blocks = liveBlocks();
+  const total = blocks.length ? Number(blocks[blocks.length - 1].end) : 0;
+  const i = liveBlockAt(min);
+
+  if (i === -1) { // session complete
+    chime();
+    endLive(true);
+    setCurrentBlock(-1);
+    toast('Time! Session complete — well played. 🎾');
+    setTimeout(openFeedback, 1200);
+    return;
+  }
+  if (i !== state.currentBlock) {
+    const first = state.currentBlock === -1 && min < 0.05;
+    state.currentBlock = i;
+    paintCurrentBlock();
+    if (!first && !force) chime();
+    const el = $('timeline').querySelector(`.block[data-i="${i}"]`);
+    if (el && !$('glance').classList.contains('open')) el.scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'center' });
+  }
+
+  const b = blocks[i];
+  $('liveClock').textContent = fmtClock(min);
+  $('liveBlockName').textContent = (l.pausedAt ? 'Paused — ' : '') + b.title;
+
+  if ($('glance').classList.contains('open')) {
+    const left = Number(b.end) - min;
+    $('glanceCount').textContent = fmtClock(left);
+    $('glanceCount').classList.toggle('ending', left <= 1 && !l.pausedAt);
+    $('glanceSession').textContent = (l.pausedAt ? 'Paused · ' : '') + `${fmtClock(min)} of ${total} min`;
+    $('glanceRange').textContent = fmtRange(b) + ' min';
+    $('glanceTitle').textContent = b.title;
+    $('glanceAim').textContent = b.aim || '';
+    $('glanceTargetWrap').innerHTML = b.target ? `<span class="glance-target">${esc(b.target)}</span>` : '';
+    const next = blocks[i + 1];
+    $('glanceNext').innerHTML = next
+      ? `Next: <strong>${esc(next.title)}</strong> · in ${fmtClock(Number(b.end) - min)}`
+      : 'Last block — finish strong.';
+    $('glanceProgress').style.width = `${Math.min(100, (min / total) * 100)}%`;
+  }
+}
+
+function openGlance() {
+  if (!state.live) return;
+  $('glance').classList.add('open');
+  $('glance').setAttribute('aria-hidden', 'false');
+  liveTick(true);
+}
+function closeGlance() {
+  $('glance').classList.remove('open');
+  $('glance').setAttribute('aria-hidden', 'true');
+}
+
+// Resume a session that survived a page reload (e.g. phone locked mid-drill).
+function tryResumeLive() {
+  let saved = null;
+  try { saved = JSON.parse(localStorage.getItem('pp_live')); } catch { /* corrupt — ignore */ }
+  if (!saved || !saved.plan || !Array.isArray(saved.plan.timeline)) { localStorage.removeItem('pp_live'); return; }
+  const total = Number(saved.plan.timeline[saved.plan.timeline.length - 1].end);
+  const elapsed = ((saved.pausedAt || Date.now()) - saved.startedAt) / 60000;
+  if (elapsed > total + 20) { localStorage.removeItem('pp_live'); return; } // long gone — don't resurrect
+  state.plan = saved.plan;
+  state.sessionInputs = saved.inputs;
+  state.currentBlock = -1;
+  showPlan(false);
+  startLive({ startedAt: saved.startedAt, pausedAt: saved.pausedAt });
+  toast('Live session resumed.');
+}
+
 function backToAsk() {
+  endLive(true);
   // restore the session's inputs into the form
   if (state.sessionInputs) {
     Object.assign(state, {
@@ -3191,26 +3676,106 @@ function planAsText() {
   return lines.join('\n');
 }
 
+// Publish the session once (snapshot table) and reuse the link — anyone who
+// opens it gets the real session in PracticePal, diagrams and all.
+async function ensureShareLink() {
+  if (state.plan._sid) return `${location.origin}${location.pathname}?s=${state.plan._sid}`;
+  try {
+    const { data, error } = await sb.from('practicepal_shared').insert({
+      user_id: currentUser?.id || null,
+      inputs: state.sessionInputs,
+      plan: state.plan,
+    }).select('id').single();
+    if (error || !data) return null;
+    state.plan._sid = data.id;
+    return `${location.origin}${location.pathname}?s=${data.id}`;
+  } catch { return null; }
+}
+
 async function share() {
-  const text = planAsText();
+  const url = await ensureShareLink();
+  const text = planAsText() + (url ? `\nOpen it in PracticePal: ${url}` : '');
   if (navigator.share) {
-    try { await navigator.share({ text }); return; } catch { /* cancelled */ }
+    try { await navigator.share(url ? { title: state.plan.title, text, url } : { text }); return; } catch { /* cancelled */ }
   }
   try {
     await navigator.clipboard.writeText(text);
-    toast('Copied — paste it into WhatsApp');
+    toast(url ? 'Copied with a link — paste it anywhere' : 'Copied — paste it into WhatsApp');
   } catch {
     window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank');
   }
 }
 
+// Opening a shared link (?s=<id>) loads that session directly.
+async function tryLoadShared() {
+  const sid = new URLSearchParams(location.search).get('s');
+  if (!sid) return false;
+  history.replaceState(null, '', location.pathname);
+  try {
+    const { data, error } = await sb.from('practicepal_shared').select('inputs, plan').eq('id', sid).single();
+    if (error || !data) { toast('That shared session link didn’t work.'); return false; }
+    state.plan = data.plan;
+    state.sessionInputs = data.inputs;
+    state.currentBlock = -1;
+    showPlan(false);
+    toast('Shared session loaded — Start it, or Remix it into your own.', 4200);
+    return true;
+  } catch { return false; }
+}
+
 let toastTimer = null;
-function toast(msg) {
+function toast(msg, ms = 2400) {
   const t = $('toast');
   t.textContent = msg;
   t.classList.add('show');
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => t.classList.remove('show'), 2400);
+  toastTimer = setTimeout(() => t.classList.remove('show'), ms);
+}
+
+// ── Post-session feedback ─────────────────────────────────
+// Tap-a-face per drill after a real (Live Mode) session; writes to the
+// insert-only feedback table that will later power the shared library.
+let fbRatings = {};
+function openFeedback() {
+  if (!state.plan) return;
+  fbRatings = {};
+  const faces = ['😖', '🙂', '🔥'];
+  $('fbRows').innerHTML = (state.plan.timeline || []).map((b, i) => `
+    <div class="fb-row">
+      <span class="fb-title">${esc(b.title)}</span>
+      <span class="fb-faces">${faces.map((f, v) => `<button class="fb-face" data-b="${i}" data-v="${v + 1}" aria-label="Rate ${esc(b.title)}: ${v + 1} of 3">${f}</button>`).join('')}</span>
+    </div>`).join('');
+  $('fbNote').value = '';
+  $('fbRows').querySelectorAll('.fb-face').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      fbRatings[btn.dataset.b] = Number(btn.dataset.v);
+      $('fbRows').querySelectorAll(`.fb-face[data-b="${btn.dataset.b}"]`).forEach((x) => x.classList.toggle('on', x === btn));
+    });
+  });
+  $('fbVeil').hidden = false;
+  requestAnimationFrame(() => { $('fbVeil').classList.add('open'); $('fbSheet').classList.add('open'); });
+  $('fbSheet').setAttribute('aria-hidden', 'false');
+}
+function closeFeedback() {
+  $('fbVeil').classList.remove('open');
+  $('fbSheet').classList.remove('open');
+  $('fbSheet').setAttribute('aria-hidden', 'true');
+  setTimeout(() => { $('fbVeil').hidden = true; }, 250);
+}
+async function submitFeedback() {
+  const ratings = {};
+  (state.plan.timeline || []).forEach((b, i) => { if (fbRatings[i]) ratings[b.title] = fbRatings[i]; });
+  try {
+    await sb.from('practicepal_feedback').insert({
+      user_id: currentUser?.id || null,
+      session_title: state.plan.title,
+      persona_id: state.sessionInputs?.personaId || null,
+      ratings,
+      note: $('fbNote').value.trim() || null,
+    });
+  } catch { /* feedback is best-effort */ }
+  closeFeedback();
+  toast('Noted — future sessions just got smarter. 🎾');
 }
 
 // ── Remix ─────────────────────────────────────────────────
@@ -3243,6 +3808,31 @@ renderLevels();
 renderFocus();
 
 $('generateBtn').addEventListener('click', generate);
+$('startLiveBtn').addEventListener('click', () => startLive());
+$('liveMain').addEventListener('click', openGlance);
+$('livePauseBtn').addEventListener('click', pauseLive);
+$('liveEndBtn').addEventListener('click', () => {
+  const btn = $('liveEndBtn');
+  if (btn.classList.contains('confirm')) {
+    const playedEnough = liveElapsedMin() >= 10;
+    endLive();
+    if (playedEnough) setTimeout(openFeedback, 900);
+    return;
+  }
+  btn.classList.add('confirm');
+  btn.textContent = 'Sure?';
+  setTimeout(() => { btn.classList.remove('confirm'); btn.textContent = 'End'; }, 3000);
+});
+$('glanceCloseBtn').addEventListener('click', closeGlance);
+$('fbSkipBtn').addEventListener('click', closeFeedback);
+$('fbSubmitBtn').addEventListener('click', submitFeedback);
+$('fbVeil').addEventListener('click', closeFeedback);
+$('glancePauseBtn').addEventListener('click', pauseLive);
+$('glanceSkipBtn').addEventListener('click', () => {
+  if (!state.live) return;
+  const next = liveBlockAt(liveElapsedMin()) + 1;
+  if (next < liveBlocks().length) liveJumpTo(next);
+});
 $('menuBtn').addEventListener('click', openDrawer);
 $('drawerVeil').addEventListener('click', closeDrawer);
 $('summaryBar').addEventListener('click', backToAsk);
@@ -3290,6 +3880,10 @@ sb.auth.onAuthStateChange((event, session) => {
   if (event === 'PASSWORD_RECOVERY') openResetModal();
 });
 sb.auth.getSession().then(({ data }) => handleAuthChange(data.session));
+
+// A shared link takes priority; otherwise pick up any live session that
+// survived a reload.
+tryLoadShared().then((loaded) => { if (!loaded) tryResumeLive(); });
 
 // Expired/invalid email links land back here with the error in the URL hash —
 // surface it instead of silently doing nothing.

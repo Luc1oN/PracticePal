@@ -26,5 +26,13 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
+      # deploy-pages fails transiently on GitHub's side fairly often (build/
+      # upload always succeed; only this step errors) — retry a couple of
+      # times with backoff before giving up, instead of needing a manual
+      # empty-commit retry every time.
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: Wandalen/wretry.action@v3
+        with:
+          action: actions/deploy-pages@v4
+          attempt_limit: 3
+          attempt_delay: 20000

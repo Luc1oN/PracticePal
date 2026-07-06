@@ -2962,6 +2962,18 @@ function maybeInstallNudge() {
   setTimeout(() => toast('Tip: add PracticePal to your Home Screen for the full app experience.', 5200), 2600);
 }
 
+// A per-browser id (not tied to accounts) so the edge function can cap
+// abuse per-client in addition to per-IP — a shared club wifi shouldn't
+// block everyone just because one device is misbehaving.
+function clientId() {
+  let id = localStorage.getItem('pp_client_id');
+  if (!id) {
+    id = (crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`);
+    localStorage.setItem('pp_client_id', id);
+  }
+  return id;
+}
+
 async function requestPlan(payload) {
   state.lastRequest = payload;
   showLoading(payload.persona);
@@ -2973,7 +2985,7 @@ async function requestPlan(payload) {
         'apikey': SUPABASE_ANON_KEY,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(payload),
+      body: JSON.stringify({ ...payload, clientId: clientId() }),
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok || !data.plan) throw new Error(data.error || 'The coach went quiet. Try again.');
@@ -3013,6 +3025,7 @@ async function rerollBlock(i, btn) {
         persona: inp.personaId, players: inp.players, courts: inp.courts,
         duration: inp.duration, level: inp.level, focus: inp.focus,
         reroll: { index: i, plan: { title: state.plan.title, timeline: state.plan.timeline } },
+        clientId: clientId(),
       }),
     });
     const data = await res.json().catch(() => ({}));

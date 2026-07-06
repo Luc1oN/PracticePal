@@ -183,6 +183,26 @@
     border-radius: 99px; padding: 5px 11px;
   }
   .past-card .pc-replay svg { width: 12px; height: 12px; }
+  .past-card .pc-note { font-size: 12px; color: var(--chalk-muted); font-style: italic; margin-top: 3px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .pc-edit {
+    flex: none; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%;
+    color: var(--chalk-faint); opacity: .7; transition: color .15s ease, opacity .15s ease;
+  }
+  .pc-edit:hover, .pc-edit:active { color: var(--chalk-muted); opacity: 1; }
+  .pc-edit svg { width: 14px; height: 14px; }
+  .past-card.editing { flex-direction: column; align-items: stretch; cursor: default; gap: 8px; }
+  .past-card.editing input, .past-card.editing textarea {
+    width: 100%; padding: 10px 12px; border-radius: 10px; font: inherit; font-size: 14px;
+    background: rgba(4,14,10,.4); border: 1px solid var(--stroke); color: var(--chalk); resize: none;
+  }
+  .past-card.editing input { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 600; }
+  .past-card.editing textarea { min-height: 52px; }
+  .pc-edit-actions { display: flex; gap: 8px; }
+  .pc-edit-actions button {
+    flex: 1; border-radius: 99px; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; padding: 9px 0;
+  }
+  .pc-edit-cancel { background: transparent; color: var(--chalk-muted); border: 1px solid var(--stroke); }
+  .pc-edit-save { background: color-mix(in srgb, var(--p) 30%, transparent); color: var(--chalk); border: 1px solid color-mix(in srgb, var(--p) 55%, transparent); }
   .show-all {
     width: 100%; background: transparent; border: 1px dashed var(--stroke);
     border-radius: 99px; color: var(--chalk-muted); font: inherit; font-size: 13px; font-weight: 500;
@@ -252,6 +272,27 @@
     padding: 6px 12px; cursor: pointer; flex: 0 0 auto; transition: border-color .16s ease, color .16s ease;
   }
   .drawer-account button:hover { border-color: color-mix(in srgb, var(--gold) 40%, transparent); color: var(--gold-hi); }
+
+  /* ── Profile & settings sheet ──────────────────────────── */
+  .profile-sheet { position: relative; }
+  .profile-close {
+    position: absolute; top: 20px; right: 20px; width: 30px; height: 30px; border-radius: 50%;
+    background: transparent; border: 1px solid var(--stroke); color: var(--chalk-muted); cursor: pointer;
+    display: grid; place-items: center;
+  }
+  .profile-close svg { width: 14px; height: 14px; }
+  .profile-stats { display: flex; gap: 10px; margin: 4px 0 20px; }
+  .profile-stats .stat {
+    flex: 1; text-align: center; padding: 12px 8px; border-radius: 12px;
+    background: rgba(4,14,10,.35); border: 1px solid var(--stroke-soft);
+  }
+  .profile-stats .stat .n { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 700; color: var(--chalk); display: block; }
+  .profile-stats .stat .lab { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--chalk-faint); }
+  .profile-sheet #profileNewPassword { margin-bottom: 12px; }
+  .profile-signout {
+    width: 100%; margin-top: 20px; padding: 13px 0; border-radius: var(--r-btn); cursor: pointer; font: inherit;
+    font-weight: 600; font-size: 14px; background: transparent; color: #E28A73; border: 1px solid rgba(226,138,115,.4);
+  }
 
   /* ── Sign-in prompt (contextual modal, not a gate) ───────── */
   .auth-veil {
@@ -1192,6 +1233,22 @@
   </div>
 </div>
 
+<!-- profile & settings sheet -->
+<div class="sheet-veil" id="profileVeil" hidden></div>
+<div class="sheet profile-sheet" id="profileSheet" aria-hidden="true">
+  <h3 class="fraunces">Your account</h3>
+  <p class="sub" id="profileEmail"></p>
+  <div class="profile-stats" id="profileStats"></div>
+  <label class="auth-lab" for="profileNewPassword">New password</label>
+  <input id="profileNewPassword" type="password" placeholder="••••••••" autocomplete="new-password">
+  <button class="auth-btn" id="profileSavePasswordBtn">Update password</button>
+  <div class="auth-err" id="profilePassErr" hidden></div>
+  <button class="profile-signout" id="profileSignOutBtn">Sign out</button>
+  <button class="profile-close" id="profileCloseBtn" aria-label="Close">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+  </button>
+</div>
+
 <!-- past sessions drawer -->
 <div class="drawer-veil" id="drawerVeil" hidden></div>
 <aside class="drawer" id="drawer" aria-hidden="true">
@@ -1440,8 +1497,47 @@ async function signOut() {
 function renderAccountRow() {
   const el = $('drawerAccount');
   if (!currentUser) { el.innerHTML = ''; return; }
-  el.innerHTML = `<span class="acct-email">${esc(currentUser.email)}</span><button id="signOutBtn">Sign out</button>`;
-  $('signOutBtn').addEventListener('click', signOut);
+  el.innerHTML = `<span class="acct-email">${esc(currentUser.email)}</span><button id="openProfileBtn">Profile</button>`;
+  $('openProfileBtn').addEventListener('click', openProfileSheet);
+}
+
+// ── Profile & settings ────────────────────────────────────
+async function openProfileSheet() {
+  if (!currentUser) return;
+  $('profileEmail').textContent = currentUser.email;
+  $('profileNewPassword').value = '';
+  $('profilePassErr').hidden = true;
+  $('profileStats').innerHTML = `<div class="stat"><span class="n">…</span><span class="lab">Sessions</span></div><div class="stat"><span class="n">…</span><span class="lab">Member since</span></div>`;
+  $('profileVeil').hidden = false;
+  requestAnimationFrame(() => { $('profileVeil').classList.add('open'); $('profileSheet').classList.add('open'); });
+  const { count } = await sb.from('practicepal_sessions').select('id', { count: 'exact', head: true }).eq('user_id', currentUser.id);
+  const since = currentUser.created_at ? fmtWhen(currentUser.created_at) : '—';
+  $('profileStats').innerHTML = `<div class="stat"><span class="n">${count ?? '—'}</span><span class="lab">Sessions</span></div><div class="stat"><span class="n" style="font-size:15px">${esc(since)}</span><span class="lab">Member since</span></div>`;
+}
+function closeProfileSheet() {
+  $('profileVeil').classList.remove('open');
+  $('profileSheet').classList.remove('open');
+  setTimeout(() => { $('profileVeil').hidden = true; }, 250);
+}
+async function updateProfilePassword() {
+  const password = $('profileNewPassword').value;
+  $('profilePassErr').hidden = true;
+  if (!password || password.length < 6) {
+    $('profilePassErr').textContent = 'Password must be at least 6 characters.';
+    $('profilePassErr').hidden = false;
+    return;
+  }
+  const btn = $('profileSavePasswordBtn');
+  btn.disabled = true; const original = btn.textContent; btn.textContent = 'Saving…';
+  const { error } = await sb.auth.updateUser({ password });
+  btn.disabled = false; btn.textContent = original;
+  if (error) {
+    $('profilePassErr').textContent = error.message || 'Could not update the password.';
+    $('profilePassErr').hidden = false;
+    return;
+  }
+  $('profileNewPassword').value = '';
+  toast('Password updated.');
 }
 
 // ── Design data ───────────────────────────────────────────
@@ -2725,7 +2821,7 @@ function writeHistoryCache(uid, list) {
 async function refreshHistory() {
   if (!currentUser) { historyCache = []; renderShelf(); return; }
   const { data, error } = await sb.from('practicepal_sessions')
-    .select('id, created_at, persona_id, players, courts, duration, level, focus, plan, favourite')
+    .select('id, created_at, persona_id, players, courts, duration, level, focus, plan, favourite, note')
     .order('favourite', { ascending: false })
     .order('created_at', { ascending: false })
     .limit(20);
@@ -2738,6 +2834,7 @@ async function refreshHistory() {
   historyCache = (data || []).map((row) => ({
     id: row.id,
     favourite: !!row.favourite,
+    note: row.note || '',
     when: fmtWhen(row.created_at),
     inputs: {
       personaId: row.persona_id, players: row.players, courts: row.courts,
@@ -2774,6 +2871,81 @@ function clamp(k, v) {
 }
 
 // ── Ask screen rendering ──────────────────────────────────
+const PC_REPLAY_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>';
+const PC_EDIT_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>';
+
+function pastCardHtml(e, i) {
+  const p = personaById(e.inputs.personaId);
+  return `<button class="past-card" id="past-card-${i}" data-i="${i}" style="--pcol:${p.color}">
+    <span class="pc-star ${e.favourite ? 'on' : ''}" role="button" tabindex="0" aria-label="${e.favourite ? 'Unpin favourite' : 'Pin as favourite'}">★</span>
+    <div class="pc-main">
+      <div class="pc-title">${esc(e.plan.title)}</div>
+      <div class="pc-meta">${esc(metaLine(e.inputs))} · ${esc(e.when)}</div>
+      ${e.note ? `<div class="pc-note">${esc(e.note)}</div>` : ''}
+    </div>
+    <span class="pc-edit" role="button" tabindex="0" aria-label="Edit title and note">${PC_EDIT_ICON}</span>
+    <span class="pc-replay">${PC_REPLAY_ICON} Redo</span>
+  </button>`;
+}
+function pastCardEditHtml(e, i) {
+  const p = personaById(e.inputs.personaId);
+  return `<div class="past-card editing" id="past-card-${i}" style="--pcol:${p.color}">
+    <input class="pc-edit-title" type="text" value="${esc(e.plan.title)}" maxlength="60" placeholder="Session title">
+    <textarea class="pc-edit-note" maxlength="200" placeholder="Add a note (optional)">${esc(e.note || '')}</textarea>
+    <div class="pc-edit-actions">
+      <button class="pc-edit-cancel">Cancel</button>
+      <button class="pc-edit-save">Save</button>
+    </div>
+  </div>`;
+}
+function bindPastCard(i) {
+  const el = document.getElementById(`past-card-${i}`);
+  if (!el) return;
+  el.addEventListener('click', () => {
+    const e = getHistory()[i];
+    if (!e) return;
+    state.plan = e.plan;
+    state.sessionInputs = e.inputs;
+    state.currentBlock = -1;
+    closeDrawer();
+    showPlan(false);
+  });
+  el.querySelector('.pc-star').addEventListener('click', (ev) => {
+    ev.stopPropagation();
+    const e = getHistory()[i];
+    if (e) toggleFavourite(e.id, !e.favourite);
+  });
+  el.querySelector('.pc-edit').addEventListener('click', (ev) => {
+    ev.stopPropagation();
+    enterEditMode(i);
+  });
+}
+function enterEditMode(i) {
+  const e = getHistory()[i];
+  const el = document.getElementById(`past-card-${i}`);
+  if (!e || !el) return;
+  el.outerHTML = pastCardEditHtml(e, i);
+  const newEl = document.getElementById(`past-card-${i}`);
+  newEl.querySelector('.pc-edit-cancel').addEventListener('click', () => {
+    newEl.outerHTML = pastCardHtml(e, i);
+    bindPastCard(i);
+  });
+  newEl.querySelector('.pc-edit-save').addEventListener('click', () => saveSessionMeta(i));
+  newEl.querySelector('.pc-edit-title').focus();
+}
+async function saveSessionMeta(i) {
+  const e = getHistory()[i];
+  const el = document.getElementById(`past-card-${i}`);
+  if (!e || !el) return;
+  const title = el.querySelector('.pc-edit-title').value.trim().slice(0, 60) || e.plan.title;
+  const note = el.querySelector('.pc-edit-note').value.trim().slice(0, 200);
+  const updatedPlan = { ...e.plan, title };
+  const { error } = await sb.from('practicepal_sessions').update({ plan: updatedPlan, note: note || null }).eq('id', e.id);
+  if (error) { toast('Could not save — try again.'); return; }
+  await refreshHistory();
+  toast('Saved');
+}
+
 function renderShelf() {
   const h = getHistory();
   const shelf = $('recentShelf');
@@ -2781,34 +2953,8 @@ function renderShelf() {
     shelf.innerHTML = '<div class="shelf-empty"><span>🎾</span> Your first session starts here</div>';
     return;
   }
-  const replayIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>';
-  shelf.innerHTML = h.map((e, i) => {
-    const p = personaById(e.inputs.personaId);
-    return `<button class="past-card" data-i="${i}" style="--pcol:${p.color}">
-      <span class="pc-star ${e.favourite ? 'on' : ''}" role="button" tabindex="0" aria-label="${e.favourite ? 'Unpin favourite' : 'Pin as favourite'}">★</span>
-      <div class="pc-main">
-        <div class="pc-title">${esc(e.plan.title)}</div>
-        <div class="pc-meta">${esc(metaLine(e.inputs))} · ${esc(e.when)}</div>
-      </div>
-      <span class="pc-replay">${replayIcon} Redo</span>
-    </button>`;
-  }).join('');
-  shelf.querySelectorAll('.past-card').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const e = getHistory()[Number(btn.dataset.i)];
-      if (!e) return;
-      state.plan = e.plan;
-      state.sessionInputs = e.inputs;
-      state.currentBlock = -1;
-      closeDrawer();
-      showPlan(false);
-    });
-    btn.querySelector('.pc-star').addEventListener('click', (ev) => {
-      ev.stopPropagation();
-      const e = getHistory()[Number(btn.dataset.i)];
-      if (e) toggleFavourite(e.id, !e.favourite);
-    });
-  });
+  shelf.innerHTML = h.map((e, i) => pastCardHtml(e, i)).join('');
+  h.forEach((_, i) => bindPastCard(i));
 }
 
 // left drawer holding the session record
@@ -4015,6 +4161,10 @@ $('glanceSkipBtn').addEventListener('click', () => {
 })();
 $('menuBtn').addEventListener('click', openDrawer);
 $('drawerVeil').addEventListener('click', closeDrawer);
+$('profileCloseBtn').addEventListener('click', closeProfileSheet);
+$('profileVeil').addEventListener('click', closeProfileSheet);
+$('profileSavePasswordBtn').addEventListener('click', updateProfilePassword);
+$('profileSignOutBtn').addEventListener('click', () => { signOut(); closeProfileSheet(); closeDrawer(); });
 $('summaryBar').addEventListener('click', backToAsk);
 $('shareBtn').addEventListener('click', share);
 $('remixBtn').addEventListener('click', openSheet);

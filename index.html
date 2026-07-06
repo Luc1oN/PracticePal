@@ -185,11 +185,12 @@
   .past-card .pc-replay svg { width: 12px; height: 12px; }
   .past-card .pc-note { font-size: 12px; color: var(--chalk-muted); font-style: italic; margin-top: 3px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .pc-edit {
-    flex: none; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%;
+    position: relative; flex: none; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%;
     color: var(--chalk-faint); opacity: .7; transition: color .15s ease, opacity .15s ease;
   }
   .pc-edit:hover, .pc-edit:active { color: var(--chalk-muted); opacity: 1; }
   .pc-edit svg { width: 14px; height: 14px; }
+  .pc-edit::before { content: ''; position: absolute; inset: -9px; }
   .past-card.editing { flex-direction: column; align-items: stretch; cursor: default; gap: 8px; }
   .past-card.editing input, .past-card.editing textarea {
     width: 100%; padding: 10px 12px; border-radius: 10px; font: inherit; font-size: 14px;
@@ -654,6 +655,9 @@
   }
   .block-diagram-btn:active, .block-reroll-btn:active { transform: scale(.88); }
   .block-diagram-btn svg, .block-reroll-btn svg { width: 15px; height: 15px; }
+  /* generous vertical hit-area expansion; modest horizontal (these two sit
+     only 8px apart, so a full 44px each way would make them overlap) */
+  .block-diagram-btn::before, .block-reroll-btn::before { content: ''; position: absolute; top: -9px; bottom: -9px; left: -3px; right: -3px; }
   .block-reroll-btn.spinning { pointer-events: none; opacity: .7; }
   .block-reroll-btn.spinning svg { animation: rerollSpin 1s linear infinite; }
   @keyframes rerollSpin { to { transform: rotate(360deg); } }
@@ -742,11 +746,13 @@
   }
 
   .pc-star {
-    flex: none; font-size: 19px; line-height: 1; padding: 4px 6px 4px 0; cursor: pointer;
+    position: relative; flex: none; font-size: 19px; line-height: 1; padding: 4px 6px 4px 0; cursor: pointer;
     color: var(--chalk-faint); opacity: .5; transition: color .15s ease, opacity .15s ease, transform .12s ease;
   }
   .pc-star.on { color: var(--gold-hi); opacity: 1; }
   .pc-star:active { transform: scale(1.25); }
+  /* invisible hit-area expansion — 44px minimum tap target without growing the visible icon */
+  .pc-star::before { content: ''; position: absolute; inset: -9px; }
 
   /* ── Post-session feedback sheet ───────────────────────── */
   .feedback-sheet .fb-row {
@@ -835,7 +841,33 @@
     display: flex; justify-content: space-between; align-items: center;
     padding: calc(14px + env(safe-area-inset-top)) 0 0; color: var(--chalk-muted); font-size: 14px;
   }
+  .glance-top-right { display: flex; align-items: center; gap: 10px; }
   .glance-top .range { font-variant-numeric: tabular-nums; }
+  .glance-theme-toggle {
+    position: relative; flex: none; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center;
+    background: transparent; border: 1px solid var(--stroke-soft); color: var(--chalk-faint); cursor: pointer;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  .glance-theme-toggle svg { width: 15px; height: 15px; }
+  .glance-theme-toggle::before { content: ''; position: absolute; inset: -8px; }
+  .glance-theme-toggle.on { color: var(--gold-hi); border-color: color-mix(in srgb, var(--gold) 45%, transparent); }
+
+  /* Daylight mode: outdoor sun readability for the courtside surfaces only
+     (glance + live bar). Both components already read every colour through
+     these CSS variables, so redefining them here re-themes everything
+     underneath for free — no per-rule rewrites needed. */
+  .glance.daylight, .live-bar.daylight {
+    --bg0: #FAF7ED;
+    --chalk: #12261B;
+    --chalk-muted: #3E5245;
+    --chalk-faint: #6B7D6E;
+    --gold: #8A6D2C;
+    --gold-hi: #6B4E14;
+    --glass-hi: rgba(18,38,27,.05);
+    --glass-lo: rgba(18,38,27,.02);
+    --stroke: rgba(18,38,27,.16);
+    --stroke-soft: rgba(18,38,27,.11);
+  }
   .glance-mid { flex: 1; display: flex; flex-direction: column; justify-content: center; text-align: center; gap: 6px; min-height: 0; }
   .glance-mid-content { transition: opacity .14s ease; }
   .glance-ringwrap { position: relative; width: min(58vw, 220px); margin: 0 auto; }
@@ -1187,7 +1219,12 @@
   <div class="glance-progress" id="glanceProgress"></div>
   <div class="glance-top">
     <span id="glanceSession"></span>
-    <span class="range" id="glanceRange"></span>
+    <span class="glance-top-right">
+      <button class="glance-theme-toggle" id="glanceThemeBtn" aria-label="Switch to daylight mode">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <span class="range" id="glanceRange"></span>
+    </span>
   </div>
   <div class="glance-mid">
     <div class="glance-lab">left in this block</div>
@@ -3106,6 +3143,24 @@ function showLoading(personaId) {
     stageEl.textContent = label;
   }, 2000);
 }
+// Re-voice only genuinely generic/transient failures in the active coach's
+// voice — specific, actionable messages (rate limits, config errors) stay
+// exactly as written so the user still knows what actually happened.
+const PERSONA_ERROR_LINES = {
+  technician: 'The Technician is double-checking the drill sheet — hit generate again.',
+  tactician: 'The Tactician is rethinking the game plan — hit generate again.',
+  grinder: 'The Grinder dropped the clipboard — hit generate again.',
+  entertainer: 'The Entertainer got distracted mid-bit — hit generate again.',
+};
+const GENERIC_ERROR_PATTERNS = ['coach could not be reached', 'came back scrambled', 'coach went quiet', 'something went wrong'];
+function personaVoiceError(msg, personaId) {
+  const lower = (msg || '').toLowerCase();
+  if (GENERIC_ERROR_PATTERNS.some((p) => lower.includes(p))) {
+    return PERSONA_ERROR_LINES[personaId] || PERSONA_ERROR_LINES.technician;
+  }
+  return msg;
+}
+
 function showError(msg) {
   clearInterval(ismTimer);
   clearInterval(stageTimer);
@@ -3166,7 +3221,7 @@ async function requestPlan(payload) {
     toast('Saved to Past sessions');
     maybeInstallNudge();
   } catch (err) {
-    showError(err.message || 'Something went wrong.');
+    showError(personaVoiceError(err.message || 'Something went wrong.', payload.persona));
   }
 }
 
@@ -3200,7 +3255,7 @@ async function rerollBlock(i, btn) {
     toast(`Swapped in: ${data.block.title}`);
   } catch (err) {
     btn.classList.remove('spinning');
-    toast(err.message || 'Could not swap that drill.');
+    toast(personaVoiceError(err.message || 'Could not swap that drill.', inp.personaId));
   }
 }
 
@@ -3722,6 +3777,20 @@ function saveLive() {
   }));
 }
 
+// Daylight mode: a high-contrast light theme for the courtside surfaces
+// only (glance + live bar) — a dark theme is elegant indoors and hard to
+// read in July sun. Persisted across sessions.
+function applyDaylight(on) {
+  $('glance').classList.toggle('daylight', on);
+  $('liveBar').classList.toggle('daylight', on);
+  const btn = $('glanceThemeBtn');
+  btn.classList.toggle('on', on);
+  btn.setAttribute('aria-label', on ? 'Switch to dark mode' : 'Switch to daylight mode');
+  localStorage.setItem('pp_daylight', on ? '1' : '0');
+}
+function toggleDaylight() { applyDaylight(!$('glance').classList.contains('daylight')); }
+applyDaylight(localStorage.getItem('pp_daylight') === '1');
+
 function startLive(resumeData) {
   if (state.live || !state.plan) return;
   state.live = resumeData
@@ -3783,6 +3852,7 @@ function paintPause() {
   $('livePauseIcon').innerHTML = paused ? play : bars;
   $('glancePauseIcon').innerHTML = paused ? play : bars;
   $('glancePauseLab').textContent = paused ? 'Resume' : 'Pause';
+  $('livePauseBtn').setAttribute('aria-label', paused ? 'Resume session' : 'Pause session');
 }
 
 function liveJumpTo(i) {
@@ -4113,6 +4183,7 @@ endBtn.addEventListener('pointerdown', startEndHold);
 ['pointerup', 'pointerleave', 'pointercancel'].forEach((evt) => endBtn.addEventListener(evt, cancelEndHold));
 
 $('glanceCloseBtn').addEventListener('click', closeGlance);
+$('glanceThemeBtn').addEventListener('click', (e) => { e.stopPropagation(); toggleDaylight(); });
 $('fbSkipBtn').addEventListener('click', closeFeedback);
 $('fbSubmitBtn').addEventListener('click', submitFeedback);
 $('fbVeil').addEventListener('click', closeFeedback);

@@ -1542,6 +1542,7 @@ function renderAccountRow() {
 // ── Profile & settings ────────────────────────────────────
 async function openProfileSheet() {
   if (!currentUser) return;
+  closeDrawer(); // the drawer sits above sheets in stacking order — close it or the sheet opens invisibly behind it
   $('profileEmail').textContent = currentUser.email;
   $('profileNewPassword').value = '';
   $('profilePassErr').hidden = true;

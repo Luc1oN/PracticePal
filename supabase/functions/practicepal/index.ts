@@ -25,8 +25,9 @@ const RATE_LIMITS = { ip: 40, client: 12 }
 const EQUIPMENT = ['basket', 'cones']
 
 // Default thinking mode for full generation (see callClaude). Measured on
-// 4 players / 60 min: adaptive ≈ 55-110s. Set after the A/B below.
-const DEFAULT_THINK: 'off' | 'low' | 'adaptive' = 'adaptive'
+// 4 players / 60 min, same request: off 26s, low 25s, adaptive 117s, with no
+// quality difference worth the wait — so low effort it is.
+const DEFAULT_THINK: 'off' | 'low' | 'adaptive' = 'low'
 
 function corsHeaders(origin: string | null): Record<string, string> {
   const isLocal = origin && /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)
@@ -468,6 +469,10 @@ Deno.serve(async (req: Request) => {
 
   const framing = `You are designing tonight's practice session for a group of tennis players who have turned up to practise together with intent. There is no coach on court: write for the players themselves — instructions they can run for each other, in plain language, no coaching jargon. The practice style they picked: ${persona.name}. ${persona.brief}`
 
+  // Hidden knob for measuring the thinking trade-off; DEFAULT_THINK is what
+  // real users get. Applies to generation, swaps and remixes alike.
+  const think: Think = body.think === 'off' || body.think === 'low' || body.think === 'adaptive' ? body.think : DEFAULT_THINK
+
   // ── Per-block reroll: regenerate ONE block inside an existing plan ──────
   if (body.reroll && body.reroll.plan && Number.isInteger(body.reroll.index)) {
     const idx = body.reroll.index as number
@@ -497,7 +502,7 @@ Return ONLY the minified JSON object for the replacement block — no wrapper, n
 {"start":${target.start},"end":${target.end},"title":"...","aim":"...","drill":"...","cycle":null,"target":null,"cue":null,"diagram":"...","scene":{"players":[],"balls":[],"note":""}}`
 
     try {
-      const r = await callClaude(apiKey, rerollPrompt, 2500)
+      const r = await callClaude(apiKey, rerollPrompt, 2500, think)
       if (r.error) return json({ error: 'The generator could not be reached right now. Try again in a moment.' }, 502)
       const block = extractJson(r.raw, r.stop) as Record<string, unknown>
       if (!block.title || !block.drill) throw new Error('Reroll block missing fields')
@@ -519,9 +524,6 @@ Return ONLY the minified JSON object for the replacement block — no wrapper, n
   // when the library can't serve the request; 'any' is the hidden test mode
   // that composes from unvetted rows too; 'off' skips the library.
   const composeMode = body.compose === 'any' || body.compose === 'off' ? body.compose : 'auto'
-  // Hidden knob for measuring the thinking trade-off; the defaults below are
-  // what real users get.
-  const think: Think = body.think === 'off' || body.think === 'low' || body.think === 'adaptive' ? body.think : DEFAULT_THINK
   if (composeMode !== 'off' && !variation) {
     const composed = await tryCompose({
       personaId: PERSONAS[body.persona ?? ''] ? (body.persona as string) : 'technician',

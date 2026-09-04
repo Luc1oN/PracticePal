@@ -1,0 +1,1130 @@
+[
+  {
+    "slug": "champions-tiebreak-ladder",
+    "name": "Champions Tiebreak Ladder",
+    "summary": "A group ladder of ten-point tiebreaks where winners climb a rung and losers drop one.",
+    "skill_focus": [
+      "games"
+    ],
+    "levels": [
+      "intermediate",
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 8,
+    "duration_min": 12,
+    "duration_max": 16,
+    "equipment": [
+      "ball basket"
+    ],
+    "setup": "Players ranked on a ladder from one downwards, written on a card. Pairs play a ten-point tiebreak on the singles court from a serve; the winner moves up a rung and the loser down. With more than two players, the waiting players are the next pair and take the court as soon as one finishes. Basket at the net post.",
+    "instructions": [
+      "Play a ten-point tiebreak, win by two, normal serving order.",
+      "Winner moves up one rung, loser down one; the new pairs are the adjacent rungs.",
+      "Play four tiebreaks each.",
+      "Fifth tiebreak: the top two play a fifteen-point final.",
+      "Everyone keeps their own count of double faults across the four tiebreaks."
+    ],
+    "coaching_points": [
+      "First point of every tiebreak: highest-percentage serve and cross-court; do not give away the first point.",
+      "At 4-4 and beyond, add a metre of margin to every target.",
+      "Between points, the same routine every time: back to the fence, breathe, then walk in.",
+      "Serve the second serve with full spin; a double fault in a tiebreak is two points, not one."
+    ],
+    "progressions": [
+      "Second serves only for the whole ladder.",
+      "Tiebreaks start at 3-3.",
+      "The loser must call the score out loud on every point of the next tiebreak."
+    ],
+    "regressions": [
+      "Tiebreaks to seven instead of ten.",
+      "Points start from a hand-feed instead of a serve.",
+      "Play on half the court, cross-court only."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.54,
+          "y": 1.03,
+          "label": "Server"
+        },
+        {
+          "id": "P2",
+          "x": 0.3,
+          "y": -0.03,
+          "label": "Returner"
+        },
+        {
+          "id": "P3",
+          "x": 1.12,
+          "y": 0.85,
+          "label": "Next pair"
+        },
+        {
+          "id": "P4",
+          "x": 1.12,
+          "y": 0.95
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.62,
+          "y": 1.03
+        }
+      ],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.3,
+            0.32
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.3,
+            0.05
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": "P1",
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.7,
+            0.05
+          ],
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P2",
+          "to": "P2",
+          "style": "movement",
+          "step": 4
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "money-ball-double-points-on-the-called-ball",
+    "name": "Money Ball: Double Points on the Called Ball",
+    "summary": "Points from a serve where the returner can call a money ball worth double, to whoever wins it.",
+    "skill_focus": [
+      "games"
+    ],
+    "levels": [
+      "intermediate",
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 12,
+    "duration_max": 16,
+    "equipment": [
+      "ball basket"
+    ],
+    "setup": "Two players on the singles court playing points from a serve, basket beside the server. Before any point the returner may call 'money ball': that point is worth two to whoever wins it, so a lost money ball gives the server two.",
+    "instructions": [
+      "Play points from a serve; normal scoring to eleven.",
+      "The returner may call 'money ball' before any point, up to three times per game; that point counts double for whoever wins it.",
+      "After the game, swap server and the money-ball calls go to the new returner.",
+      "Play four games.",
+      "Last game: the server may also call money ball, once per game."
+    ],
+    "coaching_points": [
+      "Call money ball when your pattern is working, not when you are behind and desperate.",
+      "On a money ball, play your highest-percentage pattern: deep cross-court, then attack the short ball.",
+      "Server on a money ball: first serve percentage matters more than pace; get it in.",
+      "Recover the same way on a money ball; nothing changes except the score."
+    ],
+    "progressions": [
+      "Money balls are worth three.",
+      "Money ball must be called before the previous point ends.",
+      "Second serves only on money balls."
+    ],
+    "regressions": [
+      "One money ball per game.",
+      "Money balls are worth two if won and one if lost.",
+      "Points start from a hand-feed."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.54,
+          "y": 1.03,
+          "label": "Server"
+        },
+        {
+          "id": "P2",
+          "x": 0.3,
+          "y": -0.03,
+          "label": "Returner"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.62,
+          "y": 1.03
+        }
+      ],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.3,
+            0.32
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.3,
+            0.05
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": "P1",
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.28,
+            0.06
+          ],
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P2",
+          "to": "P2",
+          "style": "movement",
+          "step": 4
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "every-point-must-end-at-the-net",
+    "name": "Every Point Must End at the Net",
+    "summary": "Points that only count when the winner is inside the service line as the point ends, forcing approaches and passes.",
+    "skill_focus": [
+      "games",
+      "tactical"
+    ],
+    "levels": [
+      "intermediate",
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 12,
+    "duration_max": 16,
+    "equipment": [
+      "ball basket"
+    ],
+    "setup": "Two players on the singles court playing points from an underarm feed, basket at the net post. One rule: a point can be won only by a player who is inside the service line when the point ends; a point won from the baseline is replayed.",
+    "instructions": [
+      "Start each point with an underarm feed, alternating who starts.",
+      "Play the point out; the winner must be inside the service line at the moment the point ends, or the point is replayed.",
+      "First to eleven, then change ends.",
+      "Second game: the point can be won only with a volley or overhead.",
+      "Third game: start points from a serve and the server must serve and volley."
+    ],
+    "coaching_points": [
+      "Look for the approach early: any ball landing inside the service line is your invitation.",
+      "Approach deep down the line and split at the service line as the opponent makes contact.",
+      "First volley deep, then close for the finish.",
+      "When the opponent comes in, pass low cross-court or lob; do not give them a chest-height volley."
+    ],
+    "progressions": [
+      "The point can be won only with a volley or overhead.",
+      "Both players must be inside the service line by the fourth ball.",
+      "Start points from a serve; the server must serve and volley."
+    ],
+    "regressions": [
+      "A point won from the baseline counts for one and from the net for two.",
+      "Cooperate for four balls before the point goes live.",
+      "Play from the service lines."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.95,
+          "label": "Player A"
+        },
+        {
+          "id": "P2",
+          "x": 0.5,
+          "y": 0.05,
+          "label": "Player B"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 1.1,
+          "y": 0.53
+        }
+      ],
+      "paths": [
+        {
+          "from": "P1",
+          "to": "P2",
+          "style": "feed",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.6,
+            0.72
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.6,
+            0.74
+          ],
+          "style": "movement",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.72,
+            0.08
+          ],
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.6,
+            0.6
+          ],
+          "style": "movement",
+          "step": 3
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.4,
+            0.62
+          ],
+          "style": "ball",
+          "step": 4
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.2,
+            0.12
+          ],
+          "style": "ball",
+          "step": 5
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 6
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "serve-battle-called-zones",
+    "name": "Serve Battle: Called Zones",
+    "summary": "Two servers alternate serves into cone-marked zones, calling the zone before the toss and scoring against each other.",
+    "skill_focus": [
+      "games",
+      "serve"
+    ],
+    "levels": [
+      "intermediate",
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "half_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 10,
+    "duration_max": 14,
+    "equipment": [
+      "cones",
+      "ball basket"
+    ],
+    "setup": "Two servers behind the near baseline, taking turns from the same side, with the basket between them. Cones split each far box into three zones: T, body and wide. A resting player calls the zone each serve landed in from behind the far baseline, or the servers agree it between themselves. With four players, two serve and two call, then swap.",
+    "instructions": [
+      "Servers alternate, one serve each, calling the zone before the toss.",
+      "Score three for the called zone, one for the box, minus one for a miss; every ball is a first serve, no second serves.",
+      "First to twenty-one, switching boxes every four serves.",
+      "Second game: second serves only, same scoring.",
+      "Third game: the caller becomes a returner, and a serve that is returned into the court loses its points."
+    ],
+    "coaching_points": [
+      "Call the zone out loud and commit; a serve hit without a target is a coin toss.",
+      "Wide zone: toss further right and cut across the ball; T zone: toss in front and hit through it.",
+      "Under the scoring pressure, keep the routine identical: bounce, breathe, toss.",
+      "Body zone is the safest three points: kick it into the hip."
+    ],
+    "progressions": [
+      "Six zones: each of the three split into short and deep.",
+      "A miss costs two.",
+      "Serve from a metre behind the baseline."
+    ],
+    "regressions": [
+      "Two zones: left half and right half of the box.",
+      "A miss costs nothing.",
+      "Serve from a metre inside the baseline."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.54,
+          "y": 1.03,
+          "label": "Server A"
+        },
+        {
+          "id": "P2",
+          "x": 0.66,
+          "y": 1.07,
+          "label": "Server B"
+        },
+        {
+          "id": "P3",
+          "x": 0.5,
+          "y": -0.06,
+          "label": "Caller"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.6,
+          "y": 1.13
+        },
+        {
+          "type": "cone",
+          "x": 0.47,
+          "y": 0.25
+        },
+        {
+          "type": "cone",
+          "x": 0.31,
+          "y": 0.3
+        },
+        {
+          "type": "cone",
+          "x": 0.16,
+          "y": 0.25
+        },
+        {
+          "type": "cone",
+          "x": 0.53,
+          "y": 0.25
+        },
+        {
+          "type": "cone",
+          "x": 0.69,
+          "y": 0.3
+        },
+        {
+          "type": "cone",
+          "x": 0.84,
+          "y": 0.25
+        }
+      ],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.16,
+            0.26
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.47,
+            0.26
+          ],
+          "style": "ball",
+          "step": 2
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "handicap-tennis-stronger-player-starts-0-30",
+    "name": "Handicap Tennis: Stronger Player Starts 0-30",
+    "summary": "Games between players of different levels where the stronger one starts every game 0-30 down and the handicap adjusts as they go.",
+    "skill_focus": [
+      "games"
+    ],
+    "levels": [
+      "intermediate",
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 12,
+    "duration_max": 16,
+    "equipment": [
+      "ball basket"
+    ],
+    "setup": "Two players of different levels on the singles court, playing games from a serve, basket beside the server. Every game starts at 0-30 against the stronger player whoever is serving; the handicap changes by one point after each set of four games depending on who won more.",
+    "instructions": [
+      "Play games from a serve with normal scoring, but the stronger player starts every game at 0-30 down.",
+      "After four games, if the stronger player won three or more, the handicap becomes 0-40; if they won one or fewer, it drops to 0-15.",
+      "Play three sets of four games.",
+      "The weaker player calls the score before every point.",
+      "Last set: the weaker player may also choose which box the stronger player serves to."
+    ],
+    "coaching_points": [
+      "Stronger player: from 0-30 the first two points are about percentages; no risk until the score is level.",
+      "Weaker player: you only need two points; play your best pattern and make them hit an extra ball.",
+      "Both: serve the second serve with full spin; a double fault at 0-30 is the game.",
+      "Both: same routine at every score."
+    ],
+    "progressions": [
+      "Handicap starts at 0-40.",
+      "The stronger player gets one serve only.",
+      "The weaker player may replay one point per game."
+    ],
+    "regressions": [
+      "Handicap starts at 0-15.",
+      "Points start from a hand-feed by the weaker player.",
+      "Games to three points instead of four."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.54,
+          "y": 1.03,
+          "label": "Server"
+        },
+        {
+          "id": "P2",
+          "x": 0.3,
+          "y": -0.03,
+          "label": "Returner"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.62,
+          "y": 1.03
+        }
+      ],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.3,
+            0.32
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.3,
+            0.05
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": "P1",
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.7,
+            0.06
+          ],
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P2",
+          "to": "P2",
+          "style": "movement",
+          "step": 4
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "drop-shot-game-only-short-winners-count",
+    "name": "Drop Shot Game: Only Short Winners Count",
+    "summary": "Points that count only when won by a ball that bounces twice inside the service line, so the drop shot and the angle become the weapons.",
+    "skill_focus": [
+      "games",
+      "tactical"
+    ],
+    "levels": [
+      "intermediate",
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 12,
+    "duration_max": 16,
+    "equipment": [
+      "throwdowns",
+      "ball basket"
+    ],
+    "setup": "Two players on the singles court playing points from an underarm feed. Throwdowns along each service line make the short zone clear. Basket at the net post. A point counts only when it is won by a ball that bounces twice inside the opponent's service line, a drop shot or an angle; every other finish is replayed.",
+    "instructions": [
+      "Start each point with an underarm feed, alternating who starts.",
+      "Play the point out; it counts only if won by a ball that bounces twice inside the opponent's service line.",
+      "First to seven, then change ends.",
+      "Second game: a winner from inside the service line scores two, a normal point scores one.",
+      "Third game: drop shots may be played only off a ball that landed short."
+    ],
+    "coaching_points": [
+      "Drop shot off a short ball only, and only when you are inside the baseline and balanced.",
+      "Same take-back as the drive; the face opens late.",
+      "Aim to bounce a metre past the net; a drop shot that lands deep in the box is a sitter.",
+      "Follow the drop shot in a step; the reply will be short too."
+    ],
+    "progressions": [
+      "Drop shots must be played cross-court.",
+      "The point counts only if the drop shot is not touched.",
+      "Start points from a serve."
+    ],
+    "regressions": [
+      "Any point won from inside the service line counts, including volleys.",
+      "Cooperate for four balls before the point goes live.",
+      "Play from the service lines."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.95,
+          "label": "Player A"
+        },
+        {
+          "id": "P2",
+          "x": 0.5,
+          "y": 0.05,
+          "label": "Player B"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "throwdown",
+          "x": 0.25,
+          "y": 0.769
+        },
+        {
+          "type": "throwdown",
+          "x": 0.5,
+          "y": 0.769
+        },
+        {
+          "type": "throwdown",
+          "x": 0.75,
+          "y": 0.769
+        },
+        {
+          "type": "throwdown",
+          "x": 0.25,
+          "y": 0.231
+        },
+        {
+          "type": "throwdown",
+          "x": 0.5,
+          "y": 0.231
+        },
+        {
+          "type": "throwdown",
+          "x": 0.75,
+          "y": 0.231
+        },
+        {
+          "type": "ball basket",
+          "x": 1.1,
+          "y": 0.53
+        }
+      ],
+      "paths": [
+        {
+          "from": "P1",
+          "to": "P2",
+          "style": "feed",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.55,
+            0.72
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.55,
+            0.74
+          ],
+          "style": "movement",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.3,
+            0.44
+          ],
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.3,
+            0.4
+          ],
+          "style": "movement",
+          "step": 3
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 4
+        },
+        {
+          "from": "P2",
+          "to": "P2",
+          "style": "movement",
+          "step": 4
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "four-corners-target-the-called-corner",
+    "name": "Four Corners: Target the Called Corner",
+    "summary": "Points where a ball into the corner box called before the point wins it outright, so the rally is built to open that corner.",
+    "skill_focus": [
+      "games"
+    ],
+    "levels": [
+      "intermediate",
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 12,
+    "duration_max": 16,
+    "equipment": [
+      "cones",
+      "ball basket"
+    ],
+    "setup": "Two players on the singles court playing points from an underarm feed. A two-metre cone box in each of the four corners, numbered one to four. Basket at the net post. Before each point a corner number is called by the player starting the point, or by a waiting player if there is one; a ball into that corner box during the point wins it outright.",
+    "instructions": [
+      "The player starting the point calls a corner number, then feeds underarm.",
+      "Play the point out; a ball landing in the called corner box wins the point immediately for the hitter.",
+      "Otherwise the point is played out normally; first to eleven.",
+      "Second game: the corner is called by the waiting player after the feed.",
+      "Third game: the called corner counts only if hit with a forehand."
+    ],
+    "coaching_points": [
+      "Build the point first: the called corner opens when the opponent is pulled the other way.",
+      "Hit the corner with margin: two metres inside the lines is still in the box.",
+      "Recover early after going for the corner; a miss leaves you out of position.",
+      "Defend the called corner: stand a step towards it and take away the easy ball."
+    ],
+    "progressions": [
+      "Shrink the corner boxes to one metre.",
+      "The corner is called after the feed.",
+      "Start points from a serve."
+    ],
+    "regressions": [
+      "Widen the corner boxes to three metres.",
+      "Cooperate for three balls before the point goes live.",
+      "Any corner counts, not only the called one."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.95,
+          "label": "Player A"
+        },
+        {
+          "id": "P2",
+          "x": 0.5,
+          "y": 0.05,
+          "label": "Player B"
+        },
+        {
+          "id": "P3",
+          "x": 1.1,
+          "y": 0.85,
+          "label": "Caller"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "cone",
+          "x": 0.13,
+          "y": 0.02
+        },
+        {
+          "type": "cone",
+          "x": 0.31,
+          "y": 0.02
+        },
+        {
+          "type": "cone",
+          "x": 0.13,
+          "y": 0.1
+        },
+        {
+          "type": "cone",
+          "x": 0.31,
+          "y": 0.1
+        },
+        {
+          "type": "cone",
+          "x": 0.69,
+          "y": 0.02
+        },
+        {
+          "type": "cone",
+          "x": 0.87,
+          "y": 0.02
+        },
+        {
+          "type": "cone",
+          "x": 0.69,
+          "y": 0.1
+        },
+        {
+          "type": "cone",
+          "x": 0.87,
+          "y": 0.1
+        },
+        {
+          "type": "cone",
+          "x": 0.13,
+          "y": 0.9
+        },
+        {
+          "type": "cone",
+          "x": 0.31,
+          "y": 0.9
+        },
+        {
+          "type": "cone",
+          "x": 0.13,
+          "y": 0.98
+        },
+        {
+          "type": "cone",
+          "x": 0.31,
+          "y": 0.98
+        },
+        {
+          "type": "cone",
+          "x": 0.69,
+          "y": 0.9
+        },
+        {
+          "type": "cone",
+          "x": 0.87,
+          "y": 0.9
+        },
+        {
+          "type": "cone",
+          "x": 0.69,
+          "y": 0.98
+        },
+        {
+          "type": "cone",
+          "x": 0.87,
+          "y": 0.98
+        },
+        {
+          "type": "ball basket",
+          "x": 1.1,
+          "y": 0.53
+        }
+      ],
+      "paths": [
+        {
+          "from": "P1",
+          "to": "P2",
+          "style": "feed",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.72,
+            0.9
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.72,
+            0.93
+          ],
+          "style": "movement",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.22,
+            0.06
+          ],
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 4
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "touch-tennis-slice-and-drop-only",
+    "name": "Touch Tennis: Slice and Drop Only",
+    "summary": "Half-court points where every ball must be a slice, a drop shot or a volley, so touch and low balls decide everything.",
+    "skill_focus": [
+      "games"
+    ],
+    "levels": [
+      "intermediate",
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "half_court",
+    "intensity": "low",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 10,
+    "duration_max": 14,
+    "equipment": [
+      "ball basket",
+      "cones"
+    ],
+    "setup": "Two players on one half of the court lengthways, singles sideline to centre line, with cones on the baselines and service lines at the centre line to mark it. Basket at the net post. Points from an underarm feed with one rule: every ball must be a slice, a drop shot or a volley; a topspin or flat drive loses the point.",
+    "instructions": [
+      "Start each point with an underarm feed, alternating who starts.",
+      "Play the point out with slices, drop shots and volleys only.",
+      "First to eleven, then play the other half.",
+      "Second game: drop shots are worth two.",
+      "Third game: both players must start each point inside the service line."
+    ],
+    "coaching_points": [
+      "Slice deep with a flat racket path; a chopped slice floats and sits up.",
+      "Drop shot from inside the baseline off a short ball, with the same preparation as the slice.",
+      "Move in behind the slice; the reply is short more often than not.",
+      "Soft hands on the volley; the ball has little pace, so you supply the direction, not the power."
+    ],
+    "progressions": [
+      "Slices must land past the service line.",
+      "Play on the whole court.",
+      "Start points from a slice serve."
+    ],
+    "regressions": [
+      "Allow one drive per point.",
+      "Play inside the service lines only.",
+      "Cooperate for four balls before the point goes live."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.72,
+          "y": 0.95,
+          "label": "Player A"
+        },
+        {
+          "id": "P2",
+          "x": 0.72,
+          "y": 0.05,
+          "label": "Player B"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "cone",
+          "x": 0.5,
+          "y": 1.0
+        },
+        {
+          "type": "cone",
+          "x": 0.5,
+          "y": 0.769
+        },
+        {
+          "type": "cone",
+          "x": 0.5,
+          "y": 0.231
+        },
+        {
+          "type": "cone",
+          "x": 0.5,
+          "y": 0.0
+        },
+        {
+          "type": "ball basket",
+          "x": 1.1,
+          "y": 0.53
+        }
+      ],
+      "paths": [
+        {
+          "from": "P1",
+          "to": "P2",
+          "style": "feed",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": "P1",
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.65,
+            0.44
+          ],
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.65,
+            0.4
+          ],
+          "style": "movement",
+          "step": 3
+        },
+        {
+          "from": "P2",
+          "to": "P2",
+          "style": "movement",
+          "step": 4
+        }
+      ]
+    },
+    "source": "generated"
+  }
+]

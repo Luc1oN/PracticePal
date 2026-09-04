@@ -1,0 +1,462 @@
+[
+  {
+    "slug": "throw-the-serve-overarm-throws-into-the-box",
+    "name": "Throw the Serve: Overarm Throws into the Box",
+    "summary": "Builds the serving action without a racket by throwing balls overarm into the diagonal service box from a side-on stance.",
+    "skill_focus": ["serve"],
+    "levels": ["beginner"],
+    "age_groups": ["mini_red", "mini_orange", "mini_green", "junior"],
+    "court_space": "service_boxes",
+    "intensity": "low",
+    "players_min": 1,
+    "players_max": 4,
+    "duration_min": 6,
+    "duration_max": 10,
+    "equipment": ["ball basket", "hoops"],
+    "setup": "Players stand on the near service line, one on each side of the centre line, with a basket of red or orange balls between them. A hoop in the middle of each far service box. No rackets: this is an overarm throw with the serving action, side-on, ball in the throwing hand.",
+    "instructions": [
+      "Stand side-on with the front foot pointing at the far net post and the ball held above the head.",
+      "Throw overarm over the net into the diagonal service box, aiming for the hoop.",
+      "Score one for the box, three for the hoop; ten throws each, then swap sides so the other box is the target.",
+      "Round two: hold a racket in the other hand and lift it up before the throw so both arms move together.",
+      "Round three: throw from two metres behind the service line."
+    ],
+    "coaching_points": [
+      "Elbow up and back before the throw, hand by the ear.",
+      "Throw up and over, not down; the ball goes over the net before it comes down.",
+      "Front foot stays planted; the back hip turns through towards the target.",
+      "Finish with the throwing hand down past the opposite knee."
+    ],
+    "progressions": [
+      "Throw from two metres behind the service line.",
+      "Replace the hoop with a single cone that must be hit.",
+      "Hold the racket up in the free hand as if tossing while you throw."
+    ],
+    "regressions": [
+      "Throw from a metre in front of the service line.",
+      "Widen the target to the whole far half.",
+      "Throw to a partner's hands across the net instead of into the box."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "P1", "x": 0.69, "y": 0.77, "label": "Thrower" },
+        { "id": "P2", "x": 0.31, "y": 0.77, "label": "Thrower" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.5, "y": 0.8 },
+        { "type": "hoop", "x": 0.31, "y": 0.36 },
+        { "type": "hoop", "x": 0.69, "y": 0.36 }
+      ],
+      "paths": [
+        { "from": "P1", "to": [0.31, 0.36], "style": "ball", "step": 1 },
+        { "from": "P2", "to": [0.69, 0.36], "style": "ball", "step": 2 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "toss-and-catch-on-the-spot",
+    "name": "Toss and Catch on the Spot",
+    "summary": "Fixes the service toss by tossing into a hoop on the ground and catching at full stretch without moving the feet.",
+    "skill_focus": ["serve"],
+    "levels": ["beginner"],
+    "age_groups": ["mini_orange", "mini_green", "junior", "adult"],
+    "court_space": "service_boxes",
+    "intensity": "low",
+    "players_min": 1,
+    "players_max": 4,
+    "duration_min": 5,
+    "duration_max": 8,
+    "equipment": ["hoops", "ball basket"],
+    "setup": "Each player stands a metre behind the near service line with a hoop on the ground a racket length in front of the front foot and slightly to the racket side; that is where a good toss would land. Racket in the hitting hand held up in the trophy position. Basket of balls beside each player.",
+    "instructions": [
+      "Toss the ball from the fingertips, arm straight, releasing at eye height, and let it drop without moving the feet.",
+      "A ball that lands in the hoop scores; ten tosses, count the score.",
+      "Next ten: toss and catch the ball at full stretch with the tossing arm, without the feet moving.",
+      "Next ten: toss, and let the racket reach up to touch the ball at the top of the toss without hitting it.",
+      "Finish with five tosses followed by a full swing that hits the ball into the far box."
+    ],
+    "coaching_points": [
+      "Ball on the fingertips, not in the palm; the palm throws it crooked.",
+      "Lift the arm straight up like lifting a tray; release when the hand reaches eye height.",
+      "Toss only as high as the racket can reach at full stretch.",
+      "Feet still: if you have to move to catch it, the toss was wrong."
+    ],
+    "progressions": [
+      "Shrink the target from a hoop to a single cone the ball must land on.",
+      "Toss with the eyes closed for the catch round.",
+      "Toss from behind the baseline with the same hoop distance."
+    ],
+    "regressions": [
+      "Use a two-metre cone square instead of a hoop.",
+      "Toss with a red ball, which is lighter and slower.",
+      "Toss and catch only, no racket, until eight out of ten land in the hoop."
+    ],
+    "court_diagram": {
+      "court": "half",
+      "players": [
+        { "id": "P1", "x": 0.69, "y": 0.85, "label": "Server" }
+      ],
+      "equipment": [
+        { "type": "hoop", "x": 0.75, "y": 0.815 },
+        { "type": "ball basket", "x": 0.6, "y": 0.86 }
+      ],
+      "paths": [
+        { "from": "P1", "to": [0.75, 0.815], "style": "feed", "step": 1 },
+        { "from": "P1", "to": [0.4, 0.45], "style": "ball", "step": 2 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "service-line-serve-into-the-big-box",
+    "name": "Service-Line Serve into the Big Box",
+    "summary": "First real serves from the service line, scoring every ball that lands in the diagonal box before stepping back.",
+    "skill_focus": ["serve"],
+    "levels": ["beginner"],
+    "age_groups": ["mini_orange", "mini_green", "junior", "adult"],
+    "court_space": "service_boxes",
+    "intensity": "medium",
+    "players_min": 1,
+    "players_max": 4,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": ["ball basket", "cones"],
+    "setup": "Servers stand on the near service line, a metre either side of the centre line, serving diagonally into the far service boxes. A cone on each far singles sideline at the service line and one on the far centre line at the service line make the boxes easy to see. Basket between the servers. Two serve at a time; anyone else collects behind the far baseline and swaps in every ten serves.",
+    "instructions": [
+      "Serve overarm from the service line into the diagonal box; underarm serves count for the first ten if needed.",
+      "Score one for every serve in the box; ten serves, then swap sides so the other box is served.",
+      "Round two: only overarm serves count.",
+      "Round three: serve from two steps behind the service line.",
+      "Keep a running total per player; the target is seven out of ten before moving back."
+    ],
+    "coaching_points": [
+      "Toss slightly in front so the body moves forward into the serve.",
+      "Reach up: contact at the highest point the arm can reach.",
+      "Swing the racket up and over the ball, finishing across the body.",
+      "Front foot points at the net post and stays still until the ball is hit."
+    ],
+    "progressions": [
+      "Serve from halfway between the service line and the baseline.",
+      "Switch from an orange ball to a green ball.",
+      "Score only serves that land past the middle of the box."
+    ],
+    "regressions": [
+      "Serve from a metre inside the service line.",
+      "Allow the ball to bounce once before serving, a drop-hit serve.",
+      "Use a red ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "P1", "x": 0.6, "y": 0.78, "label": "Server" },
+        { "id": "P2", "x": 0.4, "y": 0.78, "label": "Server" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.5, "y": 0.83 },
+        { "type": "cone", "x": 0.125, "y": 0.231 },
+        { "type": "cone", "x": 0.5, "y": 0.231 },
+        { "type": "cone", "x": 0.875, "y": 0.231 }
+      ],
+      "paths": [
+        { "from": "P1", "to": [0.3, 0.32], "style": "ball", "step": 1 },
+        { "from": "P2", "to": [0.7, 0.32], "style": "ball", "step": 2 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "return-catch-track-trap-then-hit",
+    "name": "Return Catch: Track, Trap, Then Hit",
+    "summary": "Introduces the return by tracking a gentle serve and trapping it on the strings before progressing to a blocked return.",
+    "skill_focus": ["return"],
+    "levels": ["beginner"],
+    "age_groups": ["mini_orange", "mini_green", "junior"],
+    "court_space": "service_boxes",
+    "intensity": "low",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": ["ball basket"],
+    "setup": "Server on the far service line at the centre with the basket, serving gently overarm into the near deuce box. Returner on the near service line in the middle of the deuce box, racket held out in front with two hands in a ready position. Nothing else on court.",
+    "instructions": [
+      "Server hits an easy serve into the box.",
+      "Returner moves to the ball and traps it on the racket strings after one bounce, letting it roll to a stop, no swing.",
+      "Five traps, then five returns where the returner blocks the ball back over the net to the server.",
+      "Swap roles after each ten.",
+      "Round two: the returner calls 'forehand' or 'backhand' as the ball leaves the server's racket, then traps or returns."
+    ],
+    "coaching_points": [
+      "Split step as the server hits, then move to the ball with the racket already out in front.",
+      "Track the ball all the way onto the strings; the trap is a soft catch, not a hit.",
+      "Turn the shoulders as soon as you know the side.",
+      "For the block, short swing, firm wrist, aim back at the server."
+    ],
+    "progressions": [
+      "Server serves from two metres behind the service line.",
+      "Returner must return every serve, no traps.",
+      "Switch from an orange ball to a green ball."
+    ],
+    "regressions": [
+      "Server tosses underarm instead of serving.",
+      "Returner catches the ball in the free hand before trapping with the racket.",
+      "Use a red ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "P1", "x": 0.5, "y": 0.23, "label": "Server" },
+        { "id": "P2", "x": 0.69, "y": 0.72, "label": "Returner" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.58, "y": 0.23 }
+      ],
+      "paths": [
+        { "from": "P1", "to": [0.66, 0.68], "style": "ball", "step": 1 },
+        { "from": "P2", "to": [0.65, 0.7], "style": "movement", "step": 1 },
+        { "from": "P2", "to": "P1", "style": "ball", "step": 2 },
+        { "from": "P2", "to": "P2", "style": "movement", "step": 3 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "serve-and-return-points-in-the-boxes",
+    "name": "Serve and Return Points in the Boxes",
+    "summary": "Plays live points from a service-line serve inside the four service boxes, so beginners learn the serve-return exchange at a slow pace.",
+    "skill_focus": ["serve", "return"],
+    "levels": ["beginner"],
+    "age_groups": ["mini_orange", "mini_green", "junior", "adult"],
+    "court_space": "service_boxes",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 10,
+    "duration_max": 15,
+    "equipment": ["ball basket", "cones"],
+    "setup": "One player on each side. The server stands on the service line and serves diagonally into the far box; the returner stands on their service line in that box. Cones on the singles sidelines and centre lines at both service lines mark the playing area: the two boxes on each side. Basket at the net post. Serve changes hands every two points.",
+    "instructions": [
+      "Server serves overarm from the service line into the diagonal box; one serve, with an underarm second serve allowed.",
+      "Returner returns into any box and the point is played inside the boxes.",
+      "First to seven, then change ends and change the serving box.",
+      "A serve that misses the box twice loses the point.",
+      "Third game: the return must go cross-court, back to the server's box."
+    ],
+    "coaching_points": [
+      "Server: toss in front and hit up; the box is close, so height wins.",
+      "Returner: split step on the server's contact, racket out in front.",
+      "Short swings for both: the boxes are small and the ball is slow.",
+      "After the serve, take one step in and get ready; the return comes back quickly."
+    ],
+    "progressions": [
+      "Serve from two metres behind the service line.",
+      "Switch from an orange ball to a green ball.",
+      "The return must be hit before the second bounce, no trapping."
+    ],
+    "regressions": [
+      "Serve underarm for the whole game.",
+      "Allow two bounces on the return.",
+      "Use a red ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "P1", "x": 0.6, "y": 0.78, "label": "Server" },
+        { "id": "P2", "x": 0.31, "y": 0.23, "label": "Returner" }
+      ],
+      "equipment": [
+        { "type": "cone", "x": 0.125, "y": 0.769 },
+        { "type": "cone", "x": 0.875, "y": 0.769 },
+        { "type": "cone", "x": 0.125, "y": 0.231 },
+        { "type": "cone", "x": 0.875, "y": 0.231 },
+        { "type": "ball basket", "x": 1.1, "y": 0.53 }
+      ],
+      "paths": [
+        { "from": "P1", "to": "P2", "style": "ball", "step": 1 },
+        { "from": "P2", "to": [0.6, 0.7], "style": "ball", "step": 2 },
+        { "from": "P1", "to": "P2", "style": "ball", "step": 3 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "step-back-serve-ladder",
+    "name": "Step-Back Serve Ladder",
+    "summary": "Moves the server back one cone at a time from the service line to the baseline, earning each step with serves in the box.",
+    "skill_focus": ["serve"],
+    "levels": ["beginner"],
+    "age_groups": ["mini_green", "junior", "adult"],
+    "court_space": "half_court",
+    "intensity": "medium",
+    "players_min": 1,
+    "players_max": 4,
+    "duration_min": 10,
+    "duration_max": 14,
+    "equipment": ["cones", "ball basket"],
+    "setup": "Server starts beside the near service line on the deuce side, serving into the far deuce box. Four cones mark serving spots in a straight line back towards the baseline: on the service line, two metres back, four metres back, and on the baseline. Basket beside the first cone. Extra players collect behind the far baseline and swap in after each set of five.",
+    "instructions": [
+      "Serve from the first cone until three serves out of five land in the box.",
+      "Move back one cone and repeat; a failed set of five means you stay on that cone.",
+      "The ladder is complete when three of five go in from the baseline.",
+      "Swap in the next player after every set of five.",
+      "Second time up the ladder, serve into the ad box."
+    ],
+    "coaching_points": [
+      "The swing does not change as you move back; the toss goes a little more in front.",
+      "Reach up at contact from every spot; hitting higher adds length, hitting harder does not.",
+      "Land on the front foot inside the court after the serve.",
+      "Same routine before every serve: bounce, breathe, toss."
+    ],
+    "progressions": [
+      "Require four out of five at each cone.",
+      "Add a fifth cone a metre behind the baseline.",
+      "Switch from a green ball to a yellow ball."
+    ],
+    "regressions": [
+      "Require two out of five at each cone.",
+      "Remove the baseline cone so the ladder ends four metres back.",
+      "Use an orange ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "P1", "x": 0.6, "y": 0.79, "label": "Server" }
+      ],
+      "equipment": [
+        { "type": "cone", "x": 0.52, "y": 0.769 },
+        { "type": "cone", "x": 0.52, "y": 0.853 },
+        { "type": "cone", "x": 0.52, "y": 0.937 },
+        { "type": "cone", "x": 0.52, "y": 1.0 },
+        { "type": "ball basket", "x": 0.68, "y": 0.79 }
+      ],
+      "paths": [
+        { "from": "P1", "to": [0.3, 0.32], "style": "ball", "step": 1 },
+        { "from": "P1", "to": [0.6, 0.87], "style": "movement", "step": 2 },
+        { "from": "P1", "to": [0.3, 0.32], "style": "ball", "step": 3 },
+        { "from": "P1", "to": [0.6, 1.02], "style": "movement", "step": 4 },
+        { "from": "P1", "to": [0.3, 0.32], "style": "ball", "step": 5 },
+        { "from": "P1", "to": "P1", "style": "movement", "step": 6 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "return-ready-split-on-the-toss",
+    "name": "Return Ready: Split on the Toss",
+    "summary": "Times the returner's split step to the server's toss and contact, then returns cross-court past the service line.",
+    "skill_focus": ["return", "movement"],
+    "levels": ["beginner"],
+    "age_groups": ["mini_green", "junior", "adult"],
+    "court_space": "half_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": ["ball basket", "throwdowns"],
+    "setup": "Feeder on the far service line at the centre with the basket, tossing a ball up and hitting an easy serve-like feed into the near deuce box. Returner on the near baseline on the deuce side, a metre inside the singles sideline. A throwdown one metre in front of the returner marks where the split step should land. Extra players queue behind the near baseline outside the doubles sideline.",
+    "instructions": [
+      "Feeder tosses the ball up like a serve; the returner split-steps as the toss goes up and lands as the feeder makes contact.",
+      "Feeder hits the ball into the box; returner moves and returns it cross-court over the net.",
+      "Score one for a return that lands past the far service line.",
+      "Eight returns, then rotate.",
+      "Second round: the feeder sometimes catches the toss instead of hitting; a returner who has already run forward loses a point."
+    ],
+    "coaching_points": [
+      "Feet leave the ground as the toss goes up, land as the racket hits the ball.",
+      "Land on the balls of the feet with the knees bent, ready to push either way.",
+      "Racket out in front at waist height, both hands on it.",
+      "First step is towards the ball, not backwards."
+    ],
+    "progressions": [
+      "Feeder serves properly from the far baseline.",
+      "Feeder serves to either box; the returner must cover both.",
+      "Returner must return down the middle past a cone on the far centre line."
+    ],
+    "regressions": [
+      "Feeder tosses underarm and the returner splits on the release.",
+      "Returner catches the ball in the free hand after the split, then returns the next one.",
+      "Use an orange ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "F", "x": 0.5, "y": 0.23, "label": "Feeder" },
+        { "id": "P1", "x": 0.78, "y": 0.95, "label": "Returner" },
+        { "id": "P2", "x": 1.1, "y": 0.95, "label": "Queue" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.58, "y": 0.23 },
+        { "type": "throwdown", "x": 0.78, "y": 0.905 }
+      ],
+      "paths": [
+        { "from": "F", "to": [0.72, 0.72], "style": "feed", "step": 1 },
+        { "from": "P1", "to": [0.74, 0.78], "style": "movement", "step": 1 },
+        { "from": "P1", "to": [0.3, 0.1], "style": "ball", "step": 2 },
+        { "from": "P1", "to": "P1", "style": "movement", "step": 3 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "serve-target-bingo-four-quarters",
+    "name": "Serve Target Bingo: Four Quarters",
+    "summary": "Turns serve placement into bingo by splitting the box into four quarters that each have to be hit once.",
+    "skill_focus": ["serve"],
+    "levels": ["beginner"],
+    "age_groups": ["mini_green", "junior", "adult"],
+    "court_space": "half_court",
+    "intensity": "medium",
+    "players_min": 1,
+    "players_max": 4,
+    "duration_min": 10,
+    "duration_max": 14,
+    "equipment": ["cones", "ball basket"],
+    "setup": "Server stands halfway between the near service line and the baseline, on the deuce side, serving into the far deuce box. Four cones split that box into quarters: one in the centre of the box, one on the far service line directly behind it, and one on each side line of the box level with the centre cone. Basket beside the server. With more than one server, share the basket and take turns serving five each.",
+    "instructions": [
+      "Serve five balls, calling which quarter you are aiming for before each toss.",
+      "Tick off a quarter when a serve lands in it; bingo is all four quarters ticked.",
+      "First to bingo wins the round; with one player, count the serves needed.",
+      "Round two from two steps further back.",
+      "Round three into the ad box."
+    ],
+    "coaching_points": [
+      "Pick the quarter, then look at the toss; do not look at the target during the swing.",
+      "Front quarters: hit up more and softer; back quarters: reach and hit through.",
+      "Wide quarters: toss slightly further to the racket side; middle quarters: toss straight up.",
+      "Same rhythm every serve: bounce, toss, hit."
+    ],
+    "progressions": [
+      "Serve from the baseline.",
+      "Bingo requires the quarters in a set order.",
+      "Switch from a green ball to a yellow ball."
+    ],
+    "regressions": [
+      "Serve from the service line.",
+      "Split the box into two halves instead of four quarters.",
+      "Use an orange ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "P1", "x": 0.6, "y": 0.885, "label": "Server" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.68, "y": 0.885 },
+        { "type": "cone", "x": 0.3125, "y": 0.3655 },
+        { "type": "cone", "x": 0.3125, "y": 0.231 },
+        { "type": "cone", "x": 0.125, "y": 0.3655 },
+        { "type": "cone", "x": 0.5, "y": 0.3655 }
+      ],
+      "paths": [
+        { "from": "P1", "to": [0.22, 0.29], "style": "ball", "step": 1 },
+        { "from": "P1", "to": [0.4, 0.44], "style": "ball", "step": 2 },
+        { "from": "P1", "to": [0.22, 0.44], "style": "ball", "step": 3 },
+        { "from": "P1", "to": [0.4, 0.29], "style": "ball", "step": 4 }
+      ]
+    },
+    "source": "generated"
+  }
+]

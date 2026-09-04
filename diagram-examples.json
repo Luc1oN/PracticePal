@@ -1,0 +1,126 @@
+[
+  {
+    "id": "ex-1-crosscourt-rally",
+    "title": "Cross-court forehand rally",
+    "player_count": 2,
+    "court_space": "Full court",
+    "setup": "Two players, one each side of the net, both starting on the deuce side behind the baseline. Hoop targets mark the deep cross-court zone on each side.",
+    "instructions": [
+      "Rally cross-court, forehand to forehand.",
+      "Aim deep past the service line into the hoop zone. Count consecutive balls.",
+      "Switch to the ad side (backhands) after five minutes."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "P1", "x": 0.72, "y": 0.95, "label": "Forehand" },
+        { "id": "P2", "x": 0.28, "y": 0.05, "label": "Forehand" }
+      ],
+      "equipment": [
+        { "type": "target", "x": 0.28, "y": 0.15 },
+        { "type": "target", "x": 0.72, "y": 0.85 }
+      ],
+      "paths": [
+        { "from": "P1", "to": "P2", "style": "ball" },
+        { "from": "P2", "to": "P1", "style": "ball" }
+      ]
+    }
+  },
+  {
+    "id": "ex-2-feed-queue",
+    "title": "Fed backhand, rotate through the queue",
+    "player_count": 4,
+    "court_space": "Half court",
+    "setup": "Coach at the net in the centre with a basket. Hitter starts on the ad side behind the baseline. The other three players queue behind the baseline, outside the doubles sideline.",
+    "instructions": [
+      "Coach feeds one ball to the backhand.",
+      "Hitter drives it cross-court, then jogs round to the back of the queue.",
+      "Next player steps in straight away. Keep the queue moving."
+    ],
+    "court_diagram": {
+      "court": "half",
+      "players": [
+        { "id": "C", "x": 0.5, "y": 0.58, "label": "Coach" },
+        { "id": "P1", "x": 0.28, "y": 0.95, "label": "Hitter" },
+        { "id": "P2", "x": 1.1, "y": 0.9, "label": "Queue" },
+        { "id": "P3", "x": 1.1, "y": 0.98 },
+        { "id": "P4", "x": 1.1, "y": 1.06 }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.6, "y": 0.58 }
+      ],
+      "paths": [
+        { "from": "C", "to": "P1", "style": "feed" },
+        { "from": "P1", "to": [0.78, 0.44], "style": "ball" },
+        { "from": "P1", "to": [1.1, 1.14], "style": "movement" }
+      ]
+    }
+  },
+  {
+    "id": "ex-3-cones-movement",
+    "title": "Wide forehand: move, hit, recover",
+    "player_count": 2,
+    "court_space": "Half court",
+    "setup": "Feeder on the deuce side between the net and the service line, basket beside them. Hitter starts on the centre mark. The feed and the run happen together (step 1), then the shot (step 2), then the recovery (step 3). A cone sits wide on each side just inside the singles sideline, and a throwdown line on the centre mark is the recovery point.",
+    "instructions": [
+      "Feeder tosses wide to the forehand cone.",
+      "Hitter runs to the cone, hits cross-court over the net, and recovers to the throwdown line.",
+      "Ten balls, then switch roles."
+    ],
+    "court_diagram": {
+      "court": "half",
+      "players": [
+        { "id": "F", "x": 0.64, "y": 0.6, "label": "Feeder" },
+        { "id": "P1", "x": 0.5, "y": 0.94, "label": "Hitter" }
+      ],
+      "equipment": [
+        { "type": "cone", "x": 0.85, "y": 0.9 },
+        { "type": "cone", "x": 0.15, "y": 0.9 },
+        { "type": "throwdown", "x": 0.5, "y": 0.985 },
+        { "type": "basket", "x": 0.74, "y": 0.6 }
+      ],
+      "paths": [
+        { "from": "F", "to": [0.82, 0.86], "style": "feed", "step": 1 },
+        { "from": "P1", "to": [0.82, 0.86], "style": "movement", "step": 1 },
+        { "from": [0.82, 0.86], "to": [0.22, 0.44], "style": "ball", "step": 2 },
+        { "from": "P1", "to": "P1", "style": "movement", "step": 3 }
+      ]
+    }
+  },
+  {
+    "id": "ex-4-malformed",
+    "title": "Malformed input demo (renderer must not crash)",
+    "player_count": 3,
+    "court_space": "Full court",
+    "setup": "Not a real drill. This diagram contains deliberate errors: a path to a player that does not exist, a player with no y, an equipment entry with no y, an unknown equipment type, an unknown path style, a path with no style, and a path that starts and ends on the same player.",
+    "instructions": "Expect: two players drawn, the P9 path skipped, P3 skipped, a hollow square for the mini hurdle, and every problem listed in the warnings strip under the diagram.",
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "P1", "x": 0.5, "y": 0.9, "label": "Server" },
+        { "id": "P2", "x": 0.5, "y": 0.1, "label": "Returner" },
+        { "id": "P3", "x": 0.2 }
+      ],
+      "equipment": [
+        { "type": "mini hurdle", "x": 0.9, "y": 0.6 },
+        { "type": "cone", "x": "0.1" },
+        { "type": "hoop", "x": 0.3, "y": 0.3 }
+      ],
+      "paths": [
+        { "from": "P1", "to": "P9", "style": "ball" },
+        { "from": "P1", "to": "P2", "style": "smash" },
+        { "from": "P2", "to": [0.5, 0.75] },
+        { "from": "P1", "to": "P1", "style": "movement" }
+      ]
+    }
+  },
+  {
+    "id": "ex-5-no-diagram",
+    "title": "Drill with no diagram yet",
+    "player_count": 2,
+    "court_space": "Full court",
+    "setup": "Serve and return, no diagram generated for this one.",
+    "instructions": "Renderer returns null; the review harness shows its placeholder instead.",
+    "court_diagram": null
+  }
+]

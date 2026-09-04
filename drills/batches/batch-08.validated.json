@@ -1,0 +1,1070 @@
+[
+  {
+    "slug": "serve-patterns-by-score-the-30-30-plan",
+    "name": "Serve Patterns by Score: The 30-30 Plan",
+    "summary": "Makes the server commit to a written serve plan for pressure scores and execute it against called scores.",
+    "skill_focus": [
+      "serve",
+      "tactical"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "half_court",
+    "intensity": "medium",
+    "players_min": 1,
+    "players_max": 4,
+    "duration_min": 10,
+    "duration_max": 15,
+    "equipment": [
+      "cones",
+      "ball basket"
+    ],
+    "setup": "Server behind the near baseline with the basket. Cones mark three targets in each far box: T, body and wide. A resting player, or the server alone, calls a score before each serve (15-30, 30-30, 40-30, deuce, ad-out) and the server serves the plan written for that score: first serve to the planned target, second serve to the body. Nothing else on court.",
+    "instructions": [
+      "Before starting, write a plan: which first-serve target for each of the five scores.",
+      "Caller announces a score; server serves the planned first serve, and if it misses, a second serve to the body.",
+      "Score two for the planned target, one for the box, minus one for a double fault.",
+      "Twenty points, then swap roles.",
+      "Second round: on 30-30 and deuce the caller may say 'change' as the server tosses, and the server must switch to the T."
+    ],
+    "coaching_points": [
+      "Decide the target before the bounce; at 30-30 the decision is the pressure, not the serve.",
+      "Second serve to the body: kick into the hip with high margin.",
+      "Same tempo at every score; the routine is the thing that never changes.",
+      "Toss position stays identical for every target; only the swing path changes."
+    ],
+    "progressions": [
+      "Shrink the targets to one-metre cone squares.",
+      "The caller adds break points, where the first serve must go wide.",
+      "Add a returner and play the point out at deuce and ad-out."
+    ],
+    "regressions": [
+      "Two scores only: 30-30 and deuce.",
+      "Second serves may go anywhere in the box.",
+      "Serve from a metre inside the baseline."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.54,
+          "y": 1.03,
+          "label": "Server"
+        },
+        {
+          "id": "P2",
+          "x": 0.5,
+          "y": -0.06,
+          "label": "Caller"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.62,
+          "y": 1.03
+        },
+        {
+          "type": "cone",
+          "x": 0.47,
+          "y": 0.25
+        },
+        {
+          "type": "cone",
+          "x": 0.31,
+          "y": 0.3
+        },
+        {
+          "type": "cone",
+          "x": 0.16,
+          "y": 0.25
+        },
+        {
+          "type": "cone",
+          "x": 0.53,
+          "y": 0.25
+        },
+        {
+          "type": "cone",
+          "x": 0.69,
+          "y": 0.3
+        },
+        {
+          "type": "cone",
+          "x": 0.84,
+          "y": 0.25
+        }
+      ],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.47,
+            0.26
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.31,
+            0.31
+          ],
+          "style": "ball",
+          "step": 2
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "return-plus-one-take-the-middle",
+    "name": "Return Plus One: Take the Middle",
+    "summary": "Links a deep-middle return to an aggressive second ball, so the returner neutralises first and attacks the short reply.",
+    "skill_focus": [
+      "return",
+      "tactical"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 12,
+    "duration_max": 16,
+    "equipment": [
+      "throwdowns",
+      "ball basket"
+    ],
+    "setup": "Server behind the far baseline with the basket, serving first serves. Returner behind the near baseline. A throwdown line two metres inside the far baseline, with a throwdown two metres either side of the centre mark on it, marks the deep-middle box. The server plays the point out after the return.",
+    "instructions": [
+      "Server serves; the returner returns deep into the middle box.",
+      "The server's next ball is live; the returner takes the first short ball and attacks it to the open side.",
+      "Play the point out; the returner scores two for a point won after a middle return, the server one for any point won.",
+      "Ten points, then swap roles.",
+      "Second round: the returner must attack the second ball down the line."
+    ],
+    "coaching_points": [
+      "The deep middle return takes away the server's angle; the plus-one is where you attack.",
+      "After the return, move forward a metre and split; expect the short ball.",
+      "Hit the plus-one early, on the rise, to the side the server has left.",
+      "If the server's ball is deep, reset with another deep middle ball; do not force it."
+    ],
+    "progressions": [
+      "Shrink the middle box to two metres.",
+      "Server serves second serves only and the returner must attack the return itself.",
+      "Returner must finish the point at the net."
+    ],
+    "regressions": [
+      "Server serves at three-quarter pace.",
+      "Any return past the throwdown line counts as the middle.",
+      "Cooperate until the plus-one, then play the point out."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.46,
+          "y": -0.03,
+          "label": "Server"
+        },
+        {
+          "id": "P2",
+          "x": 0.7,
+          "y": 1.03,
+          "label": "Returner"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.38,
+          "y": -0.03
+        },
+        {
+          "type": "throwdown",
+          "x": 0.32,
+          "y": 0.084
+        },
+        {
+          "type": "throwdown",
+          "x": 0.5,
+          "y": 0.084
+        },
+        {
+          "type": "throwdown",
+          "x": 0.68,
+          "y": 0.084
+        }
+      ],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.7,
+            0.4
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.7,
+            0.94
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.5,
+            0.05
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.6,
+            0.8
+          ],
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.6,
+            0.85
+          ],
+          "style": "movement",
+          "step": 3
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.2,
+            0.08
+          ],
+          "style": "ball",
+          "step": 4
+        },
+        {
+          "from": "P2",
+          "to": "P2",
+          "style": "movement",
+          "step": 5
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "serve-wide-first-ball-into-the-open-court",
+    "name": "Serve Wide, First Ball into the Open Court",
+    "summary": "Drills the classic deuce-court pattern: a wide serve that drags the returner out, then the first ball into the space it leaves.",
+    "skill_focus": [
+      "serve",
+      "tactical"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 12,
+    "duration_max": 16,
+    "equipment": [
+      "cones",
+      "ball basket"
+    ],
+    "setup": "Server behind the near baseline on the deuce side with the basket. Returner behind the far baseline on the deuce side. A cone on the far singles sideline a metre inside the service line marks the wide serve target; a two-metre cone box in the far ad corner, the open court after a wide deuce serve, marks the first-ball target. Extra players queue behind the near baseline outside the doubles sideline and swap in as the returner.",
+    "instructions": [
+      "Server serves wide to the cone; the returner returns cross-court or down the middle, whichever they can manage.",
+      "Server hits the first ball into the open-court cone box.",
+      "Score one for the wide serve, two for the first ball in the box; the ball is dead after the first ball.",
+      "Ten sequences, then rotate roles.",
+      "Second round: play the point out after the first ball."
+    ],
+    "coaching_points": [
+      "The wide serve opens the court; the first ball goes where the returner is not, not where you like hitting.",
+      "Land, split, and move to the ball as the return is struck; the open court closes fast.",
+      "First ball: heavy and deep is enough, a winner is a bonus.",
+      "If the return comes back wide, hit behind the returner instead; they are already running."
+    ],
+    "progressions": [
+      "Shrink the cone box to one metre.",
+      "The returner may return anywhere, including down the line.",
+      "Add the ad-court version: kick serve wide, first ball into the deuce corner."
+    ],
+    "regressions": [
+      "Returner hand-feeds the return to the server's forehand.",
+      "Widen the open-court target to the whole far ad half.",
+      "Serve from a metre inside the baseline."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.56,
+          "y": 1.03,
+          "label": "Server"
+        },
+        {
+          "id": "P2",
+          "x": 0.3,
+          "y": -0.03,
+          "label": "Returner"
+        },
+        {
+          "id": "P3",
+          "x": 1.1,
+          "y": 1.0,
+          "label": "Queue"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.64,
+          "y": 1.03
+        },
+        {
+          "type": "cone",
+          "x": 0.135,
+          "y": 0.27
+        },
+        {
+          "type": "cone",
+          "x": 0.7,
+          "y": 0.02
+        },
+        {
+          "type": "cone",
+          "x": 0.88,
+          "y": 0.02
+        },
+        {
+          "type": "cone",
+          "x": 0.7,
+          "y": 0.1
+        },
+        {
+          "type": "cone",
+          "x": 0.88,
+          "y": 0.1
+        }
+      ],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.15,
+            0.27
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.12,
+            0.2
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.5,
+            0.9
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.5,
+            0.94
+          ],
+          "style": "movement",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.79,
+            0.06
+          ],
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 4
+        },
+        {
+          "from": "P2",
+          "to": "P2",
+          "style": "movement",
+          "step": 4
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "chip-return-short-cross-court-against-serve-and-volley",
+    "name": "Chip Return Short Cross-Court Against Serve and Volley",
+    "summary": "Trains the low chipped return that makes a serve-and-volleyer volley up from below the net, played out as live points.",
+    "skill_focus": [
+      "return",
+      "tactical"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 12,
+    "duration_max": 16,
+    "equipment": [
+      "hoops",
+      "ball basket"
+    ],
+    "setup": "Server behind the far baseline with the basket, serving and following every serve to the net. Returner behind the near baseline on the deuce side. A hoop on the far side a metre inside the far singles sideline and a metre behind the net, on the cross-court side, marks the low chip target at the incoming volleyer's feet.",
+    "instructions": [
+      "Server serves and volleys on every point.",
+      "Returner chips the return short and low cross-court towards the hoop so the volleyer must volley up from below the net.",
+      "Play the point out; the returner scores two if the point is won after a chip into the hoop area, the server one for any point won.",
+      "Ten points, then swap roles.",
+      "Second round from the ad side."
+    ],
+    "coaching_points": [
+      "Continental grip, short backswing and a slightly open face: the ball should skid, not float.",
+      "Take the ball early and in front so it dips at the volleyer's feet.",
+      "Follow the chip in a step or two; a dipping ball often comes back short.",
+      "If the serve is a kick, block flat instead of chipping; a chipped high ball sits up."
+    ],
+    "progressions": [
+      "Move the hoop half a metre closer to the sideline.",
+      "Server serves at full pace.",
+      "Returner must follow the chip to the net."
+    ],
+    "regressions": [
+      "Server serves at three-quarter pace and stops at the service line.",
+      "Replace the hoop with the whole far service box.",
+      "Server hand-feeds from the service line and then closes in."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.46,
+          "y": -0.03,
+          "label": "Server"
+        },
+        {
+          "id": "P2",
+          "x": 0.72,
+          "y": 1.03,
+          "label": "Returner"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.38,
+          "y": -0.03
+        },
+        {
+          "type": "hoop",
+          "x": 0.17,
+          "y": 0.44
+        }
+      ],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.72,
+            0.4
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.4,
+            0.33
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.72,
+            0.94
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.19,
+            0.44
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.25,
+            0.42
+          ],
+          "style": "movement",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.5,
+            0.9
+          ],
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 4
+        },
+        {
+          "from": "P2",
+          "to": "P2",
+          "style": "movement",
+          "step": 4
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "kick-serve-bounce-height-check",
+    "name": "Kick Serve Bounce Height Check",
+    "summary": "Measures the kick serve by the height the ball passes a partner standing at the far baseline, not by where it lands.",
+    "skill_focus": [
+      "serve"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "half_court",
+    "intensity": "low",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": [
+      "ball basket",
+      "cones"
+    ],
+    "setup": "Server behind the near baseline on the ad side with the basket, serving kick serves into the far ad box. A partner stands behind the far baseline in the returner's position on a cone that marks the spot. Resting players collect behind them. No targets in the box: the score is the bounce height at the partner.",
+    "instructions": [
+      "Serve kick serves into the ad box; the partner stands still and lets each ball bounce past them without playing it.",
+      "Partner calls the height the ball passes them: 'waist', 'chest' or 'shoulder'.",
+      "Score one for waist, two for chest, three for shoulder; only serves in the box count.",
+      "Ten serves, then swap roles.",
+      "Second round: the partner returns the serve from above shoulder height, and nothing else counts."
+    ],
+    "coaching_points": [
+      "Toss behind the head and to the left, then swing up the back of the ball from seven to one o'clock.",
+      "Legs drive up into the ball; the kick comes from the upward path, not the wrist alone.",
+      "Contact slightly behind the head; a toss in front makes a slice, not a kick.",
+      "Finish on the racket-arm side with the racket pointing down; do not pull across the body."
+    ],
+    "progressions": [
+      "Only chest and shoulder height count.",
+      "Partner stands a metre inside the baseline so the ball must kick sooner.",
+      "Serve the kick wide in the ad box past a cone on the sideline."
+    ],
+    "regressions": [
+      "Serve from a metre inside the baseline.",
+      "Score any serve in the box, plus one if it passes above waist height.",
+      "Use a green ball to feel the brush before switching back."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.46,
+          "y": 1.03,
+          "label": "Server"
+        },
+        {
+          "id": "P2",
+          "x": 0.7,
+          "y": -0.04,
+          "label": "Height caller"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.38,
+          "y": 1.03
+        },
+        {
+          "type": "cone",
+          "x": 0.7,
+          "y": 0.0
+        }
+      ],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.68,
+            0.3
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": [
+            0.68,
+            0.3
+          ],
+          "to": [
+            0.72,
+            0.02
+          ],
+          "style": "ball",
+          "step": 2
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "return-stance-switch-blocked-backhand-full-forehand",
+    "name": "Return Stance Switch: Blocked Backhand, Full Forehand",
+    "summary": "Teaches the returner to match the swing to the serve, blocking fast first serves and driving slower second serves.",
+    "skill_focus": [
+      "return"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 10,
+    "duration_max": 15,
+    "equipment": [
+      "throwdowns",
+      "ball basket"
+    ],
+    "setup": "Server behind the far baseline with the basket, mixing first serves to the backhand and second serves to the forehand in any order. Returner behind the near baseline on the deuce side. A throwdown line two metres inside the far baseline is the depth target for both returns.",
+    "instructions": [
+      "Server serves; the returner reads the serve and chooses the reply: a compact block on a first serve to the backhand, or a full-swing drive on a second serve to the forehand.",
+      "Both returns must land past the throwdown line.",
+      "Score one for a deep return, one more if the swing matched the serve, minus one for a full swing at a first serve.",
+      "Ten returns, then swap roles.",
+      "Second round from the ad side, where the block is on the forehand and the drive on the backhand."
+    ],
+    "coaching_points": [
+      "First serve: racket back to the hip only, contact in front, hold the finish short.",
+      "Second serve: full unit turn, step in, and swing through the ball above the shoulder.",
+      "Decide from the toss and the speed of the swing, not after the bounce.",
+      "Split step on contact for both; the difference is the backswing, not the footwork."
+    ],
+    "progressions": [
+      "Server serves any serve to any side and the returner must match the reply to the pace.",
+      "Blocked returns must go cross-court and driven returns down the line.",
+      "Play the point out after the return."
+    ],
+    "regressions": [
+      "Server calls 'first' or 'second' before the toss.",
+      "Server serves at three-quarter pace on both serves.",
+      "Score any return in play."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.46,
+          "y": -0.03,
+          "label": "Server"
+        },
+        {
+          "id": "P2",
+          "x": 0.72,
+          "y": 1.03,
+          "label": "Returner"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.38,
+          "y": -0.03
+        },
+        {
+          "type": "throwdown",
+          "x": 0.3,
+          "y": 0.084
+        },
+        {
+          "type": "throwdown",
+          "x": 0.5,
+          "y": 0.084
+        },
+        {
+          "type": "throwdown",
+          "x": 0.7,
+          "y": 0.084
+        }
+      ],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.55,
+            0.72
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.5,
+            0.06
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.84,
+            0.7
+          ],
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.3,
+            0.06
+          ],
+          "style": "ball",
+          "step": 4
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "serve-speed-change-three-speeds-same-spot",
+    "name": "Serve Speed Change: Three Speeds, Same Spot",
+    "summary": "Develops control of serve pace by hitting the same target at three speeds with an unchanged swing shape.",
+    "skill_focus": [
+      "serve"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "half_court",
+    "intensity": "low",
+    "players_min": 1,
+    "players_max": 4,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": [
+      "cones",
+      "ball basket"
+    ],
+    "setup": "Server behind the near baseline on the deuce side with the basket. One cone on the T of the far deuce box as the target. Resting players stand behind the far baseline and rank each serve as slow, medium or fast; a server alone calls the intended speed before the toss and judges honestly.",
+    "instructions": [
+      "Serve three serves at the T: the first at sixty percent pace, the second at eighty, the third at full pace, all with the same swing shape.",
+      "The caller ranks the three; score one if they are ranked in the order served, plus one for each serve that lands within a racket length of the cone.",
+      "Six sets of three, then rotate.",
+      "Second round: the server picks the order and the caller must name the speeds correctly.",
+      "Third round: the slow serve must be a heavy slice, the fast one flat."
+    ],
+    "coaching_points": [
+      "Change the racket-head speed, not the swing length; the slow serve is a full swing at a slow tempo.",
+      "Toss and rhythm identical at every speed; speed is the last thing added.",
+      "On the slow serve, hit up more so it still carries to the T.",
+      "On the fast serve, keep the toss slightly in front and drive up through the legs."
+    ],
+    "progressions": [
+      "Five speeds: fifty, sixty, seventy, eighty and one hundred percent.",
+      "The caller must rank the serves before they bounce.",
+      "Same drill at the wide target."
+    ],
+    "regressions": [
+      "Two speeds: slow and fast.",
+      "Serve from a metre inside the baseline.",
+      "Score only serves in the box, no ranking."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.54,
+          "y": 1.03,
+          "label": "Server"
+        },
+        {
+          "id": "P2",
+          "x": 0.5,
+          "y": -0.06,
+          "label": "Caller"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.62,
+          "y": 1.03
+        },
+        {
+          "type": "cone",
+          "x": 0.47,
+          "y": 0.25
+        }
+      ],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.45,
+            0.28
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.47,
+            0.26
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.49,
+            0.24
+          ],
+          "style": "ball",
+          "step": 3
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "return-reaction-serves-from-the-service-line",
+    "name": "Return Reaction: Serves from the Service Line",
+    "summary": "Halves the returner's reaction time by having the server serve at full pace from the service line, so the block becomes automatic.",
+    "skill_focus": [
+      "return"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 10,
+    "duration_max": 14,
+    "equipment": [
+      "ball basket"
+    ],
+    "setup": "Server stands on the far service line at the centre with the basket, serving at full pace into the near boxes, so the returner has about half the normal time. Returner behind the near baseline. No targets: any return over the net into the singles court counts.",
+    "instructions": [
+      "Server serves at full pace from the service line, alternating boxes.",
+      "Returner blocks the ball back into the court, forehand or backhand, with no backswing.",
+      "Score one for every return in the court; count out of ten.",
+      "Ten serves, then swap roles.",
+      "Second round: the returner starts a metre inside the baseline."
+    ],
+    "coaching_points": [
+      "Racket in front of the body at chest height before the serve; there is no time to take it back.",
+      "Split step as the toss goes up, not on contact; the ball arrives too fast to wait.",
+      "Meet the ball in front and let it rebound; a firm wrist and a still head are the whole stroke.",
+      "Turn the shoulders, not the arm: a small turn each way is enough."
+    ],
+    "progressions": [
+      "Server moves a metre inside the service line.",
+      "Returns must land past the far service line.",
+      "Server serves to either box without a pattern."
+    ],
+    "regressions": [
+      "Server serves from two metres behind the service line.",
+      "Server serves at three-quarter pace.",
+      "Returner may catch the ball on the strings first, then return the next one."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.23,
+          "label": "Server"
+        },
+        {
+          "id": "P2",
+          "x": 0.5,
+          "y": 1.03,
+          "label": "Returner"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.58,
+          "y": 0.23
+        }
+      ],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.7,
+            0.7
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.65,
+            0.98
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.3,
+            0.15
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P2",
+          "to": "P2",
+          "style": "movement",
+          "step": 3
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.3,
+            0.7
+          ],
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.35,
+            0.98
+          ],
+          "style": "movement",
+          "step": 4
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.7,
+            0.15
+          ],
+          "style": "ball",
+          "step": 5
+        },
+        {
+          "from": "P2",
+          "to": "P2",
+          "style": "movement",
+          "step": 6
+        }
+      ]
+    },
+    "source": "generated"
+  }
+]

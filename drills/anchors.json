@@ -1,0 +1,183 @@
+[
+  {
+    "slug": "cross-court-forehand-depth-ladder",
+    "name": "Cross-Court Forehand Depth Ladder",
+    "summary": "Builds a reliable deep cross-court forehand by scoring only rally balls that land behind a throwdown line two metres inside the baseline.",
+    "skill_focus": ["forehand"],
+    "levels": ["improver", "intermediate"],
+    "age_groups": ["junior", "adult"],
+    "court_space": "cross_court_channel",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 10,
+    "duration_max": 15,
+    "equipment": ["throwdowns", "ball basket"],
+    "setup": "Both players start on the deuce side of their own baseline, between the centre mark and the singles sideline. On each side, lay three throwdowns in a line two metres inside the baseline, spread from the singles sideline to the centre mark, so the strip between the throwdowns and the baseline is the target zone. Ball basket at the near net post for restarts.",
+    "instructions": [
+      "Player A starts the rally with an easy cross-court forehand from a self-drop.",
+      "Rally forehand to forehand cross-court, cooperatively, at rally pace.",
+      "A ball that lands in the target strip (between the throwdowns and the baseline) scores one for the hitter; a shorter ball scores nothing but the rally continues.",
+      "An error ends the rally; restart from the basket, alternating who starts.",
+      "First to ten target balls wins the rung; play three rungs, then switch to the ad side and repeat on the backhand."
+    ],
+    "coaching_points": [
+      "Aim a racket length above the net tape; depth comes from height, not from hitting harder.",
+      "Finish with the racket over the opposite shoulder before you look where the ball went.",
+      "Recover to the centre of your half after every ball, not the centre of the court.",
+      "Load the outside leg before the bounce so the hip drives the ball up and through."
+    ],
+    "progressions": [
+      "Move the throwdown line to one metre inside the baseline.",
+      "Score only balls that also land in a two-metre lane along the singles sideline.",
+      "Switch from a green ball to a yellow ball."
+    ],
+    "regressions": [
+      "Move the throwdown line to the service line so any ball past it scores.",
+      "Allow one non-counting recovery ball after each error before the rally must restart.",
+      "Use an orange ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "P1", "x": 0.72, "y": 0.95, "label": "Hitter A" },
+        { "id": "P2", "x": 0.28, "y": 0.05, "label": "Hitter B" }
+      ],
+      "equipment": [
+        { "type": "throwdown", "x": 0.56, "y": 0.916 },
+        { "type": "throwdown", "x": 0.69, "y": 0.916 },
+        { "type": "throwdown", "x": 0.82, "y": 0.916 },
+        { "type": "throwdown", "x": 0.18, "y": 0.084 },
+        { "type": "throwdown", "x": 0.31, "y": 0.084 },
+        { "type": "throwdown", "x": 0.44, "y": 0.084 },
+        { "type": "ball basket", "x": 1.1, "y": 0.53 }
+      ],
+      "paths": [
+        { "from": "P1", "to": "P2", "style": "ball", "step": 1 },
+        { "from": "P2", "to": "P1", "style": "ball", "step": 2 }
+      ]
+    },
+    "source": "manual",
+    "is_vetted": true
+  },
+  {
+    "slug": "second-serve-kick-zones",
+    "name": "Second Serve Kick Zones",
+    "summary": "Grooves a second serve that clears the net with margin and lands in the two places a returner least wants it: the wide corner and the T.",
+    "skill_focus": ["serve"],
+    "levels": ["intermediate", "advanced"],
+    "age_groups": ["junior", "adult"],
+    "court_space": "baseline_only",
+    "intensity": "low",
+    "players_min": 1,
+    "players_max": 4,
+    "duration_min": 10,
+    "duration_max": 15,
+    "equipment": ["cones", "hoops", "ball basket"],
+    "setup": "Server behind the near baseline, half a metre to the right of the centre mark, serving into the far service box on the left. In that box lay a two-metre square of four cones in the back outside corner, against the service line and the singles sideline, and a single hoop on the T. Basket beside the server. With more than one player, servers take turns from the same spot sharing one basket, and whoever is resting stands behind the far baseline to call where each serve lands.",
+    "instructions": [
+      "Serve ten second serves at the wide-corner cone square, then ten at the T hoop.",
+      "Only count a serve that clears the net by at least a racket length; a serve that scrapes the tape is worth nothing here even if it lands in.",
+      "Score one for the box, three for a ball that lands inside the cones or the hoop.",
+      "After each block of ten, note the score, then serve one block of ten calling the target out loud before the toss.",
+      "With two or more players, rotate every ten serves; the resting player calls the landing spot from behind the far baseline."
+    ],
+    "coaching_points": [
+      "Toss slightly behind the head and to the left so the racket brushes up the back of the ball.",
+      "Lead with the racket edge up to contact; the strings turn the ball over, the arm does not push it.",
+      "Snap up at contact, not forward; the ball should climb before it dips.",
+      "Land inside the court on the left foot with the right leg kicking back behind you."
+    ],
+    "progressions": [
+      "Shrink the cone square from two metres to one.",
+      "Alternate targets on every serve without pausing between balls.",
+      "Add a returner who must put the ball back cross-court; the serve scores only if the return lands short of the service line."
+    ],
+    "regressions": [
+      "Serve from the service line instead of the baseline, same targets.",
+      "Use a green ball so the ball slows down and the spin is easier to see.",
+      "Remove the T hoop and serve only at the wide-corner square."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "P1", "x": 0.54, "y": 1.03, "label": "Server" }
+      ],
+      "equipment": [
+        { "type": "cone", "x": 0.16, "y": 0.245 },
+        { "type": "cone", "x": 0.29, "y": 0.245 },
+        { "type": "cone", "x": 0.16, "y": 0.31 },
+        { "type": "cone", "x": 0.29, "y": 0.31 },
+        { "type": "hoop", "x": 0.47, "y": 0.26 },
+        { "type": "ball basket", "x": 0.62, "y": 1.03 }
+      ],
+      "paths": [
+        { "from": "P1", "to": [0.22, 0.28], "style": "ball", "step": 1 },
+        { "from": "P1", "to": [0.47, 0.26], "style": "ball", "step": 2 }
+      ]
+    },
+    "source": "manual",
+    "is_vetted": true
+  },
+  {
+    "slug": "wide-forehand-shuttle-with-recovery-line",
+    "name": "Wide Forehand Shuttle with Recovery Line",
+    "summary": "Trains the run to a wide forehand and the recovery back to the middle, with the feeder timing each ball off the hitter's recovery.",
+    "skill_focus": ["movement", "forehand"],
+    "levels": ["improver", "intermediate"],
+    "age_groups": ["junior", "adult"],
+    "court_space": "half_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 10,
+    "duration_max": 14,
+    "equipment": ["cones", "throwdowns", "ball basket"],
+    "setup": "Feeder stands two metres inside the near service line on the deuce side with the basket beside them. One cone a metre inside the singles sideline and two metres behind the near service line on the forehand side; a throwdown on the centre mark is the recovery point. Hitter starts on the throwdown. Extra players queue behind the near baseline, outside the doubles sideline.",
+    "instructions": [
+      "Feeder tosses a ball to bounce beside the wide cone.",
+      "Hitter runs from the throwdown to the cone, hits a cross-court forehand over the net, and recovers to the throwdown with side steps.",
+      "Feeder sends the next ball as the hitter touches the throwdown, not before.",
+      "Six balls, then the hitter jogs to the back of the queue and the next player steps on.",
+      "Three rounds each, then move the cone to the backhand side and repeat."
+    ],
+    "coaching_points": [
+      "Split step as the feeder's hand releases the ball.",
+      "First step is a big crossover, the last two are small adjustment steps.",
+      "Contact out in front of the front hip, then let the racket finish across the body.",
+      "Recover with side shuffles facing the net; never turn your back on the feeder."
+    ],
+    "progressions": [
+      "Feeder sends the next ball when the hitter is one step from the throwdown, not on it.",
+      "Move the cone half a metre closer to the sideline.",
+      "Feeder replaces every third wide ball with a short ball inside the service line."
+    ],
+    "regressions": [
+      "Move the cone one metre closer to the throwdown.",
+      "Feeder waits two full seconds after the hitter stops on the throwdown before the next feed.",
+      "Hitter walks the recovery instead of shuffling."
+    ],
+    "court_diagram": {
+      "court": "half",
+      "players": [
+        { "id": "F", "x": 0.64, "y": 0.6, "label": "Feeder" },
+        { "id": "P1", "x": 0.5, "y": 0.94, "label": "Hitter" },
+        { "id": "P2", "x": 1.1, "y": 0.92, "label": "Queue" },
+        { "id": "P3", "x": 1.1, "y": 1.0 }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.74, "y": 0.6 },
+        { "type": "cone", "x": 0.78, "y": 0.86 },
+        { "type": "throwdown", "x": 0.5, "y": 0.985 }
+      ],
+      "paths": [
+        { "from": "F", "to": [0.75, 0.84], "style": "feed", "step": 1 },
+        { "from": "P1", "to": [0.75, 0.84], "style": "movement", "step": 1 },
+        { "from": "P1", "to": [0.25, 0.45], "style": "ball", "step": 2 },
+        { "from": "P1", "to": "P1", "style": "movement", "step": 3 }
+      ]
+    },
+    "source": "manual",
+    "is_vetted": true
+  }
+]

@@ -1,0 +1,215 @@
+[
+  {
+    "slug": "walk-down-and-static-stretch-sequence",
+    "name": "Walk Down and Static Stretch Sequence",
+    "summary": "Two slow laps and a fixed order of held stretches for the calves, hamstrings, hips and forearms to finish a session.",
+    "skill_focus": [
+      "cooldown"
+    ],
+    "levels": [
+      "beginner",
+      "improver",
+      "intermediate",
+      "advanced"
+    ],
+    "age_groups": [
+      "mini_red",
+      "mini_orange",
+      "mini_green",
+      "junior",
+      "adult"
+    ],
+    "court_space": "off_court",
+    "intensity": "low",
+    "players_min": 1,
+    "players_max": 12,
+    "duration_min": 6,
+    "duration_max": 8,
+    "equipment": [],
+    "setup": "Players walk two laps of the court perimeter, then stand in a loose circle beside the court with an arm's length of space each. No equipment; one player leads the sequence and counts the holds out loud.",
+    "instructions": [
+      "Walk two laps of the court, arms swinging, breathing through the nose.",
+      "Calf stretch against the fence, thirty seconds each leg.",
+      "Hamstring stretch with the heel on the ground and toes up, thirty seconds each leg.",
+      "Hip flexor lunge stretch, thirty seconds each side, then a forearm stretch with the palm flat against the fence.",
+      "Finish with a thirty-second forward fold and three slow breaths."
+    ],
+    "coaching_points": [
+      "Stretch to a gentle pull, never to pain; the muscles are warm and will give.",
+      "Breathe out as you settle into each stretch.",
+      "Hold still: bouncing tightens the muscle rather than lengthening it.",
+      "Keep the back straight in the hamstring stretch; hinge from the hips."
+    ],
+    "progressions": [
+      "Hold each stretch for forty-five seconds.",
+      "Add a thoracic rotation stretch on the ground.",
+      "Add a second round of the calf and hamstring stretches."
+    ],
+    "regressions": [
+      "Hold each stretch for twenty seconds.",
+      "Walk one lap instead of two.",
+      "Do the stretches seated against the fence."
+    ],
+    "court_diagram": null,
+    "source": "generated"
+  },
+  {
+    "slug": "partner-stretch-hamstrings-and-hips",
+    "name": "Partner Stretch: Hamstrings and Hips",
+    "summary": "Paired stretches for the hamstrings, groin and hips where one partner supports gently and counts while the other lets go.",
+    "skill_focus": [
+      "cooldown"
+    ],
+    "levels": [
+      "beginner",
+      "improver",
+      "intermediate",
+      "advanced"
+    ],
+    "age_groups": [
+      "mini_green",
+      "junior",
+      "adult"
+    ],
+    "court_space": "off_court",
+    "intensity": "low",
+    "players_min": 2,
+    "players_max": 8,
+    "duration_min": 6,
+    "duration_max": 8,
+    "equipment": [],
+    "setup": "Pairs beside the court on a clean patch of ground, or a mat if there is one. One partner stretches while the other supports gently and counts; then they swap. No equipment.",
+    "instructions": [
+      "Lying hamstring stretch: one partner lies on their back and lifts a straight leg; the other supports the heel and holds it at a gentle pull for thirty seconds, then the other leg.",
+      "Seated groin stretch: soles of the feet together, the partner presses the knees down lightly for thirty seconds.",
+      "Hip rotation: lying on the back, one knee across the body; the partner holds the shoulder down for thirty seconds each side.",
+      "Swap roles and repeat.",
+      "Finish with both partners standing and shaking out the legs for thirty seconds."
+    ],
+    "coaching_points": [
+      "The supporting partner listens: the stretcher says 'there' and the pressure stops.",
+      "Breathe out as the leg goes up; the hamstring lets go on the out-breath.",
+      "Keep the other leg flat on the ground in the hamstring stretch.",
+      "Never push a stretch for a partner; hold, do not press."
+    ],
+    "progressions": [
+      "Hold each stretch for forty-five seconds.",
+      "Add a contract-relax: push against the partner for five seconds, then relax deeper.",
+      "Add a lying quad stretch on the side."
+    ],
+    "regressions": [
+      "Hold each stretch for twenty seconds.",
+      "Do the stretches alone against the fence instead of with a partner.",
+      "Skip the hip rotation."
+    ],
+    "court_diagram": null,
+    "source": "generated"
+  },
+  {
+    "slug": "breathing-and-slow-jog-cool-down",
+    "name": "Breathing and Slow Jog Cool-Down",
+    "summary": "A slow jog that fades into a walk with counted breathing, bringing the heart rate down before stretching or leaving.",
+    "skill_focus": [
+      "cooldown"
+    ],
+    "levels": [
+      "beginner",
+      "improver",
+      "intermediate",
+      "advanced"
+    ],
+    "age_groups": [
+      "mini_red",
+      "mini_orange",
+      "mini_green",
+      "junior",
+      "adult"
+    ],
+    "court_space": "off_court",
+    "intensity": "medium",
+    "players_min": 1,
+    "players_max": 12,
+    "duration_min": 5,
+    "duration_max": 7,
+    "equipment": [],
+    "setup": "Players jog slowly around the outside of the court in single file, an arm's length apart. No equipment.",
+    "instructions": [
+      "Jog slowly for two minutes around the court, gradually slowing to a walk.",
+      "Walk one lap breathing in for four steps and out for six.",
+      "Stand still, hands on the head, and take five slow breaths.",
+      "Shake out the arms and legs for thirty seconds.",
+      "Finish with each player saying one thing they did well in the session."
+    ],
+    "coaching_points": [
+      "Jog slower than feels natural; the heart rate should drop, not hold.",
+      "Breathe out longer than in; the long out-breath is what slows everything down.",
+      "Hands on the head opens the chest for the last breaths.",
+      "Keep talking to a minimum until the breathing is settled."
+    ],
+    "progressions": [
+      "Jog for three minutes before slowing.",
+      "Add a lap of walking lunges before the breathing.",
+      "Breathe in for four steps and out for eight."
+    ],
+    "regressions": [
+      "Walk instead of jogging.",
+      "One minute of jogging instead of two.",
+      "Skip the breathing count and simply walk a lap."
+    ],
+    "court_diagram": null,
+    "source": "generated"
+  },
+  {
+    "slug": "band-recovery-circuit-shoulders-and-forearms",
+    "name": "Band Recovery Circuit: Shoulders and Forearms",
+    "summary": "A light resistance band circuit that flushes the shoulders and forearms after a serving-heavy session.",
+    "skill_focus": [
+      "cooldown"
+    ],
+    "levels": [
+      "beginner",
+      "improver",
+      "intermediate",
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "off_court",
+    "intensity": "low",
+    "players_min": 1,
+    "players_max": 8,
+    "duration_min": 5,
+    "duration_max": 8,
+    "equipment": [
+      "resistance band"
+    ],
+    "setup": "Each player with a light resistance band, standing beside the court with an arm's length of space. The band is held in both hands for the pull-aparts and looped under the front foot for the rows and wrist curls.",
+    "instructions": [
+      "Slow band pull-aparts, ten times, three seconds each way.",
+      "Band rows with the band under the front foot, ten times, squeezing the shoulder blades.",
+      "Wrist curls with the band under the foot, ten each way.",
+      "Forearm stretch with the palm against the fence, thirty seconds each arm.",
+      "Finish with slow arm circles, five each way, no band."
+    ],
+    "coaching_points": [
+      "Slow and controlled; this is blood flow, not strength work.",
+      "Shoulder blades down and together on every row.",
+      "Wrist curls: only the wrist moves, the forearm stays on the thigh.",
+      "Breathe out on the pull."
+    ],
+    "progressions": [
+      "Two rounds of the circuit.",
+      "Hold the forearm stretch for forty-five seconds.",
+      "Add an overhead band stretch, arms straight, ten seconds each side."
+    ],
+    "regressions": [
+      "Five repetitions instead of ten.",
+      "Skip the rows and do the pull-aparts twice.",
+      "Do the stretches only, with no band."
+    ],
+    "court_diagram": null,
+    "source": "generated"
+  }
+]

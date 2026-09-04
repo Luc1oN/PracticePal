@@ -1,0 +1,368 @@
+[
+  {
+    "slug": "ready-position-and-split-step-on-the-toss",
+    "name": "Ready Position and Split Step on the Toss",
+    "summary": "Teaches beginners to split step as the feeder's hand releases the ball, judged and scored on timing.",
+    "skill_focus": ["movement"],
+    "levels": ["beginner"],
+    "age_groups": ["mini_orange", "mini_green", "junior", "adult"],
+    "court_space": "half_court",
+    "intensity": "low",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 6,
+    "duration_max": 10,
+    "equipment": ["ball basket", "throwdowns"],
+    "setup": "Feeder at the near net on the centre line with the basket, facing the hitter. Hitter on the near service line at the centre, standing on a throwdown in the ready position. Extra players queue behind the hitter.",
+    "instructions": [
+      "Feeder holds the ball up, then tosses underarm to either side, a metre from the hitter.",
+      "Hitter split-steps as the ball leaves the feeder's hand, moves to the ball, and hits it gently back to the feeder.",
+      "Feeder calls 'early' or 'late' for each split; score one for a split that lands as the ball leaves the hand.",
+      "Ten balls, then swap the hitter.",
+      "Second round: the feeder sometimes fakes the toss and keeps the ball; a hitter who moves anyway loses a point."
+    ],
+    "coaching_points": [
+      "Feet shoulder-width, knees bent, weight on the balls of the feet before every ball.",
+      "Hop as the feeder's hand starts to move; land as the ball leaves it.",
+      "Land with the feet apart, then push off towards the ball with the outside foot.",
+      "Racket in front with both hands at waist height until you know the side."
+    ],
+    "progressions": [
+      "Feeder tosses from the far service line, over the net.",
+      "Feeder tosses further from the hitter, two metres to either side.",
+      "Switch from an orange ball to a green ball."
+    ],
+    "regressions": [
+      "Feeder calls the side before tossing.",
+      "Hitter catches the ball instead of hitting it.",
+      "Use a red ball."
+    ],
+    "court_diagram": {
+      "court": "half",
+      "players": [
+        { "id": "F", "x": 0.5, "y": 0.58, "label": "Feeder" },
+        { "id": "P1", "x": 0.5, "y": 0.77, "label": "Hitter" },
+        { "id": "P2", "x": 0.5, "y": 0.87, "label": "Queue" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.6, "y": 0.58 }
+      ],
+      "paths": [
+        { "from": "F", "to": [0.6, 0.78], "style": "feed", "step": 1 },
+        { "from": "P1", "to": [0.58, 0.78], "style": "movement", "step": 1 },
+        { "from": "P1", "to": "F", "style": "ball", "step": 2 },
+        { "from": "P1", "to": "P1", "style": "movement", "step": 3 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "forward-and-back-short-ball-deep-ball",
+    "name": "Forward and Back: Short Ball, Deep Ball",
+    "summary": "Alternates a short and a deep toss so beginners learn to run forward through a ball and turn to get behind a deep one.",
+    "skill_focus": ["movement"],
+    "levels": ["beginner"],
+    "age_groups": ["mini_orange", "mini_green", "junior", "adult"],
+    "court_space": "half_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": ["cones", "ball basket"],
+    "setup": "Feeder at the near net on the centre line with the basket. Hitter starts on the near baseline at the centre mark. Two cones on the centre line: one a metre inside the service line for the short ball, one a metre inside the baseline for the deep ball. Extra players queue behind the near baseline outside the doubles sideline.",
+    "instructions": [
+      "Feeder alternates a short toss to the front cone and a deep toss to the back cone.",
+      "Hitter runs forward to hit the short ball, then turns and gets back behind the deep ball, hits it, and so on.",
+      "Every ball is hit over the net into the far court.",
+      "Eight balls, then rotate.",
+      "Second round: the feeder chooses the order without warning."
+    ],
+    "coaching_points": [
+      "Forward: run with the racket already back and hit while the feet are still moving.",
+      "Back: turn sideways and take crossover steps, do not backpedal facing the net.",
+      "Get behind the deep ball before it bounces, then step forward into it.",
+      "After the short ball, stop with a split step before turning to run back."
+    ],
+    "progressions": [
+      "Move the deep cone a metre behind the baseline.",
+      "Feeder tosses the next ball as soon as the last one is hit.",
+      "Switch from an orange ball to a green ball."
+    ],
+    "regressions": [
+      "Move the cones a metre closer together.",
+      "Feeder waits until the hitter is set before tossing.",
+      "Use a red ball."
+    ],
+    "court_diagram": {
+      "court": "half",
+      "players": [
+        { "id": "F", "x": 0.5, "y": 0.58, "label": "Feeder" },
+        { "id": "P1", "x": 0.5, "y": 0.95, "label": "Hitter" },
+        { "id": "P2", "x": 1.1, "y": 0.95, "label": "Queue" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.6, "y": 0.58 },
+        { "type": "cone", "x": 0.5, "y": 0.727 },
+        { "type": "cone", "x": 0.5, "y": 0.958 }
+      ],
+      "paths": [
+        { "from": "F", "to": [0.55, 0.72], "style": "feed", "step": 1 },
+        { "from": "P1", "to": [0.53, 0.75], "style": "movement", "step": 1 },
+        { "from": "P1", "to": [0.4, 0.45], "style": "ball", "step": 2 },
+        { "from": "F", "to": [0.55, 0.94], "style": "feed", "step": 3 },
+        { "from": "P1", "to": [0.53, 0.97], "style": "movement", "step": 3 },
+        { "from": "P1", "to": [0.4, 0.45], "style": "ball", "step": 4 },
+        { "from": "P1", "to": "P1", "style": "movement", "step": 5 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "agility-ladder-then-hit",
+    "name": "Agility Ladder, Then Hit",
+    "summary": "Runs a ladder pattern straight into a fed ball so quick feet finish with a balanced hit, in a fast-moving queue.",
+    "skill_focus": ["movement", "conditioning"],
+    "levels": ["beginner"],
+    "age_groups": ["mini_orange", "mini_green", "junior", "adult"],
+    "court_space": "half_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 6,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": ["agility ladder", "ball basket"],
+    "setup": "Agility ladder laid along the near baseline from the singles sideline towards the centre mark. Feeder at the near net on the centre line with the basket. Players queue at the sideline end of the ladder, outside the singles sideline.",
+    "instructions": [
+      "First player runs the ladder with two feet in every box.",
+      "As they step off the last box, the feeder tosses a ball to the forehand; the player hits it over the net and jogs to the back of the queue.",
+      "Next player goes as soon as the ball is hit.",
+      "Three runs each with two feet in, then three runs with an in-in-out-out sideways pattern.",
+      "Last round: the feeder tosses to the backhand."
+    ],
+    "coaching_points": [
+      "Quick feet, small steps: the ladder is about rhythm, not speed over the ground.",
+      "Eyes up on the feeder for the last two boxes, not on your feet.",
+      "Step off the ladder into a split step before moving to the ball.",
+      "Hit the ball from a balanced stance; the run is over once the ball is in the air."
+    ],
+    "progressions": [
+      "Add a second pattern: lateral shuffles through the ladder.",
+      "Feeder tosses the ball before the player reaches the last box.",
+      "Two balls after the ladder: forehand then backhand."
+    ],
+    "regressions": [
+      "Walk the ladder before running it.",
+      "Feeder waits until the player is set before tossing.",
+      "Use a red ball."
+    ],
+    "court_diagram": {
+      "court": "half",
+      "players": [
+        { "id": "F", "x": 0.5, "y": 0.58, "label": "Feeder" },
+        { "id": "P1", "x": 0.9, "y": 0.985, "label": "Runner" },
+        { "id": "P2", "x": 1.06, "y": 1.0, "label": "Queue" },
+        { "id": "P3", "x": 1.14, "y": 1.0 }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.6, "y": 0.58 },
+        { "type": "agility ladder", "x": 0.74, "y": 0.985 }
+      ],
+      "paths": [
+        { "from": "P1", "to": [0.62, 0.985], "style": "movement", "step": 1 },
+        { "from": "F", "to": [0.6, 0.92], "style": "feed", "step": 2 },
+        { "from": "P1", "to": [0.6, 0.94], "style": "movement", "step": 2 },
+        { "from": "P1", "to": [0.35, 0.45], "style": "ball", "step": 3 },
+        { "from": "P1", "to": [1.14, 1.08], "style": "movement", "step": 4 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "two-ball-left-right-recovery",
+    "name": "Two-Ball Left-Right Recovery",
+    "summary": "A forehand-side ball then a backhand-side ball, with a side-step recovery to a throwdown between them, timed by the feeder.",
+    "skill_focus": ["movement"],
+    "levels": ["beginner"],
+    "age_groups": ["mini_green", "junior", "adult"],
+    "court_space": "half_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": ["cones", "throwdowns", "ball basket"],
+    "setup": "Feeder at the near net on the centre line with the basket. Hitter starts on a throwdown on the near baseline at the centre mark. A cone two metres either side of the throwdown marks where the two feeds bounce. Extra players queue behind the near baseline outside the doubles sideline.",
+    "instructions": [
+      "Feeder tosses a ball to the forehand cone; the hitter moves, hits it over the net, and shuffles back to the throwdown.",
+      "As the hitter touches the throwdown, the feeder tosses the second ball to the backhand cone.",
+      "Two balls, then the hitter jogs to the queue and the next player steps on.",
+      "Four rounds each; score one for every ball over the net and one for every recovery that reaches the throwdown before the next toss.",
+      "Last round: three balls, forehand, backhand, forehand."
+    ],
+    "coaching_points": [
+      "Side steps back to the throwdown, facing the net; do not turn and run.",
+      "Split step on the throwdown as the feeder tosses.",
+      "First step to the ball is a big one, the last step is small so you are balanced when you hit.",
+      "Recover as soon as the ball leaves the strings; do not stand and admire it."
+    ],
+    "progressions": [
+      "Move the cones a metre wider.",
+      "Feeder tosses the second ball before the hitter reaches the throwdown.",
+      "Switch from an orange ball to a green ball."
+    ],
+    "regressions": [
+      "Move the cones a metre closer.",
+      "Feeder waits until the hitter is still on the throwdown before tossing.",
+      "Use a red ball."
+    ],
+    "court_diagram": {
+      "court": "half",
+      "players": [
+        { "id": "F", "x": 0.5, "y": 0.58, "label": "Feeder" },
+        { "id": "P1", "x": 0.5, "y": 0.95, "label": "Hitter" },
+        { "id": "P2", "x": 1.1, "y": 0.95, "label": "Queue" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.6, "y": 0.58 },
+        { "type": "throwdown", "x": 0.5, "y": 0.985 },
+        { "type": "cone", "x": 0.68, "y": 0.93 },
+        { "type": "cone", "x": 0.32, "y": 0.93 }
+      ],
+      "paths": [
+        { "from": "F", "to": [0.68, 0.92], "style": "feed", "step": 1 },
+        { "from": "P1", "to": [0.68, 0.95], "style": "movement", "step": 1 },
+        { "from": "P1", "to": [0.35, 0.45], "style": "ball", "step": 2 },
+        { "from": "P1", "to": "P1", "style": "movement", "step": 3 },
+        { "from": "F", "to": [0.32, 0.92], "style": "feed", "step": 4 },
+        { "from": "P1", "to": [0.32, 0.95], "style": "movement", "step": 4 },
+        { "from": "P1", "to": [0.65, 0.45], "style": "ball", "step": 5 },
+        { "from": "P1", "to": "P1", "style": "movement", "step": 6 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "rolled-ball-first-step-reaction",
+    "name": "Rolled Ball: First-Step Reaction",
+    "summary": "A partner rolls balls to either side and the mover must push off and stop them with the racket before they pass a cone line.",
+    "skill_focus": ["movement"],
+    "levels": ["beginner"],
+    "age_groups": ["mini_red", "mini_orange", "mini_green", "junior"],
+    "court_space": "half_court",
+    "intensity": "low",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 6,
+    "duration_max": 10,
+    "equipment": ["ball basket", "cones"],
+    "setup": "Two players on the near side of the court. The roller kneels on the near service line at the centre with the basket; the mover stands on the near baseline at the centre mark, racket in hand, facing the roller. A cone two metres either side of the mover marks the limit of the rolls.",
+    "instructions": [
+      "Roller rolls a ball along the ground towards either cone.",
+      "Mover pushes off with the first step, gets to the ball before it passes the cone line, and stops it with the racket face on the ground.",
+      "Roll the ball back to the roller and recover to the centre mark.",
+      "Ten rolls, then swap roles.",
+      "Second round: the roller fakes one direction and rolls the other."
+    ],
+    "coaching_points": [
+      "Push off the outside foot; the first step goes towards the ball, not upwards.",
+      "Stay low as you move; the ball is on the ground and so is your racket.",
+      "Recover with side steps facing the roller so the next roll is not a surprise.",
+      "Small split as the roller's hand moves, then go."
+    ],
+    "progressions": [
+      "Roller rolls the ball faster along the ground.",
+      "Move the cones a metre wider.",
+      "Mover must stop the ball and hit it back along the ground in one motion."
+    ],
+    "regressions": [
+      "Roller calls the side before rolling.",
+      "Move the cones a metre closer.",
+      "Mover stops the ball with the foot instead of the racket."
+    ],
+    "court_diagram": {
+      "court": "half",
+      "players": [
+        { "id": "P1", "x": 0.5, "y": 0.77, "label": "Roller" },
+        { "id": "P2", "x": 0.5, "y": 0.95, "label": "Mover" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.6, "y": 0.77 },
+        { "type": "cone", "x": 0.68, "y": 0.95 },
+        { "type": "cone", "x": 0.32, "y": 0.95 }
+      ],
+      "paths": [
+        { "from": "P1", "to": [0.66, 0.94], "style": "feed", "step": 1 },
+        { "from": "P2", "to": [0.65, 0.95], "style": "movement", "step": 1 },
+        { "from": [0.66, 0.94], "to": "P1", "style": "feed", "step": 2 },
+        { "from": "P2", "to": "P2", "style": "movement", "step": 2 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "run-hit-run-team-relay",
+    "name": "Run, Hit, Run: Team Relay",
+    "summary": "A team relay where each runner sprints to a cone, hits a fed ball over the net, and sprints back to tag the next runner.",
+    "skill_focus": ["movement", "games"],
+    "levels": ["beginner"],
+    "age_groups": ["mini_orange", "mini_green", "junior"],
+    "court_space": "full_court",
+    "intensity": "high",
+    "players_min": 4,
+    "players_max": 8,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": ["cones", "ball basket"],
+    "setup": "Two teams lined up behind the near baseline, one at each singles sideline. Feeder at the near net on the centre line with the basket. A cone on the near service line in front of each team marks where the runner stops to hit.",
+    "instructions": [
+      "On 'go', the first runner from each team sprints to their cone.",
+      "Feeder tosses a ball to the runner at the cone; the runner hits it over the net into the far court.",
+      "Runner sprints back and tags the next teammate, who goes immediately.",
+      "First team through everyone twice wins; a ball that misses the far court costs that runner an extra run.",
+      "Second race: runners must hit a backhand."
+    ],
+    "coaching_points": [
+      "Split step at the cone before the toss; a running swing goes anywhere.",
+      "Racket back while running the last three steps to the cone.",
+      "Hit up and over: the far court is big, the net is the only obstacle.",
+      "Sprint back on the outside so the next runner has a clear lane."
+    ],
+    "progressions": [
+      "Move the cones to the near baseline so the run is longer.",
+      "The ball must land past the far service line.",
+      "Runners hit two balls, forehand then backhand, before running back."
+    ],
+    "regressions": [
+      "Move the cones to the net so the run is short.",
+      "Feeder tosses only after the runner is still.",
+      "Use a red ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "F", "x": 0.5, "y": 0.58, "label": "Feeder" },
+        { "id": "P1", "x": 0.2, "y": 1.03, "label": "Team A" },
+        { "id": "P2", "x": 0.8, "y": 1.03, "label": "Team B" },
+        { "id": "P3", "x": 0.2, "y": 1.11 },
+        { "id": "P4", "x": 0.8, "y": 1.11 }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.6, "y": 0.58 },
+        { "type": "cone", "x": 0.2, "y": 0.769 },
+        { "type": "cone", "x": 0.8, "y": 0.769 }
+      ],
+      "paths": [
+        { "from": "P1", "to": [0.2, 0.79], "style": "movement", "step": 1 },
+        { "from": "F", "to": [0.22, 0.76], "style": "feed", "step": 2 },
+        { "from": "P1", "to": [0.6, 0.2], "style": "ball", "step": 3 },
+        { "from": "P1", "to": "P1", "style": "movement", "step": 4 },
+        { "from": "P2", "to": [0.8, 0.79], "style": "movement", "step": 4 },
+        { "from": "F", "to": [0.78, 0.76], "style": "feed", "step": 5 },
+        { "from": "P2", "to": [0.4, 0.2], "style": "ball", "step": 6 },
+        { "from": "P2", "to": "P2", "style": "movement", "step": 7 }
+      ]
+    },
+    "source": "generated"
+  }
+]

@@ -1,0 +1,793 @@
+[
+  {
+    "slug": "deep-ball-retreat-back-behind-the-baseline",
+    "name": "Deep Ball Retreat: Back Behind the Baseline",
+    "summary": "Trains the turn-and-retreat footwork for a deep, high ball so it is played at hip height from behind the baseline, then recovered from.",
+    "skill_focus": [
+      "movement"
+    ],
+    "levels": [
+      "improver"
+    ],
+    "age_groups": [
+      "mini_green",
+      "junior",
+      "adult"
+    ],
+    "court_space": "baseline_only",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": [
+      "ball basket",
+      "throwdowns"
+    ],
+    "setup": "Feeder on the far service line at the centre with the basket, hitting deep, high balls with the racket to land within a metre of the near baseline. Hitter starts on the near baseline at the centre mark. A throwdown two metres behind the baseline marks how far the retreat should go. Extra players queue behind the near baseline outside the doubles sideline.",
+    "instructions": [
+      "Feeder hits a deep, high ball.",
+      "Hitter turns sideways, retreats with crossover steps to behind the throwdown, lets the ball drop to hip height, and hits it back deep over the net.",
+      "After the shot, the hitter moves back up to the baseline with side steps.",
+      "Eight balls alternating forehand and backhand, then rotate.",
+      "Second round: the feeder alternates a deep ball with a medium-length ball that must be hit from the baseline without retreating."
+    ],
+    "coaching_points": [
+      "Turn first, then run; retreating square-on to the net is slow.",
+      "Get behind the bounce so the ball comes down to you, not up at you.",
+      "Step forward into the shot from the retreat position; the momentum goes back towards the net.",
+      "Recover up to the baseline straight away; do not stay behind the throwdown."
+    ],
+    "progressions": [
+      "Feeder hits deeper and higher.",
+      "Shots must land past a throwdown line two metres inside the far baseline.",
+      "Feeder feeds the next ball as the hitter reaches the baseline."
+    ],
+    "regressions": [
+      "Feeder hits shorter so the retreat is one step.",
+      "Feeder tosses the deep ball by hand from the far baseline.",
+      "Hitter may let the ball bounce twice."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "F",
+          "x": 0.5,
+          "y": 0.23,
+          "label": "Feeder"
+        },
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.95,
+          "label": "Hitter"
+        },
+        {
+          "id": "P2",
+          "x": 1.1,
+          "y": 0.95,
+          "label": "Queue"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.58,
+          "y": 0.23
+        },
+        {
+          "type": "throwdown",
+          "x": 0.5,
+          "y": 1.084
+        }
+      ],
+      "paths": [
+        {
+          "from": "F",
+          "to": [
+            0.6,
+            0.98
+          ],
+          "style": "feed",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.62,
+            1.08
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.5,
+            0.08
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 3
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "shuffle-rally-side-steps-only",
+    "name": "Shuffle Rally: Side Steps Only",
+    "summary": "A cooperative rally inside a narrow lane where only side steps are allowed, so recovery footwork becomes a habit.",
+    "skill_focus": [
+      "movement"
+    ],
+    "levels": [
+      "improver"
+    ],
+    "age_groups": [
+      "mini_green",
+      "junior",
+      "adult"
+    ],
+    "court_space": "baseline_only",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": [
+      "cones",
+      "ball basket"
+    ],
+    "setup": "One player on each baseline at the centre mark. Two cones on each baseline, two metres either side of the centre mark, mark the lane each player must stay inside. Basket at the net post. The rally is cooperative and down the middle.",
+    "instructions": [
+      "Rally cooperatively down the middle; every ball is aimed between the partner's cones.",
+      "Both players may move only with side steps: no crossover steps, no running.",
+      "A crossover step, or a ball outside the cones, ends the rally.",
+      "Count the rally; a rally of fifteen banks a point, first to three.",
+      "Second round: cones moved a metre wider so the balls can go a little further from the middle."
+    ],
+    "coaching_points": [
+      "Wide base, knees bent, and push off the outside foot for every side step.",
+      "Recover to the centre mark after every ball even when the next one is coming down the middle.",
+      "Small adjustment steps before the swing; big steps are for running, which is banned here.",
+      "Split step as the partner makes contact."
+    ],
+    "progressions": [
+      "Move the cones a metre wider.",
+      "Each player must alternate forehand and backhand.",
+      "Switch from a green ball to a yellow ball."
+    ],
+    "regressions": [
+      "Move the cones a metre closer.",
+      "Play from the service lines instead of the baselines.",
+      "Use an orange ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.95,
+          "label": "Player A"
+        },
+        {
+          "id": "P2",
+          "x": 0.5,
+          "y": 0.05,
+          "label": "Player B"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "cone",
+          "x": 0.32,
+          "y": 1.0
+        },
+        {
+          "type": "cone",
+          "x": 0.68,
+          "y": 1.0
+        },
+        {
+          "type": "cone",
+          "x": 0.32,
+          "y": 0.0
+        },
+        {
+          "type": "cone",
+          "x": 0.68,
+          "y": 0.0
+        },
+        {
+          "type": "ball basket",
+          "x": 1.1,
+          "y": 0.53
+        }
+      ],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.6,
+            0.08
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.6,
+            0.05
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.4,
+            0.92
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.4,
+            0.95
+          ],
+          "style": "movement",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 3
+        },
+        {
+          "from": "P2",
+          "to": "P2",
+          "style": "movement",
+          "step": 3
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "cone-touch-before-the-feed",
+    "name": "Cone Touch Before the Feed",
+    "summary": "Forces forward momentum into every shot by starting each ball from a cone touch behind the baseline and hitting on the way in.",
+    "skill_focus": [
+      "movement"
+    ],
+    "levels": [
+      "improver"
+    ],
+    "age_groups": [
+      "mini_green",
+      "junior",
+      "adult"
+    ],
+    "court_space": "baseline_only",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": [
+      "cones",
+      "ball basket"
+    ],
+    "setup": "Feeder on the far service line at the centre with the basket, feeding with the racket. Hitter starts on the near baseline at the centre mark. A cone a metre behind the baseline directly behind the hitter; a second cone a metre inside the baseline in front of them. Extra players queue behind the near baseline outside the doubles sideline.",
+    "instructions": [
+      "Hitter touches the back cone with the racket, then moves forward as the feeder feeds.",
+      "Hitter hits the ball from around the front cone, moving forward through it, and sends it deep over the net.",
+      "Recover to the centre mark, touch the back cone, and go again.",
+      "Eight balls alternating forehand and backhand, then rotate.",
+      "Second round: the feeder feeds before the hitter has touched the back cone, so the timing is tighter."
+    ],
+    "coaching_points": [
+      "Move forward through the ball; the shot is hit while the weight is going towards the net.",
+      "Racket back during the forward run, not after you arrive.",
+      "Take the ball early, at the top of the bounce or on the rise, since you are moving in.",
+      "Recover backwards with side steps facing the net; turn only to touch the cone."
+    ],
+    "progressions": [
+      "Move the back cone two metres behind the baseline.",
+      "Feeder feeds shorter so the forward run is longer.",
+      "Shots must land past a throwdown line two metres inside the far baseline."
+    ],
+    "regressions": [
+      "Move the back cone onto the baseline.",
+      "Feeder tosses underarm and waits for the cone touch.",
+      "Use an orange ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "F",
+          "x": 0.5,
+          "y": 0.23,
+          "label": "Feeder"
+        },
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.95,
+          "label": "Hitter"
+        },
+        {
+          "id": "P2",
+          "x": 1.1,
+          "y": 0.95,
+          "label": "Queue"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.58,
+          "y": 0.23
+        },
+        {
+          "type": "cone",
+          "x": 0.5,
+          "y": 1.042
+        },
+        {
+          "type": "cone",
+          "x": 0.5,
+          "y": 0.9
+        }
+      ],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.5,
+            1.03
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "F",
+          "to": [
+            0.56,
+            0.88
+          ],
+          "style": "feed",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.55,
+            0.91
+          ],
+          "style": "movement",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.5,
+            0.08
+          ],
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 4
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "figure-of-eight-around-two-cones-then-hit",
+    "name": "Figure of Eight Around Two Cones, Then Hit",
+    "summary": "A figure-of-eight footwork loop around two cones that ends with a live fed ball, so the hit is made with tired, organised feet.",
+    "skill_focus": [
+      "movement",
+      "conditioning"
+    ],
+    "levels": [
+      "improver"
+    ],
+    "age_groups": [
+      "mini_green",
+      "junior",
+      "adult"
+    ],
+    "court_space": "baseline_only",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": [
+      "cones",
+      "ball basket"
+    ],
+    "setup": "Feeder on the far service line at the centre with the basket. Two cones on the near baseline, two metres either side of the centre mark. Hitter starts on the centre mark between them. Extra players queue behind the near baseline outside the doubles sideline.",
+    "instructions": [
+      "Hitter runs a figure of eight around the two cones, side-stepping the straight sections and turning tightly at each cone.",
+      "As the hitter passes the centre mark on the second loop, the feeder feeds a ball to either side.",
+      "Hitter hits it deep over the net and recovers to the centre mark.",
+      "Six repetitions, then rotate.",
+      "Second round: the feeder feeds two balls after the figure of eight, one to each side."
+    ],
+    "coaching_points": [
+      "Stay low through the turns; standing up at the cone loses the next step.",
+      "Side steps on the straights, crossover only at the turns.",
+      "Split step as the feeder makes contact, even mid-run.",
+      "Balanced stance at contact: if you are still moving sideways when you hit, slow the run down."
+    ],
+    "progressions": [
+      "Move the cones a metre wider.",
+      "Feeder feeds during the first loop, not the second.",
+      "Shots must land past a throwdown line two metres inside the far baseline."
+    ],
+    "regressions": [
+      "One loop instead of two.",
+      "Feeder waits until the hitter is still at the centre mark.",
+      "Use an orange ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "F",
+          "x": 0.5,
+          "y": 0.23,
+          "label": "Feeder"
+        },
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.97,
+          "label": "Hitter"
+        },
+        {
+          "id": "P2",
+          "x": 1.1,
+          "y": 0.95,
+          "label": "Queue"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.58,
+          "y": 0.23
+        },
+        {
+          "type": "cone",
+          "x": 0.32,
+          "y": 0.97
+        },
+        {
+          "type": "cone",
+          "x": 0.68,
+          "y": 0.97
+        }
+      ],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.32,
+            0.93
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.68,
+            1.01
+          ],
+          "style": "movement",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 3
+        },
+        {
+          "from": "F",
+          "to": [
+            0.6,
+            0.92
+          ],
+          "style": "feed",
+          "step": 4
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.6,
+            0.95
+          ],
+          "style": "movement",
+          "step": 4
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.5,
+            0.08
+          ],
+          "style": "ball",
+          "step": 5
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 6
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "balance-hold-after-contact",
+    "name": "Balance Hold After Contact",
+    "summary": "Scores the finish of every shot on balance: hold the follow-through on the front foot for two seconds with no extra step.",
+    "skill_focus": [
+      "movement"
+    ],
+    "levels": [
+      "improver"
+    ],
+    "age_groups": [
+      "mini_green",
+      "junior",
+      "adult"
+    ],
+    "court_space": "half_court",
+    "intensity": "low",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": [
+      "ball basket",
+      "throwdowns"
+    ],
+    "setup": "Feeder at the near net on the centre line with the basket, tossing underarm. Hitter on the near service line on the deuce side, on a throwdown. Extra players queue behind the hitter and act as the judge.",
+    "instructions": [
+      "Feeder tosses a ball a metre to the hitter's forehand side.",
+      "Hitter steps to the ball, hits it over the net, and holds the finish position, balanced on the front foot, for a count of two.",
+      "The judge scores one for a clean hold with no extra step, zero for a stumble or a second step.",
+      "Ten balls, then rotate.",
+      "Second round: alternate forehand and backhand."
+    ],
+    "coaching_points": [
+      "Finish with the weight on the front foot and the back foot light; the hips have turned to face the net.",
+      "Head still and level through contact; a moving head is what unbalances the finish.",
+      "Hitting arm finishes over the shoulder and the free arm across the body to balance it.",
+      "If you cannot hold the finish, the last step to the ball was too big."
+    ],
+    "progressions": [
+      "Feeder tosses two metres to the side so the hitter must move further.",
+      "Hold the finish for a count of three.",
+      "Feeder tosses a low ball so the knees must bend as well."
+    ],
+    "regressions": [
+      "Feeder tosses straight to the hitter with no movement.",
+      "Hold the finish for a count of one.",
+      "Hitter catches the ball on the strings and holds that position first."
+    ],
+    "court_diagram": {
+      "court": "half",
+      "players": [
+        {
+          "id": "F",
+          "x": 0.5,
+          "y": 0.58,
+          "label": "Feeder"
+        },
+        {
+          "id": "P1",
+          "x": 0.7,
+          "y": 0.77,
+          "label": "Hitter"
+        },
+        {
+          "id": "P2",
+          "x": 0.7,
+          "y": 0.87,
+          "label": "Judge"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.6,
+          "y": 0.58
+        }
+      ],
+      "paths": [
+        {
+          "from": "F",
+          "to": [
+            0.78,
+            0.78
+          ],
+          "style": "feed",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.77,
+            0.78
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.35,
+            0.45
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 3
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "hit-and-sprint-to-the-net-cone",
+    "name": "Hit and Sprint to the Net Cone",
+    "summary": "Every groundstroke is followed by a sprint to the net and a recovery to the baseline, so the next ball is met tired but on time.",
+    "skill_focus": [
+      "movement",
+      "conditioning"
+    ],
+    "levels": [
+      "improver"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "half_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": [
+      "cones",
+      "ball basket"
+    ],
+    "setup": "Feeder on the far service line at the centre with the basket, feeding with the racket. Hitter on the near baseline on the deuce side. A cone on the near service line in front of the hitter and a second cone a metre from the net on the same line. Extra players queue behind the near baseline outside the doubles sideline.",
+    "instructions": [
+      "Feeder feeds a ball to the hitter's forehand.",
+      "Hitter hits it deep over the net, then sprints to touch the net cone and backpedals to the baseline.",
+      "As the hitter reaches the baseline, the feeder feeds the next ball.",
+      "Six balls, then rotate.",
+      "Second round: the hitter touches only the service-line cone and the feeder feeds sooner."
+    ],
+    "coaching_points": [
+      "Sprint as soon as the ball leaves the strings; the shot is finished.",
+      "Touch the cone low with the racket, not the hand, so you stay in a tennis posture.",
+      "Backpedal only for the first three steps, then turn and side-step the rest.",
+      "Split step on the baseline as the feeder makes contact."
+    ],
+    "progressions": [
+      "Feeder feeds before the hitter reaches the baseline.",
+      "Hitter volleys a second ball at the net cone before backpedalling.",
+      "Shots must land past a throwdown line two metres inside the far baseline."
+    ],
+    "regressions": [
+      "Touch only the service-line cone.",
+      "Feeder waits until the hitter is set on the baseline.",
+      "Use an orange ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "F",
+          "x": 0.5,
+          "y": 0.23,
+          "label": "Feeder"
+        },
+        {
+          "id": "P1",
+          "x": 0.72,
+          "y": 0.95,
+          "label": "Hitter"
+        },
+        {
+          "id": "P2",
+          "x": 1.1,
+          "y": 0.95,
+          "label": "Queue"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.58,
+          "y": 0.23
+        },
+        {
+          "type": "cone",
+          "x": 0.72,
+          "y": 0.769
+        },
+        {
+          "type": "cone",
+          "x": 0.72,
+          "y": 0.54
+        }
+      ],
+      "paths": [
+        {
+          "from": "F",
+          "to": "P1",
+          "style": "feed",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.3,
+            0.08
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.72,
+            0.56
+          ],
+          "style": "movement",
+          "step": 3
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 4
+        }
+      ]
+    },
+    "source": "generated"
+  }
+]

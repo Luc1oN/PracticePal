@@ -1,0 +1,851 @@
+[
+  {
+    "slug": "defence-to-offence-reset-then-attack",
+    "name": "Defence to Offence: Reset, Then Attack",
+    "summary": "A wide deep ball that must be reset high and deep, followed by a short ball that must be attacked, so the switch from defending to attacking is trained as one movement.",
+    "skill_focus": [
+      "movement",
+      "tactical"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 12,
+    "duration_max": 16,
+    "equipment": [
+      "ball basket",
+      "throwdowns",
+      "cones"
+    ],
+    "setup": "Feeder on the far baseline at the centre with the basket, feeding with the racket. Hitter on the near baseline at the centre mark. A throwdown line two metres inside the far baseline marks the deep target for the reset ball; a two-metre cone box in each far corner marks the attack targets. Extra players queue behind the near baseline outside the doubles sideline.",
+    "instructions": [
+      "Feeder drives a wide, deep ball; the hitter defends with a high, deep reset past the throwdown line.",
+      "Feeder immediately feeds a short ball; the hitter moves in and attacks it into a corner box.",
+      "Score one for the reset deep, two for the attack in a box.",
+      "Six pairs, then rotate.",
+      "Second round: the feeder decides whether the second ball is short or deep again; the hitter must read it and reset again if it is deep."
+    ],
+    "coaching_points": [
+      "Under pressure, hit up and high; the reset is measured in seconds bought, not pace.",
+      "Recover through the middle immediately; the short ball is coming while you are still moving.",
+      "Read the short ball early and move in with the racket already back.",
+      "Attack with margin: a deep corner, not the line."
+    ],
+    "progressions": [
+      "Feeder feeds the short ball before the reset has landed.",
+      "Shrink the corner boxes to one metre.",
+      "Add a third ball: a passing shot after the attack that must be volleyed."
+    ],
+    "regressions": [
+      "Feeder waits for the hitter to recover before the short ball.",
+      "Widen the attack target to the whole far court.",
+      "Feeder tosses the wide ball underarm from the far service line."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "F",
+          "x": 0.5,
+          "y": 0.03,
+          "label": "Feeder"
+        },
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.95,
+          "label": "Hitter"
+        },
+        {
+          "id": "P2",
+          "x": 1.1,
+          "y": 0.95,
+          "label": "Queue"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.58,
+          "y": 0.03
+        },
+        {
+          "type": "throwdown",
+          "x": 0.3,
+          "y": 0.084
+        },
+        {
+          "type": "throwdown",
+          "x": 0.5,
+          "y": 0.084
+        },
+        {
+          "type": "throwdown",
+          "x": 0.7,
+          "y": 0.084
+        },
+        {
+          "type": "cone",
+          "x": 0.13,
+          "y": 0.02
+        },
+        {
+          "type": "cone",
+          "x": 0.31,
+          "y": 0.02
+        },
+        {
+          "type": "cone",
+          "x": 0.13,
+          "y": 0.1
+        },
+        {
+          "type": "cone",
+          "x": 0.31,
+          "y": 0.1
+        },
+        {
+          "type": "cone",
+          "x": 0.69,
+          "y": 0.02
+        },
+        {
+          "type": "cone",
+          "x": 0.87,
+          "y": 0.02
+        },
+        {
+          "type": "cone",
+          "x": 0.69,
+          "y": 0.1
+        },
+        {
+          "type": "cone",
+          "x": 0.87,
+          "y": 0.1
+        }
+      ],
+      "paths": [
+        {
+          "from": "F",
+          "to": [
+            0.88,
+            0.96
+          ],
+          "style": "feed",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.86,
+            0.98
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.4,
+            0.06
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.55,
+            0.94
+          ],
+          "style": "movement",
+          "step": 3
+        },
+        {
+          "from": "F",
+          "to": [
+            0.35,
+            0.7
+          ],
+          "style": "feed",
+          "step": 3
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.36,
+            0.73
+          ],
+          "style": "movement",
+          "step": 4
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.78,
+            0.06
+          ],
+          "style": "ball",
+          "step": 5
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 6
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "drop-shot-chase-in-a-live-rally",
+    "name": "Drop Shot Chase in a Live Rally",
+    "summary": "A cooperative rally in which either player may drop-shot at any moment, rewarding the chaser who reads it early and sprints.",
+    "skill_focus": [
+      "movement",
+      "tactical"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 12,
+    "duration_max": 16,
+    "equipment": [
+      "ball basket"
+    ],
+    "setup": "One player on each baseline. Basket at the net post. A cooperative baseline rally in which either player may drop-shot at any moment; the point is live from the drop shot onwards. Singles lines are the boundaries.",
+    "instructions": [
+      "Rally cooperatively from the baseline at rally pace.",
+      "At any moment either player may play a drop shot; the other must sprint to it and the point is live.",
+      "The chaser scores two for winning the point after reaching the drop shot; the dropper scores one for winning it.",
+      "First to eleven, then change ends.",
+      "Second game: the chaser may reply only with a drop shot of their own or a lob."
+    ],
+    "coaching_points": [
+      "Read the drop early: the racket face opens and the swing slows; go on that, not on the bounce.",
+      "First three steps are a sprint, the last one is a long low step so the racket gets under the ball.",
+      "Play the reply up the line with an open face, or a lob; a cross-court reply opens the court against you.",
+      "After the reply, keep moving forward; the next ball will be a pass or a lob, not a rally ball."
+    ],
+    "progressions": [
+      "The dropper may follow the drop shot to the net.",
+      "The chaser must win the point in two shots or fewer.",
+      "Drop shots must be played from behind the baseline."
+    ],
+    "regressions": [
+      "Only one player may drop-shot per game.",
+      "The dropper announces 'drop' as they hit it.",
+      "The chaser may let the drop shot bounce twice in the first game."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.95,
+          "label": "Player A"
+        },
+        {
+          "id": "P2",
+          "x": 0.5,
+          "y": 0.05,
+          "label": "Player B"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 1.1,
+          "y": 0.53
+        }
+      ],
+      "paths": [
+        {
+          "from": "P1",
+          "to": "P2",
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.35,
+            0.62
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.36,
+            0.66
+          ],
+          "style": "movement",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.2,
+            0.12
+          ],
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.22,
+            0.1
+          ],
+          "style": "movement",
+          "step": 3
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 4
+        },
+        {
+          "from": "P2",
+          "to": "P2",
+          "style": "movement",
+          "step": 4
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "defensive-lob-from-behind-the-baseline-then-recover",
+    "name": "Defensive Lob from Behind the Baseline, Then Recover",
+    "summary": "Heavy deep feeds push the hitter back, who must lob deep and use the lob's flight time to recover into the court.",
+    "skill_focus": [
+      "movement",
+      "tactical"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 10,
+    "duration_max": 14,
+    "equipment": [
+      "ball basket",
+      "throwdowns"
+    ],
+    "setup": "Feeder on the far baseline at the centre with the basket, driving heavy deep balls with the racket. Hitter starts on the near baseline at the centre mark. A throwdown line two metres inside the far baseline is the target for the lob. Extra players queue behind the near baseline outside the doubles sideline.",
+    "instructions": [
+      "Feeder drives a heavy ball that pushes the hitter well behind the baseline.",
+      "Hitter retreats, plays a high defensive lob to land past the far throwdown line, and recovers into the court to the baseline during the lob's flight.",
+      "Score one for the lob deep, one more if the hitter is back on the baseline before it lands.",
+      "Six balls, then rotate.",
+      "Second round: the feeder follows the deep ball with a short ball that the hitter must reach from the recovered position."
+    ],
+    "coaching_points": [
+      "Open the face and lift from the legs; the lob must peak above fence height to be deep.",
+      "Aim the lob cross-court and deep; a short lob is an overhead for them.",
+      "Recover during the flight, not after the bounce: the lob's height is your recovery time.",
+      "Recover to a metre inside the baseline, ready to attack the short reply."
+    ],
+    "progressions": [
+      "Feeder follows every lob with a short ball.",
+      "Lobs must land within two metres of the far baseline.",
+      "Feeder stands at the net and the lob must clear an overhead attempt."
+    ],
+    "regressions": [
+      "Feeder feeds at three-quarter pace.",
+      "Widen the lob target to anywhere past the far service line.",
+      "Feeder waits after the lob before the next feed."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "F",
+          "x": 0.5,
+          "y": 0.03,
+          "label": "Feeder"
+        },
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.95,
+          "label": "Hitter"
+        },
+        {
+          "id": "P2",
+          "x": 1.1,
+          "y": 0.95,
+          "label": "Queue"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.58,
+          "y": 0.03
+        },
+        {
+          "type": "throwdown",
+          "x": 0.3,
+          "y": 0.084
+        },
+        {
+          "type": "throwdown",
+          "x": 0.5,
+          "y": 0.084
+        },
+        {
+          "type": "throwdown",
+          "x": 0.7,
+          "y": 0.084
+        }
+      ],
+      "paths": [
+        {
+          "from": "F",
+          "to": [
+            0.7,
+            1.0
+          ],
+          "style": "feed",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.7,
+            1.08
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.3,
+            0.05
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 2
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "first-step-anticipation-read-the-racket-face",
+    "name": "First-Step Anticipation: Read the Racket Face",
+    "summary": "Trains the reader to call the direction of a match-pace ball from the hitter's shoulders and racket face before it leaves the strings.",
+    "skill_focus": [
+      "movement"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 10,
+    "duration_max": 14,
+    "equipment": [
+      "ball basket",
+      "cones"
+    ],
+    "setup": "One player on each baseline. The reader stands on the near centre mark between two cones placed a metre either side. The hitter on the far baseline has the basket and hits from a self-drop to either corner of the near court. No rally: one ball at a time.",
+    "instructions": [
+      "Hitter drops and hits a ball to either near corner, at match pace.",
+      "Reader calls 'left' or 'right' before the ball leaves the strings, reading the hitter's shoulders and racket face, then moves and returns the ball deep.",
+      "Score one for a correct early call, one for the return in.",
+      "Ten balls, then swap roles.",
+      "Second round: the hitter tries to disguise, and a late call still counts if the return goes in."
+    ],
+    "coaching_points": [
+      "Read the racket face and the front shoulder in the last half metre before contact; the ball's flight is too late.",
+      "Split as the racket comes forward so the landing is at contact.",
+      "Commit to the first step on the read; a wrong step corrected early beats a late right one.",
+      "Recover to the centre mark before the next self-drop."
+    ],
+    "progressions": [
+      "Hitter adds the short ball as a third option.",
+      "Reader must call before the hitter's backswing is complete.",
+      "Play the point out after the return."
+    ],
+    "regressions": [
+      "Hitter hits at three-quarter pace.",
+      "Hitter calls the direction out loud for the first five balls.",
+      "Reader moves after contact but still calls the direction."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.95,
+          "label": "Reader"
+        },
+        {
+          "id": "P2",
+          "x": 0.5,
+          "y": 0.05,
+          "label": "Hitter"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.42,
+          "y": 0.03
+        },
+        {
+          "type": "cone",
+          "x": 0.41,
+          "y": 1.0
+        },
+        {
+          "type": "cone",
+          "x": 0.59,
+          "y": 1.0
+        }
+      ],
+      "paths": [
+        {
+          "from": "P2",
+          "to": [
+            0.82,
+            0.9
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.8,
+            0.94
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.5,
+            0.06
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 3
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "crossover-sprint-to-the-wide-feed",
+    "name": "Crossover Sprint to the Wide Feed",
+    "summary": "Explosive crossover first steps to balls fed well beyond the sideline, with the next feed timed off the recovery.",
+    "skill_focus": [
+      "movement"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "half_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 10,
+    "duration_max": 14,
+    "equipment": [
+      "cones",
+      "ball basket",
+      "throwdowns"
+    ],
+    "setup": "Feeder on the far baseline at the centre with the basket, driving balls beyond the near singles sideline. Hitter starts on a throwdown on the near baseline a metre to the backhand side of the centre mark. A cone two metres outside the singles sideline, level with the baseline, marks where the wide ball is met. Extra players queue behind the near baseline outside the doubles sideline on the backhand side.",
+    "instructions": [
+      "Feeder drives a ball wide to the cone.",
+      "Hitter explodes off the throwdown with a crossover first step, sprints to the ball, hits it cross-court and deep, and recovers to the throwdown.",
+      "Feeder feeds the next ball the moment the hitter's foot touches the throwdown.",
+      "Six balls, then rotate.",
+      "Second round: the feeder alternates the wide ball with a ball to the throwdown that must be hit without moving."
+    ],
+    "coaching_points": [
+      "First step is a crossover: the inside foot crosses in front and the hips turn towards the ball.",
+      "Keep the racket back during the sprint so the last step and the swing are one motion.",
+      "Contact in front even at full stretch; hit up and cross-court to buy time.",
+      "Recover with crossovers first, side steps only for the last two metres."
+    ],
+    "progressions": [
+      "Move the cone another metre wider.",
+      "Feeder feeds before the hitter reaches the throwdown.",
+      "The recovery ball must land past a throwdown line two metres inside the far baseline."
+    ],
+    "regressions": [
+      "Move the cone onto the singles sideline.",
+      "Feeder waits until the hitter is still on the throwdown.",
+      "Feeder feeds at three-quarter pace."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "F",
+          "x": 0.5,
+          "y": 0.03,
+          "label": "Feeder"
+        },
+        {
+          "id": "P1",
+          "x": 0.41,
+          "y": 0.95,
+          "label": "Hitter"
+        },
+        {
+          "id": "P2",
+          "x": -0.1,
+          "y": 0.95,
+          "label": "Queue"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.58,
+          "y": 0.03
+        },
+        {
+          "type": "throwdown",
+          "x": 0.41,
+          "y": 0.985
+        },
+        {
+          "type": "cone",
+          "x": 1.06,
+          "y": 1.0
+        }
+      ],
+      "paths": [
+        {
+          "from": "F",
+          "to": [
+            1.02,
+            0.97
+          ],
+          "style": "feed",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            1.0,
+            0.97
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.25,
+            0.06
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 3
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "deceleration-control-stop-in-the-throwdown-box",
+    "name": "Deceleration Control: Stop in the Throwdown Box",
+    "summary": "Sprint to a one-metre throwdown square, come to a full balanced stop inside it, and only then hit, to train braking before contact.",
+    "skill_focus": [
+      "movement"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "half_court",
+    "intensity": "low",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": [
+      "throwdowns",
+      "ball basket"
+    ],
+    "setup": "Feeder at the near net on the centre line with the basket, tossing underarm. Hitter on the near baseline at the centre mark. A square of four throwdowns, one metre by one metre, two metres to the forehand side of the centre mark, marks where the hitter must come to a complete stop before hitting. Extra players queue behind the near baseline outside the doubles sideline.",
+    "instructions": [
+      "Feeder tosses a ball to bounce beside the throwdown square.",
+      "Hitter sprints to the square, decelerates to a complete stop inside it with a wide base, and only then hits the ball over the net.",
+      "Score one for a stop fully inside the square, one for the ball in.",
+      "Eight balls, then rotate.",
+      "Second round: the square moves to the backhand side."
+    ],
+    "coaching_points": [
+      "Decelerate with the last two steps, feet wide and hips low; the stop is a brake, not a collapse.",
+      "Land the outside foot on the far edge of the square and let the inside foot settle.",
+      "Hit from the stopped base with the weight moving forward, not sideways.",
+      "Recover only after the ball has left the strings."
+    ],
+    "progressions": [
+      "Shrink the square to half a metre.",
+      "Feeder tosses so the ball arrives a beat earlier and the stop must be faster.",
+      "Move the square three metres from the centre mark."
+    ],
+    "regressions": [
+      "Widen the square to two metres.",
+      "Feeder waits until the hitter has stopped before tossing.",
+      "Move the square one metre from the centre mark."
+    ],
+    "court_diagram": {
+      "court": "half",
+      "players": [
+        {
+          "id": "F",
+          "x": 0.5,
+          "y": 0.58,
+          "label": "Feeder"
+        },
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.95,
+          "label": "Hitter"
+        },
+        {
+          "id": "P2",
+          "x": 1.1,
+          "y": 0.95,
+          "label": "Queue"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.6,
+          "y": 0.58
+        },
+        {
+          "type": "throwdown",
+          "x": 0.64,
+          "y": 0.93
+        },
+        {
+          "type": "throwdown",
+          "x": 0.73,
+          "y": 0.93
+        },
+        {
+          "type": "throwdown",
+          "x": 0.64,
+          "y": 0.97
+        },
+        {
+          "type": "throwdown",
+          "x": 0.73,
+          "y": 0.97
+        }
+      ],
+      "paths": [
+        {
+          "from": "F",
+          "to": [
+            0.74,
+            0.9
+          ],
+          "style": "feed",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.685,
+            0.95
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.35,
+            0.45
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 3
+        }
+      ]
+    },
+    "source": "generated"
+  }
+]

@@ -1,0 +1,875 @@
+[
+  {
+    "slug": "random-feed-full-court-coverage-everything-cross-court",
+    "name": "Random Feed: Full-Court Coverage, Everything Cross-Court",
+    "summary": "Feeds anywhere in the court with no pattern so the hitter must read, split, reach and recover on every ball.",
+    "skill_focus": [
+      "movement"
+    ],
+    "levels": [
+      "intermediate"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 10,
+    "duration_max": 14,
+    "equipment": [
+      "ball basket",
+      "throwdowns"
+    ],
+    "setup": "Feeder on the far baseline at the centre with the basket, feeding with the racket anywhere in the near singles court: short, deep, wide, middle, in no pattern. Hitter starts on the near baseline at the centre mark. A throwdown line two metres inside the far baseline is the target. Extra players queue behind the near baseline outside the doubles sideline.",
+    "instructions": [
+      "Feeder feeds eight balls anywhere in the court, one every four seconds.",
+      "Hitter reaches every ball and hits it cross-court from wherever it is: deep past the throwdown line from the baseline, over the net and in from anywhere short.",
+      "Recover towards the centre of the court after every ball; the next feed comes regardless.",
+      "Eight balls, then rotate; score one per ball in, two for a deep ball from the baseline.",
+      "Second round: everything down the line instead."
+    ],
+    "coaching_points": [
+      "Split step on every feed; with no pattern, the split is the only warning you get.",
+      "Recover to the middle of the angle the feeder has, not always to the centre mark.",
+      "Short ball: move through it and keep moving; deep ball: get behind it and hold the baseline.",
+      "Hit high and heavy when late, flat only when early and balanced."
+    ],
+    "progressions": [
+      "Feed every three seconds.",
+      "Feeder mixes in lobs that must be dealt with in the air.",
+      "Balls must land in the far cross-court corner box."
+    ],
+    "regressions": [
+      "Feed every six seconds.",
+      "Feeder feeds only deep balls, anywhere along the baseline.",
+      "Widen the target to anywhere in the far court."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "F",
+          "x": 0.5,
+          "y": 0.03,
+          "label": "Feeder"
+        },
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.95,
+          "label": "Hitter"
+        },
+        {
+          "id": "P2",
+          "x": 1.1,
+          "y": 0.95,
+          "label": "Queue"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.58,
+          "y": 0.03
+        },
+        {
+          "type": "throwdown",
+          "x": 0.3,
+          "y": 0.084
+        },
+        {
+          "type": "throwdown",
+          "x": 0.5,
+          "y": 0.084
+        },
+        {
+          "type": "throwdown",
+          "x": 0.7,
+          "y": 0.084
+        }
+      ],
+      "paths": [
+        {
+          "from": "F",
+          "to": [
+            0.8,
+            0.9
+          ],
+          "style": "feed",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.78,
+            0.94
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.25,
+            0.06
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.55,
+            0.95
+          ],
+          "style": "movement",
+          "step": 3
+        },
+        {
+          "from": "F",
+          "to": [
+            0.3,
+            0.7
+          ],
+          "style": "feed",
+          "step": 3
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.32,
+            0.74
+          ],
+          "style": "movement",
+          "step": 4
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.75,
+            0.06
+          ],
+          "style": "ball",
+          "step": 5
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 6
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "recover-to-the-right-cone",
+    "name": "Recover to the Right Cone",
+    "summary": "Teaches recovery position as a decision: after every shot, recover to the cone that bisects the opponent's possible angles.",
+    "skill_focus": [
+      "movement",
+      "tactical"
+    ],
+    "levels": [
+      "intermediate"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 10,
+    "duration_max": 14,
+    "equipment": [
+      "cones",
+      "ball basket"
+    ],
+    "setup": "One player on each baseline. On each baseline, three cones: one on the centre mark and one a metre either side of it. Basket at the net post. Rally cooperatively at rally pace across the whole singles court.",
+    "instructions": [
+      "Rally cooperatively, hitting to all parts of the court.",
+      "After each shot, recover to the cone that covers the angle you have just given: cross-court, recover to the cone on the side you hit from; down the line, recover to the cone on the opposite side; down the middle, recover to the centre cone.",
+      "Partner calls 'wrong cone' when the recovery misses; a wrong cone ends the rally.",
+      "Count rallies; a rally of twelve banks a point, first to three.",
+      "Second round: the partner may hit any ball at pace, and the recovery must still be to the right cone."
+    ],
+    "coaching_points": [
+      "The recovery spot is the middle of your opponent's angles, not the middle of the court.",
+      "Recover with side steps and split as they make contact, on the cone, not on the way to it.",
+      "Decide the recovery cone as the ball leaves your strings; you already know where you hit it.",
+      "When you are late to the cone, stop and split anyway; a split from the wrong spot beats no split."
+    ],
+    "progressions": [
+      "Move the outer cones two metres from the centre mark.",
+      "Play the points out after four cooperative balls.",
+      "A 'wrong cone' call wins the point for the caller."
+    ],
+    "regressions": [
+      "Rally cross-court only, recovering to the one cone on that side.",
+      "Move the outer cones half a metre from the centre mark.",
+      "Play from the service lines."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.95,
+          "label": "Player A"
+        },
+        {
+          "id": "P2",
+          "x": 0.5,
+          "y": 0.05,
+          "label": "Player B"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "cone",
+          "x": 0.41,
+          "y": 1.0
+        },
+        {
+          "type": "cone",
+          "x": 0.5,
+          "y": 1.0
+        },
+        {
+          "type": "cone",
+          "x": 0.59,
+          "y": 1.0
+        },
+        {
+          "type": "cone",
+          "x": 0.41,
+          "y": 0.0
+        },
+        {
+          "type": "cone",
+          "x": 0.5,
+          "y": 0.0
+        },
+        {
+          "type": "cone",
+          "x": 0.59,
+          "y": 0.0
+        },
+        {
+          "type": "ball basket",
+          "x": 1.1,
+          "y": 0.53
+        }
+      ],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.28,
+            0.08
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.59,
+            0.97
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.28,
+            0.05
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.72,
+            0.92
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.41,
+            0.03
+          ],
+          "style": "movement",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.72,
+            0.95
+          ],
+          "style": "movement",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 3
+        },
+        {
+          "from": "P2",
+          "to": "P2",
+          "style": "movement",
+          "step": 3
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "split-step-call-on-the-partners-contact",
+    "name": "Split Step Call on the Partner's Contact",
+    "summary": "A cooperative rally where each player says 'split' as they land, so the timing of the split step is heard and corrected by the partner.",
+    "skill_focus": [
+      "movement"
+    ],
+    "levels": [
+      "intermediate"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": [
+      "ball basket"
+    ],
+    "setup": "One player on each baseline at the centre mark. Basket at the net post. Cooperative rally across the whole singles court; no other equipment.",
+    "instructions": [
+      "Rally cooperatively at rally pace.",
+      "Each player says 'split' out loud at the moment they land their split step, which should be as the partner's racket meets the ball.",
+      "The partner listens: a 'split' called after the ball has crossed the net is late and ends the rally.",
+      "Count rallies; a rally of twenty banks a point, first to three.",
+      "Second round: no calling out loud; the partner calls 'late' when they see a late split."
+    ],
+    "coaching_points": [
+      "Leave the ground as the partner's racket starts forward, land as the ball is struck.",
+      "Land on the balls of the feet with the feet wider than the shoulders.",
+      "The split is small: a few centimetres off the ground is enough.",
+      "Push off the outside foot from the split; the first step follows the landing, it does not wait."
+    ],
+    "progressions": [
+      "Partner mixes in short balls and lobs; the split must still be on contact.",
+      "Play the points out after six cooperative balls.",
+      "Rally at match pace."
+    ],
+    "regressions": [
+      "Rally from the service lines.",
+      "Partner says 'hit' at contact so the split has a sound to match.",
+      "Split on the bounce instead of the contact for the first round."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.95,
+          "label": "Player A"
+        },
+        {
+          "id": "P2",
+          "x": 0.5,
+          "y": 0.05,
+          "label": "Player B"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 1.1,
+          "y": 0.53
+        }
+      ],
+      "paths": [
+        {
+          "from": "P1",
+          "to": "P2",
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": "P1",
+          "style": "ball",
+          "step": 2
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "approach-transition-three-steps-then-split",
+    "name": "Approach Transition: Three Steps, Then Split",
+    "summary": "Times the transition to the net: approach on the move, three quick steps, a split on the service line as the passing shot is struck, then the volley.",
+    "skill_focus": [
+      "movement",
+      "volley"
+    ],
+    "levels": [
+      "intermediate"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "half_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 10,
+    "duration_max": 14,
+    "equipment": [
+      "cones",
+      "throwdowns",
+      "ball basket"
+    ],
+    "setup": "Feeder on the far baseline at the centre with the basket, feeding with the racket. Player on the near baseline on the deuce side. A cone a metre inside the near service line marks where the short feed lands; a throwdown on the near service line, a step towards the centre, marks where the split step should land after the approach. Extra players queue behind the near baseline outside the doubles sideline.",
+    "instructions": [
+      "Feeder feeds a short ball to the cone.",
+      "Player moves in, hits the approach shot down the line, takes three quick steps forward and split-steps on the throwdown as the feeder makes contact with the next ball.",
+      "Feeder feeds a passing shot; the player volleys it into the far court.",
+      "Score one for the approach in, one for a split on the throwdown in time, one for the volley in.",
+      "Six sequences, then rotate."
+    ],
+    "coaching_points": [
+      "Hit the approach while moving forward; do not stop to hit it.",
+      "Three steps, then split: the split must land as the feeder's racket meets the ball, wherever you are.",
+      "Split with the feet wide and the racket up in front; the volley comes fast.",
+      "Close the net after the volley; the split at the service line is not the finish line."
+    ],
+    "progressions": [
+      "Feeder feeds the passing shot sooner.",
+      "The approach must land past a throwdown line two metres inside the far baseline.",
+      "Feeder mixes a lob with the passing shot."
+    ],
+    "regressions": [
+      "Feeder waits until the player has split before feeding the passing shot.",
+      "Feeder tosses the passing shot underarm from the far service line.",
+      "Remove the volley: approach, three steps, split, then stop."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "F",
+          "x": 0.5,
+          "y": 0.03,
+          "label": "Feeder"
+        },
+        {
+          "id": "P1",
+          "x": 0.72,
+          "y": 0.95,
+          "label": "Player"
+        },
+        {
+          "id": "P2",
+          "x": 1.1,
+          "y": 0.95,
+          "label": "Queue"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.58,
+          "y": 0.03
+        },
+        {
+          "type": "cone",
+          "x": 0.7,
+          "y": 0.727
+        },
+        {
+          "type": "throwdown",
+          "x": 0.64,
+          "y": 0.769
+        }
+      ],
+      "paths": [
+        {
+          "from": "F",
+          "to": [
+            0.7,
+            0.72
+          ],
+          "style": "feed",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.7,
+            0.74
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.75,
+            0.06
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.66,
+            0.62
+          ],
+          "style": "movement",
+          "step": 2
+        },
+        {
+          "from": "F",
+          "to": [
+            0.55,
+            0.6
+          ],
+          "style": "feed",
+          "step": 3
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.58,
+            0.6
+          ],
+          "style": "movement",
+          "step": 3
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.3,
+            0.1
+          ],
+          "style": "ball",
+          "step": 4
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 5
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "lateral-defence-stretch-wide-and-recover",
+    "name": "Lateral Defence: Stretch Wide and Recover",
+    "summary": "Drives balls beyond the sideline so the hitter learns the wide-stance stretch, the high defensive reply and the crossover recovery.",
+    "skill_focus": [
+      "movement"
+    ],
+    "levels": [
+      "intermediate"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "half_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 10,
+    "duration_max": 14,
+    "equipment": [
+      "cones",
+      "throwdowns",
+      "ball basket"
+    ],
+    "setup": "Feeder on the far baseline at the centre with the basket, driving balls wide beyond the near singles sideline on the forehand side. Hitter starts on the near baseline at the centre mark. A cone a metre outside the singles sideline, level with the baseline, marks where the wide ball is met; a throwdown on the centre mark is the recovery point. Extra players queue behind the near baseline outside the doubles sideline on the backhand side.",
+    "instructions": [
+      "Feeder drives a ball wide to the cone.",
+      "Hitter runs, stretches into the ball with a wide stance, hits it back deep cross-court or as a high defensive ball, and recovers to the throwdown with crossover steps then side steps.",
+      "Feeder feeds the next ball as the hitter touches the throwdown.",
+      "Six balls, then rotate.",
+      "Second round: the feeder alternates wide forehand and wide backhand."
+    ],
+    "coaching_points": [
+      "Last step to the wide ball is a big one with the outside foot, knee bent, hip low.",
+      "From the stretch, hit up and high: a defensive ball buys time to recover.",
+      "Push off the outside foot to start the recovery; the first two steps are crossovers.",
+      "Split as the feeder makes contact even if you have not reached the throwdown."
+    ],
+    "progressions": [
+      "Move the cone another metre wider.",
+      "Feeder feeds the next ball before the hitter reaches the throwdown.",
+      "The defensive ball must land past a throwdown line two metres inside the far baseline."
+    ],
+    "regressions": [
+      "Move the cone onto the singles sideline.",
+      "Feeder waits until the hitter is still on the throwdown.",
+      "Feeder tosses the wide ball underarm from the far service line."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "F",
+          "x": 0.5,
+          "y": 0.03,
+          "label": "Feeder"
+        },
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.95,
+          "label": "Hitter"
+        },
+        {
+          "id": "P2",
+          "x": -0.1,
+          "y": 0.95,
+          "label": "Queue"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.58,
+          "y": 0.03
+        },
+        {
+          "type": "cone",
+          "x": 0.96,
+          "y": 1.0
+        },
+        {
+          "type": "throwdown",
+          "x": 0.5,
+          "y": 0.985
+        }
+      ],
+      "paths": [
+        {
+          "from": "F",
+          "to": [
+            0.94,
+            0.98
+          ],
+          "style": "feed",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.93,
+            0.98
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.25,
+            0.06
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 3
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "low-ball-lunge-pick-up",
+    "name": "Low Ball Lunge Pick-Up",
+    "summary": "Low skidding feeds short and wide teach the long last step, the low hip and the lift needed to get a low ball back over the net.",
+    "skill_focus": [
+      "movement"
+    ],
+    "levels": [
+      "intermediate"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "half_court",
+    "intensity": "low",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": [
+      "ball basket",
+      "throwdowns"
+    ],
+    "setup": "Feeder on the far service line at the centre with the basket, hitting low skidding slices with the racket that land short and wide on the near side. Hitter starts on the near service line at the centre. A throwdown a metre inside the near singles sideline on each side marks where the low balls land. Extra players queue behind the hitter.",
+    "instructions": [
+      "Feeder slices a low ball to one of the throwdowns.",
+      "Hitter lunges to it with a long last step, gets the racket under the ball, and lifts it back over the net deep.",
+      "Recover to the centre with a push off the lunging leg.",
+      "Eight balls alternating sides, then rotate.",
+      "Second round: the feeder hits the low ball faster so the lunge must be earlier."
+    ],
+    "coaching_points": [
+      "Long last step, front knee over the toes, back leg straight; the hip drops, the back does not bend.",
+      "Racket head below the ball and the face open before the lunge finishes.",
+      "Lift with the legs coming up, not the wrist; the ball must clear the net with margin.",
+      "Push back off the front foot to recover; do not stand up first."
+    ],
+    "progressions": [
+      "Move the throwdowns onto the singles sideline.",
+      "Feeder feeds the next ball as the hitter recovers.",
+      "Returns must land past the far service line."
+    ],
+    "regressions": [
+      "Move the throwdowns half a metre closer to the centre.",
+      "Feeder tosses the low ball underarm instead of slicing it.",
+      "Hitter starts a metre closer to the throwdowns."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "F",
+          "x": 0.5,
+          "y": 0.23,
+          "label": "Feeder"
+        },
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.77,
+          "label": "Hitter"
+        },
+        {
+          "id": "P2",
+          "x": 0.5,
+          "y": 0.87,
+          "label": "Queue"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.58,
+          "y": 0.23
+        },
+        {
+          "type": "throwdown",
+          "x": 0.78,
+          "y": 0.73
+        },
+        {
+          "type": "throwdown",
+          "x": 0.22,
+          "y": 0.73
+        }
+      ],
+      "paths": [
+        {
+          "from": "F",
+          "to": [
+            0.78,
+            0.72
+          ],
+          "style": "feed",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.76,
+            0.74
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.3,
+            0.15
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 3
+        },
+        {
+          "from": "F",
+          "to": [
+            0.22,
+            0.72
+          ],
+          "style": "feed",
+          "step": 4
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.24,
+            0.74
+          ],
+          "style": "movement",
+          "step": 4
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.7,
+            0.15
+          ],
+          "style": "ball",
+          "step": 5
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 6
+        }
+      ]
+    },
+    "source": "generated"
+  }
+]

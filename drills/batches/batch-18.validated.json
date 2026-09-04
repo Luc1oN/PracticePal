@@ -1,0 +1,1116 @@
+[
+  {
+    "slug": "return-position-chess-move-before-the-toss",
+    "name": "Return Position Chess: Move Before the Toss",
+    "summary": "The returner changes starting position before every point to bait a serve, then scores double when the serve goes where the position invited it.",
+    "skill_focus": [
+      "tactical",
+      "return"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 12,
+    "duration_max": 16,
+    "equipment": [
+      "ball basket"
+    ],
+    "setup": "Server behind the near baseline with the basket, returner behind the far baseline, singles court. The returner changes starting position before every point: a metre inside the baseline, two metres behind it, or a metre towards the alley. Nothing else on court.",
+    "instructions": [
+      "Before each point the returner picks a new starting position and stands in it early, so the server sees it.",
+      "Server serves and both play the point out.",
+      "The returner scores two if the point is won and the serve went where the position invited it, for example wide when standing inside; the server scores one for any point won.",
+      "Ten points, then swap roles.",
+      "Second round: the returner moves during the toss instead of before it."
+    ],
+    "coaching_points": [
+      "Your position is a message: standing inside says 'I will attack the second serve', standing wide says 'serve down the T'.",
+      "Move early and then be still; a moving returner at contact is late.",
+      "Decide the return before the serve based on the position you chose: block from inside, drive from deep.",
+      "After the return, recover to the centre mark; the position trick is over once the ball is in play."
+    ],
+    "progressions": [
+      "The returner must change position on every point and never repeat one.",
+      "Second serves only, with the returner inside the baseline on every point.",
+      "The server may serve to either box."
+    ],
+    "regressions": [
+      "Two positions only: normal and inside.",
+      "The server tells the returner where the serve is going.",
+      "Serve from the service line."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.54,
+          "y": 1.03,
+          "label": "Server"
+        },
+        {
+          "id": "P2",
+          "x": 0.3,
+          "y": -0.03,
+          "label": "Returner"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.62,
+          "y": 1.03
+        }
+      ],
+      "paths": [
+        {
+          "from": "P2",
+          "to": [
+            0.3,
+            0.06
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.3,
+            0.32
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.7,
+            0.9
+          ],
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P2",
+          "to": "P2",
+          "style": "movement",
+          "step": 4
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "run-around-forehand-or-neutral-backhand-decide-by-ball-height",
+    "name": "Run-Around Forehand or Neutral Backhand: Decide by Ball Height",
+    "summary": "Three feed heights into the backhand corner, each with a prescribed answer, so the run-around decision is made from the ball's height.",
+    "skill_focus": [
+      "tactical"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 12,
+    "duration_max": 16,
+    "equipment": [
+      "cones",
+      "ball basket"
+    ],
+    "setup": "Feeder on the far baseline at the centre with the basket, feeding with the racket to the near backhand corner at three heights: low skidding, waist height, and high looping. Player on the near baseline at the centre mark. A two-metre cone box in the far backhand corner and a cone on the far centre mark show the two targets. Extra players queue behind the near baseline outside the doubles sideline.",
+    "instructions": [
+      "Feeder feeds to the backhand corner at one of the three heights.",
+      "Player applies the rule: high ball, run around and hit an inside-out forehand into the cone box; waist height, backhand cross-court into the box; low ball, backhand slice deep down the middle to the centre cone.",
+      "Score two for the right shot into the right target, one for the right shot anywhere in, zero for the wrong shot.",
+      "Nine balls, then rotate.",
+      "Second round: the feeder adds pace so the decision must be faster."
+    ],
+    "coaching_points": [
+      "Decide by the height as the ball leaves the feeder's racket; a late decision leaves you between two shots.",
+      "High ball: get around it early and take it at shoulder height with the inside-out forehand.",
+      "Waist height: the backhand drive is the reliable option; do not run around a ball you can hit well.",
+      "Low ball: slice deep and reset; nobody attacks a low skidding ball."
+    ],
+    "progressions": [
+      "Feeder mixes in the forehand corner with the same three heights.",
+      "Shrink the cone box to one metre.",
+      "Play the point out with the feeder after the reply."
+    ],
+    "regressions": [
+      "Feeder calls the height before feeding.",
+      "Two heights only: high and low.",
+      "Widen the targets to the whole far half."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "F",
+          "x": 0.5,
+          "y": 0.03,
+          "label": "Feeder"
+        },
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.95,
+          "label": "Player"
+        },
+        {
+          "id": "P2",
+          "x": 1.1,
+          "y": 0.95,
+          "label": "Queue"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.58,
+          "y": 0.03
+        },
+        {
+          "type": "cone",
+          "x": 0.69,
+          "y": 0.02
+        },
+        {
+          "type": "cone",
+          "x": 0.87,
+          "y": 0.02
+        },
+        {
+          "type": "cone",
+          "x": 0.69,
+          "y": 0.1
+        },
+        {
+          "type": "cone",
+          "x": 0.87,
+          "y": 0.1
+        },
+        {
+          "type": "cone",
+          "x": 0.5,
+          "y": 0.02
+        }
+      ],
+      "paths": [
+        {
+          "from": "F",
+          "to": [
+            0.3,
+            0.9
+          ],
+          "style": "feed",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.22,
+            0.94
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.78,
+            0.06
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 3
+        },
+        {
+          "from": "F",
+          "to": [
+            0.3,
+            0.9
+          ],
+          "style": "feed",
+          "step": 3
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.32,
+            0.94
+          ],
+          "style": "movement",
+          "step": 4
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.5,
+            0.05
+          ],
+          "style": "ball",
+          "step": 5
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 6
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "sneak-attack-approach-off-the-deep-ball",
+    "name": "Sneak Attack: Approach off the Deep Ball",
+    "summary": "Approaching off a deep ball taken on the rise, rather than waiting for a short one, so the surprise comes from timing.",
+    "skill_focus": [
+      "tactical"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 12,
+    "duration_max": 16,
+    "equipment": [
+      "ball basket",
+      "throwdowns"
+    ],
+    "setup": "One player on each baseline at the centre mark. Throwdown lines two metres inside each baseline mark the deep zone. Basket at the net post. A cooperative deep rally in which the approach is made off a deep ball, taken on the rise, rather than off a short one.",
+    "instructions": [
+      "Rally cooperatively, deep into the throwdown zones.",
+      "At any time either player may take a deep ball on the rise from inside the baseline and follow it to the net; the point is live from that ball.",
+      "The approacher scores two for winning the point, the baseliner one.",
+      "First to eleven, then change ends.",
+      "Second game: the approach must be a backhand slice."
+    ],
+    "coaching_points": [
+      "Take the ball on the rise a metre inside the baseline; the surprise is the timing, not the pace.",
+      "Approach down the line and deep; the ball must not sit up.",
+      "Move forward through the shot; the split at the service line comes as the opponent makes contact.",
+      "First volley deep, second volley to the open court."
+    ],
+    "progressions": [
+      "The approach must land past the throwdown line.",
+      "Start points from a serve; the server may approach off the return.",
+      "The baseliner may lob at any time."
+    ],
+    "regressions": [
+      "Cooperate through the approach and first volley, then the point goes live.",
+      "The approach may be made off any ball.",
+      "Widen the deep zones to everything past the service line."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.95,
+          "label": "Player A"
+        },
+        {
+          "id": "P2",
+          "x": 0.5,
+          "y": 0.05,
+          "label": "Player B"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "throwdown",
+          "x": 0.3,
+          "y": 0.916
+        },
+        {
+          "type": "throwdown",
+          "x": 0.5,
+          "y": 0.916
+        },
+        {
+          "type": "throwdown",
+          "x": 0.7,
+          "y": 0.916
+        },
+        {
+          "type": "throwdown",
+          "x": 0.3,
+          "y": 0.084
+        },
+        {
+          "type": "throwdown",
+          "x": 0.5,
+          "y": 0.084
+        },
+        {
+          "type": "throwdown",
+          "x": 0.7,
+          "y": 0.084
+        },
+        {
+          "type": "ball basket",
+          "x": 1.1,
+          "y": 0.53
+        }
+      ],
+      "paths": [
+        {
+          "from": "P1",
+          "to": "P2",
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.7,
+            0.92
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.7,
+            0.9
+          ],
+          "style": "movement",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.75,
+            0.06
+          ],
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.65,
+            0.6
+          ],
+          "style": "movement",
+          "step": 3
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.6,
+            0.62
+          ],
+          "style": "ball",
+          "step": 4
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.2,
+            0.1
+          ],
+          "style": "ball",
+          "step": 5
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 6
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "two-on-one-the-one-attacks",
+    "name": "Two-on-One: The One Attacks",
+    "summary": "One attacker tries to win points against two cooperative defenders who cover the whole court, forcing patience and depth before the finish.",
+    "skill_focus": [
+      "tactical"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "high",
+    "players_min": 3,
+    "players_max": 3,
+    "duration_min": 12,
+    "duration_max": 16,
+    "equipment": [
+      "ball basket"
+    ],
+    "setup": "One attacker on the near baseline at the centre mark. Two defenders on the far baseline, one on each half, with the basket between them at the centre. The attacker plays the whole singles court; the defenders each cover their own half.",
+    "instructions": [
+      "A defender starts the point with a deep feed.",
+      "The attacker tries to win the point against both defenders, who return everything cooperatively but deep and may hit winners only off short balls.",
+      "Attacker scores two for a winner or forced error; defenders score one for a point won.",
+      "Eight points, then rotate: attacker to left defender, left defender to right defender, right defender to attacker.",
+      "Second round: the attacker must finish every point at the net."
+    ],
+    "coaching_points": [
+      "Against two players the sidelines are covered; win through the middle and with depth, then angle when they are pulled in.",
+      "Change height and pace to create the short ball; two defenders do not miss the easy one.",
+      "Take the short ball early and approach behind it; the finish comes at the net, not from the baseline.",
+      "Recover to the centre mark every time; two defenders can hit either corner."
+    ],
+    "progressions": [
+      "Defenders may attack any ball.",
+      "Attacker must win within six balls.",
+      "Defenders may lob at any time."
+    ],
+    "regressions": [
+      "Defenders hit at three-quarter pace.",
+      "Defenders may not hit winners at all.",
+      "Attacker scores for any point won, not only winners."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.95,
+          "label": "Attacker"
+        },
+        {
+          "id": "P2",
+          "x": 0.28,
+          "y": 0.05,
+          "label": "Defender"
+        },
+        {
+          "id": "P3",
+          "x": 0.72,
+          "y": 0.05,
+          "label": "Defender"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.5,
+          "y": 0.03
+        }
+      ],
+      "paths": [
+        {
+          "from": "P2",
+          "to": "P1",
+          "style": "feed",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.5,
+            0.06
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P3",
+          "to": [
+            0.6,
+            0.75
+          ],
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.6,
+            0.78
+          ],
+          "style": "movement",
+          "step": 3
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.15,
+            0.08
+          ],
+          "style": "ball",
+          "step": 4
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 5
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "doubles-australian-formation",
+    "name": "Doubles: Australian Formation",
+    "summary": "The serving pair line up on the same side to take away the cross-court return, and switch as the serve is struck.",
+    "skill_focus": [
+      "tactical"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "medium",
+    "players_min": 4,
+    "players_max": 4,
+    "duration_min": 12,
+    "duration_max": 16,
+    "equipment": [
+      "ball basket"
+    ],
+    "setup": "Four players in doubles formation, serving pair in the Australian formation: server behind the near baseline close to the centre mark on the deuce side, server's partner at the near net on the same deuce side. Returner behind the far baseline on the deuce side, returner's partner on the far service line on the ad side. Basket beside the server. Before each point the net player signals stay or poach.",
+    "instructions": [
+      "Server serves; with the net player on the server's own side, the cross-court return is covered and the returner must go down the line or lob.",
+      "Server moves to the open ad side after serving; the net player poaches or holds according to the signal.",
+      "Play the point out.",
+      "Four points, then rotate all four positions.",
+      "Second round: use the formation on the ad side as well."
+    ],
+    "coaching_points": [
+      "Server: serve down the T or into the body so the down-the-line return is hard to hit.",
+      "Server: land and move immediately to the open side; the return is coming there.",
+      "Net player: cover the middle and be ready for the lob over you; the down-the-line return is the server's ball.",
+      "Returner: the down-the-line return must be low and deep; a short one is a volley for the net player."
+    ],
+    "progressions": [
+      "The net player may poach the down-the-line return.",
+      "Server must serve and volley from the Australian formation.",
+      "Returner must return down the line on every point."
+    ],
+    "regressions": [
+      "Net player announces stay or poach out loud.",
+      "Returner may return anywhere; the serving pair simply practise the switch.",
+      "Serve from the service line."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.54,
+          "y": 1.03,
+          "label": "Server"
+        },
+        {
+          "id": "P2",
+          "x": 0.7,
+          "y": 0.6,
+          "label": "Net player"
+        },
+        {
+          "id": "P3",
+          "x": 0.3,
+          "y": -0.03,
+          "label": "Returner"
+        },
+        {
+          "id": "P4",
+          "x": 0.72,
+          "y": 0.23,
+          "label": "Ret. partner"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.62,
+          "y": 1.03
+        }
+      ],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.47,
+            0.27
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P3",
+          "to": [
+            0.42,
+            0.05
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.3,
+            0.9
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P3",
+          "to": [
+            0.3,
+            0.85
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.75,
+            0.06
+          ],
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 4
+        },
+        {
+          "from": "P3",
+          "to": "P3",
+          "style": "movement",
+          "step": 4
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "drop-shot-and-lob-combinations-touch-points",
+    "name": "Drop Shot and Lob Combinations: Touch Points",
+    "summary": "Points where drop shots and lobs score double, so touch becomes a tactic rather than an afterthought.",
+    "skill_focus": [
+      "tactical"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 12,
+    "duration_max": 16,
+    "equipment": [
+      "ball basket"
+    ],
+    "setup": "One player on each baseline at the centre mark. Basket at the net post. Points on the singles court from an underarm feed, with drop shots and lobs scored double.",
+    "instructions": [
+      "Start each point with an underarm feed, alternating who starts.",
+      "Play the point out; a point won with a drop shot, a lob, or a drop shot followed by a lob scores two, any other point one.",
+      "First to fifteen, then change ends.",
+      "Second game: the point can only be won with a drop shot or a lob; everything else is replayed.",
+      "Third game: normal scoring but each player must play at least one drop shot and one lob per point."
+    ],
+    "coaching_points": [
+      "Drop shot off a short ball only, from inside the baseline, with the same take-back as the drive.",
+      "After the drop shot, move in: the reply is a drop shot or a lob, and both are answered from the service line.",
+      "Lob when the opponent is at the net and leaning forward; aim over the backhand shoulder, deep.",
+      "Disguise: the opponent should read the drop shot from the bounce, not from the swing."
+    ],
+    "progressions": [
+      "Drop shots must be played from behind the service line.",
+      "Lobs must land within two metres of the baseline.",
+      "Start points from a serve."
+    ],
+    "regressions": [
+      "Drop shots and lobs score normally but must be attempted at least once per point.",
+      "Cooperate for four balls before the point goes live.",
+      "Play from the service lines."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.95,
+          "label": "Player A"
+        },
+        {
+          "id": "P2",
+          "x": 0.5,
+          "y": 0.05,
+          "label": "Player B"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 1.1,
+          "y": 0.53
+        }
+      ],
+      "paths": [
+        {
+          "from": "P1",
+          "to": "P2",
+          "style": "feed",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.45,
+            0.72
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.45,
+            0.74
+          ],
+          "style": "movement",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.35,
+            0.44
+          ],
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.35,
+            0.4
+          ],
+          "style": "movement",
+          "step": 3
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.7,
+            0.94
+          ],
+          "style": "ball",
+          "step": 4
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.7,
+            0.92
+          ],
+          "style": "movement",
+          "step": 4
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 5
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "tiebreak-from-4-4-rally-tolerance-under-score-pressure",
+    "name": "Tiebreak from 4-4: Rally Tolerance Under Score Pressure",
+    "summary": "Repeated tiebreaks that start at 4-4, so every point is played at the score where matches are decided.",
+    "skill_focus": [
+      "tactical"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 12,
+    "duration_max": 16,
+    "equipment": [
+      "ball basket"
+    ],
+    "setup": "One player each side behind the baselines, singles court, basket beside the server. Every set of points is a tiebreak that starts at 4-4, with normal serving order and changing ends at the usual moments.",
+    "instructions": [
+      "Play a tiebreak from 4-4 to seven, win by two.",
+      "The winner of each tiebreak notes how many points ended with an unforced error inside six balls.",
+      "Play four tiebreaks, alternating who serves first.",
+      "Fifth tiebreak from 5-5.",
+      "Last tiebreak: the loser of each point must say what they would do differently before the next serve."
+    ],
+    "coaching_points": [
+      "At 4-4 the first two serves decide the tiebreak: highest-percentage serve, first ball cross-court.",
+      "Under pressure, add a metre of margin to every target; the opponent misses first if you do not.",
+      "Same routine every point: towel, bounce, breathe; the score does not change the routine.",
+      "On match point against you, play the pattern that has been working, not a hero shot."
+    ],
+    "progressions": [
+      "Start every tiebreak at 5-5.",
+      "Second serves only, no first serves.",
+      "The loser of the previous tiebreak serves first at 4-5."
+    ],
+    "regressions": [
+      "Start tiebreaks at 3-3.",
+      "Tiebreaks to five instead of seven.",
+      "Serve from a metre inside the baseline."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.54,
+          "y": 1.03,
+          "label": "Server"
+        },
+        {
+          "id": "P2",
+          "x": 0.3,
+          "y": -0.03,
+          "label": "Returner"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.62,
+          "y": 1.03
+        }
+      ],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.3,
+            0.32
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.3,
+            0.05
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": "P1",
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.28,
+            0.06
+          ],
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P2",
+          "to": "P2",
+          "style": "movement",
+          "step": 4
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "call-your-pattern-before-the-point",
+    "name": "Call Your Pattern Before the Point",
+    "summary": "Both players announce their two-shot pattern before every point and score double for winning it that way, even though the opponent heard.",
+    "skill_focus": [
+      "tactical"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "low",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 10,
+    "duration_max": 14,
+    "equipment": [
+      "ball basket"
+    ],
+    "setup": "One player each side behind the baselines, singles court, basket beside the server. Before each point both players announce, out loud to each other, the two-shot pattern they intend to play first; the opponent hearing it is part of the drill.",
+    "instructions": [
+      "Before each point, each player announces their first two-shot pattern out loud, for example 'serve wide, forehand to the open court' or 'return deep middle, then attack the short ball'.",
+      "Play the point out from a serve.",
+      "Score two if the point is won using the announced pattern, one if won another way.",
+      "Ten points, then swap server.",
+      "Second round: patterns must be three shots long."
+    ],
+    "coaching_points": [
+      "A pattern is a plan for the first two balls only; after that, play what you see.",
+      "Announcing the pattern to the opponent is the point: a good pattern works even when it is known.",
+      "If the first ball of the pattern is missed, the pattern is over; reset to cross-court and deep.",
+      "Choose patterns that start with your strength and end on their weakness."
+    ],
+    "progressions": [
+      "Patterns must be three shots long.",
+      "Players whisper the pattern to a third player who scores it, so the opponent does not know.",
+      "The same pattern may not be used twice in a row."
+    ],
+    "regressions": [
+      "Patterns are one shot long: the serve target or the return target.",
+      "Cooperate through the pattern, then the point goes live.",
+      "Serve from the service line."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.54,
+          "y": 1.03,
+          "label": "Server"
+        },
+        {
+          "id": "P2",
+          "x": 0.3,
+          "y": -0.03,
+          "label": "Returner"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.62,
+          "y": 1.03
+        }
+      ],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.15,
+            0.27
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.14,
+            0.2
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.6,
+            0.9
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.6,
+            0.95
+          ],
+          "style": "movement",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.8,
+            0.06
+          ],
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 4
+        },
+        {
+          "from": "P2",
+          "to": "P2",
+          "style": "movement",
+          "step": 4
+        }
+      ]
+    },
+    "source": "generated"
+  }
+]

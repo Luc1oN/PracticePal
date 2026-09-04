@@ -1,0 +1,466 @@
+[
+  {
+    "slug": "drop-feed-forehand-into-the-hoop",
+    "name": "Drop-Feed Forehand into the Hoop",
+    "summary": "Teaches a beginner where the forehand contact point is by hitting self-dropped balls from a marked spot into a hoop across the net.",
+    "skill_focus": ["forehand"],
+    "levels": ["beginner"],
+    "age_groups": ["mini_orange", "mini_green", "junior", "adult"],
+    "court_space": "service_boxes",
+    "intensity": "low",
+    "players_min": 1,
+    "players_max": 2,
+    "duration_min": 6,
+    "duration_max": 10,
+    "equipment": ["cones", "hoops", "ball basket"],
+    "setup": "Player stands on the deuce side just inside the near service line, feet shoulder-width apart, side-on to the net. Place a cone a racket length in front of the front foot and slightly to the right: that is the contact spot. Lay a hoop in the middle of the far service box diagonally across the net. Basket of orange or green balls at the player's feet. A second player, if there is one, stands beside the hoop to collect and roll balls back.",
+    "instructions": [
+      "Hold the ball at arm's length above the cone and drop it, letting it bounce once.",
+      "Swing low to high and hit the ball at the top of its bounce, above the cone.",
+      "Aim to land the ball in the hoop; count hoops out of ten.",
+      "After ten balls, collect (or swap with the collector) and go again.",
+      "Three sets of ten, then move the cone one step further forward and hit one more set."
+    ],
+    "coaching_points": [
+      "Drop the ball, do not throw it down; it should bounce to hip height.",
+      "Turn the shoulders before the ball bounces so the racket is already back.",
+      "Hit the ball above the cone, level with the front hip.",
+      "Finish with the racket pointing at the hoop, then up over the shoulder."
+    ],
+    "progressions": [
+      "Move the hoop to the back corner of the far service box.",
+      "Switch from an orange ball to a green ball.",
+      "Drop the ball from waist height instead of shoulder height so there is less time to swing."
+    ],
+    "regressions": [
+      "Replace the hoop with a two-metre cone square.",
+      "Stand one metre inside the service line so the hoop is closer.",
+      "Use a red ball for a slower, higher bounce."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "P1", "x": 0.69, "y": 0.78, "label": "Hitter" }
+      ],
+      "equipment": [
+        { "type": "cone", "x": 0.74, "y": 0.74 },
+        { "type": "hoop", "x": 0.31, "y": 0.36 },
+        { "type": "ball basket", "x": 0.6, "y": 0.81 }
+      ],
+      "paths": [
+        { "from": "P1", "to": [0.74, 0.74], "style": "feed", "step": 1 },
+        { "from": [0.74, 0.74], "to": [0.31, 0.36], "style": "ball", "step": 2 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "hand-feed-backhand-return-to-the-catcher",
+    "name": "Hand-Feed Backhand, Return to the Catcher",
+    "summary": "Pairs a gentle underarm feed with a controlled backhand that must be hit softly enough for the feeder to catch after one bounce.",
+    "skill_focus": ["backhand"],
+    "levels": ["beginner"],
+    "age_groups": ["mini_orange", "mini_green", "junior"],
+    "court_space": "service_boxes",
+    "intensity": "low",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": ["ball basket"],
+    "setup": "Feeder stands on the far side just inside the service line, on the centre line, with a basket of orange or green balls beside them. Hitter stands on the near side in the middle of the ad service box, side-on, holding the racket with both hands in a backhand grip. Nothing else on court: the feeder's hands are the target.",
+    "instructions": [
+      "Feeder tosses underarm over the net so the ball bounces once about a metre in front of the hitter's backhand side.",
+      "Hitter steps in and hits a backhand back over the net, aiming at the feeder's chest.",
+      "Feeder tries to catch the ball after one bounce without moving more than one step; a clean catch scores a point for the pair.",
+      "Ten feeds, then swap roles.",
+      "Play to twenty points as a pair, then repeat with the hitter starting one step further back."
+    ],
+    "coaching_points": [
+      "Step across with the right foot so the shoulder faces the net before the bounce.",
+      "Both hands stay on the racket until the ball has left the strings.",
+      "Hit at the top of the bounce, in front of the front knee.",
+      "Keep the follow-through low and towards the feeder; a big finish sends it long."
+    ],
+    "progressions": [
+      "Feeder catches without letting the ball bounce.",
+      "Feeder tosses to the backhand or the forehand without warning.",
+      "Switch from an orange ball to a green ball."
+    ],
+    "regressions": [
+      "Feeder tosses from the same side of the net, three metres in front of the hitter.",
+      "Count any ball that lands in the far service box, not only catches.",
+      "Use a red ball for a slower, higher bounce."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "F", "x": 0.5, "y": 0.25, "label": "Feeder" },
+        { "id": "P1", "x": 0.31, "y": 0.64, "label": "Hitter" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.58, "y": 0.25 }
+      ],
+      "paths": [
+        { "from": "F", "to": "P1", "style": "feed", "step": 1 },
+        { "from": "P1", "to": "F", "style": "ball", "step": 2 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "service-box-rally-to-ten",
+    "name": "Service-Box Rally to Ten",
+    "summary": "Builds rally consistency with a cooperative mini-tennis rally inside the service boxes, counting consecutive balls before the court is opened up.",
+    "skill_focus": ["forehand", "backhand"],
+    "levels": ["beginner"],
+    "age_groups": ["mini_orange", "mini_green", "junior", "adult"],
+    "court_space": "service_boxes",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": ["ball basket"],
+    "setup": "One player in each service box straight across the net from each other, both starting on their service line at the centre. Play only inside the two boxes: a ball landing past the service line or outside the singles sideline is out. Basket at the net post for quick restarts. Orange or green balls.",
+    "instructions": [
+      "Player A starts with a gentle self-drop hit; the pair rallies cooperatively, forehands or backhands as the ball comes.",
+      "Count each ball out loud; the rally ends on an error or a ball outside the boxes.",
+      "A rally that reaches ten banks one 'ten'; the pair aims for three tens in the time.",
+      "Once three tens are banked, play the next round forehands only, then backhands only, moving round the ball when needed.",
+      "Finish with one round where every ball must cross the net at least a racket length above the tape."
+    ],
+    "coaching_points": [
+      "Racket back as soon as you see which side the ball is coming to.",
+      "Swing low to high and stop the racket at shoulder height; a short swing keeps the ball in the box.",
+      "Move your feet to the ball, then hit; no reaching.",
+      "Aim for your partner's forehand hip so they can keep it going."
+    ],
+    "progressions": [
+      "Extend the playing area two metres behind each service line.",
+      "Switch from an orange ball to a green ball.",
+      "Each player must alternate forehand and backhand strictly."
+    ],
+    "regressions": [
+      "Allow the ball to bounce twice.",
+      "Use a red ball.",
+      "Feed every third ball by hand instead of hitting it."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "P1", "x": 0.5, "y": 0.72, "label": "Player A" },
+        { "id": "P2", "x": 0.5, "y": 0.28, "label": "Player B" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 1.1, "y": 0.53 }
+      ],
+      "paths": [
+        { "from": "P1", "to": "P2", "style": "ball", "step": 1 },
+        { "from": "P2", "to": "P1", "style": "ball", "step": 2 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "call-the-gate-forehand-cross-or-line",
+    "name": "Call the Gate: Forehand Cross or Line",
+    "summary": "Teaches beginners to direct the forehand on purpose by hitting through one of two cone gates called by the feeder just before the feed.",
+    "skill_focus": ["forehand"],
+    "levels": ["beginner"],
+    "age_groups": ["mini_green", "junior", "adult"],
+    "court_space": "half_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 10,
+    "duration_max": 15,
+    "equipment": ["cones", "ball basket"],
+    "setup": "Feeder at the near net on the centre line, basket beside them, facing the hitter. Hitter on the near baseline on the deuce side, a metre inside the singles sideline. On the far side lay two cone gates, each two cones three metres apart, both a metre inside the far baseline: one gate cross-court in the far left half and one down the line in the far right half. Extra players queue behind the near baseline outside the doubles sideline.",
+    "instructions": [
+      "Feeder calls 'cross' or 'line', then tosses underarm to bounce a metre in front of the hitter's forehand.",
+      "Hitter hits the forehand through the called gate.",
+      "One point for the right gate, minus one for the wrong gate, nothing for a miss.",
+      "Eight balls each, then rotate: hitter to the back of the queue, next player in.",
+      "Second round: the feeder calls the gate only as the ball leaves the hand."
+    ],
+    "coaching_points": [
+      "Aim with the feet: the front foot points at the gate you were given.",
+      "For cross-court hit the ball a little earlier and further in front; for the line let it come a little later.",
+      "Same swing for both directions; change the contact point, not the swing.",
+      "Look at the gate before the feed, then eyes on the ball until it hits the strings."
+    ],
+    "progressions": [
+      "Narrow each gate from three metres to two.",
+      "Feeder calls the gate only after the bounce.",
+      "Feeder alternates forehand and backhand feeds, gates unchanged."
+    ],
+    "regressions": [
+      "Widen each gate to four metres.",
+      "Feeder calls the same gate for four balls in a row before switching.",
+      "Feed from three metres in front of the hitter on the same side of the net instead of from the net."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "F", "x": 0.5, "y": 0.56, "label": "Feeder" },
+        { "id": "P1", "x": 0.78, "y": 0.95, "label": "Hitter" },
+        { "id": "P2", "x": 1.1, "y": 0.95, "label": "Queue" },
+        { "id": "P3", "x": 1.1, "y": 1.03 }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.6, "y": 0.56 },
+        { "type": "cone", "x": 0.18, "y": 0.05 },
+        { "type": "cone", "x": 0.45, "y": 0.05 },
+        { "type": "cone", "x": 0.58, "y": 0.05 },
+        { "type": "cone", "x": 0.85, "y": 0.05 }
+      ],
+      "paths": [
+        { "from": "F", "to": "P1", "style": "feed", "step": 1 },
+        { "from": "P1", "to": [0.31, 0.06], "style": "ball", "step": 2 },
+        { "from": "F", "to": "P1", "style": "feed", "step": 3 },
+        { "from": "P1", "to": [0.72, 0.06], "style": "ball", "step": 4 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "bounce-hit-rhythm-toss",
+    "name": "Bounce-Hit Rhythm Toss",
+    "summary": "Fixes timing for the youngest beginners by having them call 'bounce' and 'hit' out loud on every tossed ball before they swing.",
+    "skill_focus": ["forehand", "backhand"],
+    "levels": ["beginner"],
+    "age_groups": ["mini_red", "mini_orange", "mini_green"],
+    "court_space": "service_boxes",
+    "intensity": "low",
+    "players_min": 2,
+    "players_max": 3,
+    "duration_min": 6,
+    "duration_max": 10,
+    "equipment": ["cones", "ball basket"],
+    "setup": "Hitter stands on a cone placed on the near service line in the middle of the deuce side, side-on to the net. Feeder crouches three metres in front of the hitter on the same side of the net, a little towards the forehand side, with a basket of red balls. A second cone marks the bounce spot: one metre in front of the hitter and a racket length to the forehand side. A third player, if there is one, waits behind the baseline and collects.",
+    "instructions": [
+      "Feeder tosses underarm so the ball bounces on the bounce cone.",
+      "Hitter shouts 'bounce' as the ball bounces and 'hit' as they hit it over the net.",
+      "Any ball over the net and inside the far service boxes scores one.",
+      "Ten forehands, then ten backhands with the bounce cone moved to the other side, then swap roles or bring in the waiting player.",
+      "Last round: the hitter says nothing out loud and the feeder listens for the same rhythm in the swing."
+    ],
+    "coaching_points": [
+      "Say 'bounce' the moment the ball touches the ground, not after.",
+      "Racket back on 'bounce', swing on 'hit'.",
+      "Hit the ball when it is at its highest, level with your hip.",
+      "Stay on your cone; the toss comes to you."
+    ],
+    "progressions": [
+      "Move the feeder back to five metres so the ball arrives faster.",
+      "Switch from a red ball to an orange ball.",
+      "Feeder alternates forehand and backhand tosses without moving the bounce cone."
+    ],
+    "regressions": [
+      "Feeder tosses from one metre away and lets the ball bounce twice.",
+      "Hitter catches the ball in the free hand on 'hit' before progressing to swinging.",
+      "Feeder says 'bounce, hit' out loud together with the hitter."
+    ],
+    "court_diagram": {
+      "court": "half",
+      "players": [
+        { "id": "P1", "x": 0.69, "y": 0.77, "label": "Hitter" },
+        { "id": "F", "x": 0.8, "y": 0.65, "label": "Feeder" }
+      ],
+      "equipment": [
+        { "type": "cone", "x": 0.69, "y": 0.77 },
+        { "type": "cone", "x": 0.76, "y": 0.735 },
+        { "type": "ball basket", "x": 0.9, "y": 0.65 }
+      ],
+      "paths": [
+        { "from": "F", "to": [0.76, 0.735], "style": "feed", "step": 1 },
+        { "from": "P1", "to": [0.4, 0.45], "style": "ball", "step": 2 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "over-the-service-line-depth-rally",
+    "name": "Over the Service Line Depth Rally",
+    "summary": "Turns a beginner baseline rally into a depth game by scoring only balls that land between the service line and the baseline.",
+    "skill_focus": ["forehand", "backhand"],
+    "levels": ["beginner"],
+    "age_groups": ["mini_green", "junior", "adult"],
+    "court_space": "full_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 10,
+    "duration_max": 15,
+    "equipment": ["throwdowns", "ball basket"],
+    "setup": "One player on each baseline, starting on the centre mark. Lay four throwdowns along each service line, spread evenly between the singles sidelines, so the line is easy to see from the other end. Basket of green balls at the net post.",
+    "instructions": [
+      "Start each rally with an underarm hand-feed from the baseline.",
+      "Rally cooperatively down the middle; a ball landing past the throwdowns scores one for the hitter.",
+      "A ball landing short of the throwdowns stays in play but scores nothing.",
+      "Rally to an error, then restart; first to fifteen deep balls wins.",
+      "Second game: score only deep balls hit on the backhand."
+    ],
+    "coaching_points": [
+      "Aim two racket lengths above the net; at this level deep balls are high balls.",
+      "Take the racket back as the ball leaves your partner's strings.",
+      "Hit through the ball towards the far fence, then finish high.",
+      "Back to the centre mark after every ball."
+    ],
+    "progressions": [
+      "Add a second throwdown line two metres inside the baseline and score only balls that land behind it.",
+      "Switch from a green ball to a yellow ball.",
+      "Play the point out instead of cooperating once the rally passes four balls."
+    ],
+    "regressions": [
+      "Move both players in to two metres inside the baseline.",
+      "Use an orange ball.",
+      "Allow the ball to bounce twice."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "P1", "x": 0.5, "y": 0.97, "label": "Player A" },
+        { "id": "P2", "x": 0.5, "y": 0.03, "label": "Player B" }
+      ],
+      "equipment": [
+        { "type": "throwdown", "x": 0.2, "y": 0.769 },
+        { "type": "throwdown", "x": 0.4, "y": 0.769 },
+        { "type": "throwdown", "x": 0.6, "y": 0.769 },
+        { "type": "throwdown", "x": 0.8, "y": 0.769 },
+        { "type": "throwdown", "x": 0.2, "y": 0.231 },
+        { "type": "throwdown", "x": 0.4, "y": 0.231 },
+        { "type": "throwdown", "x": 0.6, "y": 0.231 },
+        { "type": "throwdown", "x": 0.8, "y": 0.231 },
+        { "type": "ball basket", "x": 1.1, "y": 0.53 }
+      ],
+      "paths": [
+        { "from": "P1", "to": "P2", "style": "ball", "step": 1 },
+        { "from": "P2", "to": "P1", "style": "ball", "step": 2 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "forehand-only-box-points",
+    "name": "Forehand-Only Box Points",
+    "summary": "Competitive points inside the service boxes where only forehands count, forcing beginners to move around the ball early.",
+    "skill_focus": ["forehand", "games"],
+    "levels": ["beginner"],
+    "age_groups": ["mini_green", "junior", "adult"],
+    "court_space": "service_boxes",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": ["cones", "ball basket"],
+    "setup": "One player on each side, starting on the service line at the centre. The playing area is the two service boxes only; place a cone on each singles sideline where it meets the service line, on both sides of the net, so the corners are obvious. Basket at the net post. Green or yellow balls.",
+    "instructions": [
+      "Server starts each point with an underarm hand-feed from the service line; the serve changes hands every two points.",
+      "Play the point inside the boxes; a ball hit with the backhand loses the point immediately.",
+      "Players may run around the backhand side to hit a forehand; the ball can still land anywhere in the boxes.",
+      "First to seven points, change ends, play again.",
+      "Third game: the winner of the previous point must hit their next ball cross-court."
+    ],
+    "coaching_points": [
+      "Decide 'forehand' before the ball crosses the net and start moving then.",
+      "Shuffle sideways around the ball; do not cross your feet on the last step.",
+      "Keep the swing short and finish over the shoulder; power loses points in a small box.",
+      "Recover to the centre of the box before admiring the shot."
+    ],
+    "progressions": [
+      "Extend the area two metres behind each service line.",
+      "Backhands are allowed but score half a point.",
+      "Switch from a green ball to a yellow ball."
+    ],
+    "regressions": [
+      "Rally cooperatively to five before the point becomes live.",
+      "Use an orange ball.",
+      "Allow one backhand per point without penalty."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "P1", "x": 0.5, "y": 0.77, "label": "Player A" },
+        { "id": "P2", "x": 0.5, "y": 0.23, "label": "Player B" }
+      ],
+      "equipment": [
+        { "type": "cone", "x": 0.125, "y": 0.769 },
+        { "type": "cone", "x": 0.875, "y": 0.769 },
+        { "type": "cone", "x": 0.125, "y": 0.231 },
+        { "type": "cone", "x": 0.875, "y": 0.231 },
+        { "type": "ball basket", "x": 1.1, "y": 0.53 }
+      ],
+      "paths": [
+        { "from": "P1", "to": "P2", "style": "feed", "step": 1 },
+        { "from": "P2", "to": [0.3, 0.7], "style": "ball", "step": 2 },
+        { "from": "P1", "to": [0.24, 0.74], "style": "movement", "step": 2 },
+        { "from": "P1", "to": "P2", "style": "ball", "step": 3 },
+        { "from": "P1", "to": "P1", "style": "movement", "step": 4 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "basket-rhythm-forehand-backhand-repeat",
+    "name": "Basket Rhythm: Forehand, Backhand, Repeat",
+    "summary": "Grooves the basic forehand and backhand swings with a steady basket feed that alternates sides on every ball, with a queue rotating in.",
+    "skill_focus": ["forehand", "backhand"],
+    "levels": ["beginner"],
+    "age_groups": ["mini_orange", "mini_green", "junior", "adult"],
+    "court_space": "half_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 5,
+    "duration_min": 10,
+    "duration_max": 15,
+    "equipment": ["ball basket", "targets"],
+    "setup": "Feeder on the near side, two metres inside the service line on the centre line, with the basket beside them. Hitter on the near baseline at the centre mark. Lay one large target in the middle of each far half, two metres inside the far baseline. Extra players queue behind the near baseline outside the doubles sideline; the first in the queue collects stray balls.",
+    "instructions": [
+      "Feeder tosses underarm at a steady rhythm of one ball every three seconds, alternating forehand side and backhand side, each ball bouncing a metre in front of the hitter.",
+      "Hitter hits every forehand cross-court at the far left target and every backhand cross-court at the far right target.",
+      "Feeder counts target hits out loud; the hitter tries to beat their own score from the previous round.",
+      "Ten balls, then the hitter jogs to the back of the queue and the next player steps to the centre mark.",
+      "Three rounds each; in the final round the feeder speeds up to one ball every two seconds."
+    ],
+    "coaching_points": [
+      "Turn the shoulders before the bounce; taking the racket back is a shoulder turn, not an arm lift.",
+      "Step into the ball with the front foot pointing at the target.",
+      "Contact level with the front hip, out in front.",
+      "One step back to the centre mark between balls; the next feed is already coming."
+    ],
+    "progressions": [
+      "Speed the feed up to one ball every two seconds.",
+      "Shrink the targets from two metres to one.",
+      "Feeder mixes forehands and backhands in an unpredictable order instead of alternating."
+    ],
+    "regressions": [
+      "Slow the feed to one ball every five seconds.",
+      "Feed the same side ten times before changing.",
+      "Use an orange ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "F", "x": 0.5, "y": 0.685, "label": "Feeder" },
+        { "id": "P1", "x": 0.5, "y": 0.95, "label": "Hitter" },
+        { "id": "P2", "x": 1.1, "y": 0.95, "label": "Queue" },
+        { "id": "P3", "x": 1.1, "y": 1.03 }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.6, "y": 0.685 },
+        { "type": "target", "x": 0.31, "y": 0.084 },
+        { "type": "target", "x": 0.69, "y": 0.084 }
+      ],
+      "paths": [
+        { "from": "F", "to": [0.6, 0.91], "style": "feed", "step": 1 },
+        { "from": "P1", "to": [0.31, 0.084], "style": "ball", "step": 2 },
+        { "from": "F", "to": [0.4, 0.91], "style": "feed", "step": 3 },
+        { "from": "P1", "to": [0.69, 0.084], "style": "ball", "step": 4 }
+      ]
+    },
+    "source": "generated"
+  }
+]

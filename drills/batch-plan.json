@@ -1,0 +1,201 @@
+[
+  {
+    "batch": 1,
+    "skill_focus": "forehand, backhand",
+    "level": "beginner",
+    "count": 8,
+    "n_two_player": 4,
+    "small_space": "service_boxes",
+    "n_small_space": 4
+  },
+  {
+    "batch": 2,
+    "skill_focus": "forehand, backhand",
+    "level": "improver",
+    "count": 8,
+    "n_two_player": 4,
+    "small_space": "cross_court_channel",
+    "n_small_space": 4
+  },
+  {
+    "batch": 3,
+    "skill_focus": "forehand, backhand",
+    "level": "intermediate",
+    "count": 8,
+    "n_two_player": 3,
+    "small_space": "cross_court_channel",
+    "n_small_space": 3
+  },
+  {
+    "batch": 4,
+    "skill_focus": "forehand, backhand",
+    "level": "advanced",
+    "count": 8,
+    "n_two_player": 3,
+    "small_space": "half_court",
+    "n_small_space": 3
+  },
+  {
+    "batch": 5,
+    "skill_focus": "serve, return",
+    "level": "beginner",
+    "count": 8,
+    "n_two_player": 4,
+    "small_space": "service_boxes",
+    "n_small_space": 4
+  },
+  {
+    "batch": 6,
+    "skill_focus": "serve, return",
+    "level": "improver",
+    "count": 8,
+    "n_two_player": 4,
+    "small_space": "baseline_only",
+    "n_small_space": 4
+  },
+  {
+    "batch": 7,
+    "skill_focus": "serve, return",
+    "level": "intermediate",
+    "count": 8,
+    "n_two_player": 3,
+    "small_space": "half_court",
+    "n_small_space": 3
+  },
+  {
+    "batch": 8,
+    "skill_focus": "serve, return",
+    "level": "advanced",
+    "count": 8,
+    "n_two_player": 3,
+    "small_space": "half_court",
+    "n_small_space": 3
+  },
+  {
+    "batch": 9,
+    "skill_focus": "volley, overhead",
+    "level": "beginner",
+    "count": 8,
+    "n_two_player": 4,
+    "small_space": "net_area",
+    "n_small_space": 4
+  },
+  {
+    "batch": 10,
+    "skill_focus": "volley, overhead",
+    "level": "improver",
+    "count": 8,
+    "n_two_player": 4,
+    "small_space": "service_boxes",
+    "n_small_space": 4
+  },
+  {
+    "batch": 11,
+    "skill_focus": "volley, overhead",
+    "level": "intermediate",
+    "count": 8,
+    "n_two_player": 3,
+    "small_space": "net_area",
+    "n_small_space": 3
+  },
+  {
+    "batch": 12,
+    "skill_focus": "movement",
+    "level": "beginner",
+    "count": 6,
+    "n_two_player": 4,
+    "small_space": "half_court",
+    "n_small_space": 4
+  },
+  {
+    "batch": 13,
+    "skill_focus": "movement",
+    "level": "improver",
+    "count": 6,
+    "n_two_player": 4,
+    "small_space": "baseline_only",
+    "n_small_space": 4
+  },
+  {
+    "batch": 14,
+    "skill_focus": "movement",
+    "level": "intermediate",
+    "count": 6,
+    "n_two_player": 3,
+    "small_space": "full_court",
+    "n_small_space": 3
+  },
+  {
+    "batch": 15,
+    "skill_focus": "movement",
+    "level": "advanced",
+    "count": 6,
+    "n_two_player": 3,
+    "small_space": "full_court",
+    "n_small_space": 3
+  },
+  {
+    "batch": 16,
+    "skill_focus": "tactical",
+    "level": "improver",
+    "count": 6,
+    "n_two_player": 4,
+    "small_space": "full_court",
+    "n_small_space": 4
+  },
+  {
+    "batch": 17,
+    "skill_focus": "tactical",
+    "level": "intermediate",
+    "count": 8,
+    "n_two_player": 4,
+    "small_space": "full_court",
+    "n_small_space": 4
+  },
+  {
+    "batch": 18,
+    "skill_focus": "tactical",
+    "level": "advanced",
+    "count": 8,
+    "n_two_player": 4,
+    "small_space": "full_court",
+    "n_small_space": 4
+  },
+  {
+    "batch": 19,
+    "skill_focus": "warmup",
+    "level": "all levels",
+    "count": 8,
+    "n_two_player": 4,
+    "small_space": "off_court",
+    "n_small_space": 4
+  },
+  {
+    "batch": 20,
+    "skill_focus": "cooldown",
+    "level": "all levels",
+    "count": 4,
+    "n_two_player": 4,
+    "small_space": "off_court",
+    "no_intensity_spread": true,
+    "n_small_space": 4
+  },
+  {
+    "batch": 21,
+    "skill_focus": "games",
+    "level": "beginner, improver",
+    "count": 8,
+    "n_two_player": 4,
+    "small_space": "half_court",
+    "n_small_space": 4
+  },
+  {
+    "batch": 22,
+    "skill_focus": "games",
+    "level": "intermediate, advanced",
+    "count": 8,
+    "n_two_player": 4,
+    "small_space": "full_court",
+    "n_small_space": 4
+  }
+]

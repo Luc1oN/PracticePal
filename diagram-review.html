@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PracticePal — Diagram review</title>
+<style>
+  :root {
+    --bg: #f3f3ee; --fg: #1d1d1b; --muted: #6b6b66; --panel: #ffffff; --border: #d8d8d0;
+    --ok: #1f7a3f; --wrong: #b3261e; --accent: #57268b; --warn-bg: #fff4d6; --warn-fg: #6b4a00;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #151614; --fg: #ebe9e2; --muted: #a3a19a; --panel: #1f211f; --border: #3a3c38; --warn-bg: #3a3010; --warn-fg: #f0d68a; }
+  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html, body { margin: 0; }
+  body { font: 15px/1.45 Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--fg); min-height: 100vh; display: flex; flex-direction: column; }
+  header, footer { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; padding: 8px 14px; background: var(--panel); }
+  header { border-bottom: 1px solid var(--border); }
+  footer { border-top: 1px solid var(--border); position: sticky; bottom: 0; z-index: 2; }
+  header .spacer, footer .spacer { flex: 1; }
+  #status { color: var(--muted); font-size: 14px; }
+  button { font: inherit; padding: 7px 14px; border-radius: 6px; border: 1px solid var(--border); background: var(--panel); color: var(--fg); cursor: pointer; }
+  button:hover { border-color: var(--fg); }
+  button:disabled { opacity: .4; cursor: default; }
+  button.ok { border-color: var(--ok); color: var(--ok); font-weight: 600; }
+  button.wrong { border-color: var(--wrong); color: var(--wrong); font-weight: 600; }
+  button.ok.active { background: var(--ok); color: #fff; }
+  button.wrong.active { background: var(--wrong); color: #fff; }
+  kbd { font: 11px/1 ui-monospace, Menlo, monospace; padding: 2px 5px; border: 1px solid var(--border); border-bottom-width: 2px; border-radius: 4px; color: var(--muted); margin-left: 4px; }
+  input[type=text] { font: inherit; padding: 7px 10px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); color: var(--fg); min-width: 220px; }
+  label.check { display: inline-flex; align-items: center; gap: 5px; color: var(--muted); font-size: 14px; cursor: pointer; }
+  main { flex: 1; display: grid; grid-template-columns: minmax(260px, 430px) minmax(0, 1fr); gap: 22px; padding: 14px; align-items: start; }
+  @media (max-width: 760px) { main { grid-template-columns: 1fr; } }
+  #diagram { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 6px; }
+  #diagram svg { width: 100%; height: auto; max-height: calc(100vh - 170px); display: block; }
+  #diagram .placeholder { padding: 60px 20px; text-align: center; color: var(--muted); }
+  #warnings { margin: 10px 0 0; padding: 8px 12px; border-radius: 6px; background: var(--warn-bg); color: var(--warn-fg); font-size: 13px; }
+  #warnings ul { margin: 4px 0 0; padding-left: 18px; }
+  details { margin-top: 10px; font-size: 13px; color: var(--muted); }
+  details pre { margin: 6px 0 0; padding: 8px 10px; background: var(--panel); border: 1px solid var(--border); border-radius: 6px; overflow-x: auto; font-size: 12px; color: var(--fg); max-height: 320px; }
+  .right h1 { font-size: 22px; line-height: 1.2; margin: 0 0 6px; }
+  .badge { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; vertical-align: middle; margin-left: 8px; border: 1px solid var(--border); color: var(--muted); }
+  .badge.ok { background: var(--ok); border-color: var(--ok); color: #fff; }
+  .badge.wrong { background: var(--wrong); border-color: var(--wrong); color: #fff; }
+  .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+  .chip { font-size: 13px; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border); background: var(--panel); }
+  .right h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 16px 0 4px; }
+  .right p, .right ol { margin: 0; }
+  .right ol { padding-left: 22px; }
+  .right ol li { margin-bottom: 4px; }
+  .right p.multi { white-space: pre-wrap; }
+  .note-wrap { display: inline-flex; align-items: center; gap: 6px; }
+  #empty { flex: 1; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--muted); padding: 40px 20px; }
+  #empty div { max-width: 460px; }
+  #empty p { margin: 8px 0; }
+  body.dragging { outline: 3px dashed var(--accent); outline-offset: -6px; }
+  @media print {
+    header, footer, details, #warnings { display: none !important; }
+    main { grid-template-columns: 1fr 1fr; }
+    body { background: #fff; color: #000; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <input type="file" id="file" accept=".json,application/json" aria-label="Load drills JSON">
+  <button id="loadExamples" type="button" title="Loads diagram-examples.json from the same folder (needs a local server)">Load examples</button>
+  <span id="status">No file loaded.</span>
+  <span class="spacer"></span>
+  <label class="check"><input type="checkbox" id="motion" checked> Motion<kbd>M</kbd></label>
+  <label class="check"><input type="checkbox" id="print"> Print mode<kbd>P</kbd></label>
+  <button id="export" type="button" disabled>Export JSON</button>
+</header>
+
+<div id="empty">
+  <div>
+    <p><strong>Load a JSON array of drills</strong> with the file picker above, or drop the file anywhere on this page.</p>
+    <p>Each drill's <code>court_diagram</code> is drawn on the left, its setup text on the right. Decide in seconds whether they describe the same drill.</p>
+    <p><kbd>←</kbd> <kbd>→</kbd> move &nbsp; <kbd>O</kbd> diagram OK &nbsp; <kbd>W</kbd> diagram wrong &nbsp; <kbd>Space</kbd> next unreviewed &nbsp; <kbd>N</kbd> note &nbsp; <kbd>M</kbd> motion on/off</p>
+  </div>
+</div>
+
+<main id="main" hidden>
+  <section class="left">
+    <div id="diagram"></div>
+    <div id="warnings" hidden></div>
+    <details><summary>Diagram JSON</summary><pre id="json"></pre></details>
+  </section>
+  <section class="right">
+    <h1><span id="title"></span><span id="badge" class="badge"></span></h1>
+    <div class="chips"><span class="chip" id="players"></span><span class="chip" id="court"></span><span class="chip" id="equipment"></span><span class="chip" id="intensity"></span></div>
+    <h2>Setup</h2>
+    <p id="setup" class="multi"></p>
+    <h2>Instructions</h2>
+    <div id="instructions"></div>
+    <details><summary>Other fields</summary><pre id="rest"></pre></details>
+  </section>
+</main>
+
+<footer>
+  <button id="prev" type="button" aria-label="Previous drill">← Prev</button>
+  <span id="counter">0 / 0</span>
+  <button id="next" type="button" aria-label="Next drill">Next →</button>
+  <span class="spacer"></span>
+  <button id="ok" class="ok" type="button">Diagram OK<kbd>O</kbd></button>
+  <button id="wrong" class="wrong" type="button">Diagram wrong<kbd>W</kbd></button>
+  <span class="note-wrap"><input type="text" id="note" placeholder="Note (optional)" aria-label="Review note"></span>
+</footer>
+
+<script>
+// ── Review harness ──────────────────────────────────────────────────────────
+// Loads drills, shows one at a time (diagram left, text right), and writes a
+// flag onto each drill:
+//   drill.diagram_ok          true | false
+//   drill.diagram_note        string (only when a note was typed)
+//   drill.diagram_reviewed_at ISO timestamp
+// Export writes the whole array back out as <file>-reviewed.json.
+
+const $ = (id) => document.getElementById(id);
+
+// Drill field names differ between exports; the first key present wins.
+const FIELDS = {
+  title: ['title', 'name', 'drill_name'],
+  setup: ['setup', 'setup_text', 'setup_description', 'set_up'],
+  instructions: ['instructions', 'instruction', 'steps', 'how_to', 'description'],
+  players: ['player_count', 'players', 'num_players', 'min_players', 'players_min'],
+  court: ['court_space', 'court', 'court_usage', 'space'],
+  diagram: ['court_diagram', 'diagram'],
+};
+const FLAG_KEYS = ['diagram_ok', 'diagram_note', 'diagram_reviewed_at'];
+
+let drills = [];
+let index = 0;
+let fileName = 'drills';
+let printMode = false;
+let motion = true;
+let restoredMsg = ''; // shown in the status line until the next flag
+
+function pick(obj, keys) {
+  for (const k of keys) {
+    if (obj[k] != null && obj[k] !== '') return obj[k];
+  }
+  return null;
+}
+
+function drillKey(drill, i) {
+  return drill.id != null ? 'id:' + drill.id : 'i:' + i;
+}
+
+function storageKey() {
+  return 'pp_diagram_review:' + fileName;
+}
+
+// ── Loading ──
+function load(text, name) {
+  let data;
+  try {
+    data = JSON.parse(text);
+  } catch (e) {
+    setStatus('Could not parse JSON: ' + e.message);
+    return;
+  }
+  if (!Array.isArray(data)) {
+    if (data && Array.isArray(data.drills)) data = data.drills;
+    else if (data && Array.isArray(data.data)) data = data.data;
+    else if (data && typeof data === 'object') data = [data];
+    else data = [];
+  }
+  drills = data.filter((d) => d && typeof d === 'object');
+  fileName = (name || 'drills').replace(/\.json$/i, '');
+  if (!drills.length) {
+    setStatus('No drills found in ' + fileName + '.json');
+    return;
+  }
+  restoreFlags();
+  index = nextUnreviewed(-1);
+  if (index < 0) index = 0;
+  $('export').disabled = false;
+  $('file').blur();
+  show();
+}
+
+function readFile(file) {
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => load(reader.result, file.name);
+  reader.onerror = () => setStatus('Could not read ' + file.name);
+  reader.readAsText(file);
+}
+
+// Flags are mirrored to localStorage so an accidental reload does not lose a
+// half-finished review of the same file.
+function persist() {
+  try {
+    const saved = {};
+    drills.forEach((d, i) => {
+      if (d.diagram_ok === undefined && !d.diagram_note) return;
+      saved[drillKey(d, i)] = { diagram_ok: d.diagram_ok, diagram_note: d.diagram_note, diagram_reviewed_at: d.diagram_reviewed_at };
+    });
+    localStorage.setItem(storageKey(), JSON.stringify(saved));
+  } catch (e) { /* storage unavailable — flags still live on the drills until export */ }
+}
+
+function restoreFlags() {
+  let saved = null;
+  try { saved = JSON.parse(localStorage.getItem(storageKey()) || 'null'); } catch (e) { saved = null; }
+  if (!saved) return;
+  let restored = 0;
+  drills.forEach((d, i) => {
+    const s = saved[drillKey(d, i)];
+    if (!s || d.diagram_ok !== undefined) return; // flags already in the file win
+    if (s.diagram_ok !== undefined) d.diagram_ok = s.diagram_ok;
+    if (s.diagram_note) d.diagram_note = s.diagram_note;
+    if (s.diagram_reviewed_at) d.diagram_reviewed_at = s.diagram_reviewed_at;
+    restored++;
+  });
+  restoredMsg = restored ? ' · restored ' + restored + ' flag' + (restored === 1 ? '' : 's') + ' from your last session' : '';
+}
+
+// ── Display ──
+function show() {
+  const drill = drills[index];
+  $('main').hidden = !drill;
+  $('empty').hidden = !!drill;
+  if (!drill) return;
+
+  const diagram = pick(drill, FIELDS.diagram);
+  const box = $('diagram');
+  box.textContent = '';
+  const svg = typeof renderCourtDiagram === 'function' ? renderCourtDiagram(diagram, { printMode, animate: motion }) : null;
+  if (svg) {
+    box.appendChild(svg);
+  } else {
+    const ph = document.createElement('div');
+    ph.className = 'placeholder';
+    ph.textContent = typeof renderCourtDiagram !== 'function' ? 'Renderer not loaded (court-diagram.js missing).'
+      : diagram == null ? 'No diagram on this drill.' : 'Diagram could not be rendered (not valid diagram JSON).';
+    box.appendChild(ph);
+  }
+
+  let warnings = [];
+  try { warnings = JSON.parse((svg && svg.getAttribute('data-warnings')) || '[]'); } catch (e) { warnings = []; }
+  const wbox = $('warnings');
+  wbox.textContent = '';
+  wbox.hidden = !warnings.length;
+  if (warnings.length) {
+    const head = document.createElement('strong');
+    head.textContent = 'Renderer skipped or guessed ' + warnings.length + ' thing' + (warnings.length === 1 ? '' : 's') + ':';
+    wbox.appendChild(head);
+    const ul = document.createElement('ul');
+    warnings.forEach((w) => { const li = document.createElement('li'); li.textContent = w; ul.appendChild(li); });
+    wbox.appendChild(ul);
+  }
+  $('json').textContent = diagram === undefined ? '(no court_diagram field)' : JSON.stringify(diagram, null, 2);
+
+  $('title').textContent = String(pick(drill, FIELDS.title) || 'Drill ' + (index + 1));
+  const players = drill.players_min != null ? playersRange(drill) : pick(drill, FIELDS.players);
+  const court = pick(drill, FIELDS.court);
+  $('players').hidden = players == null;
+  $('players').textContent = players == null ? '' : formatPlayers(players);
+  const equipment = Array.isArray(drill.equipment) ? drill.equipment.join(', ') : null;
+  $('equipment').hidden = !equipment;
+  $('equipment').textContent = equipment ? 'Equipment: ' + equipment : '';
+  $('intensity').hidden = !drill.intensity;
+  $('intensity').textContent = drill.intensity ? String(drill.intensity) + ' intensity' : '';
+  $('court').hidden = court == null;
+  $('court').textContent = court == null ? '' : String(court);
+  $('setup').textContent = formatText(pick(drill, FIELDS.setup)) || '—';
+  renderInstructions($('instructions'), pick(drill, FIELDS.instructions));
+
+  const rest = {};
+  const shown = new Set([].concat(FIELDS.title, FIELDS.setup, FIELDS.instructions, FIELDS.players, FIELDS.court, FIELDS.diagram, FLAG_KEYS, ['players_min', 'players_max', 'equipment', 'intensity']));
+  Object.keys(drill).forEach((k) => { if (!shown.has(k)) rest[k] = drill[k]; });
+  $('rest').textContent = Object.keys(rest).length ? JSON.stringify(rest, null, 2) : '(none)';
+
+  $('note').value = drill.diagram_note || '';
+  updateFlagUi(drill);
+  $('counter').textContent = (index + 1) + ' / ' + drills.length;
+  $('prev').disabled = index === 0;
+  $('next').disabled = index >= drills.length - 1;
+  updateStatus();
+  window.scrollTo(0, 0);
+}
+
+function playersRange(drill) {
+  const lo = drill.players_min, hi = drill.players_max;
+  if (hi == null || hi === lo) return lo + ' player' + (lo === 1 ? '' : 's');
+  return lo + '–' + hi + ' players';
+}
+
+function formatPlayers(v) {
+  if (typeof v === 'number') return v + ' player' + (v === 1 ? '' : 's');
+  if (Array.isArray(v)) return v.length + ' player' + (v.length === 1 ? '' : 's');
+  return String(v);
+}
+
+function formatText(v) {
+  if (v == null) return '';
+  if (Array.isArray(v)) return v.map(formatText).join('\n');
+  if (typeof v === 'object') return JSON.stringify(v, null, 2);
+  return String(v);
+}
+
+function renderInstructions(box, v) {
+  box.textContent = '';
+  if (v == null) { const p = document.createElement('p'); p.textContent = '—'; box.appendChild(p); return; }
+  let items = Array.isArray(v) ? v.map(formatText) : String(v).split(/\r?\n+/).map((s) => s.trim()).filter(Boolean);
+  if (items.length <= 1) {
+    const p = document.createElement('p');
+    p.className = 'multi';
+    p.textContent = items[0] || '—';
+    box.appendChild(p);
+    return;
+  }
+  const ol = document.createElement('ol');
+  items.forEach((s) => {
+    const li = document.createElement('li');
+    li.textContent = s.replace(/^\s*(\d+[.)]|[-*•])\s*/, '');
+    ol.appendChild(li);
+  });
+  box.appendChild(ol);
+}
+
+function updateFlagUi(drill) {
+  const ok = drill.diagram_ok === true, wrong = drill.diagram_ok === false;
+  $('ok').classList.toggle('active', ok);
+  $('wrong').classList.toggle('active', wrong);
+  const badge = $('badge');
+  badge.className = 'badge' + (ok ? ' ok' : wrong ? ' wrong' : '');
+  badge.textContent = ok ? 'OK' : wrong ? 'Wrong' : 'Unreviewed';
+}
+
+function updateStatus() {
+  let ok = 0, wrong = 0;
+  drills.forEach((d) => { if (d.diagram_ok === true) ok++; else if (d.diagram_ok === false) wrong++; });
+  const left = drills.length - ok - wrong;
+  setStatus(fileName + '.json · ' + drills.length + ' drills · ' + ok + ' OK · ' + wrong + ' wrong · ' + left + ' to review' + restoredMsg);
+}
+
+function setStatus(msg) {
+  $('status').textContent = msg;
+}
+
+// ── Navigation + flags ──
+function go(step) {
+  const next = index + step;
+  if (next < 0 || next >= drills.length) return;
+  index = next;
+  show();
+}
+
+function nextUnreviewed(from) {
+  for (let n = 1; n <= drills.length; n++) {
+    const i = (from + n + drills.length) % drills.length;
+    if (drills[i].diagram_ok === undefined) return i;
+  }
+  return -1;
+}
+
+function jumpUnreviewed() {
+  const i = nextUnreviewed(index);
+  if (i >= 0) { index = i; show(); }
+  else setStatus('Every drill has been reviewed. Export when ready.');
+}
+
+function flag(ok) {
+  const drill = drills[index];
+  if (!drill) return;
+  drill.diagram_ok = ok;
+  drill.diagram_reviewed_at = new Date().toISOString();
+  restoredMsg = '';
+  persist();
+  updateFlagUi(drill);
+  updateStatus();
+  if (index < drills.length - 1) go(1); // auto-advance keeps the review moving
+}
+
+function saveNote() {
+  const drill = drills[index];
+  if (!drill) return;
+  const text = $('note').value.trim();
+  if (text) drill.diagram_note = text; else delete drill.diagram_note;
+  persist();
+}
+
+function exportJson() {
+  if (!drills.length) return;
+  const blob = new Blob([JSON.stringify(drills, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = fileName + '-reviewed.json';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+
+function togglePrint(force) {
+  printMode = typeof force === 'boolean' ? force : !printMode;
+  $('print').checked = printMode;
+  show();
+}
+
+function toggleMotion(force) {
+  motion = typeof force === 'boolean' ? force : !motion;
+  $('motion').checked = motion;
+  show();
+}
+
+// ── Wiring ──
+// The renderer is loaded with a cache-busting query because PracticePal's
+// service worker (sw.js) serves same-origin scripts cache-first: without
+// this, a coach who has opened the app in the same browser could review
+// drills against a stale copy of court-diagram.js indefinitely.
+function loadRenderer() {
+  const script = document.createElement('script');
+  script.src = 'court-diagram.js?t=' + Date.now();
+  script.onload = () => {
+    setStatus('No file loaded.');
+    tidyRendererCache();
+  };
+  script.onerror = () => setStatus('court-diagram.js was not found next to this page.');
+  document.head.appendChild(script);
+}
+
+// Best effort: drop older cache-busted copies so the service worker cache
+// does not grow by one entry per visit.
+async function tidyRendererCache() {
+  try {
+    if (!('caches' in window)) return;
+    const names = await caches.keys();
+    for (const name of names) {
+      const cache = await caches.open(name);
+      const keys = await cache.keys();
+      for (const req of keys) if (/court-diagram\.js\?t=/.test(req.url)) await cache.delete(req);
+    }
+  } catch (e) { /* ignore */ }
+}
+
+setStatus('Loading renderer…');
+loadRenderer();
+
+$('file').addEventListener('change', (e) => readFile(e.target.files[0]));
+$('loadExamples').addEventListener('click', async () => {
+  try {
+    const res = await fetch('diagram-examples.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
+    load(await res.text(), 'diagram-examples.json');
+  } catch (e) {
+    setStatus('Could not fetch diagram-examples.json (' + e.message + '). Open this page from a local server, or pick the file manually.');
+  }
+});
+$('prev').addEventListener('click', () => go(-1));
+$('next').addEventListener('click', () => go(1));
+$('ok').addEventListener('click', () => flag(true));
+$('wrong').addEventListener('click', () => flag(false));
+$('export').addEventListener('click', exportJson);
+$('print').addEventListener('change', (e) => togglePrint(e.target.checked));
+$('motion').addEventListener('change', (e) => toggleMotion(e.target.checked));
+$('note').addEventListener('input', saveNote);
+$('note').addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === 'Escape') e.target.blur(); });
+
+document.addEventListener('keydown', (e) => {
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  const t = e.target;
+  if (t && typeof t.matches === 'function' && t.matches('input[type=text], textarea, select')) return;
+  if (!drills.length) return;
+  switch (e.key) {
+    case 'ArrowLeft': go(-1); e.preventDefault(); break;
+    case 'ArrowRight': go(1); e.preventDefault(); break;
+    case ' ': jumpUnreviewed(); e.preventDefault(); break;
+    case 'o': case 'O': flag(true); break;
+    case 'w': case 'W': flag(false); break;
+    case 'n': case 'N': $('note').focus(); e.preventDefault(); break;
+    case 'p': case 'P': togglePrint(); break;
+    case 'm': case 'M': toggleMotion(); break;
+  }
+});
+
+document.addEventListener('dragover', (e) => { e.preventDefault(); document.body.classList.add('dragging'); });
+document.addEventListener('dragleave', (e) => { if (e.target === document.body || e.relatedTarget === null) document.body.classList.remove('dragging'); });
+document.addEventListener('drop', (e) => {
+  e.preventDefault();
+  document.body.classList.remove('dragging');
+  readFile(e.dataTransfer.files && e.dataTransfer.files[0]);
+});
+</script>
+</body>
+</html>

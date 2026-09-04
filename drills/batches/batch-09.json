@@ -1,0 +1,465 @@
+[
+  {
+    "slug": "catch-then-volley-hands-first-at-the-net",
+    "name": "Catch, Then Volley: Hands First at the Net",
+    "summary": "Introduces the volley as a catch in front of the body, moving from hand catch to racket catch to a blocked volley.",
+    "skill_focus": ["volley"],
+    "levels": ["beginner"],
+    "age_groups": ["mini_orange", "mini_green", "junior", "adult"],
+    "court_space": "net_area",
+    "intensity": "low",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": ["ball basket"],
+    "setup": "Feeder stands on the far side a metre behind the net at the centre with the basket, tossing underarm. Volleyer stands on the near side two metres from the net on the deuce side, racket held out in front at chest height. Extra players queue behind the volleyer, a metre apart.",
+    "instructions": [
+      "Feeder tosses a ball gently to the volleyer's forehand side at chest height.",
+      "First five: the volleyer catches the ball in the free hand out in front, then drops it.",
+      "Next five: the volleyer catches it on the racket strings, holding the racket in front like a plate.",
+      "Next five: the volleyer blocks it back over the net to the feeder with no swing.",
+      "Rotate, then repeat on the backhand side."
+    ],
+    "coaching_points": [
+      "Hands in front: catch the ball where you can see both the ball and your hand.",
+      "Step towards the ball with the opposite foot as you catch or block.",
+      "No backswing: the racket starts in front and stays in front.",
+      "Keep the racket head above the wrist; a dropped head sends the ball into the net."
+    ],
+    "progressions": [
+      "Skip the catches and go straight to the block.",
+      "Feeder tosses alternately to the forehand and backhand sides.",
+      "Feeder tosses from three metres behind the net."
+    ],
+    "regressions": [
+      "Feeder tosses from the same side of the net, two metres away.",
+      "Use a red ball.",
+      "Volleyer catches only, until ten in a row are clean."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "F", "x": 0.5, "y": 0.45, "label": "Feeder" },
+        { "id": "P1", "x": 0.65, "y": 0.58, "label": "Volleyer" },
+        { "id": "P2", "x": 0.65, "y": 0.67, "label": "Queue" },
+        { "id": "P3", "x": 0.65, "y": 0.75 }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.58, "y": 0.45 }
+      ],
+      "paths": [
+        { "from": "F", "to": "P1", "style": "feed", "step": 1 },
+        { "from": "P1", "to": "F", "style": "ball", "step": 2 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "volley-punch-to-the-hoop",
+    "name": "Volley Punch to the Hoop",
+    "summary": "Builds a short punching volley by aiming tossed balls cross-court into a hoop on the far side.",
+    "skill_focus": ["volley"],
+    "levels": ["beginner"],
+    "age_groups": ["mini_orange", "mini_green", "junior", "adult"],
+    "court_space": "net_area",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": ["hoops", "ball basket"],
+    "setup": "Feeder on the far service line at the centre with the basket, tossing underarm over the net. Volleyer on the near side two metres from the net on the deuce side. A hoop on the far side in the middle of the service box diagonally across from the volleyer. Extra players queue behind the volleyer.",
+    "instructions": [
+      "Feeder tosses a ball to the volleyer's forehand at shoulder height.",
+      "Volleyer punches the volley cross-court into the hoop.",
+      "Score one for the box, three for the hoop; ten volleys, then rotate.",
+      "Second round: backhand volleys, with the hoop moved to the other far box.",
+      "Third round: the feeder alternates sides without warning."
+    ],
+    "coaching_points": [
+      "Short punch from the shoulder; the racket moves the length of your forearm, no more.",
+      "Contact in front of the body with the racket face slightly open.",
+      "Step across with the opposite foot as you punch.",
+      "Racket head above the wrist, and the wrist firm through contact."
+    ],
+    "progressions": [
+      "Move the hoop to the back corner of the far box.",
+      "Feeder tosses lower, at waist height.",
+      "Feeder hits the feed with a racket from the far baseline."
+    ],
+    "regressions": [
+      "Replace the hoop with the whole far box.",
+      "Feeder tosses from the same side of the net, three metres away.",
+      "Use a red ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "F", "x": 0.5, "y": 0.23, "label": "Feeder" },
+        { "id": "P1", "x": 0.7, "y": 0.58, "label": "Volleyer" },
+        { "id": "P2", "x": 0.7, "y": 0.68, "label": "Queue" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.58, "y": 0.23 },
+        { "type": "hoop", "x": 0.31, "y": 0.36 }
+      ],
+      "paths": [
+        { "from": "F", "to": "P1", "style": "feed", "step": 1 },
+        { "from": "P1", "to": [0.31, 0.36], "style": "ball", "step": 2 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "partner-volley-volley-count",
+    "name": "Partner Volley-Volley Count",
+    "summary": "A cooperative volley rally across the net with no bounce allowed, counted out loud and banked in tens.",
+    "skill_focus": ["volley"],
+    "levels": ["beginner"],
+    "age_groups": ["mini_orange", "mini_green", "junior", "adult"],
+    "court_space": "net_area",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 6,
+    "duration_max": 10,
+    "equipment": ["ball basket"],
+    "setup": "Two players facing each other across the net, each two metres from it on the same side of the centre line, rackets up in front. Basket at the net post. No other equipment; the ball may not bounce.",
+    "instructions": [
+      "Player A starts with a gentle self-toss volley to B's forehand.",
+      "Volley back and forth without a bounce, counting out loud.",
+      "A rally of ten banks a 'ten'; aim for three tens.",
+      "Once three tens are banked, play forehand volleys only, then backhand volleys only.",
+      "Finish with a round where both players take one step back to three metres."
+    ],
+    "coaching_points": [
+      "Rackets up between every volley: the ball is back before you know it.",
+      "Block, do not swing; aim for your partner's racket, not past it.",
+      "Bend the knees for a low ball instead of dropping the racket head.",
+      "Step in with the opposite foot on every volley, then step back to ready."
+    ],
+    "progressions": [
+      "Both players step back to the service line.",
+      "Alternate forehand and backhand volleys strictly.",
+      "Switch from an orange ball to a green ball."
+    ],
+    "regressions": [
+      "Allow one bounce on each side.",
+      "Players stand one metre from the net.",
+      "Use a red ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "P1", "x": 0.62, "y": 0.58, "label": "Player A" },
+        { "id": "P2", "x": 0.62, "y": 0.42, "label": "Player B" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 1.1, "y": 0.53 }
+      ],
+      "paths": [
+        { "from": "P1", "to": "P2", "style": "ball", "step": 1 },
+        { "from": "P2", "to": "P1", "style": "ball", "step": 2 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "overhead-catch-and-throw",
+    "name": "Overhead Catch and Throw",
+    "summary": "Builds the overhead's turn-and-point preparation by catching lobs above the head and throwing them back with a serving action.",
+    "skill_focus": ["overhead"],
+    "levels": ["beginner"],
+    "age_groups": ["mini_orange", "mini_green", "junior", "adult"],
+    "court_space": "net_area",
+    "intensity": "low",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": ["ball basket"],
+    "setup": "Feeder on the far service line at the centre with the basket, throwing gentle high lobs underarm over the net. Player on the near side two metres from the net on the deuce side, racket in the hitting hand and the free hand ready. Extra players queue behind the player.",
+    "instructions": [
+      "Feeder lobs a ball high to land near the player.",
+      "Player turns sideways, points at the ball with the free hand, and catches it above the head in that hand.",
+      "Player then throws the ball overarm back over the net to the feeder, as if serving.",
+      "Five catch-and-throws, then five where the player lets the racket reach up and touch the ball instead of catching it.",
+      "Rotate, then repeat with the feeder lobbing a little deeper each round."
+    ],
+    "coaching_points": [
+      "Turn sideways first; a square-on player cannot get under the ball.",
+      "Point at the ball with the free hand until the other hand catches it.",
+      "Catch and throw above the head, not in front of the face.",
+      "Small steps back, never a backward run."
+    ],
+    "progressions": [
+      "Catch above the head with the racket hand while the racket is held in the free hand.",
+      "Feeder lobs a metre deeper each time.",
+      "Replace the throw with an overhead hit into the far box."
+    ],
+    "regressions": [
+      "Feeder lobs from the same side of the net, three metres away.",
+      "Use a red ball.",
+      "Catch in two hands."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "F", "x": 0.5, "y": 0.23, "label": "Feeder" },
+        { "id": "P1", "x": 0.7, "y": 0.58, "label": "Player" },
+        { "id": "P2", "x": 0.7, "y": 0.68, "label": "Queue" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.58, "y": 0.23 }
+      ],
+      "paths": [
+        { "from": "F", "to": [0.72, 0.62], "style": "feed", "step": 1 },
+        { "from": "P1", "to": [0.72, 0.63], "style": "movement", "step": 1 },
+        { "from": "P1", "to": "F", "style": "ball", "step": 2 },
+        { "from": "P1", "to": "P1", "style": "movement", "step": 3 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "overhead-off-a-gentle-lob-into-the-big-zone",
+    "name": "Overhead off a Gentle Lob into the Big Zone",
+    "summary": "First overheads off soft hand-fed lobs, with the whole far court past the service line as the target.",
+    "skill_focus": ["overhead"],
+    "levels": ["beginner"],
+    "age_groups": ["mini_green", "junior", "adult"],
+    "court_space": "half_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": ["ball basket", "cones"],
+    "setup": "Feeder on the far service line at the centre with the basket, tossing gentle lobs over the net by hand. Player on the near side two metres from the net on the deuce side. Two cones on the far service line mark the front edge of the big zone: the whole far court past the service line. Extra players queue behind the player.",
+    "instructions": [
+      "Feeder lobs a ball just high enough to clear the player's reach.",
+      "Player turns, points, and hits an overhead into the far court past the cones.",
+      "Score one for a ball past the service line; ten overheads, then rotate.",
+      "Second round: the feeder lobs so the player must take two steps back first.",
+      "Third round: the player must hit the overhead cross-court."
+    ],
+    "coaching_points": [
+      "Turn sideways and get the racket up behind the head as the lob goes up.",
+      "Point at the ball with the free hand and keep it up until the racket comes through.",
+      "Hit the ball out in front, slightly to the racket side, at full stretch.",
+      "Snap the racket over the top of the ball, finishing across the body."
+    ],
+    "progressions": [
+      "Only balls landing past a throwdown line two metres inside the baseline count.",
+      "Feeder lobs deeper so the player must retreat with crossover steps.",
+      "Feeder hits the lob with a racket from the far baseline."
+    ],
+    "regressions": [
+      "Feeder lobs from the same side of the net, three metres in front of the player.",
+      "Use an orange ball.",
+      "Player catches the lob on the racket first, then throws it down and hits the bounce."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "F", "x": 0.5, "y": 0.23, "label": "Feeder" },
+        { "id": "P1", "x": 0.7, "y": 0.58, "label": "Player" },
+        { "id": "P2", "x": 0.7, "y": 0.68, "label": "Queue" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.58, "y": 0.23 },
+        { "type": "cone", "x": 0.3, "y": 0.231 },
+        { "type": "cone", "x": 0.7, "y": 0.231 }
+      ],
+      "paths": [
+        { "from": "F", "to": [0.72, 0.62], "style": "feed", "step": 1 },
+        { "from": "P1", "to": [0.72, 0.64], "style": "movement", "step": 1 },
+        { "from": "P1", "to": [0.3, 0.1], "style": "ball", "step": 2 },
+        { "from": "P1", "to": "P1", "style": "movement", "step": 3 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "volley-footwork-step-across-on-each-volley",
+    "name": "Volley Footwork: Step Across on Each Volley",
+    "summary": "Pairs each volley with a step across onto a throwdown so the feet and the punch learn to happen together.",
+    "skill_focus": ["volley", "movement"],
+    "levels": ["beginner"],
+    "age_groups": ["mini_green", "junior", "adult"],
+    "court_space": "net_area",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": ["throwdowns", "ball basket"],
+    "setup": "Feeder on the far service line at the centre with the basket. Volleyer on the near side two metres from the net on the centre line, standing behind two throwdowns placed a step forward and a step apart: the left one for the left foot's forehand-volley step, the right one for the right foot's backhand-volley step. Extra players queue behind the volleyer.",
+    "instructions": [
+      "Feeder tosses alternately to the forehand and backhand at chest height.",
+      "Volleyer steps across onto the matching throwdown as they volley: left foot for the forehand, right foot for the backhand.",
+      "Volley back to the feeder; score one for each volley where the foot lands on the throwdown.",
+      "Ten volleys, then rotate.",
+      "Second round: the feeder does not alternate; the volleyer must read the side."
+    ],
+    "coaching_points": [
+      "Step across, not sideways: the front foot lands in front of the body towards the net.",
+      "The step and the punch happen together.",
+      "Back to the ready position between volleys, racket up in front.",
+      "Weight on the front foot at contact, never rocking back."
+    ],
+    "progressions": [
+      "Move the throwdowns a bigger step forward.",
+      "Feeder tosses lower so the knees must bend as well.",
+      "Feeder hits the feed with a racket from the far baseline."
+    ],
+    "regressions": [
+      "Feeder calls the side before each toss.",
+      "Feeder tosses from the same side of the net, three metres away.",
+      "Use a red ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "F", "x": 0.5, "y": 0.23, "label": "Feeder" },
+        { "id": "P1", "x": 0.5, "y": 0.6, "label": "Volleyer" },
+        { "id": "P2", "x": 0.5, "y": 0.7, "label": "Queue" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.58, "y": 0.23 },
+        { "type": "throwdown", "x": 0.44, "y": 0.56 },
+        { "type": "throwdown", "x": 0.56, "y": 0.56 }
+      ],
+      "paths": [
+        { "from": "F", "to": [0.58, 0.58], "style": "feed", "step": 1 },
+        { "from": "P1", "to": [0.55, 0.57], "style": "movement", "step": 1 },
+        { "from": "P1", "to": "F", "style": "ball", "step": 2 },
+        { "from": "P1", "to": "P1", "style": "movement", "step": 3 },
+        { "from": "F", "to": [0.42, 0.58], "style": "feed", "step": 3 },
+        { "from": "P1", "to": [0.45, 0.57], "style": "movement", "step": 4 },
+        { "from": "P1", "to": "F", "style": "ball", "step": 5 },
+        { "from": "P1", "to": "P1", "style": "movement", "step": 6 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "feed-volley-point-mini-game-in-the-boxes",
+    "name": "Feed, Volley, Point: Mini Game in the Boxes",
+    "summary": "Starts each point with a volley off a feed, then plays it out inside the service boxes so beginners volley under game pressure.",
+    "skill_focus": ["volley", "games"],
+    "levels": ["beginner"],
+    "age_groups": ["mini_orange", "mini_green", "junior", "adult"],
+    "court_space": "service_boxes",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": ["ball basket", "cones"],
+    "setup": "Feeder on the far service line at the centre with the basket; a second player two metres from the near net as the volleyer. Cones on the singles sidelines at both service lines mark the playing area: all four service boxes. With four players, the two others wait behind the far baseline and rotate in after each game.",
+    "instructions": [
+      "Feeder tosses a ball to the volleyer; the volleyer volleys it into the far boxes.",
+      "The point is then live: the feeder plays the volley back and the point continues inside the boxes.",
+      "The volleyer must stay in front of the service line; the feeder may go anywhere in their boxes.",
+      "First to five, then rotate roles.",
+      "Second game: the feeder may lob once per point."
+    ],
+    "coaching_points": [
+      "First volley deep into the far box, then get ready; the point is not over.",
+      "Rackets up between shots, feet moving.",
+      "Volley to the feeder's feet, not their racket.",
+      "Bend the knees for a low ball instead of dropping the racket head."
+    ],
+    "progressions": [
+      "Extend the area two metres behind the far service line for the feeder.",
+      "The volleyer must win the point with a volley, not off a bounce.",
+      "Switch from an orange ball to a green ball."
+    ],
+    "regressions": [
+      "Cooperate for three balls before the point becomes live.",
+      "Allow the volleyer one bounce per point.",
+      "Use a red ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "F", "x": 0.5, "y": 0.23, "label": "Feeder" },
+        { "id": "P1", "x": 0.6, "y": 0.58, "label": "Volleyer" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.58, "y": 0.23 },
+        { "type": "cone", "x": 0.125, "y": 0.769 },
+        { "type": "cone", "x": 0.875, "y": 0.769 },
+        { "type": "cone", "x": 0.125, "y": 0.231 },
+        { "type": "cone", "x": 0.875, "y": 0.231 }
+      ],
+      "paths": [
+        { "from": "F", "to": "P1", "style": "feed", "step": 1 },
+        { "from": "P1", "to": [0.35, 0.3], "style": "ball", "step": 2 },
+        { "from": "F", "to": [0.35, 0.3], "style": "movement", "step": 2 },
+        { "from": "F", "to": "P1", "style": "ball", "step": 3 },
+        { "from": "F", "to": "F", "style": "movement", "step": 4 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "volley-reaction-two-ball-toss",
+    "name": "Volley Reaction: Two-Ball Toss",
+    "summary": "Speeds up the reset between volleys by tossing two balls a second apart, forehand then backhand.",
+    "skill_focus": ["volley"],
+    "levels": ["beginner"],
+    "age_groups": ["mini_green", "junior", "adult"],
+    "court_space": "net_area",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": ["ball basket"],
+    "setup": "Feeder stands on the far side a metre behind the net at the centre, a ball in each hand and the basket at their feet. Volleyer on the near side two metres from the net on the centre line, racket up. Extra players queue behind the volleyer.",
+    "instructions": [
+      "Feeder tosses two balls in quick succession, one to the forehand then one to the backhand, about a second apart.",
+      "Volleyer punches both back over the net, forehand then backhand, with no time to reset the racket.",
+      "Score one for each ball back over the net; ten pairs, then rotate.",
+      "Second round: the feeder chooses the order.",
+      "Third round: three balls in a row."
+    ],
+    "coaching_points": [
+      "Racket back to the middle immediately after the first volley; the second ball is already in the air.",
+      "Small steps between balls; there is no time for a big step.",
+      "Contact in front on both; reaching behind means the ball was late.",
+      "Breathe out on each punch; holding the breath stiffens the arm."
+    ],
+    "progressions": [
+      "Feeder tosses from two metres behind the net.",
+      "Reduce the gap between the two balls to half a second.",
+      "Add a third ball to the body."
+    ],
+    "regressions": [
+      "Two seconds between balls.",
+      "Feeder tosses both balls to the forehand.",
+      "Use a red ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "F", "x": 0.5, "y": 0.45, "label": "Feeder" },
+        { "id": "P1", "x": 0.5, "y": 0.6, "label": "Volleyer" },
+        { "id": "P2", "x": 0.5, "y": 0.7, "label": "Queue" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.58, "y": 0.45 }
+      ],
+      "paths": [
+        { "from": "F", "to": [0.58, 0.6], "style": "feed", "step": 1 },
+        { "from": "P1", "to": [0.4, 0.35], "style": "ball", "step": 2 },
+        { "from": "F", "to": [0.42, 0.6], "style": "feed", "step": 2 },
+        { "from": "P1", "to": [0.6, 0.35], "style": "ball", "step": 3 }
+      ]
+    },
+    "source": "generated"
+  }
+]

@@ -1,0 +1,356 @@
+[
+  {
+    "slug": "three-cross-court-before-you-change",
+    "name": "Three Cross-Court Before You Change",
+    "summary": "Points where each player must hit three cross-court balls before changing direction, teaching patience and the moment to go down the line.",
+    "skill_focus": ["tactical"],
+    "levels": ["improver"],
+    "age_groups": ["mini_green", "junior", "adult"],
+    "court_space": "full_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 10,
+    "duration_max": 15,
+    "equipment": ["ball basket"],
+    "setup": "One player on each baseline, both starting on the deuce side. Basket at the net post. Points are played on the singles court with one rule: each player must hit three cross-court balls before they are allowed to change direction down the line.",
+    "instructions": [
+      "Start each point with an underarm feed cross-court, alternating who starts.",
+      "Each player counts their own cross-court balls; a down-the-line ball before the third cross-court loses the point.",
+      "After three cross-court balls a player may change direction whenever they choose; the point then plays out normally.",
+      "First to eleven, then switch to the ad side.",
+      "Second game: the count is two."
+    ],
+    "coaching_points": [
+      "Cross-court is the high-percentage ball: over the low part of the net, into the long diagonal.",
+      "Change direction off a ball you are set for, inside the baseline, not off a ball that has pushed you back.",
+      "After changing direction, recover past the centre; the reply comes back cross-court fast.",
+      "Count out loud for the first game so the habit sticks."
+    ],
+    "progressions": [
+      "Only balls landing past the service line count towards the three.",
+      "The change of direction must land in a two-metre lane along the sideline.",
+      "Start points from a serve."
+    ],
+    "regressions": [
+      "Cooperate through the first three balls, then the point goes live.",
+      "The count is one.",
+      "Play from the service lines."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "P1", "x": 0.72, "y": 0.95, "label": "Player A" },
+        { "id": "P2", "x": 0.28, "y": 0.05, "label": "Player B" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 1.1, "y": 0.53 }
+      ],
+      "paths": [
+        { "from": "P1", "to": "P2", "style": "ball", "step": 1 },
+        { "from": "P2", "to": "P1", "style": "ball", "step": 2 },
+        { "from": "P1", "to": "P2", "style": "ball", "step": 3 },
+        { "from": "P2", "to": [0.28, 0.92], "style": "ball", "step": 4 },
+        { "from": "P1", "to": [0.3, 0.95], "style": "movement", "step": 4 },
+        { "from": "P1", "to": "P1", "style": "movement", "step": 5 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "deep-middle-neutral-ball",
+    "name": "Deep Middle Neutral Ball",
+    "summary": "A cooperative rally into a deep-middle box at each end, teaching the ball that resets a point and gives the opponent no angle.",
+    "skill_focus": ["tactical"],
+    "levels": ["improver"],
+    "age_groups": ["mini_green", "junior", "adult"],
+    "court_space": "full_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": ["throwdowns", "ball basket"],
+    "setup": "One player on each baseline at the centre mark. A throwdown line two metres inside each baseline, with throwdowns two metres either side of the centre mark on it, marks a deep-middle box at each end. Basket at the net post.",
+    "instructions": [
+      "Rally cooperatively; every ball must land in the partner's deep-middle box.",
+      "A ball outside the box ends the rally; count consecutive box balls.",
+      "A rally of ten banks a point; first to three points.",
+      "Second round: play the point out after ten box balls; the point can be won only by a ball deliberately played outside the box, an angle or a short ball.",
+      "Third round: box balls must also clear the net by two racket lengths."
+    ],
+    "coaching_points": [
+      "Aim high over the middle strap and let the ball drop deep; the middle gives your opponent no angle.",
+      "Use the deep middle ball when you are off balance or behind the baseline; it resets the point.",
+      "Recover to the centre mark: a middle ball comes back down the middle.",
+      "Heavy, not hard: the ball should bounce up above the partner's waist."
+    ],
+    "progressions": [
+      "Shrink the box to two metres wide.",
+      "Play points where only the deep middle ball may be hit until someone is pulled inside the service line.",
+      "Switch from a green ball to a yellow ball."
+    ],
+    "regressions": [
+      "Widen the box to the whole area past the service line.",
+      "Play from the service lines.",
+      "Use an orange ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "P1", "x": 0.5, "y": 0.95, "label": "Player A" },
+        { "id": "P2", "x": 0.5, "y": 0.05, "label": "Player B" }
+      ],
+      "equipment": [
+        { "type": "throwdown", "x": 0.32, "y": 0.916 },
+        { "type": "throwdown", "x": 0.5, "y": 0.916 },
+        { "type": "throwdown", "x": 0.68, "y": 0.916 },
+        { "type": "throwdown", "x": 0.32, "y": 0.084 },
+        { "type": "throwdown", "x": 0.5, "y": 0.084 },
+        { "type": "throwdown", "x": 0.68, "y": 0.084 },
+        { "type": "ball basket", "x": 1.1, "y": 0.53 }
+      ],
+      "paths": [
+        { "from": "P1", "to": [0.5, 0.04], "style": "ball", "step": 1 },
+        { "from": "P2", "to": [0.5, 0.96], "style": "ball", "step": 2 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "serve-then-first-ball-cross-court",
+    "name": "Serve, Then First Ball Cross-Court",
+    "summary": "Points from a serve where the server's first groundstroke must go cross-court, building the safest start to a point.",
+    "skill_focus": ["tactical", "serve"],
+    "levels": ["improver"],
+    "age_groups": ["mini_green", "junior", "adult"],
+    "court_space": "full_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 12,
+    "duration_max": 16,
+    "equipment": ["ball basket"],
+    "setup": "One player each side behind the baselines on the singles court, playing points from a serve. Basket beside the server. One rule: the server's first ball after the serve must go cross-court, or the point is lost.",
+    "instructions": [
+      "Server serves; the returner returns anywhere.",
+      "The server's next ball must go cross-court from wherever it is played; after that the point is open.",
+      "Play to seven points, then swap server.",
+      "Second game: the returner's first ball, the return, must also go cross-court.",
+      "Third game: the first ball must go cross-court and deep past the service line."
+    ],
+    "coaching_points": [
+      "Land from the serve and split; the cross-court first ball starts with the feet, not the racket.",
+      "Cross-court off the return is the safe high-percentage start; it gives the returner nothing to attack.",
+      "If the return is short, still go cross-court but take it early and hit through it.",
+      "Recover after the first ball to the side you hit from, ready for the cross-court reply."
+    ],
+    "progressions": [
+      "The first ball must land in a two-metre box in the far cross-court corner.",
+      "Second serves only, no first serves.",
+      "The first ball must be hit from inside the baseline."
+    ],
+    "regressions": [
+      "Serve from the service line.",
+      "Cooperate for the serve, return and first ball, then play the point out.",
+      "The first ball may go cross-court or down the middle."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "P1", "x": 0.54, "y": 1.03, "label": "Server" },
+        { "id": "P2", "x": 0.3, "y": -0.03, "label": "Returner" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.62, "y": 1.03 }
+      ],
+      "paths": [
+        { "from": "P1", "to": [0.3, 0.32], "style": "ball", "step": 1 },
+        { "from": "P2", "to": [0.3, 0.05], "style": "movement", "step": 1 },
+        { "from": "P2", "to": [0.7, 0.9], "style": "ball", "step": 2 },
+        { "from": "P1", "to": [0.7, 0.95], "style": "movement", "step": 2 },
+        { "from": "P1", "to": [0.28, 0.06], "style": "ball", "step": 3 },
+        { "from": "P1", "to": "P1", "style": "movement", "step": 4 },
+        { "from": "P2", "to": "P2", "style": "movement", "step": 4 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "height-change-loop-then-drive",
+    "name": "Height Change: Loop, Then Drive",
+    "summary": "A cooperative rally where one player loops high and heavy and the other drives flat, so both learn to change and handle height.",
+    "skill_focus": ["tactical"],
+    "levels": ["improver"],
+    "age_groups": ["mini_green", "junior", "adult"],
+    "court_space": "full_court",
+    "intensity": "low",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": ["ball basket"],
+    "setup": "One player on each baseline at the centre mark. Basket at the net post. A cooperative rally in which one player hits every ball as a high looping topspin ball and the other answers every ball with a flat drive. Singles lines are the boundaries.",
+    "instructions": [
+      "Player A starts with a high loop; B answers with a flat drive; A loops again, B drives again, for the whole rally.",
+      "Rally to twelve balls, then swap roles without stopping if possible.",
+      "A loop that lands short of the service line, or a drive that clears the net by more than a racket length, ends the rally.",
+      "Keep a tally of the longest rally in each role.",
+      "Second round: each player alternates their own loop and drive, ball by ball."
+    ],
+    "coaching_points": [
+      "Loop: swing steeply low to high with a fast racket head; the ball peaks above fence height.",
+      "Drive: contact out in front, swing through the ball and finish forward at shoulder height.",
+      "Take the loop early or let it drop; do not hit it at shoulder height on the way up.",
+      "Change the height, not the swing speed: both balls are hit with a full swing."
+    ],
+    "progressions": [
+      "Loops must land past a throwdown line two metres inside the baseline.",
+      "Play the point out after eight balls; a change of height wins the point if the partner misses.",
+      "Switch from a green ball to a yellow ball."
+    ],
+    "regressions": [
+      "Loop only until ten in a row, then add the drive.",
+      "Play from the service lines.",
+      "Use an orange ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "P1", "x": 0.5, "y": 0.95, "label": "Loop" },
+        { "id": "P2", "x": 0.5, "y": 0.05, "label": "Drive" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 1.1, "y": 0.53 }
+      ],
+      "paths": [
+        { "from": "P1", "to": "P2", "style": "ball", "step": 1 },
+        { "from": "P2", "to": "P1", "style": "ball", "step": 2 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "doubles-basics-serve-cross-court-call-the-poach",
+    "name": "Doubles Basics: Serve, Cross-Court, Call the Poach",
+    "summary": "Doubles points with a cross-court return rule and a called poach, so the four positions learn their first jobs.",
+    "skill_focus": ["tactical", "games"],
+    "levels": ["improver"],
+    "age_groups": ["mini_green", "junior", "adult"],
+    "court_space": "full_court",
+    "intensity": "medium",
+    "players_min": 4,
+    "players_max": 4,
+    "duration_min": 12,
+    "duration_max": 16,
+    "equipment": ["ball basket"],
+    "setup": "Four players in doubles formation: server behind the near baseline on the deuce side, server's partner at the near net on the ad side, returner behind the far baseline on the deuce side, returner's partner on the far service line on the ad side. Basket beside the server.",
+    "instructions": [
+      "Server serves; the returner must return cross-court.",
+      "Server's partner may poach the return only if they called 'go' to the server before the serve; otherwise they hold.",
+      "Play the point out as normal doubles.",
+      "Four points, then rotate all four positions clockwise.",
+      "Second round: the returner may go down the line if the net player has called 'go' twice in a row."
+    ],
+    "coaching_points": [
+      "Returner: cross-court and low over the net; the net player is waiting for anything high.",
+      "Net player: if you called 'go', move as the returner makes contact, diagonally forward.",
+      "Server: after calling 'go' with your partner, serve down the T so the cross-court return is easier to poach.",
+      "Returner's partner: split as the server makes contact and watch the net player, not the ball."
+    ],
+    "progressions": [
+      "Net player must poach at least once every four points.",
+      "Returner may go down the line at any time.",
+      "Server must serve and volley when 'go' is called."
+    ],
+    "regressions": [
+      "No poaching: the net player holds and the point is played cross-court.",
+      "Server serves from the service line.",
+      "Returner hand-feeds the return instead of returning a serve."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "P1", "x": 0.56, "y": 1.03, "label": "Server" },
+        { "id": "P2", "x": 0.3, "y": 0.6, "label": "Server's partner" },
+        { "id": "P3", "x": 0.3, "y": -0.03, "label": "Returner" },
+        { "id": "P4", "x": 0.72, "y": 0.23, "label": "Ret. partner" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.64, "y": 1.03 }
+      ],
+      "paths": [
+        { "from": "P1", "to": [0.3, 0.32], "style": "ball", "step": 1 },
+        { "from": "P3", "to": [0.3, 0.05], "style": "movement", "step": 1 },
+        { "from": "P3", "to": [0.62, 0.72], "style": "ball", "step": 2 },
+        { "from": "P2", "to": [0.5, 0.62], "style": "movement", "step": 2 },
+        { "from": "P2", "to": [0.6, 0.3], "style": "ball", "step": 3 },
+        { "from": "P2", "to": "P2", "style": "movement", "step": 4 },
+        { "from": "P3", "to": "P3", "style": "movement", "step": 4 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "target-the-backhand-points",
+    "name": "Target the Backhand Points",
+    "summary": "Points where every ball must land in the opponent's backhand half, building the habit of attacking the weaker side.",
+    "skill_focus": ["tactical"],
+    "levels": ["improver"],
+    "age_groups": ["mini_green", "junior", "adult"],
+    "court_space": "full_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 10,
+    "duration_max": 15,
+    "equipment": ["cones", "ball basket"],
+    "setup": "One player on each baseline. Cones on each baseline and service line at the centre line split each court into a forehand half and a backhand half; for right-handers the backhand half is the left half looking at the net. Basket at the net post. Points on the singles court with one rule: every ball must land in the opponent's backhand half.",
+    "instructions": [
+      "Start each point with an underarm feed, alternating who starts.",
+      "A ball landing in the opponent's forehand half loses the point.",
+      "First to eleven, then change ends.",
+      "Second game: one ball per point may go to the forehand half, chosen by the hitter.",
+      "Third game: the rule applies only after the fourth ball."
+    ],
+    "coaching_points": [
+      "Aim a metre inside the centre line, not at the sideline; the backhand half is big.",
+      "Use the cross-court backhand and the inside-out forehand: both go to the backhand half naturally.",
+      "Recover to the backhand side of the centre mark; that is where the reply is coming from.",
+      "When the opponent runs around to hit a forehand, the forehand half is open: remember it for the second game."
+    ],
+    "progressions": [
+      "Balls must land in the backhand half and past the service line.",
+      "Play from a serve; the serve must also go to the backhand.",
+      "Points can be won only with a ball to the forehand half after four to the backhand."
+    ],
+    "regressions": [
+      "Cooperate for four balls before the point goes live.",
+      "Balls may land anywhere in the backhand half or down the middle.",
+      "Play from the service lines."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "P1", "x": 0.5, "y": 0.95, "label": "Player A" },
+        { "id": "P2", "x": 0.5, "y": 0.05, "label": "Player B" }
+      ],
+      "equipment": [
+        { "type": "cone", "x": 0.5, "y": 1.0 },
+        { "type": "cone", "x": 0.5, "y": 0.769 },
+        { "type": "cone", "x": 0.5, "y": 0.231 },
+        { "type": "cone", "x": 0.5, "y": 0.0 },
+        { "type": "ball basket", "x": 1.1, "y": 0.53 }
+      ],
+      "paths": [
+        { "from": "P1", "to": [0.72, 0.08], "style": "ball", "step": 1 },
+        { "from": "P2", "to": [0.7, 0.05], "style": "movement", "step": 1 },
+        { "from": "P2", "to": [0.28, 0.92], "style": "ball", "step": 2 },
+        { "from": "P1", "to": [0.3, 0.95], "style": "movement", "step": 2 },
+        { "from": "P1", "to": "P1", "style": "movement", "step": 3 },
+        { "from": "P2", "to": "P2", "style": "movement", "step": 3 }
+      ]
+    },
+    "source": "generated"
+  }
+]

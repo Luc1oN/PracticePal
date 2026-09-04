@@ -1,0 +1,1154 @@
+[
+  {
+    "slug": "half-court-points-the-forehand-must-win",
+    "name": "Half-Court Points: The Forehand Must Win",
+    "summary": "Live points down one half of the court where only a forehand can end the point, forcing early run-around decisions.",
+    "skill_focus": [
+      "forehand"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "half_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 12,
+    "duration_max": 18,
+    "equipment": [
+      "cones",
+      "ball basket"
+    ],
+    "setup": "Both players on the same half of the court lengthways, one each side of the net: the playing area runs from singles sideline to centre line and baseline to baseline. Cones on each baseline and each service line at the centre line mark the inside boundary. Basket at the net post.",
+    "instructions": [
+      "Start each point with an underarm feed from the baseline, alternating who feeds every two points.",
+      "Play the point out inside the half; a point can only be won with a forehand winner or an error forced by a forehand.",
+      "A point ended by a backhand winner or a backhand-forced error is replayed.",
+      "First to eleven, then play the other half so the run-around forehand becomes the weapon.",
+      "Third game: the winning forehand must also be hit from inside the baseline to count."
+    ],
+    "coaching_points": [
+      "Move around the backhand early: decide as the ball leaves their racket.",
+      "Use the inside-out forehand to open the court, then finish inside-in.",
+      "Recover a step towards the backhand side of your half so more balls become forehands.",
+      "Change the height, not just the direction; a heavy high ball earns the short reply you want."
+    ],
+    "progressions": [
+      "The winning forehand must land past the service line.",
+      "Each player may hit only two backhands per point.",
+      "Start each point with a serve instead of a hand-feed."
+    ],
+    "regressions": [
+      "Any point ended by a forehand counts, forced or not.",
+      "Cooperate for four balls before the point goes live.",
+      "Play on the whole court, but only forehand winners count."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.72,
+          "y": 0.95,
+          "label": "Player A"
+        },
+        {
+          "id": "P2",
+          "x": 0.72,
+          "y": 0.05,
+          "label": "Player B"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "cone",
+          "x": 0.5,
+          "y": 1.0
+        },
+        {
+          "type": "cone",
+          "x": 0.5,
+          "y": 0.769
+        },
+        {
+          "type": "cone",
+          "x": 0.5,
+          "y": 0.231
+        },
+        {
+          "type": "cone",
+          "x": 0.5,
+          "y": 0.0
+        },
+        {
+          "type": "ball basket",
+          "x": 1.1,
+          "y": 0.53
+        }
+      ],
+      "paths": [
+        {
+          "from": "P1",
+          "to": "P2",
+          "style": "feed",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.58,
+            0.9
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.53,
+            0.94
+          ],
+          "style": "movement",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.68,
+            0.06
+          ],
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 4
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "two-on-one-backhand-corner-defence",
+    "name": "Two-on-One: Backhand Corner Defence",
+    "summary": "Two attackers pin one defender in the backhand corner so the defender learns to hold the rally from behind the baseline.",
+    "skill_focus": [
+      "backhand"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "half_court",
+    "intensity": "high",
+    "players_min": 3,
+    "players_max": 3,
+    "duration_min": 12,
+    "duration_max": 16,
+    "equipment": [
+      "cones",
+      "ball basket"
+    ],
+    "setup": "Defender on the near baseline in the backhand corner, on the ad side. Two attackers on the far baseline, one on each half, with the basket between them at the centre. A cone on the near singles sideline two metres inside the baseline marks the defender's outside limit. The defender plays only the near ad half; the attackers use the whole far court.",
+    "instructions": [
+      "Attacker one starts with a heavy ball into the backhand corner.",
+      "Defender hits every ball back with a backhand, alternating cross-court and down the line, and recovers to the corner cone after each shot.",
+      "Attackers hit straight back into the corner at match pace, each trying to hit the next ball harder than the last.",
+      "Twelve balls or until an error, then rotate: defender to attacker one, attacker one to attacker two, attacker two to defender.",
+      "Score the defender's rally length; best of three rounds each."
+    ],
+    "coaching_points": [
+      "Contact out in front even when stretched; a late backhand from the corner floats.",
+      "Slice when pushed behind the baseline, drive when the ball sits up.",
+      "Recover with crossover steps, then split as the attacker makes contact.",
+      "Aim the cross-court deep to the attacker's backhand so their next ball is not an attack."
+    ],
+    "progressions": [
+      "Attackers may hit one drop shot per rally.",
+      "Defender must land every ball past the far service line to keep the rally alive.",
+      "Attackers alternate corners so the defender covers the whole baseline."
+    ],
+    "regressions": [
+      "Attackers hit at three-quarter pace.",
+      "Defender may hit any shot, not only the backhand.",
+      "Defender starts a metre inside the corner cone so the balls are shorter."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.22,
+          "y": 0.95,
+          "label": "Defender"
+        },
+        {
+          "id": "P2",
+          "x": 0.28,
+          "y": 0.05,
+          "label": "Attacker 1"
+        },
+        {
+          "id": "P3",
+          "x": 0.72,
+          "y": 0.05,
+          "label": "Attacker 2"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "cone",
+          "x": 0.125,
+          "y": 0.916
+        },
+        {
+          "type": "ball basket",
+          "x": 0.5,
+          "y": 0.03
+        }
+      ],
+      "paths": [
+        {
+          "from": "P2",
+          "to": "P1",
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": "P3",
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P3",
+          "to": "P1",
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P1",
+          "to": "P2",
+          "style": "ball",
+          "step": 4
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "backhand-disguise-slice-or-drive-same-shape",
+    "name": "Backhand Disguise: Slice or Drive from the Same Shape",
+    "summary": "Trains a backhand preparation that hides whether a slice or a drive is coming, with a caller scoring how late the shot is read.",
+    "skill_focus": [
+      "backhand"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "half_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 10,
+    "duration_max": 14,
+    "equipment": [
+      "ball basket",
+      "throwdowns"
+    ],
+    "setup": "Feeder on the far service line at the centre with the basket, feeding with the racket into the near ad half. Hitter on the near baseline on the ad side. A throwdown line two metres inside the far baseline across the far cross-court half marks the depth target for both shots. Extra players queue behind the near baseline outside the doubles sideline; the first in the queue stands behind the feeder as the caller.",
+    "instructions": [
+      "Feeder hits medium-pace balls to the backhand at a rally rhythm.",
+      "Hitter alternates slice and topspin drive in any order they choose, cross-court, past the depth line.",
+      "The caller behind the feeder shouts which shot is coming as soon as they can tell; the hitter scores a point every time the call comes after contact.",
+      "Ten balls, then rotate all three roles.",
+      "Second round: the hitter must hit two of one shot before switching."
+    ],
+    "coaching_points": [
+      "Same unit turn and same racket height on the take-back for both shots; the split happens in the last half metre.",
+      "Drive: drop the racket head late and brush up; slice: keep it above the ball and drive forward.",
+      "Keep the eyes and the front shoulder still through contact so nothing gives the shot away.",
+      "Both shots deep: a disguised short ball is still a short ball."
+    ],
+    "progressions": [
+      "The caller must call before the ball bounces on the hitter's side.",
+      "Feeder mixes in a short ball; the hitter must still disguise the reply.",
+      "Add the drop shot as a third option from the same shape."
+    ],
+    "regressions": [
+      "Feeder tosses underarm so the hitter has more time to shape the swing.",
+      "Hitter announces the sequence before the ten balls and works on the shape only.",
+      "Remove the depth line and score disguise only."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "F",
+          "x": 0.5,
+          "y": 0.23,
+          "label": "Feeder"
+        },
+        {
+          "id": "P1",
+          "x": 0.28,
+          "y": 0.95,
+          "label": "Hitter"
+        },
+        {
+          "id": "P2",
+          "x": 0.5,
+          "y": 0.12,
+          "label": "Caller"
+        },
+        {
+          "id": "P3",
+          "x": 1.1,
+          "y": 0.95,
+          "label": "Queue"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.58,
+          "y": 0.23
+        },
+        {
+          "type": "throwdown",
+          "x": 0.55,
+          "y": 0.084
+        },
+        {
+          "type": "throwdown",
+          "x": 0.7,
+          "y": 0.084
+        },
+        {
+          "type": "throwdown",
+          "x": 0.85,
+          "y": 0.084
+        }
+      ],
+      "paths": [
+        {
+          "from": "F",
+          "to": "P1",
+          "style": "feed",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.72,
+            0.06
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "F",
+          "to": "P1",
+          "style": "feed",
+          "step": 3
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.66,
+            0.05
+          ],
+          "style": "ball",
+          "step": 4
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "deep-ball-pick-up-half-volley-from-the-baseline",
+    "name": "Deep Ball Pick-Up: Half-Volley from the Baseline",
+    "summary": "Teaches players to hold the baseline against deep balls by taking them on the half-volley instead of retreating.",
+    "skill_focus": [
+      "forehand",
+      "backhand"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "baseline_only",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 10,
+    "duration_max": 14,
+    "equipment": [
+      "ball basket",
+      "throwdowns"
+    ],
+    "setup": "Feeder on the far baseline at the centre with the basket, driving deep balls with the racket. Hitter on the near baseline at the centre mark. A throwdown a metre behind the baseline marks the line the hitter may not retreat behind. Extra players queue behind the near baseline outside the doubles sideline and collect.",
+    "instructions": [
+      "Feeder drives balls to land within a metre of the near baseline, alternating sides.",
+      "Hitter takes every ball on the half-volley or just after the bounce, without retreating behind the throwdown.",
+      "Aim deep down the middle past the far service line; count balls in out of ten.",
+      "Ten balls, then rotate.",
+      "Second round: the feeder adds pace and the hitter blocks instead of swings."
+    ],
+    "coaching_points": [
+      "Racket below the ball early, knees bent, so the short hop is met with a firm face.",
+      "Shorten the swing to a block; the ball's pace is enough.",
+      "Contact in front of the front foot; a half-volley taken beside the body pops up.",
+      "Keep the head still and low through contact; standing up lifts the ball long."
+    ],
+    "progressions": [
+      "Hitter must stand a metre inside the baseline.",
+      "Feeder mixes topspin and slice so the bounce height changes.",
+      "Target the far corners instead of the middle."
+    ],
+    "regressions": [
+      "Feeder feeds at three-quarter pace.",
+      "Move the throwdown two metres behind the baseline so the hitter may step back.",
+      "Feeder tells the hitter which side before each feed."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "F",
+          "x": 0.5,
+          "y": 0.03,
+          "label": "Feeder"
+        },
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.97,
+          "label": "Hitter"
+        },
+        {
+          "id": "P2",
+          "x": 1.1,
+          "y": 0.95,
+          "label": "Queue"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.58,
+          "y": 0.03
+        },
+        {
+          "type": "throwdown",
+          "x": 0.5,
+          "y": 1.045
+        }
+      ],
+      "paths": [
+        {
+          "from": "F",
+          "to": [
+            0.62,
+            0.98
+          ],
+          "style": "feed",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.6,
+            0.98
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.5,
+            0.1
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 3
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "heavy-cross-court-flat-down-the-line",
+    "name": "Heavy Cross-Court, Flat Down the Line",
+    "summary": "Pairs a heavy topspin cross-court rally with a flat down-the-line change into a narrow lane, live from the moment someone changes.",
+    "skill_focus": [
+      "forehand",
+      "backhand"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 12,
+    "duration_max": 18,
+    "equipment": [
+      "throwdowns",
+      "cones",
+      "ball basket"
+    ],
+    "setup": "One player on each baseline, both on the deuce side. Throwdown lines two metres inside each baseline mark the deep zone for cross-court balls. A two-metre lane along the singles sideline on each player's down-the-line side, marked with cones at the service line and the baseline, is the only target for down-the-line balls. Basket at the net post.",
+    "instructions": [
+      "Rally cross-court with heavy topspin; every cross-court ball must land in the deep zone.",
+      "Either player may go down the line at any time, but that ball must be flat and land in the sideline lane.",
+      "The point goes live the moment someone goes down the line.",
+      "First to ten, alternating who starts from the basket.",
+      "Second game: the down-the-line ball is allowed only off a ball that landed short of the deep zone."
+    ],
+    "coaching_points": [
+      "Cross-court: fast racket head from low to high with a high finish; make it heavy, not hard.",
+      "Down the line: flatten the swing path and finish forward at shoulder height.",
+      "Take the line ball early and inside the baseline; from behind the baseline the line is a low-percentage shot.",
+      "After going down the line, recover to the centre mark and split; the reply comes back fast."
+    ],
+    "progressions": [
+      "Shrink the lane to one metre.",
+      "Cross-court balls must also clear the net by two racket lengths.",
+      "Play points from a serve."
+    ],
+    "regressions": [
+      "Widen the lane to three metres.",
+      "Cooperate through the first down-the-line ball before the point goes live.",
+      "Move the deep zone line to three metres inside the baseline."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.72,
+          "y": 0.95,
+          "label": "Player A"
+        },
+        {
+          "id": "P2",
+          "x": 0.28,
+          "y": 0.05,
+          "label": "Player B"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "throwdown",
+          "x": 0.3,
+          "y": 0.916
+        },
+        {
+          "type": "throwdown",
+          "x": 0.5,
+          "y": 0.916
+        },
+        {
+          "type": "throwdown",
+          "x": 0.7,
+          "y": 0.916
+        },
+        {
+          "type": "throwdown",
+          "x": 0.3,
+          "y": 0.084
+        },
+        {
+          "type": "throwdown",
+          "x": 0.5,
+          "y": 0.084
+        },
+        {
+          "type": "throwdown",
+          "x": 0.7,
+          "y": 0.084
+        },
+        {
+          "type": "cone",
+          "x": 0.69,
+          "y": 0.231
+        },
+        {
+          "type": "cone",
+          "x": 0.875,
+          "y": 0.231
+        },
+        {
+          "type": "cone",
+          "x": 0.69,
+          "y": 0.01
+        },
+        {
+          "type": "cone",
+          "x": 0.875,
+          "y": 0.01
+        },
+        {
+          "type": "cone",
+          "x": 0.125,
+          "y": 0.769
+        },
+        {
+          "type": "cone",
+          "x": 0.31,
+          "y": 0.769
+        },
+        {
+          "type": "cone",
+          "x": 0.125,
+          "y": 0.99
+        },
+        {
+          "type": "cone",
+          "x": 0.31,
+          "y": 0.99
+        },
+        {
+          "type": "ball basket",
+          "x": 1.1,
+          "y": 0.53
+        }
+      ],
+      "paths": [
+        {
+          "from": "P1",
+          "to": "P2",
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": "P1",
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.78,
+            0.08
+          ],
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.78,
+            0.05
+          ],
+          "style": "movement",
+          "step": 3
+        },
+        {
+          "from": "P2",
+          "to": "P2",
+          "style": "movement",
+          "step": 4
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "ball-machine-random-split-step-on-every-release",
+    "name": "Ball Machine Random: Split Step on Every Release",
+    "summary": "Uses a random-oscillating machine to enforce a split step on every ball and a balanced base for every contact.",
+    "skill_focus": [
+      "forehand",
+      "backhand",
+      "movement"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "baseline_only",
+    "intensity": "high",
+    "players_min": 1,
+    "players_max": 2,
+    "duration_min": 10,
+    "duration_max": 15,
+    "equipment": [
+      "ball machine",
+      "throwdowns"
+    ],
+    "setup": "Ball machine on the far baseline at the centre, random oscillation, fast pace with topspin, three-second interval. Hitter on the near baseline at the centre mark. A throwdown line two metres inside the far baseline is the target. A second player, if present, stands behind the near baseline and counts the split steps that land before the ball crosses the net.",
+    "instructions": [
+      "Hitter split-steps as the machine releases each ball, then moves to it and hits deep.",
+      "Every ball must be played from a balanced base: no hitting while still running.",
+      "Sets of ten balls; score one for each deep ball hit from a set position, zero for a deep ball hit on the run.",
+      "Four sets with a minute between; recover to the centre mark after every ball.",
+      "Last set: every ball cross-court."
+    ],
+    "coaching_points": [
+      "The split lands as the ball leaves the machine, not when it bounces.",
+      "First step is explosive, the last two are small so you arrive balanced.",
+      "Hit heavy and high when you arrive late; flat only when you are early and set.",
+      "Recover before the ball has landed: the next release is three seconds away."
+    ],
+    "progressions": [
+      "Shorten the interval to two seconds.",
+      "Widen the machine's oscillation to full width.",
+      "Any ball landing inside the service line must be attacked down the line."
+    ],
+    "regressions": [
+      "Slow the interval to five seconds.",
+      "Set the machine to alternate sides instead of random.",
+      "Score every deep ball whether set or not."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.95,
+          "label": "Hitter"
+        },
+        {
+          "id": "P2",
+          "x": 0.5,
+          "y": 1.08,
+          "label": "Counter"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball machine",
+          "x": 0.5,
+          "y": 0.03
+        },
+        {
+          "type": "throwdown",
+          "x": 0.3,
+          "y": 0.084
+        },
+        {
+          "type": "throwdown",
+          "x": 0.5,
+          "y": 0.084
+        },
+        {
+          "type": "throwdown",
+          "x": 0.7,
+          "y": 0.084
+        }
+      ],
+      "paths": [
+        {
+          "from": [
+            0.5,
+            0.03
+          ],
+          "to": [
+            0.78,
+            0.9
+          ],
+          "style": "feed",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.76,
+            0.94
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.5,
+            0.06
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 3
+        },
+        {
+          "from": [
+            0.5,
+            0.03
+          ],
+          "to": [
+            0.25,
+            0.85
+          ],
+          "style": "feed",
+          "step": 3
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.27,
+            0.9
+          ],
+          "style": "movement",
+          "step": 4
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.5,
+            0.06
+          ],
+          "style": "ball",
+          "step": 5
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 6
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "backhand-drop-shot-off-the-short-ball",
+    "name": "Backhand Drop Shot off the Short Ball",
+    "summary": "Builds a disguised backhand drop shot into hoop targets just over the net, played off a short feed and followed in.",
+    "skill_focus": [
+      "backhand"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "half_court",
+    "intensity": "low",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": [
+      "hoops",
+      "ball basket"
+    ],
+    "setup": "Feeder on the far service line at the centre with the basket. Hitter on the near baseline on the ad side. Two hoops on the far side a metre from the net: one a metre inside the far singles sideline on the cross-court side and one on the centre line. Extra players queue behind the near baseline outside the doubles sideline.",
+    "instructions": [
+      "Feeder hits a ball that lands a metre inside the near service line on the backhand side.",
+      "Hitter moves in and plays a backhand drop shot into either hoop.",
+      "Score two for a hoop, one for a ball that bounces twice inside the far service box, zero otherwise.",
+      "Ten balls, then rotate.",
+      "Second round: the feeder alternates a deep ball, which must be driven, and a short ball, which must be dropped."
+    ],
+    "coaching_points": [
+      "Show the drive: same shoulder turn and take-back, then open the face late.",
+      "Soft hands: hold the racket loosely and let the ball drop onto the strings.",
+      "Cut under and slightly across so the ball checks and stays low.",
+      "Follow the drop shot forward two steps; a good drop still comes back."
+    ],
+    "progressions": [
+      "Remove the centre hoop and use only the wide one.",
+      "Feeder follows the drop shot with a lob that must be dealt with.",
+      "The drop must be hit from behind the service line."
+    ],
+    "regressions": [
+      "Replace the hoops with the whole far service box as the target.",
+      "Feeder tosses the short ball underarm.",
+      "Hitter starts at the service line."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "F",
+          "x": 0.5,
+          "y": 0.23,
+          "label": "Feeder"
+        },
+        {
+          "id": "P1",
+          "x": 0.28,
+          "y": 0.95,
+          "label": "Hitter"
+        },
+        {
+          "id": "P2",
+          "x": 1.1,
+          "y": 0.95,
+          "label": "Queue"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.58,
+          "y": 0.23
+        },
+        {
+          "type": "hoop",
+          "x": 0.78,
+          "y": 0.46
+        },
+        {
+          "type": "hoop",
+          "x": 0.5,
+          "y": 0.46
+        }
+      ],
+      "paths": [
+        {
+          "from": "F",
+          "to": [
+            0.32,
+            0.72
+          ],
+          "style": "feed",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.3,
+            0.74
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.76,
+            0.46
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.36,
+            0.68
+          ],
+          "style": "movement",
+          "step": 3
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 4
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "five-ball-pattern-cross-cross-line-cross-finish",
+    "name": "Five-Ball Pattern: Cross, Cross, Line, Cross, Finish",
+    "summary": "Runs a fixed five-ball shot pattern with full recovery between balls so direction changes become automatic under fatigue.",
+    "skill_focus": [
+      "forehand",
+      "backhand"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 12,
+    "duration_max": 16,
+    "equipment": [
+      "ball basket",
+      "cones"
+    ],
+    "setup": "Feeder on the far baseline at the centre with the basket, feeding with the racket. Hitter on the near baseline at the centre mark. Cones mark the targets on the far side: a cone two metres inside each far corner for the deep balls, and a cone in the middle of each far service box for the finishing ball. Extra players queue behind the near baseline outside the doubles sideline.",
+    "instructions": [
+      "Feeder plays five balls in sequence: forehand side, forehand side, backhand side, backhand side, then a short ball to the middle.",
+      "Hitter answers with the pattern: cross-court, cross-court, down the line, cross-court, then a finish at either service-box cone.",
+      "Every ball is hit with full recovery to the centre mark between shots.",
+      "Five balls, then rotate; score one per target hit, three for the finish.",
+      "Second round: the feeder reverses the pattern so it starts on the backhand."
+    ],
+    "coaching_points": [
+      "Know the next shot before this one is hit; the pattern is decided, the movement is not.",
+      "The line ball is the change: contact later and drive flat; the others are heavy and high.",
+      "Recover to the centre mark, not to where the last ball came from.",
+      "On the finish, move forward through contact and land inside the court."
+    ],
+    "progressions": [
+      "Feeder speeds the interval so the fifth ball arrives as the hitter recovers.",
+      "Shrink the corner targets to one-metre cone squares.",
+      "Hitter calls a new pattern before each set with the line ball in a different position."
+    ],
+    "regressions": [
+      "Three balls only: cross, line, finish.",
+      "Feeder tosses underarm from the far service line.",
+      "Widen all targets to the whole far half."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "F",
+          "x": 0.5,
+          "y": 0.03,
+          "label": "Feeder"
+        },
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.95,
+          "label": "Hitter"
+        },
+        {
+          "id": "P2",
+          "x": 1.1,
+          "y": 0.95,
+          "label": "Queue"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.58,
+          "y": 0.03
+        },
+        {
+          "type": "cone",
+          "x": 0.2,
+          "y": 0.08
+        },
+        {
+          "type": "cone",
+          "x": 0.8,
+          "y": 0.08
+        },
+        {
+          "type": "cone",
+          "x": 0.31,
+          "y": 0.36
+        },
+        {
+          "type": "cone",
+          "x": 0.69,
+          "y": 0.36
+        }
+      ],
+      "paths": [
+        {
+          "from": "F",
+          "to": [
+            0.72,
+            0.9
+          ],
+          "style": "feed",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.7,
+            0.94
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.22,
+            0.08
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 3
+        },
+        {
+          "from": "F",
+          "to": [
+            0.28,
+            0.9
+          ],
+          "style": "feed",
+          "step": 3
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.3,
+            0.94
+          ],
+          "style": "movement",
+          "step": 4
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.22,
+            0.08
+          ],
+          "style": "ball",
+          "step": 5
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 6
+        }
+      ]
+    },
+    "source": "generated"
+  }
+]

@@ -1,0 +1,700 @@
+[
+  {
+    "slug": "dynamic-line-warm-up-skips-carioca-lunges",
+    "name": "Dynamic Line Warm-Up: Skips, Carioca, Lunges",
+    "summary": "A no-ball movement warm-up between two cones that raises the heart rate and opens the hips and shoulders before hitting.",
+    "skill_focus": [
+      "warmup"
+    ],
+    "levels": [
+      "beginner",
+      "improver",
+      "intermediate",
+      "advanced"
+    ],
+    "age_groups": [
+      "mini_red",
+      "mini_orange",
+      "mini_green",
+      "junior",
+      "adult"
+    ],
+    "court_space": "off_court",
+    "intensity": "low",
+    "players_min": 1,
+    "players_max": 12,
+    "duration_min": 6,
+    "duration_max": 8,
+    "equipment": [
+      "cones"
+    ],
+    "setup": "Two cones fifteen metres apart along the back fence or in the space behind a baseline. Players line up at the first cone, an arm's length apart, and move to the second cone and back on each exercise. No balls needed.",
+    "instructions": [
+      "Jog to the far cone and back, then side-shuffle there and back.",
+      "High knees there, heel flicks back.",
+      "Carioca, crossover steps, there and back, facing the same way both times.",
+      "Walking lunges there, then walking lunges with a trunk rotation back.",
+      "Finish with three short accelerations from a split step, ten metres each."
+    ],
+    "coaching_points": [
+      "Keep every movement light on the balls of the feet.",
+      "Lunges: front knee over the ankle, back knee to the ground, chest up.",
+      "Carioca: hips loose, shoulders facing forward, arms relaxed.",
+      "Accelerations: the first step is small and quick, not a leap."
+    ],
+    "progressions": [
+      "Add a second set of the movement exercises at a faster tempo.",
+      "Increase the cone distance to twenty metres.",
+      "Add a ball toss and catch with a partner during the jog."
+    ],
+    "regressions": [
+      "Walk every exercise the first time through.",
+      "Shorten the cone distance to ten metres.",
+      "Replace the carioca with side shuffles."
+    ],
+    "court_diagram": null,
+    "source": "generated"
+  },
+  {
+    "slug": "band-shoulder-activation",
+    "name": "Band Shoulder Activation",
+    "summary": "A five-minute resistance band routine that wakes up the rotator cuff and shoulder blades before serving and overheads.",
+    "skill_focus": [
+      "warmup"
+    ],
+    "levels": [
+      "beginner",
+      "improver",
+      "intermediate",
+      "advanced"
+    ],
+    "age_groups": [
+      "mini_green",
+      "junior",
+      "adult"
+    ],
+    "court_space": "off_court",
+    "intensity": "low",
+    "players_min": 1,
+    "players_max": 8,
+    "duration_min": 5,
+    "duration_max": 7,
+    "equipment": [
+      "resistance band"
+    ],
+    "setup": "Each player with a light resistance band, standing beside the court or behind the baseline with an arm's length of space. Bands looped around a fence post for the serving action, held in both hands for the pull-aparts.",
+    "instructions": [
+      "Band pull-aparts: hold the band at shoulder height, pull the hands apart until the band touches the chest, ten times.",
+      "External rotations: elbow tucked at the side, forearm across the body, rotate out against the band, ten each arm.",
+      "Overhead press with the band under the front foot, ten times.",
+      "Serving action against the band looped on the fence: slow trophy position to contact, eight times.",
+      "Finish with ten arm circles each way with no band."
+    ],
+    "coaching_points": [
+      "Shoulder blades down and back before every pull; the band is for the small muscles, not the arms.",
+      "Slow on the way back: two seconds out, three seconds back.",
+      "External rotations: the elbow stays glued to the side.",
+      "Breathe out on the effort."
+    ],
+    "progressions": [
+      "Use a medium band instead of a light one.",
+      "Two sets of everything.",
+      "Add a slow backhand action against the band."
+    ],
+    "regressions": [
+      "Use the lightest band, or none and just the arm movements.",
+      "Five repetitions instead of ten.",
+      "Skip the overhead press."
+    ],
+    "court_diagram": null,
+    "source": "generated"
+  },
+  {
+    "slug": "agility-ladder-foot-patterns",
+    "name": "Agility Ladder Foot Patterns",
+    "summary": "Four ladder patterns run in a queue to wake up the feet, finishing with a split step and a sprint.",
+    "skill_focus": [
+      "warmup",
+      "movement"
+    ],
+    "levels": [
+      "beginner",
+      "improver",
+      "intermediate",
+      "advanced"
+    ],
+    "age_groups": [
+      "mini_red",
+      "mini_orange",
+      "mini_green",
+      "junior",
+      "adult"
+    ],
+    "court_space": "off_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 8,
+    "duration_min": 6,
+    "duration_max": 8,
+    "equipment": [
+      "agility ladder"
+    ],
+    "setup": "Agility ladder laid flat behind the baseline or beside the court. Players queue at one end, an arm's length apart, and jog back down the outside after each run.",
+    "instructions": [
+      "Two feet in every box, forwards.",
+      "In-in-out-out: both feet in, then both feet out to the sides, moving forward.",
+      "Lateral: side-on, both feet in every box, then the other way.",
+      "Icky shuffle: in, in, out, moving diagonally through the ladder.",
+      "Finish with one run at full speed with any pattern, then a split step and a sprint to the net."
+    ],
+    "coaching_points": [
+      "Eyes ahead, not on the ladder; the feet learn the pattern faster than the eyes.",
+      "Small quick steps, arms pumping.",
+      "Stay low with the knees bent through the lateral patterns.",
+      "Land the last step outside the ladder into a split step."
+    ],
+    "progressions": [
+      "Add a ball toss and catch from a partner during the run.",
+      "Two runs of each pattern.",
+      "Time the runs and try to beat the previous time."
+    ],
+    "regressions": [
+      "Walk each pattern once before running it.",
+      "Two patterns only: two feet in, and lateral.",
+      "Remove the sprint at the end."
+    ],
+    "court_diagram": null,
+    "source": "generated"
+  },
+  {
+    "slug": "partner-ball-toss-reactions",
+    "name": "Partner Ball Toss Reactions",
+    "summary": "A no-racket catching warm-up in pairs that gets the eyes, hands and split step working before the first ball is hit.",
+    "skill_focus": [
+      "warmup",
+      "movement"
+    ],
+    "levels": [
+      "beginner",
+      "improver",
+      "intermediate",
+      "advanced"
+    ],
+    "age_groups": [
+      "mini_red",
+      "mini_orange",
+      "mini_green",
+      "junior",
+      "adult"
+    ],
+    "court_space": "off_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 5,
+    "duration_max": 7,
+    "equipment": [
+      "balls"
+    ],
+    "setup": "Pairs facing each other three metres apart beside the court, one ball each. No rackets.",
+    "instructions": [
+      "Both players toss their ball underarm to the partner at the same time and catch the incoming one; twenty catches.",
+      "One player tosses to either side; the partner shuffles and catches, then tosses back; ten each.",
+      "Toss high; the partner turns sideways and catches above the head, then throws it back overarm; ten each.",
+      "Toss to the feet; the partner lunges and catches low; ten each.",
+      "Finish with a reaction round: the tosser fakes one way and tosses the other."
+    ],
+    "coaching_points": [
+      "Catch with the hands in front of the body, eyes on the ball all the way into the hands.",
+      "Split step as the partner's arm starts to move.",
+      "Turn sideways for the high catch and point at the ball with the other hand.",
+      "Low catch: bend from the knees, chest up."
+    ],
+    "progressions": [
+      "Increase the distance to five metres.",
+      "Use two balls at once in the side-to-side round.",
+      "Catch with one hand only."
+    ],
+    "regressions": [
+      "Reduce the distance to two metres.",
+      "Toss straight to the hands for every round.",
+      "Use a red ball."
+    ],
+    "court_diagram": null,
+    "source": "generated"
+  },
+  {
+    "slug": "net-to-baseline-warm-up-ladder-two-minutes-a-station",
+    "name": "Net to Baseline Warm-Up Ladder: Two Minutes a Station",
+    "summary": "A hitting warm-up that walks back from volleys at the net to full baseline rallies in four timed stations.",
+    "skill_focus": [
+      "warmup"
+    ],
+    "levels": [
+      "beginner",
+      "improver",
+      "intermediate",
+      "advanced"
+    ],
+    "age_groups": [
+      "mini_green",
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "low",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 8,
+    "duration_max": 10,
+    "equipment": [
+      "ball basket"
+    ],
+    "setup": "Two players on the singles court with a basket at the net post. Four stations, two minutes each: both at the net volleying, both inside the service lines rallying mini tennis, both at three-quarter court, both on the baselines.",
+    "instructions": [
+      "Volley-volley across the net for two minutes, cooperative, no bounce.",
+      "Step back to the service lines and rally gently inside the service boxes for two minutes.",
+      "Step back to three-quarter court and rally cross-court at half pace for two minutes.",
+      "Baselines: rally down the middle for two minutes, building to rally pace.",
+      "Finish with one minute where each player serves five easy serves into each box."
+    ],
+    "coaching_points": [
+      "Start at half pace and build; the warm-up is finished when the body says so, not the clock.",
+      "Move the feet on every ball from the first volley; a lazy warm-up becomes a lazy session.",
+      "Aim for the partner's hip so the rally keeps going.",
+      "On the baselines, add topspin before adding pace."
+    ],
+    "progressions": [
+      "Shorten each station to ninety seconds and add a fifth: overheads off a hand-fed lob.",
+      "Rally cross-court on both diagonals at the three-quarter station.",
+      "Serve and return points to finish instead of serving alone."
+    ],
+    "regressions": [
+      "Skip the baseline station and finish at three-quarter court.",
+      "Use an orange ball at the first two stations.",
+      "Three minutes per station at the same pace throughout."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.6,
+          "label": "Player A"
+        },
+        {
+          "id": "P2",
+          "x": 0.5,
+          "y": 0.4,
+          "label": "Player B"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 1.1,
+          "y": 0.53
+        }
+      ],
+      "paths": [
+        {
+          "from": "P1",
+          "to": "P2",
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": "P1",
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.5,
+            0.78
+          ],
+          "style": "movement",
+          "step": 3
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.5,
+            0.22
+          ],
+          "style": "movement",
+          "step": 3
+        },
+        {
+          "from": "P1",
+          "to": "P2",
+          "style": "ball",
+          "step": 4
+        },
+        {
+          "from": "P2",
+          "to": "P1",
+          "style": "ball",
+          "step": 5
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.5,
+            0.95
+          ],
+          "style": "movement",
+          "step": 6
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.5,
+            0.05
+          ],
+          "style": "movement",
+          "step": 6
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "toss-volley-lob-net-warm-up",
+    "name": "Toss, Volley, Lob: Net Warm-Up",
+    "summary": "A short hand-fed net warm-up of easy volleys, low volleys and half-pace overheads before net drills.",
+    "skill_focus": [
+      "warmup",
+      "volley"
+    ],
+    "levels": [
+      "beginner",
+      "improver",
+      "intermediate",
+      "advanced"
+    ],
+    "age_groups": [
+      "mini_green",
+      "junior",
+      "adult"
+    ],
+    "court_space": "net_area",
+    "intensity": "low",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 6,
+    "duration_max": 8,
+    "equipment": [
+      "ball basket"
+    ],
+    "setup": "Feeder on the far service line at the centre with the basket, tossing underarm. Player at the near net, two metres from it on the deuce side. Extra players queue behind the player.",
+    "instructions": [
+      "Feeder tosses five easy forehand volleys, then five backhand volleys, hit back gently to the feeder.",
+      "Feeder tosses five low volleys at the feet.",
+      "Feeder lobs five easy balls for overheads hit at half pace into the far court.",
+      "Rotate the player.",
+      "Last round: the feeder mixes volleys and lobs without warning."
+    ],
+    "coaching_points": [
+      "Rackets up and in front from the first ball.",
+      "Half pace on the overheads; the shoulder is warming up, not being tested.",
+      "Step in on every volley, step back to ready between balls.",
+      "Turn sideways early on the lobs."
+    ],
+    "progressions": [
+      "Feeder hits the feeds with a racket from the far baseline.",
+      "Add five swinging volleys off a floating ball.",
+      "Player must volley to alternate sides."
+    ],
+    "regressions": [
+      "Replace the overheads with five more volleys.",
+      "Feeder tosses from the same side of the net.",
+      "Use an orange ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "F",
+          "x": 0.5,
+          "y": 0.23,
+          "label": "Feeder"
+        },
+        {
+          "id": "P1",
+          "x": 0.7,
+          "y": 0.58,
+          "label": "Player"
+        },
+        {
+          "id": "P2",
+          "x": 0.7,
+          "y": 0.68,
+          "label": "Queue"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 0.58,
+          "y": 0.23
+        }
+      ],
+      "paths": [
+        {
+          "from": "F",
+          "to": "P1",
+          "style": "feed",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": "F",
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "F",
+          "to": [
+            0.72,
+            0.66
+          ],
+          "style": "feed",
+          "step": 3
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.72,
+            0.67
+          ],
+          "style": "movement",
+          "step": 3
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.3,
+            0.15
+          ],
+          "style": "ball",
+          "step": 4
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 5
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "rally-speed-ladder-50-70-90-percent",
+    "name": "Rally Speed Ladder: 50, 70, 90 Percent",
+    "summary": "A baseline warm-up rally that steps up through three called paces so the body reaches match speed gradually.",
+    "skill_focus": [
+      "warmup"
+    ],
+    "levels": [
+      "beginner",
+      "improver",
+      "intermediate",
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 6,
+    "duration_max": 9,
+    "equipment": [
+      "ball basket"
+    ],
+    "setup": "One player on each baseline at the centre mark, basket at the net post. The rally is cooperative down the middle and the pace is set by a called percentage.",
+    "instructions": [
+      "Rally at fifty percent pace for two minutes, high over the net, deep.",
+      "Call 'seventy' and rally at seventy percent for two minutes, adding topspin.",
+      "Call 'ninety' and rally for two minutes at near match pace, still cooperative.",
+      "Finish with one minute of live points from a hand-feed.",
+      "Any ball the partner cannot keep in the rally is too hard for that percentage: drop back a step."
+    ],
+    "coaching_points": [
+      "Pace comes from the legs and the racket-head speed, not from swinging harder with the arm.",
+      "Keep the same net clearance at every percentage; only the spin and racket speed change.",
+      "Recover to the centre mark after every ball, even at fifty percent.",
+      "Breathe out on contact at ninety percent."
+    ],
+    "progressions": [
+      "Add a fourth step: one hundred percent for one minute.",
+      "Rally cross-court instead of down the middle.",
+      "Live points for two minutes instead of one."
+    ],
+    "regressions": [
+      "Two steps only: fifty and seventy.",
+      "Rally from the service lines for the first step.",
+      "Use a green ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.95,
+          "label": "Player A"
+        },
+        {
+          "id": "P2",
+          "x": 0.5,
+          "y": 0.05,
+          "label": "Player B"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 1.1,
+          "y": 0.53
+        }
+      ],
+      "paths": [
+        {
+          "from": "P1",
+          "to": "P2",
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": "P1",
+          "style": "ball",
+          "step": 2
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "doubles-warm-up-rotation-two-minutes-at-each-station",
+    "name": "Doubles Warm-Up Rotation: Two Minutes at Each Station",
+    "summary": "Four players warm up on one court with timed net-and-baseline stations, rotating roles and halves every two minutes.",
+    "skill_focus": [
+      "warmup"
+    ],
+    "levels": [
+      "beginner",
+      "improver",
+      "intermediate",
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "medium",
+    "players_min": 4,
+    "players_max": 4,
+    "duration_min": 8,
+    "duration_max": 10,
+    "equipment": [
+      "ball basket"
+    ],
+    "setup": "Four players on one court, one pair each side of the net. Station one: one player at the net and one on the baseline on each side, so the net players volley against the opposite baseliner down their own half. Basket at the net post. Every two minutes the pairs rotate: net player to baseline, baseline player to net, then swap halves.",
+    "instructions": [
+      "Net players volley against the opposite baseliners, cooperatively, down each half for two minutes.",
+      "Rotate: the baseliners come to the net and the net players go back.",
+      "Rotate again and switch halves so everyone has volleyed on the deuce and ad sides.",
+      "Fourth station: all four on the baselines, rallying cross-court in two pairs.",
+      "Finish with each player hitting five overheads off a hand-fed lob from their partner."
+    ],
+    "coaching_points": [
+      "Baseliners: hit at the net player's hip so they can volley without moving much.",
+      "Net players: deep volleys, not angles; the baseliner needs the ball back.",
+      "Rotate quickly; the two minutes includes the walk.",
+      "Cross-court rallies: stay in your half and let the other pair have theirs."
+    ],
+    "progressions": [
+      "Ninety seconds per station.",
+      "Net players must volley to alternate sides of the baseliner.",
+      "Finish with two minutes of doubles points instead of overheads."
+    ],
+    "regressions": [
+      "Three minutes per station.",
+      "Skip the overheads and finish after the fourth station.",
+      "Use a green ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.28,
+          "y": 0.6,
+          "label": "Net"
+        },
+        {
+          "id": "P2",
+          "x": 0.72,
+          "y": 0.95,
+          "label": "Baseline"
+        },
+        {
+          "id": "P3",
+          "x": 0.28,
+          "y": 0.05,
+          "label": "Baseline"
+        },
+        {
+          "id": "P4",
+          "x": 0.72,
+          "y": 0.4,
+          "label": "Net"
+        }
+      ],
+      "equipment": [
+        {
+          "type": "ball basket",
+          "x": 1.1,
+          "y": 0.53
+        }
+      ],
+      "paths": [
+        {
+          "from": "P3",
+          "to": "P1",
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": "P4",
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": "P3",
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P4",
+          "to": "P2",
+          "style": "ball",
+          "step": 2
+        }
+      ]
+    },
+    "source": "generated"
+  }
+]

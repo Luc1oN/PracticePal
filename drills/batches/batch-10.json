@@ -1,0 +1,472 @@
+[
+  {
+    "slug": "volley-only-points-in-the-boxes",
+    "name": "Volley-Only Points in the Boxes",
+    "summary": "Live points inside the service boxes where the ball may never bounce, so every shot is a volley under pressure.",
+    "skill_focus": ["volley", "games"],
+    "levels": ["improver"],
+    "age_groups": ["mini_green", "junior", "adult"],
+    "court_space": "service_boxes",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": ["cones", "ball basket"],
+    "setup": "Both players inside their service boxes, starting two metres from the net on the same side of the centre line. Cones on the singles sidelines at both service lines mark the playing area: the four service boxes. Basket at the net post. The ball may not bounce on either side.",
+    "instructions": [
+      "Player A starts with a gentle self-toss volley.",
+      "Play the point out with volleys only; a ball that bounces loses the point for the player who let it bounce.",
+      "First to eleven, then change ends.",
+      "Second game: a volley that lands past the far service line loses the point, so everything stays soft.",
+      "Third game: points can be won only with a volley that lands in the far box on the other side of the centre line."
+    ],
+    "coaching_points": [
+      "Racket up and in front between every volley; the next ball is a second away.",
+      "Volley at your opponent's feet, not their chest; a low ball is the hardest to volley.",
+      "Move forward to the ball with small steps; standing still lets it drop.",
+      "Firm wrist, short punch; the closer you are, the shorter the swing."
+    ],
+    "progressions": [
+      "Extend the area to two metres behind each service line.",
+      "Allow a bounce only on your own side, once per point.",
+      "Play to fifteen with the loser of each point starting the next volley."
+    ],
+    "regressions": [
+      "Allow one bounce per side.",
+      "Cooperate for four volleys before the point goes live.",
+      "Use an orange ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "P1", "x": 0.62, "y": 0.58, "label": "Player A" },
+        { "id": "P2", "x": 0.62, "y": 0.42, "label": "Player B" }
+      ],
+      "equipment": [
+        { "type": "cone", "x": 0.125, "y": 0.769 },
+        { "type": "cone", "x": 0.875, "y": 0.769 },
+        { "type": "cone", "x": 0.125, "y": 0.231 },
+        { "type": "cone", "x": 0.875, "y": 0.231 },
+        { "type": "ball basket", "x": 1.1, "y": 0.53 }
+      ],
+      "paths": [
+        { "from": "P1", "to": "P2", "style": "ball", "step": 1 },
+        { "from": "P2", "to": [0.4, 0.62], "style": "ball", "step": 2 },
+        { "from": "P1", "to": [0.42, 0.6], "style": "movement", "step": 2 },
+        { "from": "P1", "to": [0.75, 0.35], "style": "ball", "step": 3 },
+        { "from": "P2", "to": [0.74, 0.38], "style": "movement", "step": 3 },
+        { "from": "P1", "to": "P1", "style": "movement", "step": 4 },
+        { "from": "P2", "to": "P2", "style": "movement", "step": 4 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "low-volley-lift-it-over-from-below-the-net",
+    "name": "Low Volley: Lift It Over from Below the Net",
+    "summary": "Teaches the low volley by feeding balls that dip below net height, so the player learns to bend and lift with an open face.",
+    "skill_focus": ["volley"],
+    "levels": ["improver"],
+    "age_groups": ["mini_green", "junior", "adult"],
+    "court_space": "service_boxes",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": ["ball basket", "throwdowns"],
+    "setup": "Feeder on the far service line at the centre with the basket, hitting balls that arrive below net height at the volleyer's feet. Volleyer on the near service line at the centre, moving in one step for each ball. A throwdown on the far service line marks the depth target: volleys should land near it, not short. Extra players queue behind the volleyer.",
+    "instructions": [
+      "Feeder sends a ball that dips below net height as it reaches the volleyer.",
+      "Volleyer bends, gets the racket head below the ball with the face open, and lifts the volley over the net to land near the far throwdown.",
+      "Score one for a volley over the net, two for one that lands within a racket length of the throwdown.",
+      "Ten volleys alternating forehand and backhand, then rotate.",
+      "Second round: the volleyer starts a metre inside the service line so the ball is even lower."
+    ],
+    "coaching_points": [
+      "Bend from the knees, not the waist; get the eyes down to the height of the ball.",
+      "Open the racket face and let the ball climb over the net; do not hit down on a low ball.",
+      "Firm wrist, soft grip: the lift comes from the legs coming up, not the wrist flicking.",
+      "Contact in front of the front knee with the racket head level with the wrist, not below it."
+    ],
+    "progressions": [
+      "Feeder hits the feed harder from the far baseline.",
+      "Volleys must land past the far service line.",
+      "Feeder alternates a low ball with a chest-height ball so the volleyer must adjust height."
+    ],
+    "regressions": [
+      "Feeder tosses underarm from just behind the net.",
+      "Volleyer starts at the net and lets the ball come to waist height.",
+      "Use a green ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "F", "x": 0.5, "y": 0.23, "label": "Feeder" },
+        { "id": "P1", "x": 0.5, "y": 0.77, "label": "Volleyer" },
+        { "id": "P2", "x": 0.5, "y": 0.87, "label": "Queue" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.58, "y": 0.23 },
+        { "type": "throwdown", "x": 0.5, "y": 0.231 }
+      ],
+      "paths": [
+        { "from": "F", "to": [0.55, 0.68], "style": "feed", "step": 1 },
+        { "from": "P1", "to": [0.54, 0.7], "style": "movement", "step": 1 },
+        { "from": "P1", "to": [0.5, 0.25], "style": "ball", "step": 2 },
+        { "from": "P1", "to": "P1", "style": "movement", "step": 3 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "overhead-turn-point-hit",
+    "name": "Overhead: Turn, Point, Hit",
+    "summary": "Builds the overhead around three called actions, turn sideways, point at the ball, hit, off racket-fed lobs into the near box.",
+    "skill_focus": ["overhead"],
+    "levels": ["improver"],
+    "age_groups": ["mini_green", "junior", "adult"],
+    "court_space": "service_boxes",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": ["ball basket", "cones"],
+    "setup": "Feeder on the far service line at the centre with the basket, lobbing with the racket to land inside the near service box. Player on the near side two metres from the net on the deuce side. Two cones on the far service line at the singles sidelines mark the target zone: the two far service boxes. Extra players queue behind the player.",
+    "instructions": [
+      "Feeder lobs a ball to land inside the near service box.",
+      "Player says 'turn' as they turn sideways, 'point' as the free hand points at the ball, and hits the overhead into the far boxes.",
+      "Score one for the far boxes, two for the box diagonally opposite.",
+      "Ten overheads, then rotate.",
+      "Second round: the player says nothing and the feeder checks that the turn and the point still happen."
+    ],
+    "coaching_points": [
+      "Turn sideways as the lob leaves the feeder's racket; the turn comes before the racket goes up.",
+      "Point at the ball with the free hand and keep it up until the racket swings.",
+      "Reach up: contact at full stretch in front of the head, not behind it.",
+      "Hit the ball down into the court with the wrist snapping over the top."
+    ],
+    "progressions": [
+      "Feeder lobs deeper so the player must move back two steps before the turn.",
+      "Only the diagonal box counts.",
+      "Feeder lobs from the far baseline with more height."
+    ],
+    "regressions": [
+      "Feeder lobs by hand from the far service line.",
+      "Player catches the lob above the head first, then throws it down and hits it after the bounce.",
+      "Use an orange ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "F", "x": 0.5, "y": 0.23, "label": "Feeder" },
+        { "id": "P1", "x": 0.7, "y": 0.58, "label": "Player" },
+        { "id": "P2", "x": 0.7, "y": 0.68, "label": "Queue" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.58, "y": 0.23 },
+        { "type": "cone", "x": 0.125, "y": 0.231 },
+        { "type": "cone", "x": 0.875, "y": 0.231 }
+      ],
+      "paths": [
+        { "from": "F", "to": [0.72, 0.64], "style": "feed", "step": 1 },
+        { "from": "P1", "to": [0.72, 0.65], "style": "movement", "step": 1 },
+        { "from": "P1", "to": [0.31, 0.36], "style": "ball", "step": 2 },
+        { "from": "P1", "to": "P1", "style": "movement", "step": 3 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "half-volley-pick-up-on-the-way-in",
+    "name": "Half-Volley Pick-Up on the Way In",
+    "summary": "Trains the half-volley met at the service line while moving forward, so the approach to the net survives a ball at the feet.",
+    "skill_focus": ["volley"],
+    "levels": ["improver"],
+    "age_groups": ["mini_green", "junior", "adult"],
+    "court_space": "service_boxes",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": ["ball basket", "cones"],
+    "setup": "Feeder on the far service line at the centre with the basket, hitting balls with the racket to land at the volleyer's feet around the near service line. Volleyer starts two metres behind the near service line on the centre line and moves in on every ball. A cone on the near service line marks where the ball should be met. Extra players queue behind the volleyer.",
+    "instructions": [
+      "Feeder hits a ball to land just in front of the cone, at the volleyer's feet as they move in.",
+      "Volleyer takes the ball on the half-volley, just after the bounce, and sends it back over the net into the far boxes.",
+      "After each ball, the volleyer continues to the net, touches it with the racket, and jogs back to the start.",
+      "Ten balls, then rotate.",
+      "Second round: the feeder alternates a half-volley ball with a chest-height volley."
+    ],
+    "coaching_points": [
+      "Keep moving through the ball; stopping to play the half-volley is what makes it pop up.",
+      "Racket face slightly closed and low, knees bent, contact just after the bounce in front of the front foot.",
+      "Block it, do not swing; the bounce gives the ball all the pace it needs.",
+      "Head still and low through contact; look at the bounce, not the far court."
+    ],
+    "progressions": [
+      "Feeder hits harder from the far baseline.",
+      "Half-volleys must land past the far service line.",
+      "Volleyer plays the half-volley and then a real volley off a second feed."
+    ],
+    "regressions": [
+      "Feeder tosses underarm from just over the net.",
+      "Volleyer starts on the service line and does not move in.",
+      "Use a green ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "F", "x": 0.5, "y": 0.23, "label": "Feeder" },
+        { "id": "P1", "x": 0.5, "y": 0.85, "label": "Volleyer" },
+        { "id": "P2", "x": 0.5, "y": 0.95, "label": "Queue" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.58, "y": 0.23 },
+        { "type": "cone", "x": 0.5, "y": 0.769 }
+      ],
+      "paths": [
+        { "from": "F", "to": [0.52, 0.75], "style": "feed", "step": 1 },
+        { "from": "P1", "to": [0.52, 0.77], "style": "movement", "step": 1 },
+        { "from": "P1", "to": [0.35, 0.3], "style": "ball", "step": 2 },
+        { "from": "P1", "to": [0.5, 0.56], "style": "movement", "step": 3 },
+        { "from": "P1", "to": "P1", "style": "movement", "step": 4 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "net-vs-baseline-cooperative-rally-count",
+    "name": "Net vs Baseline: Cooperative Rally Count",
+    "summary": "A cooperative rally between a net player and a baseliner down one half of the court, counting volleys and banking tens.",
+    "skill_focus": ["volley"],
+    "levels": ["improver"],
+    "age_groups": ["mini_green", "junior", "adult"],
+    "court_space": "half_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": ["ball basket"],
+    "setup": "One player at the near net, two metres from it on the deuce side; the other on the far baseline on the same side of the court. Basket at the net post. The rally goes volley, groundstroke, volley, groundstroke, cooperatively, down one half of the court.",
+    "instructions": [
+      "Baseline player starts with a self-drop groundstroke to the net player.",
+      "Net player volleys back deep to the baseline player; count each volley out loud.",
+      "Rally to an error; a rally of ten volleys banks a point.",
+      "Swap roles every three minutes.",
+      "Second round: the net player alternates forehand and backhand volleys by aiming to either side of the baseliner."
+    ],
+    "coaching_points": [
+      "Net player: volley deep and high enough to reach the baseline; a short volley ends the cooperation.",
+      "Baseline player: hit to the net player's hip, not past them.",
+      "Net player: split step as the baseliner makes contact, every time.",
+      "Both: aim for rhythm, not pace; the count is the score."
+    ],
+    "progressions": [
+      "Net player must volley past a throwdown line two metres inside the far baseline.",
+      "Baseline player mixes in a lob every fifth ball.",
+      "Switch from a green ball to a yellow ball."
+    ],
+    "regressions": [
+      "Baseline player stands on the service line.",
+      "Allow the net player one bounce per rally.",
+      "Use an orange ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "P1", "x": 0.7, "y": 0.58, "label": "Net" },
+        { "id": "P2", "x": 0.7, "y": 0.05, "label": "Baseline" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 1.1, "y": 0.53 }
+      ],
+      "paths": [
+        { "from": "P2", "to": "P1", "style": "ball", "step": 1 },
+        { "from": "P1", "to": "P2", "style": "ball", "step": 2 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "approach-and-two-volleys",
+    "name": "Approach and Two Volleys",
+    "summary": "A three-ball sequence, approach shot, deep first volley and finishing volley, so the whole trip to the net is trained in one go.",
+    "skill_focus": ["volley", "forehand"],
+    "levels": ["improver"],
+    "age_groups": ["junior", "adult"],
+    "court_space": "half_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 10,
+    "duration_max": 14,
+    "equipment": ["ball basket", "throwdowns"],
+    "setup": "Feeder on the far baseline at the centre with the basket, feeding with the racket. Player on the near baseline on the deuce side. A throwdown line two metres inside the far baseline marks the target for the approach and the first volley. Extra players queue behind the near baseline outside the doubles sideline.",
+    "instructions": [
+      "Feeder hits a short ball inside the near service line; the player moves in and hits an approach shot down the line, deep past the throwdown line.",
+      "Feeder immediately feeds a second ball; the player volleys it deep.",
+      "Feeder feeds a third ball; the player finishes with a volley into the open court.",
+      "Score one for each of the three balls in its target; three balls, then rotate.",
+      "Second round: the feeder chooses which side the volleys go to without warning."
+    ],
+    "coaching_points": [
+      "Approach down the line and follow it in on the same side; the volley position is a step to that side of the centre.",
+      "Split step at the service line as the feeder makes contact with the second ball.",
+      "First volley deep, second volley to the open court: depth before angle.",
+      "Keep moving forward through the sequence; the third ball is met a metre from the net."
+    ],
+    "progressions": [
+      "Feeder hits the second and third balls harder.",
+      "Add a fourth ball: a lob that must be dealt with.",
+      "Feeder mixes the short ball to either side so the approach may be a backhand."
+    ],
+    "regressions": [
+      "Feeder tosses underarm instead of hitting with the racket.",
+      "Two balls only: approach and one volley.",
+      "Widen the target to anywhere in the far court."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "F", "x": 0.5, "y": 0.03, "label": "Feeder" },
+        { "id": "P1", "x": 0.72, "y": 0.95, "label": "Player" },
+        { "id": "P2", "x": 1.1, "y": 0.95, "label": "Queue" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.58, "y": 0.03 },
+        { "type": "throwdown", "x": 0.3, "y": 0.084 },
+        { "type": "throwdown", "x": 0.5, "y": 0.084 },
+        { "type": "throwdown", "x": 0.7, "y": 0.084 }
+      ],
+      "paths": [
+        { "from": "F", "to": [0.7, 0.7], "style": "feed", "step": 1 },
+        { "from": "P1", "to": [0.7, 0.72], "style": "movement", "step": 1 },
+        { "from": "P1", "to": [0.75, 0.06], "style": "ball", "step": 2 },
+        { "from": "P1", "to": [0.68, 0.6], "style": "movement", "step": 2 },
+        { "from": "F", "to": [0.66, 0.62], "style": "feed", "step": 3 },
+        { "from": "P1", "to": [0.3, 0.06], "style": "ball", "step": 4 },
+        { "from": "P1", "to": "P1", "style": "movement", "step": 5 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "overhead-retreat-cross-over-back-and-hit",
+    "name": "Overhead Retreat: Cross Over, Back and Hit",
+    "summary": "Trains the footwork for a lob over the head: turn, crossover steps back behind the ball, hit, and close in again.",
+    "skill_focus": ["overhead", "movement"],
+    "levels": ["improver"],
+    "age_groups": ["junior", "adult"],
+    "court_space": "half_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": ["ball basket", "cones"],
+    "setup": "Feeder on the far service line at the centre with the basket, lobbing with the racket over the player's head. Player starts at the near net, two metres from it on the deuce side. A cone on the near service line marks how far back the lobs should push the player. Extra players queue beside the player, outside the singles sideline.",
+    "instructions": [
+      "Feeder lobs over the player's head to land around the near service line.",
+      "Player turns sideways, retreats with crossover steps behind the ball, and hits the overhead into the far court.",
+      "After the overhead, the player closes back to the net position before the next lob.",
+      "Eight overheads, then rotate.",
+      "Second round: the feeder alternates a deep lob with a short lob that can be hit without retreating."
+    ],
+    "coaching_points": [
+      "Turn and cross over immediately; backpedalling facing the net is slow and unbalanced.",
+      "Get behind the ball so the contact is in front of the head, not above or behind it.",
+      "Point with the free hand while retreating; it keeps the shoulders turned.",
+      "Push off the back foot into the overhead, then close to the net again."
+    ],
+    "progressions": [
+      "Feeder lobs deeper, to the baseline.",
+      "Overheads must land past the far service line.",
+      "Feeder follows the lob with a passing shot that must be volleyed after closing."
+    ],
+    "regressions": [
+      "Feeder lobs shorter, inside the near service box.",
+      "Player may let the lob bounce and hit it after the bounce.",
+      "Feeder lobs by hand."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "F", "x": 0.5, "y": 0.23, "label": "Feeder" },
+        { "id": "P1", "x": 0.7, "y": 0.58, "label": "Player" },
+        { "id": "P2", "x": 1.08, "y": 0.62, "label": "Queue" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.58, "y": 0.23 },
+        { "type": "cone", "x": 0.7, "y": 0.769 }
+      ],
+      "paths": [
+        { "from": "F", "to": [0.72, 0.76], "style": "feed", "step": 1 },
+        { "from": "P1", "to": [0.72, 0.78], "style": "movement", "step": 1 },
+        { "from": "P1", "to": [0.3, 0.1], "style": "ball", "step": 2 },
+        { "from": "P1", "to": "P1", "style": "movement", "step": 3 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "drop-volley-touch-into-the-hoop",
+    "name": "Drop Volley: Touch into the Hoop",
+    "summary": "Develops soft hands at the net by turning firm feeds into drop volleys that die in a hoop just over the net.",
+    "skill_focus": ["volley"],
+    "levels": ["improver"],
+    "age_groups": ["mini_green", "junior", "adult"],
+    "court_space": "service_boxes",
+    "intensity": "low",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": ["hoops", "ball basket"],
+    "setup": "Feeder on the far service line at the centre with the basket, hitting firm balls at the volleyer with the racket. Volleyer on the near side two metres from the net on the deuce side. A hoop on the far side a metre behind the net, straight in front of the volleyer. Extra players queue behind the volleyer.",
+    "instructions": [
+      "Feeder hits a firm ball at chest height to the volleyer.",
+      "Volleyer softens the hands and drops the volley into the hoop just over the net.",
+      "Score two for the hoop, one for a ball that bounces twice inside the far service box.",
+      "Ten drop volleys alternating forehand and backhand, then rotate.",
+      "Second round: the feeder alternates a firm ball, which must be dropped, with a slow ball, which must be punched deep."
+    ],
+    "coaching_points": [
+      "Loosen the grip at contact; the racket gives with the ball like catching an egg.",
+      "Open the face slightly and cut under the ball so it checks.",
+      "Keep the racket in front and the swing tiny; the ball's pace is absorbed, not added to.",
+      "Contact out in front where the hands can be soft; a late ball cannot be dropped."
+    ],
+    "progressions": [
+      "Move the hoop half a metre towards the sideline for an angled drop.",
+      "Feeder hits harder from the far baseline.",
+      "Feeder follows the drop volley in and plays the point out."
+    ],
+    "regressions": [
+      "Feeder tosses underarm instead of hitting with the racket.",
+      "Replace the hoop with the whole far service box.",
+      "Use a green ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "F", "x": 0.5, "y": 0.23, "label": "Feeder" },
+        { "id": "P1", "x": 0.7, "y": 0.58, "label": "Volleyer" },
+        { "id": "P2", "x": 0.7, "y": 0.68, "label": "Queue" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.58, "y": 0.23 },
+        { "type": "hoop", "x": 0.7, "y": 0.46 }
+      ],
+      "paths": [
+        { "from": "F", "to": "P1", "style": "feed", "step": 1 },
+        { "from": "P1", "to": [0.7, 0.46], "style": "ball", "step": 2 }
+      ]
+    },
+    "source": "generated"
+  }
+]

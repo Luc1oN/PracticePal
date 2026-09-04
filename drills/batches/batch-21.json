@@ -1,0 +1,494 @@
+[
+  {
+    "slug": "king-of-the-court-half-court",
+    "name": "King of the Court (Half Court)",
+    "summary": "Challengers queue to take on the king down one half of the court; win the point and take the throne.",
+    "skill_focus": ["games"],
+    "levels": ["beginner", "improver"],
+    "age_groups": ["mini_green", "junior", "adult"],
+    "court_space": "half_court",
+    "intensity": "high",
+    "players_min": 3,
+    "players_max": 6,
+    "duration_min": 10,
+    "duration_max": 15,
+    "equipment": ["ball basket"],
+    "setup": "One half of the court lengthways, singles sideline to centre line. The king stands on the far baseline of that half; challengers queue behind the near baseline outside the doubles sideline. Basket at the net post. The challenger starts each point with a hand-feed.",
+    "instructions": [
+      "Challenger starts the point with a hand-feed to the king.",
+      "Play the point inside the half; if the challenger wins, they become the king and the king joins the back of the queue.",
+      "If the king wins, the challenger goes to the back of the queue and the next challenger steps in.",
+      "Each player keeps a tally of points won as king; first to ten wins the game.",
+      "Second game: the king must win two points in a row against each challenger to keep the throne."
+    ],
+    "coaching_points": [
+      "Challenger: hit the feed deep and get set; the king is waiting for a short one.",
+      "King: play the percentages; the next challenger is already coming.",
+      "Everyone: recover to the middle of the half after every ball.",
+      "Queue: track the point and be ready to step in as soon as it ends."
+    ],
+    "progressions": [
+      "The point can be won only with a ball that lands past the service line.",
+      "Start points with a serve instead of a hand-feed.",
+      "Switch from a green ball to a yellow ball."
+    ],
+    "regressions": [
+      "Cooperate for three balls before the point goes live.",
+      "Use an orange ball.",
+      "Play across the service boxes only."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "P1", "x": 0.72, "y": 0.05, "label": "King" },
+        { "id": "P2", "x": 0.72, "y": 0.95, "label": "Challenger" },
+        { "id": "P3", "x": 1.1, "y": 1.0, "label": "Queue" },
+        { "id": "P4", "x": 1.1, "y": 1.08 }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 1.1, "y": 0.53 }
+      ],
+      "paths": [
+        { "from": "P2", "to": "P1", "style": "feed", "step": 1 },
+        { "from": "P1", "to": "P2", "style": "ball", "step": 2 },
+        { "from": "P2", "to": "P1", "style": "ball", "step": 3 },
+        { "from": "P2", "to": [1.1, 1.16], "style": "movement", "step": 4 },
+        { "from": "P3", "to": [0.72, 0.95], "style": "movement", "step": 4 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "around-the-world-rally",
+    "name": "Around the World Rally",
+    "summary": "A group rally where each player hits once and runs round the net post to the other queue, with the rally kept alive by the whole group.",
+    "skill_focus": ["games"],
+    "levels": ["beginner", "improver"],
+    "age_groups": ["mini_orange", "mini_green", "junior", "adult"],
+    "court_space": "full_court",
+    "intensity": "medium",
+    "players_min": 4,
+    "players_max": 8,
+    "duration_min": 10,
+    "duration_max": 15,
+    "equipment": ["ball basket"],
+    "setup": "Two queues, one behind each baseline at the centre mark. Basket at the net post. The first player in each queue plays the ball, then runs round the outside of the net post to join the back of the opposite queue while the rally continues.",
+    "instructions": [
+      "The first player hits the ball over the net, then runs round the outside of the net post to the back of the other queue.",
+      "The next player in the opposite queue plays the ball and does the same, so the rally continues with players circling the court.",
+      "A player who misses loses a life; three lives each.",
+      "When two players are left, they play a point from the baselines to decide the winner.",
+      "Second game: run the other way round."
+    ],
+    "coaching_points": [
+      "Hit high and deep so the rally keeps going and you have time to run.",
+      "Run round the net post, never across the court.",
+      "Be ready at the front of the queue with the racket back; the ball is coming as soon as you arrive.",
+      "Call 'mine' as you step in so nobody hits together."
+    ],
+    "progressions": [
+      "Balls must land past the service line.",
+      "Two balls in play at once, started from both ends.",
+      "Switch from a green ball to a yellow ball."
+    ],
+    "regressions": [
+      "Allow two bounces before the ball must be hit.",
+      "Play across the service boxes only.",
+      "Five lives each instead of three."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "P1", "x": 0.5, "y": 0.95, "label": "Queue A" },
+        { "id": "P2", "x": 0.5, "y": 1.05 },
+        { "id": "P3", "x": 0.5, "y": 0.05, "label": "Queue B" },
+        { "id": "P4", "x": 0.5, "y": -0.05 }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 1.1, "y": 0.53 }
+      ],
+      "paths": [
+        { "from": "P1", "to": "P3", "style": "ball", "step": 1 },
+        { "from": "P1", "to": [1.12, 0.5], "style": "movement", "step": 1 },
+        { "from": "P1", "to": [0.5, -0.13], "style": "movement", "step": 2 },
+        { "from": "P3", "to": "P2", "style": "ball", "step": 2 },
+        { "from": "P3", "to": [1.12, 0.55], "style": "movement", "step": 2 },
+        { "from": "P3", "to": [0.5, 1.13], "style": "movement", "step": 3 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "target-tennis-hit-the-cone-win-the-game",
+    "name": "Target Tennis: Hit the Cone, Win the Game",
+    "summary": "Half-court points where hitting a cone with the ball wins the whole game outright, whatever the score.",
+    "skill_focus": ["games"],
+    "levels": ["beginner", "improver"],
+    "age_groups": ["mini_orange", "mini_green", "junior", "adult"],
+    "court_space": "half_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": ["cones", "ball basket"],
+    "setup": "Two players rallying down one half of the court, lengthways. Three cones on each side, spread across the half two metres inside the baseline. Basket at the net post.",
+    "instructions": [
+      "Rally cooperatively down the half for the first four balls, then the point is live; first to seven.",
+      "A ball that hits a cone on the fly or on its first bounce wins the game for the hitter, whatever the score.",
+      "A knocked-over cone is stood up by the player who hit it, before the next point.",
+      "Change ends after each game.",
+      "Second game: cones moved to a metre inside the service line so the targets are short."
+    ],
+    "coaching_points": [
+      "Aim for the cone with a high ball; a low hard ball skips past it.",
+      "Keep the rally going first; the cone is a bonus, not the plan.",
+      "Recover to the middle of the half after each shot.",
+      "Hit through the ball towards the cone and hold the finish."
+    ],
+    "progressions": [
+      "Two cones each side instead of three.",
+      "Only a cone hit on the first bounce counts.",
+      "Switch from a green ball to a yellow ball."
+    ],
+    "regressions": [
+      "Five cones each side.",
+      "A cone hit on any bounce counts.",
+      "Use an orange ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "P1", "x": 0.72, "y": 0.95, "label": "Player A" },
+        { "id": "P2", "x": 0.72, "y": 0.05, "label": "Player B" }
+      ],
+      "equipment": [
+        { "type": "cone", "x": 0.58, "y": 0.916 },
+        { "type": "cone", "x": 0.72, "y": 0.916 },
+        { "type": "cone", "x": 0.86, "y": 0.916 },
+        { "type": "cone", "x": 0.58, "y": 0.084 },
+        { "type": "cone", "x": 0.72, "y": 0.084 },
+        { "type": "cone", "x": 0.86, "y": 0.084 },
+        { "type": "ball basket", "x": 1.1, "y": 0.53 }
+      ],
+      "paths": [
+        { "from": "P1", "to": [0.72, 0.09], "style": "ball", "step": 1 },
+        { "from": "P2", "to": [0.58, 0.9], "style": "ball", "step": 2 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "catch-ball-tennis",
+    "name": "Catch Ball Tennis",
+    "summary": "A throw-and-catch team game across the net for the youngest players that teaches tracking, moving to the ball and calling it.",
+    "skill_focus": ["games"],
+    "levels": ["beginner"],
+    "age_groups": ["mini_red", "mini_orange"],
+    "court_space": "service_boxes",
+    "intensity": "low",
+    "players_min": 2,
+    "players_max": 6,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": ["balls", "cones"],
+    "setup": "Two teams, one each side of the net, inside the service boxes; cones on the singles sidelines at the service lines mark the area. Rackets are put down until the third game: the game is played by throwing and catching a red ball.",
+    "instructions": [
+      "A player throws the ball underarm over the net into the other team's boxes.",
+      "The other team must catch it after one bounce; a catch means they throw it back, a drop or a ball out of the area is a point to the throwers.",
+      "First to ten points.",
+      "Second game: catches must be made before the bounce.",
+      "Third game: pick up the rackets, throw with the racket held in the other hand, and catch on the racket strings."
+    ],
+    "coaching_points": [
+      "Throw underarm and high so the ball bounces up into the catcher's hands.",
+      "Catch with two hands in front of the body, eyes on the ball.",
+      "Move the feet to the ball before it bounces; do not reach.",
+      "Call 'mine' so two catchers do not go for the same ball."
+    ],
+    "progressions": [
+      "Catches must be made before the bounce.",
+      "Use an orange ball.",
+      "Throw overarm instead of underarm."
+    ],
+    "regressions": [
+      "Allow two bounces before the catch.",
+      "Throw from closer, a metre from the net.",
+      "Catch with the ball trapped against the chest."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "P1", "x": 0.35, "y": 0.7, "label": "Team A" },
+        { "id": "P2", "x": 0.65, "y": 0.7 },
+        { "id": "P3", "x": 0.35, "y": 0.3, "label": "Team B" },
+        { "id": "P4", "x": 0.65, "y": 0.3 }
+      ],
+      "equipment": [
+        { "type": "cone", "x": 0.125, "y": 0.769 },
+        { "type": "cone", "x": 0.875, "y": 0.769 },
+        { "type": "cone", "x": 0.125, "y": 0.231 },
+        { "type": "cone", "x": 0.875, "y": 0.231 }
+      ],
+      "paths": [
+        { "from": "P1", "to": [0.6, 0.35], "style": "ball", "step": 1 },
+        { "from": "P4", "to": [0.6, 0.35], "style": "movement", "step": 1 },
+        { "from": "P4", "to": [0.4, 0.65], "style": "ball", "step": 2 },
+        { "from": "P1", "to": [0.4, 0.65], "style": "movement", "step": 2 },
+        { "from": "P1", "to": "P1", "style": "movement", "step": 3 },
+        { "from": "P4", "to": "P4", "style": "movement", "step": 3 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "dice-tennis-roll-for-the-rule",
+    "name": "Dice Tennis: Roll for the Rule",
+    "summary": "Half-court games where a rolled or called number picks the rule for the next game from a list of six.",
+    "skill_focus": ["games"],
+    "levels": ["beginner", "improver"],
+    "age_groups": ["mini_green", "junior", "adult"],
+    "court_space": "half_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 10,
+    "duration_max": 15,
+    "equipment": ["ball basket", "cones"],
+    "setup": "Two players on one half of the court lengthways, with cones on the baselines and service lines at the centre line marking the half and a cone at the net post as the rule station. Six rules agreed out loud and numbered one to six: forehands only, backhands only, every ball past the service line, no ball harder than half pace, cross-court only, and one bounce then volley. Basket at the net post. A player calls a number with their eyes closed if there is no dice.",
+    "instructions": [
+      "Before each game, roll or call a number; that rule applies to both players for the whole game.",
+      "Play a game to five points from a hand-feed under that rule; breaking the rule loses the point.",
+      "Roll again for the next game.",
+      "Play six games so every rule comes up at least once if possible.",
+      "With four players, the pair waiting keeps score and calls rule breaks."
+    ],
+    "coaching_points": [
+      "Say the rule out loud before the first point; half the errors are forgetting it.",
+      "Forehands only: move around the backhand early.",
+      "Half pace: aim deeper, not softer.",
+      "Volley rule: after the bounce, move in behind your shot."
+    ],
+    "progressions": [
+      "Two rules at once.",
+      "Games to seven points instead of five.",
+      "Start points from a serve."
+    ],
+    "regressions": [
+      "Four rules only, leaving out the volley and cross-court rules.",
+      "Games to three points instead of five.",
+      "Cooperate for three balls before the point goes live."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "P1", "x": 0.72, "y": 0.95, "label": "Player A" },
+        { "id": "P2", "x": 0.72, "y": 0.05, "label": "Player B" }
+      ],
+      "equipment": [
+        { "type": "cone", "x": 0.5, "y": 1.0 },
+        { "type": "cone", "x": 0.5, "y": 0.769 },
+        { "type": "cone", "x": 0.5, "y": 0.231 },
+        { "type": "cone", "x": 0.5, "y": 0.0 },
+        { "type": "cone", "x": 1.1, "y": 0.62 },
+        { "type": "ball basket", "x": 1.1, "y": 0.53 }
+      ],
+      "paths": [
+        { "from": "P1", "to": "P2", "style": "feed", "step": 1 },
+        { "from": "P2", "to": "P1", "style": "ball", "step": 2 },
+        { "from": "P1", "to": "P2", "style": "ball", "step": 3 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "beat-the-feeder-ten-balls-to-score-five",
+    "name": "Beat the Feeder: Ten Balls to Score Five",
+    "summary": "A scoring game against the feeder where the hitter must land five of ten fed balls deep, with a leaderboard across the group.",
+    "skill_focus": ["games"],
+    "levels": ["beginner", "improver"],
+    "age_groups": ["mini_orange", "mini_green", "junior", "adult"],
+    "court_space": "half_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 10,
+    "duration_max": 15,
+    "equipment": ["ball basket", "throwdowns"],
+    "setup": "Feeder at the near net on the centre line with the basket, tossing to a hitter on the near baseline. The hitter aims over the net into the far court; a throwdown line two metres inside the far baseline marks the bonus zone. Extra players queue behind the near baseline outside the doubles sideline.",
+    "instructions": [
+      "Feeder tosses ten balls, five to each side, at a steady rhythm.",
+      "Hitter scores one for every ball that lands past the far service line; the feeder wins the round if the hitter scores fewer than five.",
+      "Rotate the hitter after ten balls; keep a leaderboard.",
+      "Second round: the feeder tosses harder and faster to defend the record.",
+      "Third round: only balls past the throwdown line count."
+    ],
+    "coaching_points": [
+      "Height first: a ball that clears the net by two racket lengths lands deep.",
+      "Turn the shoulders before the bounce; the feeder's rhythm gives you time if you use it.",
+      "Recover a step to the centre mark between balls.",
+      "Hit through the ball towards the far fence, then finish over the shoulder."
+    ],
+    "progressions": [
+      "Only balls past the throwdown line count.",
+      "Feeder tosses to random sides.",
+      "Switch from an orange ball to a green ball."
+    ],
+    "regressions": [
+      "Score any ball over the net.",
+      "Feeder tosses to the same side ten times.",
+      "Use a red ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "F", "x": 0.5, "y": 0.58, "label": "Feeder" },
+        { "id": "P1", "x": 0.5, "y": 0.95, "label": "Hitter" },
+        { "id": "P2", "x": 1.1, "y": 0.95, "label": "Queue" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.6, "y": 0.58 },
+        { "type": "throwdown", "x": 0.3, "y": 0.084 },
+        { "type": "throwdown", "x": 0.5, "y": 0.084 },
+        { "type": "throwdown", "x": 0.7, "y": 0.084 }
+      ],
+      "paths": [
+        { "from": "F", "to": [0.6, 0.9], "style": "feed", "step": 1 },
+        { "from": "P1", "to": [0.35, 0.15], "style": "ball", "step": 2 },
+        { "from": "F", "to": [0.4, 0.9], "style": "feed", "step": 3 },
+        { "from": "P1", "to": [0.65, 0.15], "style": "ball", "step": 4 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "tennis-rounders",
+    "name": "Tennis Rounders",
+    "summary": "A batting-and-fielding team game where each hit over the net is followed by a run round the outside of the court.",
+    "skill_focus": ["games"],
+    "levels": ["beginner", "improver"],
+    "age_groups": ["mini_orange", "mini_green", "junior"],
+    "court_space": "full_court",
+    "intensity": "high",
+    "players_min": 4,
+    "players_max": 10,
+    "duration_min": 10,
+    "duration_max": 15,
+    "equipment": ["cones", "ball basket"],
+    "setup": "Batting team queues behind the near baseline at the centre mark; fielding team spreads out on the far side of the net. The feeder, from the batting team, stands on the near service line with the basket. Four cones as bases: the near right net post, the far right corner, the far left corner, and home at the near left corner. Runners run round the outside of the court.",
+    "instructions": [
+      "Feeder tosses to the batter, who hits the ball over the net into the far court.",
+      "Batter runs round the bases on the outside of the court; the fielders collect the ball and roll it to the feeder, who shouts 'stop'.",
+      "A batter still between bases when 'stop' is called is out; a ball caught on the fly is out; a ball that misses the far court is out.",
+      "One rounder for reaching home; three outs and the teams swap.",
+      "Second innings: batters must hit a backhand."
+    ],
+    "coaching_points": [
+      "Batter: hit high and deep, then run; a ball that lands near the far baseline takes longest to get back.",
+      "Batter: run outside the court, never across it.",
+      "Fielders: one player calls the ball and the rest cover the gaps.",
+      "Feeder: toss the same easy ball every time; the game is the running, not the feed."
+    ],
+    "progressions": [
+      "Balls must land past the far service line to count.",
+      "Fielders may throw to any base to run the batter out.",
+      "Batters hit from a self-drop instead of a toss."
+    ],
+    "regressions": [
+      "Two bases instead of four.",
+      "Fielders must let the ball bounce before collecting it.",
+      "Use a red ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "F", "x": 0.5, "y": 0.77, "label": "Feeder" },
+        { "id": "P1", "x": 0.5, "y": 0.95, "label": "Batter" },
+        { "id": "P2", "x": 0.5, "y": 1.05, "label": "Batting queue" },
+        { "id": "P3", "x": 0.3, "y": 0.1, "label": "Fielder" },
+        { "id": "P4", "x": 0.7, "y": 0.1, "label": "Fielder" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.58, "y": 0.77 },
+        { "type": "cone", "x": 1.1, "y": 0.53 },
+        { "type": "cone", "x": 1.06, "y": -0.05 },
+        { "type": "cone", "x": -0.06, "y": -0.05 },
+        { "type": "cone", "x": -0.06, "y": 1.05 }
+      ],
+      "paths": [
+        { "from": "F", "to": "P1", "style": "feed", "step": 1 },
+        { "from": "P1", "to": [0.4, 0.15], "style": "ball", "step": 2 },
+        { "from": "P1", "to": [1.1, 0.53], "style": "movement", "step": 2 },
+        { "from": "P1", "to": [1.06, -0.05], "style": "movement", "step": 3 },
+        { "from": "P3", "to": [0.4, 0.15], "style": "movement", "step": 3 },
+        { "from": "P1", "to": [-0.06, -0.05], "style": "movement", "step": 4 },
+        { "from": [0.4, 0.15], "to": "F", "style": "feed", "step": 4 },
+        { "from": "P1", "to": [-0.06, 1.05], "style": "movement", "step": 5 }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "tic-tac-toe-targets",
+    "name": "Tic-Tac-Toe Targets",
+    "summary": "Players take turns hitting into a three-by-three grid of hoops, claiming squares to make three in a row.",
+    "skill_focus": ["games"],
+    "levels": ["beginner", "improver"],
+    "age_groups": ["mini_orange", "mini_green", "junior", "adult"],
+    "court_space": "half_court",
+    "intensity": "low",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": ["hoops", "ball basket"],
+    "setup": "Nine hoops laid in a three-by-three grid, touching each other, in the far service box straight ahead of the hitters. Players hit from the near service line, one at a time from a self-drop. Basket beside the hitters. Two players, or two pairs, take turns; a ball left in a claimed hoop marks it.",
+    "instructions": [
+      "Players take turns hitting one ball each into the grid from a self-drop.",
+      "A ball landing in a hoop claims it for that player; leave a ball in the hoop to mark it.",
+      "Three in a row wins the game; a hoop already claimed cannot be taken back.",
+      "Best of five games, then move the hitters back two metres.",
+      "Second round: the ball is tossed by the opponent instead of self-dropped."
+    ],
+    "coaching_points": [
+      "Pick the hoop before the drop and aim with the feet.",
+      "Hit up and let the ball drop in; a flat ball skips through the grid.",
+      "Same swing every time, change only the direction.",
+      "Track the ball onto the strings, then look at the grid."
+    ],
+    "progressions": [
+      "Hit from the near baseline.",
+      "Switch from an orange ball to a green ball.",
+      "Use a four-by-four grid with sixteen hoops if there are enough."
+    ],
+    "regressions": [
+      "Hit from a metre in front of the service line.",
+      "Any hoop touched by the ball counts.",
+      "Use a red ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        { "id": "P1", "x": 0.72, "y": 0.79, "label": "Player A" },
+        { "id": "P2", "x": 0.6, "y": 0.79, "label": "Player B" }
+      ],
+      "equipment": [
+        { "type": "ball basket", "x": 0.84, "y": 0.79 },
+        { "type": "hoop", "x": 0.6, "y": 0.26 },
+        { "type": "hoop", "x": 0.69, "y": 0.26 },
+        { "type": "hoop", "x": 0.78, "y": 0.26 },
+        { "type": "hoop", "x": 0.6, "y": 0.31 },
+        { "type": "hoop", "x": 0.69, "y": 0.31 },
+        { "type": "hoop", "x": 0.78, "y": 0.31 },
+        { "type": "hoop", "x": 0.6, "y": 0.36 },
+        { "type": "hoop", "x": 0.69, "y": 0.36 },
+        { "type": "hoop", "x": 0.78, "y": 0.36 }
+      ],
+      "paths": [
+        { "from": "P1", "to": [0.69, 0.31], "style": "ball", "step": 1 },
+        { "from": "P2", "to": [0.6, 0.26], "style": "ball", "step": 2 }
+      ]
+    },
+    "source": "generated"
+  }
+]

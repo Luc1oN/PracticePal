@@ -16,6 +16,9 @@ import { createClient } from 'jsr:@supabase/supabase-js@2'
 const MODEL = 'claude-sonnet-5'
 
 const GH_PAGES_ORIGIN = 'https://luc1on.github.io'
+// Every origin the app is served from: the GitHub Pages address (kept so old
+// links keep working through the redirect) and the practicepal.ie domain.
+const ALLOWED_ORIGINS = [GH_PAGES_ORIGIN, 'https://app.practicepal.ie', 'https://practicepal.ie', 'https://www.practicepal.ie']
 
 // Generous but real caps: a busy club sharing wifi shouldn't get blocked by
 // one person's device, so the per-client cap is much tighter than per-IP.
@@ -31,7 +34,7 @@ const DEFAULT_THINK: 'off' | 'low' | 'adaptive' = 'low'
 
 function corsHeaders(origin: string | null): Record<string, string> {
   const isLocal = origin && /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)
-  const allow = isLocal ? origin! : GH_PAGES_ORIGIN
+  const allow = isLocal ? origin! : (origin && ALLOWED_ORIGINS.includes(origin) ? origin : GH_PAGES_ORIGIN)
   return {
     'Access-Control-Allow-Origin': allow,
     'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',

@@ -138,6 +138,7 @@ async function logGeneration(authHeader: string | null, body: Record<string, unk
       variation: body.variation || null,
       equipment: Array.isArray(body.equipment) ? body.equipment : [],
       mode: body.mode === 'compose' ? 'compose' : 'generate',
+      client_id: typeof body.clientId === 'string' ? body.clientId.slice(0, 64) : null,
       plan,
     })
   } catch (logErr) {

@@ -1212,6 +1212,23 @@
   .diag-svg-wrap.lib { display: grid; place-items: center; padding: 6px 0 2px; }
   .diag-svg-wrap.lib svg { width: min(100%, 250px); height: auto; }
   .lib-tag { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--gold-hi); margin-left: 6px; }
+  /* ══ Phase 3: what's new, tell Shane, sample session ═══════ */
+  .sample-link {
+    display: block; width: 100%; margin-top: 12px; padding: 10px; background: transparent; border: 0; cursor: pointer;
+    font: inherit; font-size: 13.5px; color: var(--chalk-faint); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--stroke);
+  }
+  .sample-link:hover { color: var(--chalk-muted); }
+  .tell-link {
+    display: block; text-align: center; margin: 6px 0 4px; font-size: 13px; color: var(--chalk-faint);
+    text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--stroke);
+  }
+  .drawer-foot { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--stroke-soft); font-size: 12.5px; color: var(--chalk-faint); display: grid; gap: 8px; }
+  .drawer-foot .row { display: flex; justify-content: space-between; gap: 10px; align-items: center; }
+  .drawer-foot button, .drawer-foot a { font: inherit; font-size: 12.5px; color: var(--chalk-muted); background: transparent; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--stroke); }
+  .drawer-foot ul { margin: 0; padding-left: 16px; display: none; color: var(--chalk-muted); line-height: 1.45; }
+  .drawer-foot.open ul { display: block; }
+  /* long release-note toasts wrap instead of running off a phone screen */
+  .toast { white-space: normal; max-width: min(92vw, 440px); text-align: center; line-height: 1.35; }
 </style>
 </head>
 <body>
@@ -1291,6 +1308,7 @@
     </button>
 
     <div class="ask-error" id="askError" hidden></div>
+    <button type="button" class="sample-link" id="sampleBtn">New here? See a sample session first</button>
   </main>
 
   <!-- ══ STATE B · PLAN ═════════════════════════════════ -->
@@ -1307,6 +1325,7 @@
     <section class="timeline" id="timeline"></section>
     <section id="rotationSlot"></section>
     <section id="finisherSlot"></section>
+    <a class="tell-link" id="tellLinkPlan" href="#">Something off with this session? Tell Shane</a>
     <div class="plan-pad"></div>
 
     <div class="action-bar" id="actionBar">
@@ -1442,6 +1461,11 @@
   <p class="sub">Tap one to replay it — exactly as it was.</p>
   <div id="recentShelf"></div>
   <div class="drawer-account" id="drawerAccount"></div>
+  <div class="drawer-foot" id="drawerFoot">
+    <div class="row"><span id="drawerVersion"></span><button type="button" id="whatsNewBtn">What's new</button></div>
+    <ul id="whatsNewList"></ul>
+    <div class="row"><span>Something off?</span><a id="tellLinkDrawer" href="#">Tell Shane</a></div>
+  </div>
 </aside>
 
 <!-- sign-in prompt (only appears when opening Past sessions while signed out) -->
@@ -1770,6 +1794,17 @@ ICONS.sun = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-w
 ICONS.chevron = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
 ICONS.speaker = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg>';
 ICONS.muted = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>';
+
+// Bump APP_VERSION with every deploy that changes what people see; the first
+// line of WHATS_NEW is shown once as a toast, the rest in the menu.
+const APP_VERSION = '2026.09.04';
+const WHATS_NEW = [
+  'Tell the app what kit you have — sessions now assume racquets and balls only',
+  'Compact drill cards with a court thumbnail; tap a card for the full detail',
+  'Daylight mode on the plan screen (sun icon on the session card)',
+  'Live Mode: +5 min on a drill, "Less time?", and a mute switch',
+  'Share links show a preview; delete your account from your profile',
+];
 
 const PERSONAS = [
   { id: 'technician', name: 'The Technician', desc: 'Sharpen one thing until it sticks.', color: '#8A5BC7', icon: 'target' },
@@ -4669,6 +4704,44 @@ $('timeVeil').addEventListener('click', closeTimeSheet);
 document.querySelectorAll('#timeSheet .opts button').forEach((b) => {
   b.addEventListener('click', () => rescaleRemaining(Number(b.dataset.min)));
 });
+// A cold visitor should see a plan before they wait for one.
+$('sampleBtn').addEventListener('click', () => {
+  const t = TEMPLATES.find((x) => x.inputs.personaId === state.personaId) || TEMPLATES[0];
+  if (!t) return;
+  state.plan = t.plan;
+  state.sessionInputs = { ...t.inputs };
+  state.currentBlock = -1;
+  showPlan(true);
+});
+
+// "Tell Shane": an email with the details he needs already filled in.
+function tellShaneHref(where) {
+  const lines = [
+    'What happened:', '', '', '—',
+    `Version ${APP_VERSION}`,
+    `Screen: ${where}`,
+    state.plan?.title ? `Session: ${state.plan.title}${state.plan.mode === 'compose' ? ' (library)' : ''}` : null,
+    `Device: ${navigator.userAgent}`,
+  ].filter((l) => l !== null);
+  return `mailto:practicepal.cork@gmail.com?subject=${encodeURIComponent('PracticePal feedback')}&body=${encodeURIComponent(lines.join('\n'))}`;
+}
+$('tellLinkPlan').addEventListener('click', (e) => { e.currentTarget.href = tellShaneHref('plan'); });
+$('tellLinkDrawer').addEventListener('click', (e) => { e.currentTarget.href = tellShaneHref($('planScreen').hidden ? 'ask' : 'plan'); });
+$('drawerVersion').textContent = `Version ${APP_VERSION}`;
+$('whatsNewList').innerHTML = WHATS_NEW.map((n) => `<li>${esc(n)}</li>`).join('');
+$('whatsNewBtn').addEventListener('click', () => $('drawerFoot').classList.toggle('open'));
+
+// One toast per deploy, after the page has settled.
+(() => {
+  try {
+    const seen = localStorage.getItem('pp_seen_version');
+    if (seen === APP_VERSION) return;
+    localStorage.setItem('pp_seen_version', APP_VERSION);
+    if (!seen) return; // brand-new visitor: nothing is "new" yet
+    setTimeout(() => toast(`New: ${WHATS_NEW[0]}. More under the menu.`, 5200), 1800);
+  } catch { /* storage blocked — skip */ }
+})();
+
 $('menuBtn').addEventListener('click', openDrawer);
 $('drawerVeil').addEventListener('click', closeDrawer);
 $('profileCloseBtn').addEventListener('click', closeProfileSheet);

@@ -5,6 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>PracticePal — Tonight's plan, sorted</title>
 <meta name="theme-color" content="#081F17">
+<meta name="description" content="Turn an aimless hit into intentional practice. Pick a style, set players and minutes, get a drill-by-drill session with court diagrams, then run it courtside.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PracticePal">
+<meta property="og:title" content="PracticePal — tonight's practice, sorted">
+<meta property="og:description" content="Turn an aimless hit into intentional practice. A drill-by-drill session with court diagrams, built for the players on court.">
+<meta property="og:image" content="https://luc1on.github.io/PracticePal/icons/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://luc1on.github.io/PracticePal/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PracticePal — tonight's practice, sorted">
+<meta name="twitter:description" content="Turn an aimless hit into intentional practice. A drill-by-drill session with court diagrams, built for the players on court.">
+<meta name="twitter:image" content="https://luc1on.github.io/PracticePal/icons/og-image.png">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
@@ -26,6 +39,7 @@
     --chalk: #F7F3E8;
     --chalk-muted: #C2CDBA;
     --chalk-faint: #8A9C8C;
+    --chalk-soft: #D8DFD1;
     --purple: #57268B;
     --purple-hi: #A374DC;
     --purple-deep: #3A1968;
@@ -633,10 +647,10 @@
   .facets { margin-top: 4px; display: flex; flex-direction: column; gap: 7px; }
   .facet { display: flex; align-items: baseline; gap: 10px; }
   .facet-lab {
-    flex: 0 0 50px; font-size: 10px; font-weight: 700; letter-spacing: 1.3px;
+    flex: 0 0 52px; font-size: 11px; font-weight: 700; letter-spacing: 1.3px;
     text-transform: uppercase; color: var(--chalk-faint);
   }
-  .facet-val { flex: 1; font-size: 14px; color: var(--chalk-muted); line-height: 1.4; }
+  .facet-val { flex: 1; font-size: 15px; color: var(--chalk-soft); line-height: 1.4; }
   .facet--target .facet-val { color: var(--gold-hi); font-weight: 600; }
   .block.current .facet-val { color: var(--chalk); }
   .block .cue { font-family: 'Fraunces', serif; font-style: italic; font-size: 13.5px; color: var(--chalk-faint); margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--stroke-soft); }
@@ -861,6 +875,7 @@
     --chalk: #12261B;
     --chalk-muted: #3E5245;
     --chalk-faint: #6B7D6E;
+    --chalk-soft: #2E4236;
     --gold: #8A6D2C;
     --gold-hi: #6B4E14;
     --glass-hi: rgba(18,38,27,.05);
@@ -1087,6 +1102,99 @@
     .hero .court path, .hero .court line, .hero .court rect { stroke-dashoffset: 0; }
     #planScreen .roll, .reveal { opacity: 1; transform: none; }
   }
+  /* ══ Phase 1 ═══════════════════════════════════════════════
+     kit chips, "You'll need", compact blocks with diagram
+     thumbnails, Daylight on the plan screen, Live Mode extras. */
+  .kit-wrap { margin-top: 18px; }
+  .kit-lab { font-size: 10.5px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--chalk-faint); display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .kit-lab span { font-weight: 500; letter-spacing: 0; text-transform: none; color: var(--chalk-faint); font-size: 12px; }
+  .kit-line { margin-top: 12px; font-size: 13px; color: var(--chalk-muted); display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+  .kit-line .kl { font-size: 10.5px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--gold-hi); margin-right: 2px; }
+  .kit-line .ki { padding: 3px 10px; border-radius: 99px; border: 1px solid var(--stroke); background: var(--glass-hi); color: var(--chalk-soft); }
+
+  .plan-theme-toggle { position: absolute; top: 14px; right: 14px; z-index: 2; }
+
+  .block.collapsed .facet--more, .block.collapsed .cue { display: none; }
+  .block.current .facet--more { display: flex; }
+  .block.current .cue { display: block; }
+  .block-tools { display: flex; align-items: center; gap: 8px; }
+  .block-chev { width: 26px; height: 26px; flex: 0 0 auto; display: grid; place-items: center; color: var(--chalk-faint); transition: transform .2s ease; }
+  .block-chev svg { width: 14px; height: 14px; }
+  .block:not(.collapsed) .block-chev { transform: rotate(180deg); }
+  .block-title-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .block-title-row h3 { flex: 1; min-width: 0; }
+  .block-thumb {
+    flex: 0 0 96px; margin: 6px 0 4px; padding: 0; border-radius: 9px; overflow: hidden; cursor: pointer;
+    background: rgba(4,14,10,.38); border: 1px solid var(--stroke); position: relative; line-height: 0;
+  }
+  .block-thumb .diag-svg * { animation: none !important; }
+  .block-thumb .diag-ball, .block-thumb .diag-arrow-echo, .block-thumb .diag-move-echo { display: none; }
+  .block-thumb::after { content: ''; position: absolute; inset: -8px; }
+  .block-thumb-lab {
+    position: absolute; right: 5px; bottom: 4px; font-size: 8.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--p); background: rgba(4,14,10,.6); padding: 2px 5px; border-radius: 4px; line-height: 1.2;
+  }
+  .block-thumb:active { transform: scale(.96); }
+
+  /* Daylight for the plan screen: same idea as Glance — re-point the tokens
+     and patch the handful of rules that hard-code a dark gradient. Applied
+     to <body> only while the plan screen is showing (see syncDaylightBody). */
+  html:has(body.daylight) { background: #FAF7ED; }
+  body.daylight { background: #FAF7ED; }
+  body.daylight .aurora, body.daylight::before { display: none; }
+  body.daylight #planScreen, body.daylight .toast {
+    --bg0: #FAF7ED; --bg1: #F0EBDC;
+    --chalk: #12261B; --chalk-muted: #3E5245; --chalk-faint: #6B7D6E; --chalk-soft: #2E4236;
+    --gold: #8A6D2C; --gold-hi: #6B4E14;
+    --glass-hi: rgba(18,38,27,.06); --glass-lo: rgba(18,38,27,.03);
+    --stroke: rgba(18,38,27,.18); --stroke-soft: rgba(18,38,27,.12); --chalkline: rgba(18,38,27,.35);
+    --shadow-card: 0 14px 30px -20px rgba(18,38,27,.35); --inner-light: inset 0 1px 0 rgba(255,255,255,.5);
+  }
+  body.daylight #planScreen { color: var(--chalk); }
+  body.daylight .summary-bar { background: rgba(250,247,237,.9); box-shadow: 0 8px 24px -12px rgba(18,38,27,.35); }
+  body.daylight .session-head h2 { background: none; -webkit-text-fill-color: var(--chalk); color: var(--chalk); }
+  body.daylight .block.current {
+    background:
+      linear-gradient(180deg, color-mix(in srgb, var(--p) 9%, #FFFDF6), #FBF8EE) padding-box,
+      linear-gradient(140deg, var(--p), rgba(18,38,27,.15) 50%, var(--p)) border-box;
+    box-shadow: 0 14px 30px -18px rgba(18,38,27,.4), 0 0 30px -10px color-mix(in srgb, var(--p) 45%, transparent);
+  }
+  body.daylight .finisher {
+    background:
+      linear-gradient(170deg, color-mix(in srgb, var(--gold) 10%, #FFFDF6), #FBF8EE 60%) padding-box,
+      linear-gradient(140deg, var(--gold), rgba(18,38,27,.15) 45%, var(--gold-hi)) border-box;
+  }
+  body.daylight .block .now { color: #FFFDF6; }
+  body.daylight .block-thumb { background: rgba(18,38,27,.05); }
+  body.daylight .block-thumb-lab { background: rgba(255,253,246,.85); }
+  body.daylight #planScreen .diag-court-rect { fill: rgba(46,125,79,.08); stroke: rgba(18,38,27,.5); }
+  body.daylight #planScreen .diag-court-line { stroke: rgba(18,38,27,.55); }
+  body.daylight #planScreen .diag-court-inner { stroke: rgba(18,38,27,.3); }
+  body.daylight .btn-remix { background: rgba(255,253,246,.7); }
+  body.daylight .action-bar { background: linear-gradient(180deg, transparent, #FAF7ED 42%); }
+
+  /* Live Mode extras: mute, +5 min, less time */
+  .glance-ctls2 { display: flex; gap: 10px; margin-top: 10px; }
+  .glance-ctls2 button {
+    flex: 1; padding: 11px 8px; border-radius: 12px; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;
+    background: transparent; color: var(--chalk-muted); border: 1px solid var(--stroke); transition: transform .12s ease;
+  }
+  .glance-ctls2 button:active { transform: scale(.97); }
+  #timeVeil { z-index: 120; }
+  #timeSheet { z-index: 121; }
+  #timeSheet .opts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 14px; }
+  #timeSheet .opts button {
+    padding: 14px 6px; border-radius: 12px; font: inherit; font-size: 16px; font-weight: 700; cursor: pointer;
+    background: var(--glass-hi); color: var(--chalk); border: 1px solid var(--stroke);
+  }
+  #timeSheet .opts button span { display: block; font-size: 11px; font-weight: 500; color: var(--chalk-faint); margin-top: 2px; }
+
+  .profile-delete {
+    width: 100%; margin-top: 10px; padding: 12px 0; border-radius: var(--r-btn); cursor: pointer; font: inherit;
+    font-weight: 600; font-size: 13.5px; background: transparent; color: var(--chalk-faint); border: 1px solid var(--stroke-soft);
+  }
+  .profile-delete.armed { color: #E28A73; border-color: rgba(226,138,115,.6); background: rgba(226,138,115,.08); }
+  .profile-delete-note { font-size: 12px; color: var(--chalk-faint); margin-top: 8px; text-align: center; }
 </style>
 </head>
 <body>
@@ -1153,6 +1261,10 @@
         <input id="focusInput" type="text" placeholder="Focus (optional) — e.g. second serve" maxlength="80" autocomplete="off">
         <div class="chips" id="focusChips"></div>
       </div>
+      <div class="kit-wrap">
+        <div class="kit-lab">What have you got? <span>Racquets and balls are a given</span></div>
+        <div class="chips" id="kitChips"></div>
+      </div>
     </div>
 
     <button class="generate" id="generateBtn">
@@ -1174,7 +1286,7 @@
     </button>
 
     <section class="session-head roll" id="planHead" style="--d:.06s"></section>
-    <div class="tap-hint roll" style="--d:.1s; margin-top:14px">Tap a block to mark where you are</div>
+    <div class="tap-hint roll" style="--d:.1s; margin-top:14px">Start when you're on court · tap a drill for details</div>
     <section class="timeline" id="timeline"></section>
     <section id="rotationSlot"></section>
     <section id="finisherSlot"></section>
@@ -1220,6 +1332,7 @@
   <div class="glance-top">
     <span id="glanceSession"></span>
     <span class="glance-top-right">
+      <button class="glance-theme-toggle" id="glanceMuteBtn" aria-label="Mute the chime"></button>
       <button class="glance-theme-toggle" id="glanceThemeBtn" aria-label="Switch to daylight mode">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
       </button>
@@ -1255,8 +1368,25 @@
       <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 4 15 12 5 20"/><rect x="17" y="4" width="3" height="16" rx="1"/></svg>
     </button>
   </div>
+  <div class="glance-ctls2">
+    <button id="glancePlus5Btn">+5 min on this drill</button>
+    <button id="glanceLessTimeBtn">Less time?</button>
+  </div>
 </div>
-
+<!-- less-time sheet: rescale what's left of the session -->
+<div class="sheet-veil" id="timeVeil" hidden></div>
+<div class="sheet" id="timeSheet" aria-hidden="true">
+  <h3 class="fraunces">How long have you got?</h3>
+  <p class="sub">The rest of the session squeezes to fit, drill by drill.</p>
+  <div class="opts">
+    <button data-min="10">10<span>min left</span></button>
+    <button data-min="15">15<span>min left</span></button>
+    <button data-min="20">20<span>min left</span></button>
+    <button data-min="30">30<span>min left</span></button>
+    <button data-min="45">45<span>min left</span></button>
+    <button data-min="60">60<span>min left</span></button>
+  </div>
+</div>
 <!-- post-session feedback sheet -->
 <div class="sheet-veil" id="fbVeil" hidden></div>
 <div class="sheet feedback-sheet" id="fbSheet" aria-hidden="true">
@@ -1281,6 +1411,8 @@
   <button class="auth-btn" id="profileSavePasswordBtn">Update password</button>
   <div class="auth-err" id="profilePassErr" hidden></div>
   <button class="profile-signout" id="profileSignOutBtn">Sign out</button>
+  <button class="profile-delete" id="profileDeleteBtn">Delete my account</button>
+  <div class="profile-delete-note">Deletes your account and every saved session. Cannot be undone.</div>
   <button class="profile-close" id="profileCloseBtn" aria-label="Close">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
   </button>
@@ -1553,6 +1685,32 @@ async function openProfileSheet() {
   const since = currentUser.created_at ? fmtWhen(currentUser.created_at) : '—';
   $('profileStats').innerHTML = `<div class="stat"><span class="n">${count ?? '—'}</span><span class="lab">Sessions</span></div><div class="stat"><span class="n" style="font-size:15px">${esc(since)}</span><span class="lab">Member since</span></div>`;
 }
+// Self-serve account deletion: two taps within six seconds, then the
+// server-side function removes the account and every row it owns.
+let deleteArm = null;
+async function deleteAccount() {
+  const btn = $('profileDeleteBtn');
+  if (!currentUser) return;
+  if (!deleteArm) {
+    btn.textContent = 'Tap again to delete everything';
+    btn.classList.add('armed');
+    deleteArm = setTimeout(() => { deleteArm = null; btn.textContent = 'Delete my account'; btn.classList.remove('armed'); }, 6000);
+    return;
+  }
+  clearTimeout(deleteArm); deleteArm = null;
+  btn.disabled = true; btn.textContent = 'Deleting…';
+  const uid = currentUser.id;
+  const { error } = await sb.rpc('delete_my_account');
+  btn.disabled = false; btn.classList.remove('armed'); btn.textContent = 'Delete my account';
+  if (error) {
+    toast('Could not delete the account — try again, or email practicepal.cork@gmail.com.', 4500);
+    return;
+  }
+  try { localStorage.removeItem(historyCacheKey(uid)); } catch { /* ignore */ }
+  await sb.auth.signOut({ scope: 'local' }).catch(() => {});
+  closeProfileSheet(); closeDrawer();
+  toast('Account deleted. Thanks for playing.', 3600);
+}
 function closeProfileSheet() {
   $('profileVeil').classList.remove('open');
   $('profileSheet').classList.remove('open');
@@ -1590,6 +1748,11 @@ const ICONS = {
   court: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1.5"/><line x1="12" y1="5" x2="12" y2="19"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/></svg>',
 };
 
+ICONS.sun = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.9" y1="4.9" x2="6.3" y2="6.3"/><line x1="17.7" y1="17.7" x2="19.1" y2="19.1"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.9" y1="19.1" x2="6.3" y2="17.7"/><line x1="17.7" y1="6.3" x2="19.1" y2="4.9"/></svg>';
+ICONS.chevron = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+ICONS.speaker = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg>';
+ICONS.muted = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>';
+
 const PERSONAS = [
   { id: 'technician', name: 'The Technician', desc: 'Sharpen one thing until it sticks.', color: '#8A5BC7', icon: 'target' },
   { id: 'tactician', name: 'The Tactician', desc: 'Win with patterns, not power.', color: '#6FA3C7', icon: 'compass' },
@@ -1607,82 +1770,154 @@ const TEMPLATES = [
    "courts": 1,
    "duration": 60,
    "level": "Intermediate",
-   "focus": ""
+   "focus": "",
+   "equipment": []
   },
   "plan": {
-   "title": "Approach & Attack Clinic",
+   "title": "Cross-Court Command",
+   "kit": [
+    "Racquets and balls"
+   ],
    "timeline": [
     {
      "start": 0,
-     "end": 10,
-     "title": "Cross-Court Wake-Up",
-     "aim": "activate hands, footwork, find rhythm fast",
-     "drill": "Mini-tennis cross-court, both diagonals live simultaneously → progress from service box to full baseline.",
-     "cycle": "switch diagonal partners at 5 min mark",
-     "target": "20 consecutive cross-court balls per pair",
-     "cue": "Contact out in front, waist height, soft unhurried hands.",
+     "end": 8,
+     "title": "Live Warm-Up",
+     "aim": "Groove cross-court rhythm, early contact point",
+     "drill": "Self-drop → rally cross-court on both diagonals → collect and restart on any break.",
+     "cycle": null,
+     "target": "20 consecutive cross-court shots per pair",
+     "cue": "Meet the ball out in front, strings closing slightly on contact.",
      "diagram": "cross_court_rally",
      "scene": {
       "players": [
        {
         "n": 1,
         "team": "a",
-        "at": "left_net_top"
+        "at": "left_back_bottom"
        },
        {
         "n": 2,
         "team": "a",
-        "at": "right_net_bottom"
+        "at": "right_back_top"
        },
        {
         "n": 3,
-        "team": "b",
-        "at": "left_net_bottom"
+        "team": "a",
+        "at": "left_back_top"
        },
        {
         "n": 4,
-        "team": "b",
-        "at": "right_net_top"
+        "team": "a",
+        "at": "right_back_bottom"
        }
       ],
       "balls": [
        {
-        "from": "left_net_top",
-        "to": "right_net_bottom",
+        "from": "left_back_bottom",
+        "to": "right_back_top",
         "kind": "rally"
        },
        {
-        "from": "left_net_bottom",
-        "to": "right_net_top",
+        "from": "left_back_top",
+        "to": "right_back_bottom",
         "kind": "rally"
        }
       ],
-      "note": "two cross-court mini rallies at once"
+      "note": "Two diagonals rallying live at once"
      }
     },
     {
-     "start": 10,
-     "end": 25,
-     "title": "Approach Shot Groove",
-     "aim": "grooving approach mechanics off short ball",
-     "drill": "Feeder feeds short ball to mid-court → hitter approaches, drives deep to corner, follows shot in → feeder feeds first volley to finish.",
-     "cycle": "rotate feeder/hitter/queue every 4 reps",
-     "target": "8 clean approach-then-volley finishes each",
-     "cue": "Take it on the rise, contact out front, low-to-high path.",
-     "diagram": "fed_drill",
+     "start": 8,
+     "end": 20,
+     "title": "Depth & Swing Path",
+     "aim": "Own the cross-court swing path and depth",
+     "drill": "Self-drop → rally cross-court, every ball aimed past the service line.",
+     "cycle": "Swap diagonal (forehand/backhand side) every 6 min",
+     "target": "Land 8/10 shots deeper than the service line",
+     "cue": "Low-to-high path, brush up the back of the ball, finish over the shoulder.",
+     "diagram": "cross_court_rally",
      "scene": {
       "players": [
        {
         "n": 1,
         "team": "a",
-        "at": "left_mid_center",
-        "feeder": true
+        "at": "left_back_bottom"
        },
        {
         "n": 2,
         "team": "a",
-        "at": "right_mid_center",
-        "move_to": "right_net_center"
+        "at": "right_back_top"
+       }
+      ],
+      "balls": [
+       {
+        "from": "left_back_bottom",
+        "to": "right_back_top",
+        "kind": "rally"
+       }
+      ],
+      "zone": "right_back_top",
+      "note": "Second pair mirrors this on the other diagonal"
+     }
+    },
+    {
+     "start": 20,
+     "end": 32,
+     "title": "Cross-Court On The Move",
+     "aim": "Same shot under lateral movement, fast recovery",
+     "drill": "Partner rallies alternating wide forehand/backhand → hitter splits and recovers to centre after every shot.",
+     "cycle": "Both pairs swap mover/feeder role at the 6 min mark",
+     "target": "Sustain an 8-shot rally while recovering each time",
+     "cue": "Split-step as contact happens, push off outside foot back to centre.",
+     "diagram": "cross_court_rally",
+     "scene": {
+      "players": [
+       {
+        "n": 1,
+        "team": "a",
+        "at": "left_back_bottom",
+        "move_to": "left_back_center"
+       },
+       {
+        "n": 2,
+        "team": "a",
+        "at": "right_back_top",
+        "feeder": true
+       }
+      ],
+      "balls": [
+       {
+        "from": "right_back_top",
+        "to": "left_back_bottom",
+        "kind": "rally"
+       }
+      ],
+      "note": "Hitter recovers to centre after each wide ball"
+     }
+    },
+    {
+     "start": 32,
+     "end": 44,
+     "title": "Approach & Finish",
+     "aim": "Convert a short ball into a net-finish point",
+     "drill": "Rally cross-court from self-drop → first short ball, approach down the line → close in and volley to finish.",
+     "cycle": "Pairs rotate on/off every 3 min; resting pair keeps score and retrieves balls",
+     "target": "Win the point at net 5 times per player",
+     "cue": "Split-step at the service line, volley out in front, punch don't swing.",
+     "diagram": "cross_court_rally",
+     "scene": {
+      "players": [
+       {
+        "n": 1,
+        "team": "a",
+        "at": "left_back_bottom",
+        "move_to": "left_net_center"
+       },
+       {
+        "n": 2,
+        "team": "b",
+        "at": "right_back_top"
        },
        {
         "n": 3,
@@ -1697,76 +1932,30 @@ const TEMPLATES = [
       ],
       "balls": [
        {
-        "from": "left_mid_center",
-        "to": "right_mid_center",
-        "kind": "feed"
+        "from": "left_back_bottom",
+        "to": "right_back_top",
+        "kind": "rally"
        }
       ],
-      "note": "feeder feeds short ball, hitter closes net"
+      "note": "Short ball triggers approach and volley finish"
      }
     },
     {
-     "start": 25,
-     "end": 40,
-     "title": "Approach On The Move",
-     "aim": "approach shot off wide, moving short balls",
-     "drill": "Feeder feeds short ball alternating wide-left/wide-right → hitter shuffles in, hits approach then closes, feeder feeds first volley.",
-     "cycle": "rotate hitter every 5 balls, feeder every 10",
-     "target": "10 approach+volley sequences per player",
-     "cue": "Small adjustment steps, hit through contact, don't lunge.",
-     "diagram": "fed_drill",
-     "scene": {
-      "players": [
-       {
-        "n": 1,
-        "team": "a",
-        "at": "left_mid_center",
-        "feeder": true
-       },
-       {
-        "n": 2,
-        "team": "a",
-        "at": "right_back_center",
-        "move_to": "right_net_top"
-       },
-       {
-        "n": 3,
-        "team": "b",
-        "at": "queue_1"
-       },
-       {
-        "n": 4,
-        "team": "b",
-        "at": "queue_2"
-       }
-      ],
-      "balls": [
-       {
-        "from": "left_mid_center",
-        "to": "right_mid_top",
-        "kind": "feed"
-       }
-      ],
-      "note": "wide feed, hitter closes to net corner"
-     }
-    },
-    {
-     "start": 40,
-     "end": 50,
-     "title": "Live Points Pressure",
-     "aim": "apply approach-and-close under real point pressure",
-     "drill": "Feeder feeds a short ball to start each point → 2v2 half-court points play out, whoever gets the short ball must approach and close.",
-     "cycle": "rotate feeder every 2 points, swap sides every 5",
-     "target": "first pair to 7 points, best of 2 sets",
-     "cue": "First volley deep and low, set up the finish, don't force it.",
+     "start": 44,
+     "end": 52,
+     "title": "Points With Purpose",
+     "aim": "Use the cross-court-to-approach pattern in real points",
+     "drill": "Play 2v2 points starting with a cross-court rally ball → any short ball must be approached and finished at net.",
+     "cycle": "Swap partners every 4 games so all combinations play",
+     "target": "First team to 7 points",
+     "cue": "Keep the same swing path under pressure, don't rush the approach.",
      "diagram": "doubles_formation",
      "scene": {
       "players": [
        {
         "n": 1,
         "team": "a",
-        "at": "left_back_center",
-        "feeder": true
+        "at": "left_back_center"
        },
        {
         "n": 2,
@@ -1788,99 +1977,95 @@ const TEMPLATES = [
        {
         "from": "left_back_center",
         "to": "right_back_center",
-        "kind": "feed"
+        "kind": "rally"
        }
       ],
-      "note": "2v2 points, short feed forces net approach"
+      "note": "2v2 points, up-back doubles shape"
      }
     },
     {
-     "start": 50,
+     "start": 52,
      "end": 60,
-     "title": "King Of The Net",
-     "aim": "reward committed approach-and-attack under pressure",
-     "drill": "Feeder feeds short ball → challenger must approach and close net to beat the king; winner stays on.",
-     "cycle": "loser rotates to back of queue, new challenger every point",
-     "target": "first to 4 points holds 'king' status",
-     "cue": "Trust the first volley, stay low, split step on the pass attempt.",
+     "title": "King Of The Cross-Court",
+     "aim": "Compete using the full pattern under pressure",
+     "drill": "Start every point with a cross-court rally ball → winner stays on, next player challenges from the queue.",
+     "cycle": "Loser rotates to back of queue after each point",
+     "target": "First to 4 wins is crowned king",
+     "cue": "Trust the pattern: rally deep, pounce on the short ball.",
      "diagram": "king_of_court",
      "scene": {
       "players": [
        {
         "n": 1,
         "team": "a",
-        "at": "left_mid_center",
-        "feeder": true
+        "at": "left_back_center"
        },
        {
         "n": 2,
-        "team": "a",
-        "at": "right_back_center",
-        "move_to": "right_net_center"
+        "team": "b",
+        "at": "right_back_center"
        },
        {
         "n": 3,
-        "team": "b",
-        "at": "left_net_center"
+        "team": "a",
+        "at": "queue_1"
        },
        {
         "n": 4,
-        "team": "b",
-        "at": "queue_1"
+        "team": "a",
+        "at": "queue_2"
        }
       ],
       "balls": [
        {
-        "from": "left_mid_center",
+        "from": "left_back_center",
         "to": "right_back_center",
-        "kind": "feed"
+        "kind": "rally"
        }
       ],
-      "note": "challenger approaches net to dethrone king"
+      "note": "Winner stays on, next challenger enters from queue"
      }
     }
    ],
    "rotation": {
-    "summary": "With 4 players on the one court, each fed drill uses one feeder, one hitter and two players queuing (collecting balls, restocking baskets, scoring) with roles rotating every 4-5 reps so everyone gets equal reps. The live-point and finisher blocks naturally cycle all four through feeder, competitor and queue roles every 1-2 points.",
+    "summary": "For the first three blocks the four players split into two pairs and hit simultaneously on the two diagonals of the single court, swapping roles at the midpoint so everyone gets even reps on both sides. For the pressure and points blocks, pairs rotate on and off every few minutes, with the resting pair keeping score and feeding stray balls back in. The finisher uses a winner-stays-on queue so all four keep cycling through with no standing around.",
     "needs_diagram": false
    },
    "finisher": {
-    "title": "King Of The Net",
-    "description": "Feeder starts every point with a short ball; the challenger must approach and close to the net to beat the reigning king, who tries to pass or lob. Winner stays on as king, loser rotates to the back of the queue, first to 4 points banks a 'reign' and reigns get tallied for bragging rights. Whoever holds the most reigns after 10 minutes wins the night.",
+    "title": "King Of The Cross-Court",
+    "description": "Singles winner-stays-on: every point starts with a cross-court rally ball, and the first short ball must be approached and finished at the net. Winner stays on court, loser goes to the back of the queue, next challenger steps in immediately. First player to reach 4 wins across the rotation is crowned King of the Court.",
     "diagram": "king_of_court",
     "scene": {
      "players": [
       {
        "n": 1,
        "team": "a",
-       "at": "left_mid_center",
-       "feeder": true
+       "at": "left_back_center"
       },
       {
        "n": 2,
-       "team": "a",
-       "at": "right_back_center",
-       "move_to": "right_net_center"
+       "team": "b",
+       "at": "right_back_center"
       },
       {
        "n": 3,
-       "team": "b",
-       "at": "left_net_center"
+       "team": "a",
+       "at": "queue_1"
       },
       {
        "n": 4,
-       "team": "b",
-       "at": "queue_1"
+       "team": "a",
+       "at": "queue_2"
       }
      ],
      "balls": [
       {
-       "from": "left_mid_center",
+       "from": "left_back_center",
        "to": "right_back_center",
-       "kind": "feed"
+       "kind": "rally"
       }
      ],
-     "note": "challenger approaches net to dethrone king"
+     "note": "Winner stays on, next challenger enters from queue"
     }
    }
   }
@@ -1892,20 +2077,24 @@ const TEMPLATES = [
    "courts": 1,
    "duration": 60,
    "level": "Intermediate",
-   "focus": ""
+   "focus": "",
+   "equipment": []
   },
   "plan": {
-   "title": "Cross-Court Chess Match",
+   "title": "Pattern Reader",
+   "kit": [
+    "Racquets and balls"
+   ],
    "timeline": [
     {
      "start": 0,
      "end": 10,
      "title": "Diagonal Warm-Up",
-     "aim": "Groove cross-court rally, sharpen court awareness",
-     "drill": "All 4 rally cross-court simultaneously on both diagonals, net to baseline",
-     "cycle": null,
-     "target": "20+ consecutive balls each diagonal",
-     "cue": "Watch it land in, not just where you strike it",
+     "aim": "Groove cross-court depth and court geography",
+     "drill": "Self-drop feed→ rally cross-court, both diagonals running live at once.",
+     "cycle": "Swap diagonal partners at 5min",
+     "target": "20+ ball rally without error",
+     "cue": "Watch the ball cross the net twice before you decide your shot — read, don't react.",
      "diagram": "cross_court_rally",
      "scene": {
       "players": [
@@ -1916,17 +2105,17 @@ const TEMPLATES = [
        },
        {
         "n": 2,
-        "team": "a",
-        "at": "left_back_bottom"
+        "team": "b",
+        "at": "right_back_bottom"
        },
        {
         "n": 3,
         "team": "a",
-        "at": "right_back_bottom"
+        "at": "left_back_bottom"
        },
        {
         "n": 4,
-        "team": "a",
+        "team": "b",
         "at": "right_back_top"
        }
       ],
@@ -1942,19 +2131,113 @@ const TEMPLATES = [
         "kind": "rally"
        }
       ],
-      "note": "two simultaneous cross-court diagonals"
+      "note": "two simultaneous cross-court diagonals, both pairs live"
      }
     },
     {
      "start": 10,
-     "end": 25,
-     "title": "Patience Then Punish",
-     "aim": "Build cross-court patience, attack the first short ball",
-     "drill": "Two rally cross-court only→first short ball earns down-line finish; other two feed/retrieve & score",
-     "cycle": "Swap on/off pairs every 5 min",
-     "target": "Cross-court 4+ shots then line winner",
-     "cue": "Stay patient cross-court, only go down the line off a short one",
-     "diagram": "cross_court_rally",
+     "end": 22,
+     "title": "Serve+1 Lanes",
+     "aim": "Build serve+1 pattern, dictate the first strike",
+     "drill": "Server drop-serves into box→ plays first groundstroke to open the court, point played out; both lanes run together.",
+     "cycle": "Rotate server/returner every 4 points, swap lanes at 6min",
+     "target": "Race to 4 points each lane",
+     "cue": "Ask before every serve: where does this leave my first ball?",
+     "diagram": "fed_drill",
+     "scene": {
+      "players": [
+       {
+        "n": 1,
+        "team": "a",
+        "at": "left_back_center",
+        "feeder": true
+       },
+       {
+        "n": 2,
+        "team": "b",
+        "at": "right_mid_top"
+       },
+       {
+        "n": 3,
+        "team": "a",
+        "at": "left_back_bottom",
+        "feeder": true
+       },
+       {
+        "n": 4,
+        "team": "b",
+        "at": "right_mid_bottom"
+       }
+      ],
+      "balls": [
+       {
+        "from": "left_back_center",
+        "to": "right_mid_top",
+        "kind": "feed"
+       },
+       {
+        "from": "left_back_bottom",
+        "to": "right_mid_bottom",
+        "kind": "feed"
+       }
+      ],
+      "note": "two serve+1 lanes running simultaneously"
+     }
+    },
+    {
+     "start": 22,
+     "end": 34,
+     "title": "Up-Back Decisions",
+     "aim": "Read up-back positions, decide poach or hold",
+     "drill": "Live 2v2 points, one net one back per side→ net player decides poach on short ball.",
+     "cycle": "Rotate server and net player every 3 points",
+     "target": "First pair to 6 points",
+     "cue": "Whoever's up front owns the middle — think before you commit to the poach.",
+     "diagram": "doubles_formation",
+     "scene": {
+      "players": [
+       {
+        "n": 1,
+        "team": "a",
+        "at": "left_back_center"
+       },
+       {
+        "n": 2,
+        "team": "a",
+        "at": "left_net_center",
+        "move_to": "left_net_top"
+       },
+       {
+        "n": 3,
+        "team": "b",
+        "at": "right_back_center"
+       },
+       {
+        "n": 4,
+        "team": "b",
+        "at": "right_net_center"
+       }
+      ],
+      "balls": [
+       {
+        "from": "left_back_center",
+        "to": "right_back_center",
+        "kind": "rally"
+       }
+      ],
+      "note": "net player weighs poach vs hold on this ball"
+     }
+    },
+    {
+     "start": 34,
+     "end": 46,
+     "title": "Open It, Then Close It",
+     "aim": "Recognise short ball, switch cross-court to line",
+     "drill": "Rally cross-court from baseline→ once ball sits up inside service line, finish down the line.",
+     "cycle": "Swap opponents at halfway, 6min",
+     "target": "Point only counts if finish is down the line, first to 5",
+     "cue": "Cross-court until the ball sits up, then take the line — patience wins the point.",
+     "diagram": "down_the_line_rally",
      "scene": {
       "players": [
        {
@@ -1963,19 +2246,9 @@ const TEMPLATES = [
         "at": "left_back_top"
        },
        {
-        "n": 3,
-        "team": "a",
-        "at": "right_back_bottom"
-       },
-       {
         "n": 2,
         "team": "b",
-        "at": "queue_1"
-       },
-       {
-        "n": 4,
-        "team": "b",
-        "at": "queue_2"
+        "at": "right_back_bottom"
        }
       ],
       "balls": [
@@ -1986,133 +2259,44 @@ const TEMPLATES = [
        },
        {
         "from": "right_back_bottom",
-        "to": "left_net_bottom",
+        "to": "left_back_bottom",
         "kind": "shot"
        }
       ],
-      "note": "short ball triggers down-line finish"
+      "note": "other pair runs same pattern on far lane"
      }
     },
     {
-     "start": 25,
-     "end": 40,
-     "title": "Serve Plus One",
-     "aim": "Dictate the point with first-strike serve patterns",
-     "drill": "Serve wide/T then hit planned +1 groundstroke to target; returner blocks back, feeders retrieve & reset fast",
-     "cycle": "Rotate server/returner every 4 points",
-     "target": "3 of 5 serve+1 combos land in zone",
-     "cue": "Decide your +1 shot before you even toss the ball",
-     "diagram": "fed_drill",
-     "scene": {
-      "players": [
-       {
-        "n": 1,
-        "team": "a",
-        "at": "right_back_center"
-       },
-       {
-        "n": 3,
-        "team": "a",
-        "at": "left_back_center"
-       },
-       {
-        "n": 2,
-        "team": "b",
-        "at": "queue_1"
-       },
-       {
-        "n": 4,
-        "team": "b",
-        "at": "queue_2"
-       }
-      ],
-      "balls": [
-       {
-        "from": "right_back_center",
-        "to": "left_back_center",
-        "kind": "rally"
-       }
-      ],
-      "zone": "left_mid_top",
-      "note": "serve then dictate to open zone"
-     }
-    },
-    {
-     "start": 40,
-     "end": 50,
-     "title": "Formation Battles",
-     "aim": "Master up-back vs two-back positioning and coverage",
-     "drill": "Play doubles points→server's team up-back, returners two-back, net player reads and poaches short balls",
-     "cycle": "Rotate serving pair every 5 points",
-     "target": "First pair to 7 points",
-     "cue": "Net player: split-step, poach anything that floats high",
-     "diagram": "doubles_formation",
-     "scene": {
-      "players": [
-       {
-        "n": 1,
-        "team": "a",
-        "at": "left_net_top",
-        "move_to": "left_net_center"
-       },
-       {
-        "n": 2,
-        "team": "a",
-        "at": "left_back_center"
-       },
-       {
-        "n": 3,
-        "team": "b",
-        "at": "right_back_top"
-       },
-       {
-        "n": 4,
-        "team": "b",
-        "at": "right_back_bottom"
-       }
-      ],
-      "balls": [
-       {
-        "from": "left_back_center",
-        "to": "right_back_top",
-        "kind": "rally"
-       }
-      ],
-      "note": "up-back pair pressures two-back pair"
-     }
-    },
-    {
-     "start": 50,
+     "start": 46,
      "end": 60,
      "title": "Pattern Points Doubles",
-     "aim": "Reward smart tactics under real match pressure",
-     "drill": "Play doubles games→bonus point for executed cross-to-line pattern, serve+1 winner, or clean poach",
-     "cycle": "Rotate pairs after each game to 7",
-     "target": "First pair to 2 games wins",
-     "cue": "Ask yourself: what pattern am I trying to build right now",
+     "aim": "Apply full match tactics under scoreboard pressure",
+     "drill": "Standard 2v2 points, but partner calls 'cross' or 'line' before each point→ bonus point if the called pattern lands.",
+     "cycle": "Switch server each game, swap partners at 21",
+     "target": "First team to 21 points wins",
+     "cue": "Every point starts with a plan, not a swing.",
      "diagram": "doubles_formation",
      "scene": {
       "players": [
        {
         "n": 1,
         "team": "a",
-        "at": "left_net_bottom",
-        "move_to": "left_net_center"
+        "at": "left_back_center"
        },
        {
         "n": 2,
         "team": "a",
-        "at": "left_back_center"
+        "at": "left_net_center"
        },
        {
         "n": 3,
         "team": "b",
-        "at": "right_net_top"
+        "at": "right_back_center"
        },
        {
         "n": 4,
         "team": "b",
-        "at": "right_back_center"
+        "at": "right_net_center"
        }
       ],
       "balls": [
@@ -2122,40 +2306,39 @@ const TEMPLATES = [
         "kind": "rally"
        }
       ],
-      "note": "bonus points for tactical pattern execution"
+      "note": "called pattern must be executed to score bonus"
      }
     }
    ],
    "rotation": {
-    "summary": "With 4 players and 1 court, pairs alternate between active hitting roles and feeding/retrieving/scoring duties every 4-5 minutes so nobody is idle. In doubles blocks, all 4 stay on court simultaneously and rotate which pair serves or plays net.",
+    "summary": "Players split into two fixed pairs (1&2 vs 3&4) that alternate lanes and roles through the drill blocks, so both pairs are always hitting live balls on their half of the court simultaneously. In the full-court doubles blocks all four play together as 2v2, and ball collection between points is shared rather than assigned to one feeder.",
     "needs_diagram": false
    },
    "finisher": {
     "title": "Pattern Points Doubles",
-    "description": "Doubles games to 7, win by 2, with bonus points layered on top: +1 for winning a point via a cross-court-to-line pattern, +1 for a successful serve+1 combo, +1 for a clean poach winner. Best of 3 games; losing pair feeds balls and umpires the next. Winners get bragging rights and pick next week's warm-up.",
+    "description": "2v2 doubles points where the server's partner must call 'cross' or 'line' before the point starts, calling the pattern their team will try to finish the point with. Landing the called pattern successfully scores a bonus point on top of winning the rally. First team to 21 wins bragging rights and picks the music for the next session.",
     "diagram": "doubles_formation",
     "scene": {
      "players": [
       {
        "n": 1,
        "team": "a",
-       "at": "left_net_bottom",
-       "move_to": "left_net_center"
+       "at": "left_back_center"
       },
       {
        "n": 2,
        "team": "a",
-       "at": "left_back_center"
+       "at": "left_net_center"
       },
       {
        "n": 3,
        "team": "b",
-       "at": "right_net_top"
+       "at": "right_back_center"
       },
       {
        "n": 4,
        "team": "b",
-       "at": "right_back_center"
+       "at": "right_net_center"
       }
      ],
      "balls": [
@@ -2165,7 +2348,7 @@ const TEMPLATES = [
        "kind": "rally"
       }
      ],
-     "note": "tactical bonus points decide the match"
+     "note": "called pattern must land to earn the bonus point"
     }
    }
   }
@@ -2177,68 +2360,72 @@ const TEMPLATES = [
    "courts": 1,
    "duration": 60,
    "level": "Intermediate",
-   "focus": ""
+   "focus": "",
+   "equipment": []
   },
   "plan": {
-   "title": "Corner Grinder Blitz",
+   "title": "Corner-to-Corner Grinder",
+   "kit": [
+    "Racquets and balls"
+   ],
    "timeline": [
     {
      "start": 0,
      "end": 8,
-     "title": "Live-Ball Warm-Up",
-     "aim": "Raise heart rate, groove early contact fast",
-     "drill": "Two mini-tennis rallies in service boxes, both pairs live simultaneously.",
-     "cycle": "swap rally partners at 4 min",
-     "target": "10+ shot rally streak",
-     "cue": "Split-step every bounce, light feet from ball one!",
+     "title": "Mini-Tennis Ignition",
+     "aim": "Raise ball speed, groove early rally rhythm",
+     "drill": "Self-drop → soft cross-court taps inside both service boxes simultaneously.",
+     "cycle": null,
+     "target": "20+ shot rally each pair, zero errors",
+     "cue": "Split-step every ball, soft hands.",
      "diagram": "cross_court_rally",
      "scene": {
       "players": [
        {
         "n": 1,
         "team": "a",
-        "at": "left_mid_top"
+        "at": "left_net_top"
        },
        {
         "n": 2,
         "team": "a",
-        "at": "right_mid_top"
+        "at": "right_net_top"
        },
        {
         "n": 3,
         "team": "b",
-        "at": "left_mid_bottom"
+        "at": "left_net_bottom"
        },
        {
         "n": 4,
         "team": "b",
-        "at": "right_mid_bottom"
+        "at": "right_net_bottom"
        }
       ],
       "balls": [
        {
-        "from": "left_mid_top",
-        "to": "right_mid_top",
+        "from": "left_net_top",
+        "to": "right_net_top",
         "kind": "rally"
        },
        {
-        "from": "left_mid_bottom",
-        "to": "right_mid_bottom",
+        "from": "left_net_bottom",
+        "to": "right_net_bottom",
         "kind": "rally"
        }
       ],
-      "note": "both pairs mini-tennis rallying at once"
+      "note": "Two simultaneous box rallies, deuce and ad side"
      }
     },
     {
      "start": 8,
-     "end": 18,
+     "end": 20,
      "title": "Cross-Court Grind",
-     "aim": "Build cross-court consistency and legs under fatigue",
-     "drill": "Pair rallies cross-court from baseline corners, counts consecutive shots.",
-     "cycle": "swap hitting pair at 5 min",
-     "target": "20 consecutive cross-court shots",
-     "cue": "Recover to center after every shot, legs never stop!",
+     "aim": "Build baseline consistency and directional control",
+     "drill": "Self-drop → cross-court rally, feeder drop-starts point then plays it out live.",
+     "cycle": "Swap hitting pair with feeding/counting pair every 2 min",
+     "target": "15-shot rally streak, 4 streaks per pair",
+     "cue": "Recover to center after every shot.",
      "diagram": "cross_court_rally",
      "scene": {
       "players": [
@@ -2270,18 +2457,18 @@ const TEMPLATES = [
         "kind": "rally"
        }
       ],
-      "note": "waiting pair feeds stray balls, keeps score"
+      "note": "Waiting pair counts rally streaks courtside"
      }
     },
     {
-     "start": 18,
-     "end": 28,
-     "title": "Down-The-Line Grind",
-     "aim": "Sharpen down-the-line precision, recovery footwork",
-     "drill": "Pair rallies down-the-line same sideline, targets tight to line.",
-     "cycle": "swap hitting pair at 5 min",
-     "target": "15 consecutive down-the-line shots",
-     "cue": "Explode side to side, stay low, reset fast!",
+     "start": 20,
+     "end": 32,
+     "title": "Down-The-Line Sharpener",
+     "aim": "Sharpen straight groundstrokes, tighten line targeting",
+     "drill": "Self-drop → down-the-line rally along one sideline, feeder plays point out after feed.",
+     "cycle": "Swap hitting pair with feeding/counting pair every 2 min",
+     "target": "12-shot straight rally x4, no alley errors",
+     "cue": "Small adjustment steps, racquet ready early.",
      "diagram": "down_the_line_rally",
      "scene": {
       "players": [
@@ -2313,32 +2500,32 @@ const TEMPLATES = [
         "kind": "rally"
        }
       ],
-      "note": "queue players feed/score while waiting"
+      "note": "Straight rally down same lane, pair swaps after"
      }
     },
     {
-     "start": 28,
-     "end": 40,
-     "title": "Corner-to-Corner Feed Fest",
-     "aim": "Max ball-count corner-to-corner footwork drill",
-     "drill": "Feeder feeds corner-to-corner, hitter strikes every ball live, sprints back to center.",
-     "cycle": "rotate feeder/hitter/queue every 3 min",
-     "target": "Hit 40+ balls per rotation",
-     "cue": "Split-step, explode, recover to center — every single ball!",
+     "start": 32,
+     "end": 46,
+     "title": "Corner-to-Corner Chase",
+     "aim": "Train recovery footwork between wide baseline corners",
+     "drill": "Feeder drop-hits alternately deep left/right → hitter runs, strikes, recovers to T, feeder then plays rally out live.",
+     "cycle": "Rotate hitter → feeder → queue every 3 min, all 4 cycle through",
+     "target": "10 alternating corner reps per hitter turn",
+     "cue": "Split-step on partner's contact, sprint-recover to T.",
      "diagram": "fed_drill",
      "scene": {
       "players": [
        {
         "n": 1,
         "team": "a",
-        "at": "right_mid_center",
-        "feeder": true
+        "at": "left_back_center",
+        "move_to": "left_back_top"
        },
        {
         "n": 2,
         "team": "a",
-        "at": "left_back_top",
-        "move_to": "left_back_bottom"
+        "at": "right_net_center",
+        "feeder": true
        },
        {
         "n": 3,
@@ -2353,66 +2540,23 @@ const TEMPLATES = [
       ],
       "balls": [
        {
-        "from": "right_mid_center",
+        "from": "right_net_center",
         "to": "left_back_top",
         "kind": "feed"
        }
       ],
-      "note": "hitter alternates corners, queue collects balls"
+      "note": "Hitter sprints corner to corner, recovers between reps"
      }
     },
     {
-     "start": 40,
-     "end": 50,
-     "title": "Doubles Live Points",
-     "aim": "Live doubles points, up-back positioning, target depth",
-     "drill": "Play doubles points, net player closes, baseline targets deep corners.",
-     "cycle": "rotate serve/return every 2 points",
-     "target": "First pair to 7 points",
-     "cue": "Legs bent, split-step every serve, close the net hard!",
-     "diagram": "doubles_formation",
-     "scene": {
-      "players": [
-       {
-        "n": 1,
-        "team": "a",
-        "at": "left_net_center"
-       },
-       {
-        "n": 2,
-        "team": "a",
-        "at": "left_back_center"
-       },
-       {
-        "n": 3,
-        "team": "b",
-        "at": "right_net_center"
-       },
-       {
-        "n": 4,
-        "team": "b",
-        "at": "right_back_center"
-       }
-      ],
-      "balls": [
-       {
-        "from": "left_back_center",
-        "to": "right_back_center",
-        "kind": "rally"
-       }
-      ],
-      "note": "net players poach on short balls"
-     }
-    },
-    {
-     "start": 50,
+     "start": 46,
      "end": 60,
-     "title": "King of the Court",
-     "aim": "Compete live, reward hustle under pressure",
-     "drill": "Winner stays on court, challenger rotates in from queue.",
-     "cycle": "loser rotates to back of queue",
-     "target": "First to 4 points wins, most wins overall",
-     "cue": "Battle every point like match point — legs, legs, legs!",
+     "title": "King of the Court Shootout",
+     "aim": "Competitive high-intensity finish under pressure",
+     "drill": "Singles points, self-drop/serve start, first to 4 points wins and stays on.",
+     "cycle": "Loser rotates to back of queue, next challenger in immediately",
+     "target": "First to 4 points per game, most games won overall wins",
+     "cue": "Every point starts with a split-step.",
      "diagram": "king_of_court",
      "scene": {
       "players": [
@@ -2444,17 +2588,17 @@ const TEMPLATES = [
         "kind": "rally"
        }
       ],
-      "note": "challenger from queue enters after each match"
+      "note": "Winner stays on, challenger enters from queue"
      }
     }
    ],
    "rotation": {
-    "summary": "With 4 players on one court, drills are built in pairs so nobody stands idle: one pair hits live while the other pair feeds stray balls, shags, or keeps score, swapping in on a strict clock. The fed drill rotates all four through feeder, hitter, and ball-collector roles every few minutes so contact counts stay high for everyone.",
+    "summary": "Pairs swap between the active hitting role and the feeding/counting role every 2-3 minutes through the middle blocks so all four players keep striking balls with minimal downtime. In the corner-to-corner block every player cycles through hitter, feeder and queue positions. The finisher runs as a continuous singles queue with two players always waiting to challenge.",
     "needs_diagram": false
    },
    "finisher": {
-    "title": "King of the Court",
-    "description": "Singles winner-stays-on: first to 4 points wins the match and stays on court to face the next challenger from the queue. Losers rotate to the back of the line and immediately start feeding/collecting for the next match — no standing around. Most match wins by the buzzer earns bragging rights for the week.",
+    "title": "King of the Court Shootout",
+    "description": "Singles points starting from a self-drop or serve, first to 4 points wins and stays on court while the loser goes to the back of the queue. The next challenger steps in immediately so the ball never stops moving. Track games won across the 14 minutes — most games won is crowned King of the Court and gets bragging rights for the week.",
     "diagram": "king_of_court",
     "scene": {
      "players": [
@@ -2486,7 +2630,7 @@ const TEMPLATES = [
        "kind": "rally"
       }
      ],
-     "note": "challenger enters from queue after each match"
+     "note": "Winner stays on, challenger enters from queue"
     }
    }
   }
@@ -2498,20 +2642,24 @@ const TEMPLATES = [
    "courts": 1,
    "duration": 60,
    "level": "Intermediate",
-   "focus": ""
+   "focus": "",
+   "equipment": []
   },
   "plan": {
-   "title": "Court Jesters Showdown",
+   "title": "Bragging Rights Night",
+   "kit": [
+    "Racquets and balls"
+   ],
    "timeline": [
     {
      "start": 0,
-     "end": 10,
-     "title": "Cross-Court Mini Rally Party",
-     "aim": "Groove contact and court feel fast",
-     "drill": "4 players split → cooperative cross-court mini-tennis rally, keep ball alive",
-     "cycle": "Switch diagonal pairs every 3 min",
-     "target": "20 consecutive cross-court rallies",
-     "cue": "Bounce-hit, smile, no ball ever dies!",
+     "end": 8,
+     "title": "Double Diagonal Rally",
+     "aim": "Warm up hands, get rallying fast",
+     "drill": "Self-drop → mini-tennis rally cross-court in service boxes, both diagonals live at once",
+     "cycle": "Swap diagonal partners halfway",
+     "target": "20 shots each before moving back",
+     "cue": "Racquets on balls now, chat later!",
      "diagram": "cross_court_rally",
      "scene": {
       "players": [
@@ -2548,30 +2696,31 @@ const TEMPLATES = [
         "kind": "rally"
        }
       ],
-      "note": "cross diagonals rallying simultaneously mini-tennis"
+      "note": "two mini-tennis diagonals running at once"
      }
     },
     {
-     "start": 10,
-     "end": 22,
-     "title": "Tramline Target Attack",
-     "aim": "Depth and accuracy into doubles alley",
-     "drill": "Doubles pairs rally → cash points landing shots in taped zone",
-     "cycle": "Rotate feeder/pair roles every 4 min",
-     "target": "First pair to 10 zone points",
-     "cue": "Paint the lines, cash the points!",
+     "start": 8,
+     "end": 20,
+     "title": "Corner Snipe",
+     "aim": "Depth and accuracy under competitive pressure",
+     "drill": "Self-drop serve starts point → 2v2 rally → shots landing past service line score double",
+     "cycle": "Rotate server each point, switch sides every 4",
+     "target": "First pair to 11 points",
+     "cue": "Chase the double points, go deep!",
      "diagram": "target_zone",
      "scene": {
       "players": [
        {
         "n": 1,
         "team": "a",
-        "at": "left_back_center"
+        "at": "left_back_center",
+        "feeder": true
        },
        {
         "n": 2,
         "team": "a",
-        "at": "left_net_top"
+        "at": "left_net_center"
        },
        {
         "n": 3,
@@ -2581,73 +2730,28 @@ const TEMPLATES = [
        {
         "n": 4,
         "team": "b",
-        "at": "right_net_bottom"
+        "at": "right_net_center"
        }
       ],
       "balls": [
        {
         "from": "left_back_center",
-        "to": "right_back_top",
-        "kind": "shot"
+        "to": "right_back_center",
+        "kind": "feed"
        }
       ],
-      "zone": "right_back_top",
-      "note": "aiming cross-court into alley target zone"
+      "note": "self-drop starts point, deep corner bonus"
      }
     },
     {
-     "start": 22,
-     "end": 34,
-     "title": "Poach Party Doubles",
-     "aim": "Net poaching instincts and loud communication",
-     "drill": "Play doubles points → net player must poach at least once",
-     "cycle": "Rotate net/baseline roles every 3 min, all 4 cycle through",
-     "target": "Best of 6 points per rotation",
-     "cue": "See it, poach it, own it!",
-     "diagram": "doubles_formation",
-     "scene": {
-      "players": [
-       {
-        "n": 1,
-        "team": "a",
-        "at": "left_net_top",
-        "move_to": "left_net_center"
-       },
-       {
-        "n": 2,
-        "team": "a",
-        "at": "left_back_center"
-       },
-       {
-        "n": 3,
-        "team": "b",
-        "at": "right_net_bottom"
-       },
-       {
-        "n": 4,
-        "team": "b",
-        "at": "right_back_center"
-       }
-      ],
-      "balls": [
-       {
-        "from": "right_back_center",
-        "to": "left_net_center",
-        "kind": "rally"
-       }
-      ],
-      "note": "net player poaches across to intercept"
-     }
-    },
-    {
-     "start": 34,
-     "end": 46,
-     "title": "King of the Court Ladder",
-     "aim": "Competitive singles pressure, fast decisions",
-     "drill": "Winner-stays-on singles → loser rotates to feed/score queue",
-     "cycle": "Winner stays, loser to back of queue every game",
-     "target": "First to 4 games wins crown",
-     "cue": "Win it or queue it!",
+     "start": 20,
+     "end": 32,
+     "title": "King of the Court",
+     "aim": "Competitive singles under score pressure",
+     "drill": "Self-drop serve → play out point → first to 4 wins, stays on",
+     "cycle": "Loser swaps with queued challenger each game",
+     "target": "First to 4 points per game",
+     "cue": "Defend the throne!",
      "diagram": "king_of_court",
      "scene": {
       "players": [
@@ -2679,92 +2783,180 @@ const TEMPLATES = [
         "kind": "rally"
        }
       ],
-      "note": "singles battle, two waiting to cycle in"
+      "note": "winner stays, challenger swaps in from queue"
      }
     },
     {
-     "start": 46,
-     "end": 60,
-     "title": "Chaos Tiebreak Showdown",
-     "aim": "Peak competitive intensity, bragging rights finale",
-     "drill": "Doubles tiebreak to 10 → handicap points for trailing pair, bonus point for any drop-shot winner",
-     "cycle": "No rotation, same teams full tiebreak",
-     "target": "First pair to 10 points, win by 2",
-     "cue": "Chaos rules — last laugh wins the crown!",
+     "start": 32,
+     "end": 46,
+     "title": "Poach Party",
+     "aim": "Net poaching and doubles teamwork under pressure",
+     "drill": "Self-drop starts point → 2v2 doubles → net player poaches, winning volley scores double",
+     "cycle": "Swap server and net roles every 2 points, switch pairs at 8",
+     "target": "Race to 16 points combined",
+     "cue": "Poach and pounce, make them pay!",
      "diagram": "doubles_formation",
      "scene": {
       "players": [
        {
         "n": 1,
         "team": "a",
-        "at": "left_net_top"
+        "at": "left_back_center",
+        "feeder": true
        },
        {
         "n": 2,
         "team": "a",
-        "at": "left_back_center"
+        "at": "left_net_center",
+        "move_to": "left_net_top"
        },
        {
         "n": 3,
         "team": "b",
-        "at": "right_net_bottom"
+        "at": "right_back_center"
        },
        {
         "n": 4,
         "team": "b",
-        "at": "right_back_center"
+        "at": "right_net_center"
        }
       ],
       "balls": [
        {
         "from": "left_back_center",
-        "to": "right_net_bottom",
-        "kind": "shot"
+        "to": "right_back_center",
+        "kind": "feed"
        }
       ],
-      "note": "tiebreak point, drop-shot bonus in play"
+      "note": "net partner poaches for double points"
+     }
+    },
+    {
+     "start": 46,
+     "end": 54,
+     "title": "Tiebreak Ladder",
+     "aim": "Sharpen serve-return under quick scoring pressure",
+     "drill": "Self-drop serve → first to 5 points breaker → winner climbs ladder",
+     "cycle": "Rotate opponent every breaker, all 4 play twice",
+     "target": "First to 5 points, 2 breakers each",
+     "cue": "Climb the ladder, own the bragging rights!",
+     "diagram": "rotation_queue",
+     "scene": {
+      "players": [
+       {
+        "n": 1,
+        "team": "a",
+        "at": "left_back_center"
+       },
+       {
+        "n": 2,
+        "team": "b",
+        "at": "right_back_center"
+       },
+       {
+        "n": 3,
+        "team": "b",
+        "at": "queue_1"
+       },
+       {
+        "n": 4,
+        "team": "b",
+        "at": "queue_2"
+       }
+      ],
+      "balls": [
+       {
+        "from": "left_back_center",
+        "to": "right_back_center",
+        "kind": "rally"
+       }
+      ],
+      "note": "5-point breakers, ladder climb each win"
+     }
+    },
+    {
+     "start": 54,
+     "end": 60,
+     "title": "Sudden Death Showdown",
+     "aim": "Crown the ultimate king under pure pressure",
+     "drill": "Self-drop serve → sudden-death single point → winner stays, loser rotates out",
+     "cycle": "Fast challenger rotation, everyone plays at least twice",
+     "target": "Single sudden-death points, most wins crowned King",
+     "cue": "One point, no mercy!",
+     "diagram": "king_of_court",
+     "scene": {
+      "players": [
+       {
+        "n": 1,
+        "team": "a",
+        "at": "left_back_center"
+       },
+       {
+        "n": 2,
+        "team": "b",
+        "at": "right_back_center"
+       },
+       {
+        "n": 3,
+        "team": "b",
+        "at": "queue_1"
+       },
+       {
+        "n": 4,
+        "team": "b",
+        "at": "queue_2"
+       }
+      ],
+      "balls": [
+       {
+        "from": "left_back_center",
+        "to": "right_back_center",
+        "kind": "rally"
+       }
+      ],
+      "note": "sudden death point, fast challenger swap"
      }
     }
    ],
    "rotation": {
-    "summary": "With 4 players on one court, every block uses doubles-style pairs or a singles-plus-queue setup so nobody stands idle — waiting players always feed, score, or queue to rotate in within 3-4 minutes. Roles (net/baseline, feeder/hitter, winner/queue) cycle every few minutes so all four get equal reps in every format.",
+    "summary": "With 4 players and 1 court, pairs and opponents rotate every block so nobody sits out for long — during singles formats two players wait briefly in the queue but keep score or feed the next ball rather than standing idle. Roles (server, net player, feeder, challenger) swap every 2-4 points throughout so ball contacts stay high for everyone.",
     "needs_diagram": false
    },
    "finisher": {
-    "title": "Chaos Tiebreak Showdown",
-    "description": "Doubles tiebreak to 10 points, win by 2, with the trailing pair starting on a +2 handicap to keep it spicy. Any point won off a disguised drop shot scores double, rewarding flair over just power. Winning pair gets crowned Court Jesters and picks the music for next practice.",
-    "diagram": "doubles_formation",
+    "title": "Sudden Death Showdown",
+    "description": "Singles king-of-the-court but every point is sudden death — win the point, stay on court; lose it, rotate straight to the back of the queue. Whoever survives the most consecutive points in the final 6 minutes is crowned King of the Court for the night. Losers buy the winner's post-match drink — bragging rights are non-negotiable.",
+    "diagram": "king_of_court",
     "scene": {
      "players": [
       {
        "n": 1,
        "team": "a",
-       "at": "left_net_top"
+       "at": "left_back_center"
       },
       {
        "n": 2,
-       "team": "a",
-       "at": "left_back_center"
+       "team": "b",
+       "at": "right_back_center"
       },
       {
        "n": 3,
        "team": "b",
-       "at": "right_net_bottom"
+       "at": "queue_1"
       },
       {
        "n": 4,
        "team": "b",
-       "at": "right_back_center"
+       "at": "queue_2"
       }
      ],
      "balls": [
       {
        "from": "left_back_center",
-       "to": "right_net_bottom",
-       "kind": "shot"
+       "to": "right_back_center",
+       "kind": "rally"
       }
      ],
-     "note": "match point, drop-shot bonus on the line"
+     "note": "sudden death point, fast challenger swap"
     }
    }
   }
@@ -2773,6 +2965,11 @@ const TEMPLATES = [
 
 const LEVELS = ['Beginner', 'Improver', 'Intermediate', 'Advanced'];
 const FOCUS_SUGGESTIONS = ['second serve', 'net play', 'consistency', 'returns', 'footwork'];
+// "No kit" is the default: players and balls. Anything else is opt-in.
+const KIT_OPTIONS = [
+  { id: 'basket', label: 'Basket of balls' },
+  { id: 'cones', label: 'Cones' },
+];
 const COACH_ISMS = [
   'Mowing the lawn…', 'Whitening the lines…', 'Tightening the net…',
   'Polishing the trophy…', 'Chilling the strawberries…', 'Hushing the crowd…',
@@ -2803,7 +3000,7 @@ const STEPS = { players: 1, courts: 1, duration: 15 };
 const state = {
   personaId: 'technician',
   players: 4, courts: 1, duration: 75,
-  level: 'Intermediate', focus: '',
+  level: 'Intermediate', focus: '', equipment: [],
   plan: null, sessionInputs: null, lastRequest: null, currentBlock: -1,
 };
 
@@ -2831,12 +3028,13 @@ function loadDefaults() {
       duration: clamp('duration', last.duration),
       level: LEVELS.includes(last.level) ? last.level : 'Intermediate',
       focus: typeof last.focus === 'string' ? last.focus : '',
+      equipment: Array.isArray(last.equipment) ? last.equipment.filter((e) => KIT_OPTIONS.some((k) => k.id === e)) : [],
     });
   } catch { /* fresh start */ }
 }
 function saveDefaults() {
-  const { personaId, players, courts, duration, level, focus } = state;
-  localStorage.setItem('pp_last', JSON.stringify({ personaId, players, courts, duration, level, focus }));
+  const { personaId, players, courts, duration, level, focus, equipment } = state;
+  localStorage.setItem('pp_last', JSON.stringify({ personaId, players, courts, duration, level, focus, equipment }));
 }
 // Past sessions live in Supabase now, scoped to the signed-in user (RLS).
 let historyCache = [];
@@ -3116,6 +3314,18 @@ function renderFocus() {
   input.addEventListener('input', () => { state.focus = input.value.trim(); sync(); });
 }
 
+function renderKit() {
+  const chips = $('kitChips');
+  chips.innerHTML = KIT_OPTIONS.map((k) => `<button data-k="${k.id}" class="${state.equipment.includes(k.id) ? 'on' : ''}">${k.label}</button>`).join('');
+  chips.querySelectorAll('button').forEach((b) => {
+    b.onclick = () => {
+      const id = b.dataset.k;
+      state.equipment = state.equipment.includes(id) ? state.equipment.filter((e) => e !== id) : [...state.equipment, id];
+      b.classList.toggle('on', state.equipment.includes(id));
+    };
+  });
+}
+
 // ── Generate flow ─────────────────────────────────────────
 let ismTimer = null;
 let stageTimer = null;
@@ -3214,6 +3424,7 @@ async function requestPlan(payload) {
     state.sessionInputs = {
       personaId: payload.persona, players: payload.players, courts: payload.courts,
       duration: payload.duration, level: payload.level, focus: payload.focus,
+      equipment: Array.isArray(payload.equipment) ? payload.equipment : [],
     };
     state.currentBlock = -1;
     saveDefaults();
@@ -3223,7 +3434,12 @@ async function requestPlan(payload) {
     toast('Saved to Past sessions');
     maybeInstallNudge();
   } catch (err) {
-    showError(personaVoiceError(err.message || 'Something went wrong.', payload.persona));
+    // A network-level failure (no signal, server unreachable, project asleep)
+    // is not the generator's fault — say what actually happened.
+    const unreachable = !navigator.onLine || err instanceof TypeError;
+    showError(unreachable
+      ? "PracticePal's server can't be reached right now. Check your signal — the Quick Picks still work offline."
+      : personaVoiceError(err.message || 'Something went wrong.', payload.persona));
   }
 }
 
@@ -3244,6 +3460,7 @@ async function rerollBlock(i, btn) {
       body: JSON.stringify({
         persona: inp.personaId, players: inp.players, courts: inp.courts,
         duration: inp.duration, level: inp.level, focus: inp.focus,
+        equipment: Array.isArray(inp.equipment) ? inp.equipment : [],
         reroll: { index: i, plan: { title: state.plan.title, timeline: state.plan.timeline } },
         clientId: clientId(),
       }),
@@ -3270,6 +3487,7 @@ function generate() {
   const payload = {
     persona: state.personaId, players: state.players, courts: state.courts,
     duration: state.duration, level: state.level, focus: state.focus,
+    equipment: state.equipment,
   };
   if (REDUCED) { requestPlan(payload); return; }
   runServeMoment(() => requestPlan(payload));
@@ -3570,21 +3788,23 @@ function closeDiagramSheet() {
 
 function fmtRange(b) {
   const s = Number(b.start), e = Number(b.end);
-  return Number.isFinite(s) && Number.isFinite(e) ? `${s}–${e}` : '';
+  return Number.isFinite(s) && Number.isFinite(e) ? `${Math.round(s)}–${Math.round(e)}` : '';
 }
 
 // Structured facets (Aim/Drill/Cycle/Target) — falls back to the old flat
 // "description" paragraph for anything saved before this existed.
 function renderFacets(b) {
   if (b.aim || b.drill) {
+    // Aim, Drill and Target always show; Cycle (and the cue) sit behind the
+    // block's expand toggle so a five-block plan fits on two screens.
     const rows = [
-      ['Aim', b.aim, false],
-      ['Drill', b.drill, false],
-      ['Cycle', b.cycle, false],
-      ['Target', b.target, true],
+      ['Aim', b.aim, false, false],
+      ['Drill', b.drill, false, false],
+      ['Cycle', b.cycle, false, true],
+      ['Target', b.target, true, false],
     ].filter(([, val]) => val);
-    return `<div class="facets">${rows.map(([lab, val, isTarget]) => `
-      <div class="facet${isTarget ? ' facet--target' : ''}"><span class="facet-lab">${esc(lab)}</span><span class="facet-val">${esc(val)}</span></div>
+    return `<div class="facets">${rows.map(([lab, val, isTarget, more]) => `
+      <div class="facet${isTarget ? ' facet--target' : ''}${more ? ' facet--more' : ''}"><span class="facet-lab">${esc(lab)}</span><span class="facet-val">${esc(val)}</span></div>
     `).join('')}</div>`;
   }
   return b.description ? `<div class="desc">${esc(b.description)}</div>` : '';
@@ -3611,44 +3831,70 @@ function updateChalkFill() {
 }
 addEventListener('scroll', () => requestAnimationFrame(updateChalkFill), { passive: true });
 
-function showPlan(animate) {
-  if (state.live) endLive(true); // a new plan replaces any running session
+// What the group must bring. The plan carries it (`kit`, from the generator);
+// older plans and Quick Picks derive it from the declared equipment.
+function defaultKit(inp) {
+  const eq = Array.isArray(inp?.equipment) ? inp.equipment : [];
+  return ['Racquets and balls', ...(eq.includes('basket') ? ['A basket of balls'] : []), ...(eq.includes('cones') ? ['Cones'] : [])];
+}
+
+// Static thumbnail of the block's diagram — the animated version opens in
+// the sheet on tap. Empty string when the block has nothing drawable.
+function blockThumb(b) {
+  if (!b) return '';
+  const scene = sanitizeScene(b.scene);
+  const svg = scene ? buildSceneSvg(scene)
+    : (b.diagram && b.diagram !== 'none' && DIAG_META[b.diagram]) ? buildDrillDiagramSvg(b.diagram) : '';
+  return svg ? `<button class="block-thumb" aria-label="Show court diagram">${svg}<span class="block-thumb-lab">Court</span></button>` : '';
+}
+
+// Builds the plan screen's DOM from state.plan. Safe to call while live
+// (used after +5 min / rescale) — it never touches the clock.
+function renderPlan({ reveal = true } = {}) {
   const plan = state.plan, inp = state.sessionInputs;
   const persona = personaById(inp.personaId);
   setWorldTint(persona.color); // the whole room lights in this session's colour
 
+  const kit = Array.isArray(plan.kit) && plan.kit.length ? plan.kit : defaultKit(inp);
   $('summaryMeta').textContent = metaLine(inp);
   $('planHead').innerHTML = `
+    <button class="glance-theme-toggle plan-theme-toggle" id="planThemeBtn" aria-label="Switch to daylight mode">${ICONS.sun}</button>
     <div class="pname">${esc(persona.name)}</div>
     <h2>${esc(plan.title)}</h2>
-    <div class="meta">${esc(metaLine(inp))}${inp.focus ? ' · ' + esc(inp.focus) : ''}</div>`;
+    <div class="meta">${esc(metaLine(inp))}${inp.focus ? ' · ' + esc(inp.focus) : ''}</div>
+    <div class="kit-line"><span class="kl">You'll need</span>${kit.map((k) => `<span class="ki">${esc(k)}</span>`).join('')}</div>`;
+  $('planThemeBtn').addEventListener('click', (e) => { e.stopPropagation(); toggleDaylight(); });
+  paintDaylightButtons();
 
   const diagBtn = (b) => (b && (sanitizeScene(b.scene) || (b.diagram && b.diagram !== 'none' && DIAG_META[b.diagram]))
     ? `<button class="block-diagram-btn" aria-label="Show court diagram">${ICONS.court}</button>`
     : '');
 
   const blocks = Array.isArray(plan.timeline) ? plan.timeline : [];
+  const revealCls = reveal ? 'reveal' : 'reveal in';
   $('timeline').innerHTML = blocks.map((b, i) => `
-    <div class="block reveal" data-i="${i}" style="transition-delay:${Math.min(i * 60, 240)}ms">
+    <div class="block collapsed ${revealCls}" data-i="${i}" style="transition-delay:${Math.min(i * 60, 240)}ms">
       <div class="block-head">
         <span class="badges"><span class="time">${esc(fmtRange(b))}</span><span class="now">NOW</span></span>
-        ${i < blocks.length - 1 ? `<button class="block-reroll-btn" aria-label="Swap this drill for another">${ICONS.reroll}</button>` : ''}
-        ${diagBtn(b)}
+        <span class="block-tools">
+          ${i < blocks.length - 1 ? `<button class="block-reroll-btn" aria-label="Swap this drill for another">${ICONS.reroll}</button>` : ''}
+          <span class="block-chev" aria-hidden="true">${ICONS.chevron}</span>
+        </span>
       </div>
-      <h3>${esc(b.title)}</h3>
+      <div class="block-title-row"><h3>${esc(b.title)}</h3>${blockThumb(b)}</div>
       ${renderFacets(b)}
       ${b.cue ? `<div class="cue">"${esc(b.cue)}"</div>` : ''}
     </div>`).join('');
   $('timeline').querySelectorAll('.block').forEach((el) => {
     el.addEventListener('click', () => {
       const i = Number(el.dataset.i);
-      if (state.live) liveJumpTo(i); else setCurrentBlock(i);
+      if (state.live) liveJumpTo(i); else el.classList.toggle('collapsed');
     });
   });
 
   const rot = plan.rotation;
   $('rotationSlot').innerHTML = rot && rot.summary ? `
-    <div class="card reveal">
+    <div class="card ${revealCls}">
       <h3>${ICONS.users} Rotation</h3>
       <p>${esc(rot.summary)}</p>
       ${rot.needs_diagram ? courtDiagram(inp.players) : ''}
@@ -3656,14 +3902,14 @@ function showPlan(animate) {
 
   const fin = plan.finisher;
   $('finisherSlot').innerHTML = fin && fin.title ? `
-    <div class="card finisher reveal">
+    <div class="card finisher ${revealCls}">
       <div class="tag">${ICONS.trophy} Competitive finisher</div>
       ${diagBtn(fin)}
       <h3>${esc(fin.title)}</h3>
       <p>${esc(fin.description)}</p>
     </div>` : '';
 
-  $('timeline').querySelectorAll('.block-diagram-btn').forEach((btn) => {
+  $('timeline').querySelectorAll('.block-thumb').forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
       openDiagramSheet(blocks[Number(btn.closest('.block').dataset.i)]);
@@ -3677,11 +3923,17 @@ function showPlan(animate) {
   });
   const finDiagBtn = document.querySelector('#finisherSlot .block-diagram-btn');
   if (finDiagBtn) finDiagBtn.addEventListener('click', () => openDiagramSheet(fin));
+}
+
+function showPlan(animate) {
+  if (state.live) endLive(true); // a new plan replaces any running session
+  renderPlan({ reveal: true });
 
   const swap = () => {
     $('askScreen').hidden = true;
     $('askScreen').classList.remove('exit');
     $('planScreen').hidden = false;
+    syncDaylightBody();
     window.scrollTo({ top: 0 });
     document.querySelectorAll('#planScreen .reveal').forEach((el) => {
       if (REDUCED) el.classList.add('in'); else revealer.observe(el);
@@ -3748,11 +4000,13 @@ function unlockChime() {
   else onSuccess();
 }
 function chime() {
-  try {
-    const el = $('chimeAudio');
-    el.currentTime = 0;
-    el.play().catch(() => { /* best-effort — vibration still fires */ });
-  } catch { /* ignore */ }
+  if (!chimeMuted) {
+    try {
+      const el = $('chimeAudio');
+      el.currentTime = 0;
+      el.play().catch(() => { /* best-effort — vibration still fires */ });
+    } catch { /* ignore */ }
+  }
   if (navigator.vibrate) navigator.vibrate([120, 80, 120]);
 }
 // Short tactile blip for taps/swipes — distinct from the longer block-change chime pattern.
@@ -3788,13 +4042,36 @@ function saveLive() {
 function applyDaylight(on) {
   $('glance').classList.toggle('daylight', on);
   $('liveBar').classList.toggle('daylight', on);
-  const btn = $('glanceThemeBtn');
-  btn.classList.toggle('on', on);
-  btn.setAttribute('aria-label', on ? 'Switch to dark mode' : 'Switch to daylight mode');
   localStorage.setItem('pp_daylight', on ? '1' : '0');
+  syncDaylightBody();
+  paintDaylightButtons();
 }
-function toggleDaylight() { applyDaylight(!$('glance').classList.contains('daylight')); }
+function isDaylight() { return $('glance').classList.contains('daylight'); }
+// The plan screen follows the same preference, but only while it is showing
+// — the ask screen keeps its dark stage.
+function syncDaylightBody() { document.body.classList.toggle('daylight', isDaylight() && !$('planScreen').hidden); }
+function paintDaylightButtons() {
+  const on = isDaylight();
+  ['glanceThemeBtn', 'planThemeBtn'].forEach((id) => {
+    const b = $(id); if (!b) return;
+    b.classList.toggle('on', on);
+    b.setAttribute('aria-label', on ? 'Switch to dark mode' : 'Switch to daylight mode');
+  });
+}
+function toggleDaylight() { applyDaylight(!isDaylight()); }
 applyDaylight(localStorage.getItem('pp_daylight') === '1');
+
+// Chime mute — some groups don't want a phone dinging. Vibration stays on.
+let chimeMuted = localStorage.getItem('pp_mute') === '1';
+function setMuted(on) {
+  chimeMuted = on;
+  localStorage.setItem('pp_mute', on ? '1' : '0');
+  const b = $('glanceMuteBtn');
+  b.classList.toggle('on', on);
+  b.innerHTML = on ? ICONS.muted : ICONS.speaker;
+  b.setAttribute('aria-label', on ? 'Unmute the chime' : 'Mute the chime');
+}
+setMuted(chimeMuted);
 
 // "Sessions actually run" is the number that matters. Log start / complete /
 // end (fire-and-forget, insert-only table) so it is measurable. Never blocks
@@ -3827,7 +4104,7 @@ function startLive(resumeData) {
   unlockChime();
   $('actionBar').style.display = 'none';
   $('liveBar').hidden = false;
-  document.querySelector('.tap-hint').textContent = 'Tap a block to jump the clock there';
+  document.querySelector('.tap-hint').textContent = 'Tap a drill to jump the clock there';
   if (!state.live.pausedAt) acquireWakeLock();
   paintPause();
   state.live.tick = setInterval(liveTick, 1000);
@@ -3849,7 +4126,8 @@ function endLive(silent) {
   $('actionBar').style.display = '';
   closeGlance();
   const hint = document.querySelector('.tap-hint');
-  if (hint) hint.textContent = 'Tap a block to mark where you are';
+  if (hint) hint.textContent = 'Start when you\'re on court · tap a drill for details';
+  closeTimeSheet();
   $('liveEndBtn').classList.remove('holding');
   if (!silent) toast('Session ended. Well played.');
 }
@@ -3891,6 +4169,71 @@ function liveJumpTo(i) {
   if (state.live.pausedAt) state.live.pausedAt = now; // stay paused, but at the new point
   liveTick(true);
   saveLive();
+}
+
+// ── Mid-session time edits ────────────────────────────────
+// Both mutate the plan's timeline in place (minutes are relative to the
+// session start, so the running clock needs no adjustment) then re-render.
+const round1 = (n) => Math.round(n * 10) / 10;
+function afterTimelineEdit(msg) {
+  tapHaptic();
+  renderPlan({ reveal: false });
+  paintCurrentBlock();
+  liveTick(true);
+  saveLive();
+  toast(msg);
+}
+// "This drill is going well": the current block gets `mins` more, everything
+// after it shifts down by the same amount.
+function extendCurrentBlock(mins) {
+  if (!state.live) return;
+  const blocks = liveBlocks();
+  const i = liveBlockAt(liveElapsedMin());
+  if (i === -1) return;
+  for (let j = i; j < blocks.length; j++) {
+    if (j > i) blocks[j].start = round1(Number(blocks[j].start) + mins);
+    blocks[j].end = round1(Number(blocks[j].end) + mins);
+  }
+  afterTimelineEdit(`+${mins} min on ${blocks[i].title}`);
+}
+// "We only have 20 minutes left": what remains (the rest of the current
+// block plus every block after it) is squeezed proportionally into the
+// minutes given, no block shorter than a minute, the end pinned exactly.
+function rescaleRemaining(minsLeft) {
+  if (!state.live) return;
+  const blocks = liveBlocks();
+  const now = liveElapsedMin();
+  const i = liveBlockAt(now);
+  if (i === -1) return;
+  const remaining = Number(blocks[blocks.length - 1].end) - now;
+  if (remaining <= 0) return;
+  let durs = blocks.slice(i).map((b, k) => Math.max(0.5, Number(b.end) - (k === 0 ? now : Number(b.start))));
+  const factor = minsLeft / durs.reduce((a, d) => a + d, 0);
+  durs = durs.map((d) => Math.max(1, d * factor));
+  const norm = minsLeft / durs.reduce((a, d) => a + d, 0);
+  let cursor = now;
+  blocks.slice(i).forEach((b, k) => {
+    if (k > 0) b.start = round1(cursor);
+    cursor += durs[k] * norm;
+    b.end = round1(cursor);
+  });
+  blocks[blocks.length - 1].end = round1(now + minsLeft);
+  closeTimeSheet();
+  afterTimelineEdit(`Rescaled — ${minsLeft} min left`);
+}
+function openTimeSheet() {
+  if (!state.live) return;
+  $('timeVeil').hidden = false;
+  requestAnimationFrame(() => { $('timeVeil').classList.add('open'); $('timeSheet').classList.add('open'); });
+  $('timeSheet').setAttribute('aria-hidden', 'false');
+}
+function closeTimeSheet() {
+  const sheet = $('timeSheet');
+  if (!sheet || !sheet.classList.contains('open')) return;
+  $('timeVeil').classList.remove('open');
+  sheet.classList.remove('open');
+  sheet.setAttribute('aria-hidden', 'true');
+  setTimeout(() => { $('timeVeil').hidden = true; }, 250);
 }
 
 const GLANCE_RING_CIRC = 578; // 2π·92, matches the SVG ring radius
@@ -4017,11 +4360,13 @@ function backToAsk() {
       personaId: state.sessionInputs.personaId, players: state.sessionInputs.players,
       courts: state.sessionInputs.courts, duration: state.sessionInputs.duration,
       level: state.sessionInputs.level, focus: state.sessionInputs.focus || '',
+      equipment: Array.isArray(state.sessionInputs.equipment) ? state.sessionInputs.equipment : [],
     });
-    renderPersonas(); renderSteppers(); renderLevels(); renderFocus();
+    renderPersonas(); renderSteppers(); renderLevels(); renderFocus(); renderKit();
   }
   $('planScreen').hidden = true;
   $('askScreen').hidden = false;
+  syncDaylightBody();
   window.scrollTo({ top: 0 });
 }
 
@@ -4047,7 +4392,7 @@ function planAsText() {
     lines.push('');
   });
   if (plan.rotation?.summary) { lines.push(`🔄 Rotation: ${plan.rotation.summary}`); lines.push(''); }
-  lines.push('— made with PracticePal');
+  lines.push('— made with PracticePal · practicepal.ie');
   return lines.join('\n');
 }
 
@@ -4169,6 +4514,7 @@ function remix(variation) {
   requestPlan({
     persona: inp.personaId, players: inp.players, courts: inp.courts,
     duration: inp.duration, level: inp.level, focus: inp.focus,
+    equipment: Array.isArray(inp.equipment) ? inp.equipment : [],
     variation, previousTitle: state.plan?.title || '',
   });
 }
@@ -4181,6 +4527,7 @@ renderPersonas();
 renderSteppers();
 renderLevels();
 renderFocus();
+renderKit();
 
 $('generateBtn').addEventListener('click', generate);
 $('startLiveBtn').addEventListener('click', () => startLive());
@@ -4260,12 +4607,20 @@ $('glanceSkipBtn').addEventListener('click', () => {
   });
   el.addEventListener('pointercancel', () => { tracking = false; });
 })();
+$('glanceMuteBtn').addEventListener('click', (e) => { e.stopPropagation(); tapHaptic(); setMuted(!chimeMuted); });
+$('glancePlus5Btn').addEventListener('click', (e) => { e.stopPropagation(); extendCurrentBlock(5); });
+$('glanceLessTimeBtn').addEventListener('click', (e) => { e.stopPropagation(); openTimeSheet(); });
+$('timeVeil').addEventListener('click', closeTimeSheet);
+document.querySelectorAll('#timeSheet .opts button').forEach((b) => {
+  b.addEventListener('click', () => rescaleRemaining(Number(b.dataset.min)));
+});
 $('menuBtn').addEventListener('click', openDrawer);
 $('drawerVeil').addEventListener('click', closeDrawer);
 $('profileCloseBtn').addEventListener('click', closeProfileSheet);
 $('profileVeil').addEventListener('click', closeProfileSheet);
 $('profileSavePasswordBtn').addEventListener('click', updateProfilePassword);
 $('profileSignOutBtn').addEventListener('click', () => { signOut(); closeProfileSheet(); closeDrawer(); });
+$('profileDeleteBtn').addEventListener('click', deleteAccount);
 $('summaryBar').addEventListener('click', backToAsk);
 $('shareBtn').addEventListener('click', share);
 $('remixBtn').addEventListener('click', openSheet);
@@ -4335,6 +4690,31 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js').catch((err) => console.error('SW registration failed', err));
   });
 }
+
+// Errors on testers' phones otherwise vanish. Report the first few per page
+// load to an insert-only table — never more, never when offline, and never
+// in a way that can itself throw.
+let clientErrorsSent = 0;
+function reportClientError(e) {
+  if (clientErrorsSent >= 5 || !navigator.onLine) return;
+  clientErrorsSent += 1;
+  try {
+    sb.from('practicepal_client_errors').insert({
+      user_id: currentUser?.id || null,
+      client_id: clientId(),
+      message: String(e.message || e || 'unknown').slice(0, 500),
+      source: String(e.source || '').slice(0, 200),
+      line: Number.isFinite(e.line) ? e.line : null,
+      col: Number.isFinite(e.col) ? e.col : null,
+      stack: String(e.stack || '').slice(0, 1500),
+      url: location.href.slice(0, 300),
+      user_agent: navigator.userAgent.slice(0, 300),
+      app_state: `${$('planScreen').hidden ? 'ask' : 'plan'}${state.live ? '/live' : ''}`,
+    }).then(() => {}, () => {});
+  } catch { /* never throw from the reporter */ }
+}
+window.addEventListener('error', (ev) => reportClientError({ message: ev.message, source: ev.filename, line: ev.lineno, col: ev.colno, stack: ev.error && ev.error.stack }));
+window.addEventListener('unhandledrejection', (ev) => { const r = ev.reason; reportClientError({ message: (r && r.message) || String(r), stack: r && r.stack }); });
 </script>
 </body>
 </html>

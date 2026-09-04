@@ -1,0 +1,44 @@
+# Keeps the free-plan Supabase project awake and doubles as a daily health
+# check. Supabase pauses free projects after ~7 days of low database
+# activity (it happened in July 2026 and took the whole app down until it
+# was noticed in September). A real read through the public API every day
+# counts as activity. If the read fails, this job fails and GitHub emails
+# the workflow's author — that email IS the alert.
+#
+# The key below is the public "anon" key, the same one shipped in index.html.
+# It can only do what any visitor's browser can do.
+name: Keep Supabase awake
+
+on:
+  schedule:
+    - cron: '23 7 * * *'   # every day, 07:23 UTC
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      PROJECT: https://tfnlygofikamyoscdrik.supabase.co
+      ANON: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRmbmx5Z29maWthbXlvc2NkcmlrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEwMTUxNzIsImV4cCI6MjA5NjU5MTE3Mn0.6uTGpXK_BpnQcxTbWbrB_uu_iRBqWxWSvN5PLw797WE
+    steps:
+      - name: Read from the database through the public API
+        run: |
+          set -uo pipefail
+          for attempt in 1 2 3; do
+            code=$(curl -s -o /tmp/body -w '%{http_code}' --max-time 20 \
+              "$PROJECT/rest/v1/practicepal_shared?select=id&limit=1" \
+              -H "apikey: $ANON" -H "Authorization: Bearer $ANON")
+            echo "attempt $attempt: HTTP $code"
+            if [ "$code" = "200" ]; then exit 0; fi
+            sleep 30
+          done
+          echo "::error::Supabase did not answer with HTTP 200 after 3 attempts — the project may be paused or down. Open https://supabase.com/dashboard/project/tfnlygofikamyoscdrik"
+          cat /tmp/body || true
+          exit 1
+      - name: Check the session generator is reachable
+        run: |
+          code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 -X OPTIONS \
+            "$PROJECT/functions/v1/practicepal" -H "Origin: https://luc1on.github.io")
+          echo "edge function preflight: HTTP $code"
+          [ "$code" = "200" ] || { echo "::error::Edge function preflight failed (HTTP $code)"; exit 1; }

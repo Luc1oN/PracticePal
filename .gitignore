@@ -1,0 +1,4 @@
+# Strategy documents and exports live in ../PracticePal-docs — the repo is public.
+*.docx
+*.pdf
+.DS_Store

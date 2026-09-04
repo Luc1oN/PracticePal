@@ -39,6 +39,6 @@ jobs:
       - name: Check the session generator is reachable
         run: |
           code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 -X OPTIONS \
-            "$PROJECT/functions/v1/practicepal" -H "Origin: https://luc1on.github.io")
+            "$PROJECT/functions/v1/practicepal" -H "Origin: https://app.practicepal.ie")
           echo "edge function preflight: HTTP $code"
           [ "$code" = "200" ] || { echo "::error::Edge function preflight failed (HTTP $code)"; exit 1; }

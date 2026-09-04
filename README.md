@@ -4,7 +4,7 @@ Turns an aimless hit into intentional practice. Pick a practice style, set playe
 
 Made by a player, for players. Coaches are welcome, but it is not a coaching tool.
 
-- **Live app:** https://luc1on.github.io/PracticePal/
+- **Live app:** https://app.practicepal.ie/
 - **Site and beta signup:** https://practicepal.ie
 
 ## How it's built

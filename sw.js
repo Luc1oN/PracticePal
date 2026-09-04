@@ -13,11 +13,12 @@
 //
 // Bump CACHE_VERSION whenever the precache list changes so old caches are
 // dropped on the next activate.
-const CACHE_VERSION = 'pp-shell-v1';
+const CACHE_VERSION = 'pp-shell-v2';
 const SHELL_FILES = [
   './',
   './index.html',
   './manifest.webmanifest',
+  './court-diagram.js',
   './icons/favicon.ico',
   './icons/favicon-16.png',
   './icons/favicon-32.png',
@@ -50,15 +51,17 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(req.url);
   if (url.origin !== self.location.origin) return; // fonts/Supabase/Anthropic — always go live
 
-  if (req.mode === 'navigate') {
+  // Scripts change with the app: fetch fresh when online, cached when not,
+  // so a new renderer never sits frozen behind an old cache.
+  if (req.mode === 'navigate' || url.pathname.endsWith('.js')) {
     event.respondWith(
       fetch(req)
         .then((res) => {
           const copy = res.clone();
-          caches.open(CACHE_VERSION).then((cache) => cache.put('./index.html', copy));
+          caches.open(CACHE_VERSION).then((cache) => cache.put(req.mode === 'navigate' ? './index.html' : req, copy));
           return res;
         })
-        .catch(() => caches.match('./index.html'))
+        .catch(() => caches.match(req.mode === 'navigate' ? './index.html' : req))
     );
     return;
   }

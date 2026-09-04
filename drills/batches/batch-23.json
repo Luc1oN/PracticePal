@@ -1,0 +1,549 @@
+[
+ {
+  "slug": "service-line-gate-rally",
+  "name": "Service-Line Gate Rally",
+  "summary": "Builds depth from both wings by counting only cross-court rally balls that land between the service line and the baseline.",
+  "skill_focus": ["forehand", "backhand"],
+  "levels": ["improver", "intermediate"],
+  "age_groups": ["junior", "adult"],
+  "court_space": "full_court",
+  "intensity": "low",
+  "players_min": 2,
+  "players_max": 2,
+  "duration_min": 8,
+  "duration_max": 12,
+  "equipment": [],
+  "setup": "Both players on their own baseline, standing on the deuce side a step inside the singles sideline so the rally runs forehand to forehand for two right-handers. Three balls in the pocket of the player who starts. No markers: the service line is the gate.",
+  "instructions": [
+   "Player A drop-hits a cross-court forehand to start; rally cross-court cooperatively.",
+   "A ball only scores if it lands between the service line and the baseline; count the score out loud and reset to zero on a miss or a short ball.",
+   "First target: 12 in a row. When you get there, both players move to the ad side and repeat backhand to backhand.",
+   "Collect the balls together whenever the pocket is empty; a short ball is not a fault, it just does not count.",
+   "Third round: alternate sides every 6 shots so both wings get gates in the same rally."
+  ],
+  "coaching_points": [
+   "Aim a racket length over the net; depth comes from height, not speed.",
+   "Recover to the centre mark between shots even though the ball keeps coming to the same side.",
+   "Contact out in front of the hip, weight moving into the court.",
+   "Say the count on contact so the rhythm stays steady."
+  ],
+  "progressions": [
+   "Raise the target to 20 in a row before switching wings.",
+   "Only balls landing within two racket lengths of the baseline count.",
+   "Alternate sides every 3 shots instead of every 6."
+  ],
+  "regressions": [
+   "Count any ball that clears the net and lands in, but say 'deep' or 'short' after each one.",
+   "Lower the target to 6 in a row.",
+   "Start each rally from the service line and step back to the baseline after 4 shots."
+  ],
+  "court_diagram": {
+   "court": "full",
+   "players": [
+    {"id": "P1", "x": 0.72, "y": 0.95, "label": "A"},
+    {"id": "P2", "x": 0.28, "y": 0.05, "label": "B"}
+   ],
+   "equipment": [],
+   "paths": [
+    {"from": "P1", "to": [0.3, 0.12], "style": "ball", "step": 1},
+    {"from": "P2", "to": [0.7, 0.88], "style": "ball", "step": 2},
+    {"from": "P1", "to": [0.3, 0.1], "style": "ball", "step": 3}
+   ]
+  },
+  "source": "generated"
+ },
+ {
+  "slug": "alley-lane-down-the-line",
+  "name": "Alley Lane Down the Line",
+  "summary": "Grooves the down-the-line shot by rallying inside the lane between the singles and doubles sidelines with nothing but the painted lines as the target.",
+  "skill_focus": ["forehand", "backhand"],
+  "levels": ["intermediate", "advanced"],
+  "age_groups": ["junior", "adult"],
+  "court_space": "cross_court_channel",
+  "intensity": "medium",
+  "players_min": 2,
+  "players_max": 2,
+  "duration_min": 8,
+  "duration_max": 12,
+  "equipment": [],
+  "setup": "Both players on the baseline, directly opposite each other on the same sideline, standing on the singles sideline. The target lane is the alley plus one racket length inside the singles line, running the full length of the court. Two balls each in the pocket.",
+  "instructions": [
+   "Player A drop-hits down the line into the lane; rally straight down the line, both players staying in the lane.",
+   "A ball that lands outside the lane on the inside ends the rally; a ball in the alley or on the lines counts.",
+   "Count consecutive lane balls; aim for 10, then swap to the other sideline so the other wing gets the same job.",
+   "After both wings, play the same rally but the receiver may hit one cross-court escape per rally, which the partner must chase and bring back into the lane.",
+   "Finish with 3 minutes of lane points: first to 7, only lane balls count as winners."
+  ],
+  "coaching_points": [
+   "Line up the shoulders parallel to the sideline before the ball bounces.",
+   "Contact a little later than cross-court, level with the front hip, not in front of it.",
+   "Finish with the racket pointing down the line, not across the body.",
+   "Height over the net is your safety margin, not a slower swing."
+  ],
+  "progressions": [
+   "Shrink the lane to the alley alone.",
+   "Require every second ball to land beyond the service line.",
+   "Play the lane points to 11 with the cross-court escape allowed for both players."
+  ],
+  "regressions": [
+   "Widen the lane to two racket lengths inside the singles line.",
+   "Rally from the service line for the first 3 minutes, then move back.",
+   "Count any straight ball that clears the net, ignoring the lane edge."
+  ],
+  "court_diagram": {
+   "court": "full",
+   "players": [
+    {"id": "P1", "x": 0.9, "y": 0.95, "label": "A"},
+    {"id": "P2", "x": 0.9, "y": 0.05, "label": "B"}
+   ],
+   "equipment": [],
+   "paths": [
+    {"from": "P1", "to": [0.92, 0.14], "style": "ball", "step": 1},
+    {"from": "P2", "to": [0.92, 0.86], "style": "ball", "step": 2},
+    {"from": "P1", "to": [0.93, 0.12], "style": "ball", "step": 3}
+   ]
+  },
+  "source": "generated"
+ },
+ {
+  "slug": "two-cross-one-line",
+  "name": "Two Cross, One Line",
+  "summary": "Trains the change of direction by rallying two balls cross-court and the third down the line, with both players recovering to cover the new angle.",
+  "skill_focus": ["forehand", "backhand", "tactical"],
+  "levels": ["intermediate", "advanced"],
+  "age_groups": ["junior", "adult"],
+  "court_space": "full_court",
+  "intensity": "medium",
+  "players_min": 2,
+  "players_max": 2,
+  "duration_min": 10,
+  "duration_max": 15,
+  "equipment": [],
+  "setup": "Both players on their baselines, starting on the deuce side. Player A is the pattern player, Player B is the wall. Three balls in Player B's pocket. No markers; the singles sidelines define the angles.",
+  "instructions": [
+   "Player B drop-hits cross-court to start. Player A hits two balls cross-court, then the third down the line.",
+   "Player B returns every ball back to wherever Player A is standing, so Player A has to recover and hit the pattern from moving.",
+   "After the down-the-line ball the rally continues cross-court from the new diagonal: two cross, one line again.",
+   "Play 4 minutes, then swap roles.",
+   "Final round: both players run the pattern at the same time, so every third ball changes the diagonal for both."
+  ],
+  "coaching_points": [
+   "Decide the down-the-line ball before the second cross-court ball bounces.",
+   "Recover diagonally towards the centre mark after the line ball; the reply comes to the open side.",
+   "Hit the line ball higher over the net than the cross-court balls; the net is higher there.",
+   "Shoulders turn earlier for the line ball, feet the same."
+  ],
+  "progressions": [
+   "Change the pattern to one cross, one line.",
+   "The wall player may return the line ball anywhere, and the point is played out live.",
+   "Every ball must land beyond the service line to keep the pattern alive."
+  ],
+  "regressions": [
+   "Three cross, one line.",
+   "The wall player returns everything down the middle so recovery distances are shorter.",
+   "Walk through the first two patterns at half pace before counting."
+  ],
+  "court_diagram": {
+   "court": "full",
+   "players": [
+    {"id": "P1", "x": 0.7, "y": 0.95, "label": "A"},
+    {"id": "P2", "x": 0.32, "y": 0.05, "label": "B"}
+   ],
+   "equipment": [],
+   "paths": [
+    {"from": "P2", "to": "P1", "style": "ball", "step": 1},
+    {"from": "P1", "to": [0.3, 0.12], "style": "ball", "step": 2},
+    {"from": "P2", "to": [0.7, 0.88], "style": "ball", "step": 3},
+    {"from": "P1", "to": [0.82, 0.1], "style": "ball", "step": 4},
+    {"from": "P2", "to": [0.82, 0.1], "style": "movement", "step": 4},
+    {"from": "P1", "to": [0.5, 0.95], "style": "movement", "step": 5}
+   ]
+  },
+  "source": "generated"
+ },
+ {
+  "slug": "inside-out-runaround-rally",
+  "name": "Inside-Out Runaround Rally",
+  "summary": "Develops the run-around forehand by rallying inside-out from the backhand corner against a partner who keeps feeding the backhand side with live balls.",
+  "skill_focus": ["forehand", "movement"],
+  "levels": ["advanced"],
+  "age_groups": ["junior", "adult"],
+  "court_space": "full_court",
+  "intensity": "high",
+  "players_min": 2,
+  "players_max": 2,
+  "duration_min": 8,
+  "duration_max": 12,
+  "equipment": [],
+  "setup": "Player A on the baseline, starting at the centre mark. Player B on the far baseline in the ad-side corner (their backhand corner for a right-hander), a step inside the singles sideline. Three balls in Player B's pocket.",
+  "instructions": [
+   "Player B drop-hits a medium-pace ball into Player A's backhand corner.",
+   "Player A runs around the backhand and hits an inside-out forehand back to Player B's corner; Player B hits a backhand back to the same spot.",
+   "Rally like that: every ball from Player B goes to Player A's backhand side, every reply is a forehand.",
+   "Count consecutive inside-out forehands; after 3 minutes swap roles.",
+   "Third round: Player A may hit one inside-in forehand down the line whenever the ball sits up, and the point is played out."
+  ],
+  "coaching_points": [
+   "First step is sideways and back, so you end up behind the ball, not beside it.",
+   "Contact well in front and the swing finishes across the body, not over the shoulder.",
+   "Recover only as far as a step left of the centre mark; the next ball is coming back to the same side.",
+   "Keep the ball high over the net; a run-around that lands short is a free short ball."
+  ],
+  "progressions": [
+   "Player B hits every reply harder and flatter.",
+   "Alternate one inside-out and one inside-in forehand and keep the rally alive.",
+   "Player B may hit one ball to the forehand side per rally; Player A must still run around the next backhand."
+  ],
+  "regressions": [
+   "Player B drop-hits every ball instead of rallying so the timing is predictable.",
+   "Player A starts a step left of centre, halving the run.",
+   "Rally from a metre inside the baseline with slower balls."
+  ],
+  "court_diagram": {
+   "court": "full",
+   "players": [
+    {"id": "P1", "x": 0.5, "y": 0.95, "label": "A"},
+    {"id": "P2", "x": 0.72, "y": 0.06, "label": "B"}
+   ],
+   "equipment": [],
+   "paths": [
+    {"from": "P2", "to": [0.26, 0.9], "style": "ball", "step": 1},
+    {"from": "P1", "to": [0.2, 0.96], "style": "movement", "step": 1},
+    {"from": "P1", "to": [0.72, 0.1], "style": "ball", "step": 2},
+    {"from": "P1", "to": [0.42, 0.95], "style": "movement", "step": 3},
+    {"from": "P2", "to": [0.26, 0.9], "style": "ball", "step": 3}
+   ]
+  },
+  "source": "generated"
+ },
+ {
+  "slug": "short-long-rhythm-rally",
+  "name": "Short-Long Rhythm Rally",
+  "summary": "Teaches control of length by alternating a ball inside the service box with a ball beyond the service line, so both players practise taking pace off and adding it.",
+  "skill_focus": ["forehand", "backhand"],
+  "levels": ["improver", "intermediate"],
+  "age_groups": ["junior", "adult"],
+  "court_space": "full_court",
+  "intensity": "medium",
+  "players_min": 2,
+  "players_max": 2,
+  "duration_min": 8,
+  "duration_max": 12,
+  "equipment": [],
+  "setup": "Both players a step inside their baseline on the deuce side. Two balls each. The service line and the service box are the only markers needed.",
+  "instructions": [
+   "Player A drop-hits cross-court and calls 'short' or 'long' before every ball they hit: short lands inside the service box, long lands beyond the service line.",
+   "Player A alternates short, long, short, long; Player B returns every ball deep and cooperatively.",
+   "After 2 minutes swap the calling role.",
+   "Third round: both players alternate, so a short ball is answered by a long one, and the rally moves in and out.",
+   "Last 3 minutes: same rally, but a short ball that sits up above the net may be attacked and the point played out."
+  ],
+  "coaching_points": [
+   "Short ball: shorten the follow-through, soften the grip, same swing path.",
+   "Long ball: lift the ball higher over the net; do not swing harder.",
+   "Call the shot before the ball crosses the net on its way to you.",
+   "Move forward to meet the short ball; never let it drop below the net."
+  ],
+  "progressions": [
+   "Short balls must land in the service box and beyond the T; long balls within two racket lengths of the baseline.",
+   "Go two short, two long.",
+   "The receiver returns short balls short and long balls long, mirroring the pattern."
+  ],
+  "regressions": [
+   "Only call and hit the long ball; every other ball can go anywhere in.",
+   "Rally from the service line so the short ball is a mini-tennis touch.",
+   "Drop-hit each ball after a miss instead of counting a reset."
+  ],
+  "court_diagram": {
+   "court": "full",
+   "players": [
+    {"id": "P1", "x": 0.7, "y": 0.93, "label": "A"},
+    {"id": "P2", "x": 0.3, "y": 0.07, "label": "B"}
+   ],
+   "equipment": [],
+   "paths": [
+    {"from": "P1", "to": [0.32, 0.33], "style": "ball", "step": 1},
+    {"from": "P2", "to": [0.32, 0.33], "style": "movement", "step": 1},
+    {"from": "P2", "to": [0.7, 0.88], "style": "ball", "step": 2},
+    {"from": "P2", "to": "P2", "style": "movement", "step": 3},
+    {"from": "P1", "to": [0.3, 0.1], "style": "ball", "step": 3}
+   ]
+  },
+  "source": "generated"
+ },
+ {
+  "slug": "backhand-corner-count",
+  "name": "Backhand Corner Count",
+  "summary": "Isolates the cross-court backhand by rallying backhand to backhand from the ad corners with a running count that only resets on an error.",
+  "skill_focus": ["backhand"],
+  "levels": ["improver"],
+  "age_groups": ["junior", "adult"],
+  "court_space": "cross_court_channel",
+  "intensity": "low",
+  "players_min": 2,
+  "players_max": 2,
+  "duration_min": 8,
+  "duration_max": 10,
+  "equipment": [],
+  "setup": "Both right-handers stand in their ad corner on the baseline, a step inside the singles sideline, so the diagonal runs backhand to backhand. Three balls with the starter. If one player is left-handed, they stand in the deuce corner instead so it is still backhand to backhand.",
+  "instructions": [
+   "Player A drop-hits a backhand cross-court; rally backhand to backhand only.",
+   "Count every ball that lands in the half of the court on the backhand side; a ball that drifts to the forehand side ends the count.",
+   "Target 15 in a row. When you get there, both step one metre further into the corner and go again.",
+   "Every reset, the other player starts the next rally.",
+   "Finish with a best-of-three race: each rally is a point to the player who did not make the error, first to 5."
+  ],
+  "coaching_points": [
+   "Turn the shoulders until the back faces the net a little; the racket goes back with them.",
+   "Contact in front of the front foot, arm long at contact.",
+   "Keep the ball high and heavy cross-court; the corner is a long way away.",
+   "Recover a step towards the middle even though the next ball is coming back to the corner."
+  ],
+  "progressions": [
+   "Only balls landing beyond the service line count.",
+   "Add a slice backhand every third ball and keep the count going.",
+   "Widen the target to include the doubles alley and reward the sharper angle with 2 points."
+  ],
+  "regressions": [
+   "Start from the service line and rally at mini-tennis pace for 3 minutes first.",
+   "Count any backhand that clears the net, wherever it lands.",
+   "Drop the target to 8 in a row."
+  ],
+  "court_diagram": {
+   "court": "full",
+   "players": [
+    {"id": "P1", "x": 0.26, "y": 0.95, "label": "A"},
+    {"id": "P2", "x": 0.74, "y": 0.05, "label": "B"}
+   ],
+   "equipment": [],
+   "paths": [
+    {"from": "P1", "to": [0.74, 0.12], "style": "ball", "step": 1},
+    {"from": "P2", "to": [0.26, 0.88], "style": "ball", "step": 2},
+    {"from": "P1", "to": [0.72, 0.1], "style": "ball", "step": 3}
+   ]
+  },
+  "source": "generated"
+ },
+ {
+  "slug": "four-then-live-half-court",
+  "name": "Four Then Live, Half Court",
+  "summary": "Combines rhythm and competition by playing points that must start with four cooperative cross-court balls before either player may go for it, all inside one half of the court.",
+  "skill_focus": ["forehand", "backhand", "tactical"],
+  "levels": ["intermediate"],
+  "age_groups": ["junior", "adult"],
+  "court_space": "half_court",
+  "intensity": "high",
+  "players_min": 2,
+  "players_max": 2,
+  "duration_min": 10,
+  "duration_max": 15,
+  "equipment": [],
+  "setup": "Both players on their baseline on the deuce side. The playing area for every point is the deuce half of the singles court on both sides, from the centre line to the singles sideline. Three balls with the starter.",
+  "instructions": [
+   "Player A drop-hits cross-court; balls 1 to 4 are cooperative and must land in the half.",
+   "From ball 5 the point is live: anything in the half counts, angles and drop shots included.",
+   "A miss inside the first four balls is replayed; a miss after ball 4 is a point.",
+   "First to 7, then swap to the ad half and play again.",
+   "Third game: the count is three cooperative balls, then live."
+  ],
+  "coaching_points": [
+   "Use the four cooperative balls to get deep and get your feet moving; the point starts before it starts.",
+   "On ball 5, the first short ball wins: step in and take it early.",
+   "Recover to the middle of your half, not the middle of the court.",
+   "Aim at the corner of the service box for the winner; the line is the target, not the sideline."
+  ],
+  "progressions": [
+   "Two cooperative balls, then live.",
+   "The half gets narrower: from the centre line to a racket length inside the singles sideline.",
+   "Winners must land beyond the service line or in the service box corner, nowhere else."
+  ],
+  "regressions": [
+   "Six cooperative balls before live.",
+   "Play the points to 5 and allow a second chance on the first miss of each point.",
+   "Use the full width of the court for the live part but keep the cooperative balls cross-court."
+  ],
+  "court_diagram": {
+   "court": "full",
+   "players": [
+    {"id": "P1", "x": 0.7, "y": 0.95, "label": "A"},
+    {"id": "P2", "x": 0.3, "y": 0.05, "label": "B"}
+   ],
+   "equipment": [],
+   "paths": [
+    {"from": "P1", "to": [0.3, 0.12], "style": "ball", "step": 1},
+    {"from": "P2", "to": [0.7, 0.88], "style": "ball", "step": 2},
+    {"from": "P1", "to": [0.14, 0.3], "style": "ball", "step": 3},
+    {"from": "P2", "to": [0.14, 0.3], "style": "movement", "step": 3},
+    {"from": "P2", "to": [0.86, 0.72], "style": "ball", "step": 4}
+   ]
+  },
+  "source": "generated"
+ },
+ {
+  "slug": "deep-ball-denial-points",
+  "name": "Deep-Ball Denial Points",
+  "summary": "Punishes short balls in live points by awarding the point to the opponent the moment a rally ball lands inside the service line.",
+  "skill_focus": ["forehand", "backhand", "tactical"],
+  "levels": ["advanced"],
+  "age_groups": ["junior", "adult"],
+  "court_space": "full_court",
+  "intensity": "high",
+  "players_min": 2,
+  "players_max": 2,
+  "duration_min": 10,
+  "duration_max": 15,
+  "equipment": [],
+  "setup": "Both players on their baseline, full singles court. Three balls with the server. The service line is the only marker: everything inside it is short.",
+  "instructions": [
+   "Start every point with a drop-hit from the baseline; the starter alternates each point.",
+   "Any rally ball that lands inside the service line loses the point instantly, even if it would have been a winner.",
+   "Drop shots and angles are only legal after the point has reached 6 balls.",
+   "First to 11, change ends, play again.",
+   "Third game: the short-ball rule applies only to the player who is winning."
+  ],
+  "coaching_points": [
+   "Play with three racket lengths of clearance over the net; the baseline is the target, not the net.",
+   "When you are pulled wide, the deep middle is the safe reply.",
+   "Take the ball early on the rise to keep it deep with less effort.",
+   "Split step as your opponent hits; depth needs you to be early."
+  ],
+  "progressions": [
+   "The short zone grows: any ball landing closer to the service line than the baseline loses the point.",
+   "No drop shots or angles at all.",
+   "The starter must start with a serve, and the serve must land beyond the T."
+  ],
+  "regressions": [
+   "The first short ball of each point is a warning, the second loses it.",
+   "Play the short-ball rule only on the forehand side.",
+   "Play to 7 with a replay on any short ball inside the first four shots."
+  ],
+  "court_diagram": {
+   "court": "full",
+   "players": [
+    {"id": "P1", "x": 0.55, "y": 0.95, "label": "A"},
+    {"id": "P2", "x": 0.45, "y": 0.05, "label": "B"}
+   ],
+   "equipment": [],
+   "paths": [
+    {"from": "P1", "to": [0.3, 0.1], "style": "ball", "step": 1},
+    {"from": "P2", "to": [0.3, 0.1], "style": "movement", "step": 1},
+    {"from": "P2", "to": [0.78, 0.08], "style": "movement", "step": 2},
+    {"from": "P2", "to": [0.7, 0.9], "style": "ball", "step": 2},
+    {"from": "P1", "to": [0.7, 0.9], "style": "movement", "step": 2},
+    {"from": "P1", "to": [0.2, 0.08], "style": "ball", "step": 3}
+   ]
+  },
+  "source": "generated"
+ },
+ {
+  "slug": "call-your-zone-rally",
+  "name": "Call Your Zone Rally",
+  "summary": "Sharpens length control by making each player announce short, middle or deep before every shot and then landing the ball in that band of the court.",
+  "skill_focus": ["forehand", "backhand"],
+  "levels": ["improver", "intermediate"],
+  "age_groups": ["junior", "adult"],
+  "court_space": "full_court",
+  "intensity": "medium",
+  "players_min": 2,
+  "players_max": 2,
+  "duration_min": 8,
+  "duration_max": 12,
+  "equipment": [],
+  "setup": "Both players on their baseline, rallying down the middle of the court. Three zones with no markers: short is inside the service box, deep is the last two racket lengths before the baseline, middle is everything between. Three balls with the starter.",
+  "instructions": [
+   "Player A drop-hits to start. Before each shot the hitter calls 'short', 'middle' or 'deep' and must land the ball in that zone.",
+   "The partner judges: a ball in the called zone scores a point for the hitter, anywhere else scores nothing.",
+   "Rally cooperatively for 2 minutes, then total the points and swap who calls first.",
+   "Round three: the hitter may not call the same zone twice in a row.",
+   "Round four: the receiver calls the zone for the hitter, a split second before contact."
+  ],
+  "coaching_points": [
+   "Short: shorter swing and softer hands, not a slower ball toss of the racket.",
+   "Deep: more height over the net, same swing speed.",
+   "Make the call as the ball leaves your partner's racket, not as it bounces.",
+   "Hold your finish for a moment so you can see where it lands."
+  ],
+  "progressions": [
+   "Add 'left' or 'right' to the call, so the target becomes a square.",
+   "Balls that land in the wrong zone lose a point instead of scoring nothing.",
+   "Play the whole rally cross-court instead of down the middle."
+  ],
+  "regressions": [
+   "Use two zones only: short (inside the service box) and deep (beyond the service line).",
+   "Call the zone after the shot and check honestly whether it went there.",
+   "Rally from the service line and use the T as the zone boundary."
+  ],
+  "court_diagram": {
+   "court": "full",
+   "players": [
+    {"id": "P1", "x": 0.5, "y": 0.95, "label": "A"},
+    {"id": "P2", "x": 0.5, "y": 0.05, "label": "B"}
+   ],
+   "equipment": [],
+   "paths": [
+    {"from": "P1", "to": [0.5, 0.35], "style": "ball", "step": 1},
+    {"from": "P2", "to": [0.5, 0.35], "style": "movement", "step": 1},
+    {"from": "P2", "to": [0.5, 0.92], "style": "ball", "step": 2},
+    {"from": "P2", "to": "P2", "style": "movement", "step": 3},
+    {"from": "P1", "to": [0.5, 0.6], "style": "ball", "step": 3}
+   ]
+  },
+  "source": "generated"
+ },
+ {
+  "slug": "rally-to-ten-then-play",
+  "name": "Rally to Ten, Then Play",
+  "summary": "Turns a cooperative rally into a live point at ball ten, so consistency earns the right to compete and every point starts with real rhythm.",
+  "skill_focus": ["forehand", "backhand", "games"],
+  "levels": ["improver", "intermediate"],
+  "age_groups": ["junior", "adult"],
+  "court_space": "full_court",
+  "intensity": "medium",
+  "players_min": 2,
+  "players_max": 2,
+  "duration_min": 10,
+  "duration_max": 15,
+  "equipment": [],
+  "setup": "Both players on their baseline in the middle of the court, full singles court in play. Three balls with the starter. Both players count out loud.",
+  "instructions": [
+   "Player A drop-hits down the middle; both players rally cooperatively, counting each ball out loud.",
+   "If the rally breaks before ten, nobody scores and the other player restarts.",
+   "On ball ten the point becomes live and is played out to a normal finish.",
+   "The winner of the live point scores 1; first to 7 wins the game, then change ends.",
+   "Second game: the player who wins the point starts the next rally, and the live point begins at ball eight."
+  ],
+  "coaching_points": [
+   "During the count, hit to your partner's strength so ten arrives quickly.",
+   "Ball nine is your last chance to get in position: split step, get the racket back early.",
+   "The first live ball should go deep, not for a winner.",
+   "Say the numbers out loud so neither player jumps the gun."
+  ],
+  "progressions": [
+   "Live from ball six.",
+   "The cooperative balls must all land beyond the service line or the count resets.",
+   "The player who wins the live point must serve to start the next one."
+  ],
+  "regressions": [
+   "Live from ball fifteen.",
+   "Play the cooperative part from the service line, then step back for the live point.",
+   "Any ball in counts during the rally, including short ones."
+  ],
+  "court_diagram": {
+   "court": "full",
+   "players": [
+    {"id": "P1", "x": 0.5, "y": 0.95, "label": "A"},
+    {"id": "P2", "x": 0.5, "y": 0.05, "label": "B"}
+   ],
+   "equipment": [],
+   "paths": [
+    {"from": "P1", "to": [0.5, 0.1], "style": "ball", "step": 1},
+    {"from": "P2", "to": [0.52, 0.9], "style": "ball", "step": 2},
+    {"from": "P1", "to": [0.16, 0.15], "style": "ball", "step": 3},
+    {"from": "P2", "to": [0.16, 0.15], "style": "movement", "step": 3},
+    {"from": "P2", "to": [0.86, 0.9], "style": "ball", "step": 4},
+    {"from": "P1", "to": [0.86, 0.9], "style": "movement", "step": 4}
+   ]
+  },
+  "source": "generated"
+ }
+]

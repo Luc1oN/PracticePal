@@ -197,5 +197,32 @@
     "n_two_player": 4,
     "small_space": "full_court",
     "n_small_space": 4
+  },
+  {
+    "batch": 23,
+    "skill_focus": "forehand, backhand (no kit, 2 players)",
+    "level": "improver, intermediate, advanced",
+    "count": 10,
+    "n_two_player": 10,
+    "small_space": "cross_court_channel",
+    "n_small_space": 2
+  },
+  {
+    "batch": 24,
+    "skill_focus": "serve, return, volley, overhead (no kit, 2-4 players)",
+    "level": "improver, intermediate, advanced",
+    "count": 10,
+    "n_two_player": 7,
+    "small_space": "net_area",
+    "n_small_space": 1
+  },
+  {
+    "batch": 25,
+    "skill_focus": "tactical, movement, games (no kit, 2-4 players)",
+    "level": "improver, intermediate, advanced",
+    "count": 10,
+    "n_two_player": 5,
+    "small_space": "half_court",
+    "n_small_space": 1
   }
 ]

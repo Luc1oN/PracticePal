@@ -1,0 +1,1173 @@
+[
+ {
+  "slug": "corner-to-corner-chase",
+  "name": "Corner-to-Corner Chase",
+  "summary": "Builds baseline movement by having one player hit alternately to both corners while the partner runs, recovers and returns every ball to the middle.",
+  "skill_focus": [
+   "movement",
+   "forehand",
+   "backhand"
+  ],
+  "levels": [
+   "intermediate",
+   "advanced"
+  ],
+  "age_groups": [
+   "junior",
+   "adult"
+  ],
+  "court_space": "full_court",
+  "intensity": "high",
+  "players_min": 2,
+  "players_max": 2,
+  "duration_min": 8,
+  "duration_max": 12,
+  "equipment": [],
+  "setup": "Player A, the controller, stands in the middle of their baseline with three balls. Player B, the runner, starts at the centre mark of the far baseline. No markers; the corners of the singles court are the targets.",
+  "instructions": [
+   "Player A drop-hits to Player B's forehand corner; Player B returns every ball to the middle of Player A's court.",
+   "Player A hits the next ball to the backhand corner, then forehand, then backhand: every ball to the opposite corner.",
+   "Player B runs, hits and recovers to the centre mark after every shot.",
+   "Count the balls until the rally breaks; swap roles after a 12-ball rally or two minutes, whichever comes first.",
+   "Four rounds each; the highest count wins, and the loser collects the balls."
+  ],
+  "coaching_points": [
+   "Runner: recover with side shuffles, and split step as the controller hits.",
+   "Runner: hit through the middle with height; you are buying time, not winning the point.",
+   "Controller: aim two racket lengths inside the corner so the drill keeps flowing.",
+   "Runner: the first step after contact goes back towards the middle before you look."
+  ],
+  "progressions": [
+   "The controller may hit two balls to the same corner without warning.",
+   "The runner must return every ball beyond the service line.",
+   "After eight balls the point becomes live and either player may hit anywhere."
+  ],
+  "regressions": [
+   "The controller hits the corners at three-quarter pace and a metre inside the lines.",
+   "The runner returns to the controller's forehand only, so the controller's shots are easier.",
+   "One minute each instead of two, with a full rest between."
+  ],
+  "court_diagram": {
+   "court": "full",
+   "players": [
+    {
+     "id": "P1",
+     "x": 0.5,
+     "y": 0.95,
+     "label": "Controller"
+    },
+    {
+     "id": "P2",
+     "x": 0.5,
+     "y": 0.05,
+     "label": "Runner"
+    }
+   ],
+   "equipment": [],
+   "paths": [
+    {
+     "from": "P1",
+     "to": [
+      0.82,
+      0.1
+     ],
+     "style": "ball",
+     "step": 1
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.82,
+      0.1
+     ],
+     "style": "movement",
+     "step": 1
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.5,
+      0.9
+     ],
+     "style": "ball",
+     "step": 2
+    },
+    {
+     "from": "P2",
+     "to": "P2",
+     "style": "movement",
+     "step": 2
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.18,
+      0.1
+     ],
+     "style": "ball",
+     "step": 3
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.18,
+      0.1
+     ],
+     "style": "movement",
+     "step": 3
+    }
+   ]
+  },
+  "source": "generated"
+ },
+ {
+  "slug": "figure-eight-rally",
+  "name": "Figure-Eight Rally",
+  "summary": "Runs both players through a figure of eight by making one player hit only cross-court and the other only down the line.",
+  "skill_focus": [
+   "movement",
+   "tactical"
+  ],
+  "levels": [
+   "intermediate",
+   "advanced"
+  ],
+  "age_groups": [
+   "junior",
+   "adult"
+  ],
+  "court_space": "full_court",
+  "intensity": "high",
+  "players_min": 2,
+  "players_max": 2,
+  "duration_min": 8,
+  "duration_max": 12,
+  "equipment": [],
+  "setup": "Both players on their baselines, starting in the deuce corner. Player A is the cross-court player, Player B the down-the-line player. Three balls with Player A.",
+  "instructions": [
+   "Player A drop-hits cross-court; Player B replies down the line; Player A hits cross-court again from the new corner; Player B down the line again.",
+   "The ball traces a figure of eight and both players run corner to corner.",
+   "Count balls until the pattern breaks; after two minutes swap the cross-court and line roles.",
+   "Round three: the pattern must hold for six balls, then the point is live.",
+   "Keep a tally of the longest pattern each; losers collect."
+  ],
+  "coaching_points": [
+   "Recover towards the middle after every ball; the next one is always going to the other corner.",
+   "Cross-court player: height and depth, the angle does the work.",
+   "Line player: contact later and straighter, aim a racket length inside the sideline.",
+   "Split step as your partner hits, even when you know where it is going."
+  ],
+  "progressions": [
+   "All balls must land beyond the service line or the count resets.",
+   "The pattern flips every fourth ball: the cross-court player becomes the line player mid-rally.",
+   "Live from ball four."
+  ],
+  "regressions": [
+   "Play the pattern from the service lines at mini-tennis pace first.",
+   "The line player may hit down the middle instead of the line when stretched.",
+   "One minute per role with a full reset between."
+  ],
+  "court_diagram": {
+   "court": "full",
+   "players": [
+    {
+     "id": "P1",
+     "x": 0.72,
+     "y": 0.95,
+     "label": "Cross"
+    },
+    {
+     "id": "P2",
+     "x": 0.28,
+     "y": 0.05,
+     "label": "Line"
+    }
+   ],
+   "equipment": [],
+   "paths": [
+    {
+     "from": "P1",
+     "to": [
+      0.28,
+      0.1
+     ],
+     "style": "ball",
+     "step": 1
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.28,
+      0.9
+     ],
+     "style": "ball",
+     "step": 2
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.3,
+      0.92
+     ],
+     "style": "movement",
+     "step": 2
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.72,
+      0.1
+     ],
+     "style": "ball",
+     "step": 3
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.72,
+      0.08
+     ],
+     "style": "movement",
+     "step": 3
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.72,
+      0.9
+     ],
+     "style": "ball",
+     "step": 4
+    }
+   ]
+  },
+  "source": "generated"
+ },
+ {
+  "slug": "attack-the-short-ball-points",
+  "name": "Attack the Short Ball Points",
+  "summary": "Trains recognition of the short ball by making any ball that lands inside the service box a mandatory attack, with the point lost if the attacker stays back.",
+  "skill_focus": [
+   "tactical",
+   "forehand",
+   "backhand"
+  ],
+  "levels": [
+   "intermediate"
+  ],
+  "age_groups": [
+   "junior",
+   "adult"
+  ],
+  "court_space": "full_court",
+  "intensity": "medium",
+  "players_min": 2,
+  "players_max": 2,
+  "duration_min": 10,
+  "duration_max": 14,
+  "equipment": [],
+  "setup": "Both players on their baseline, full singles court, three balls with the starter. The service line marks the short zone.",
+  "instructions": [
+   "Start each point with a drop-hit; rally normally.",
+   "When a ball lands inside the service box, the player receiving it must hit it as an approach or a winner and follow it to the net.",
+   "If the receiver of a short ball plays it and stays behind the service line, the point goes to the opponent.",
+   "First to 11, change ends.",
+   "Second game: the player who hits the short ball must also call 'short' as it leaves the racket."
+  ],
+  "coaching_points": [
+   "Read the short ball early: the sound and the height off the racket tell you before the bounce.",
+   "Move through the ball; contact in front and keep the feet moving to the net.",
+   "Attack down the line or deep to the open court; the net is your target, not the winner.",
+   "After the approach, split step before the reply is struck."
+  ],
+  "progressions": [
+   "The short zone grows to everything inside the halfway point between service line and baseline.",
+   "The attacker must win the point within two shots after the approach.",
+   "Drop shots count as short balls and must be attacked with a drop shot or a drive."
+  ],
+  "regressions": [
+   "The player who hits a short ball must call it out loud so the attacker has warning.",
+   "The attacker may finish the point from the baseline once per game.",
+   "Play to 7 with cooperative first three balls."
+  ],
+  "court_diagram": {
+   "court": "full",
+   "players": [
+    {
+     "id": "P1",
+     "x": 0.5,
+     "y": 0.95,
+     "label": "A"
+    },
+    {
+     "id": "P2",
+     "x": 0.5,
+     "y": 0.05,
+     "label": "B"
+    }
+   ],
+   "equipment": [],
+   "paths": [
+    {
+     "from": "P1",
+     "to": [
+      0.5,
+      0.1
+     ],
+     "style": "ball",
+     "step": 1
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.4,
+      0.68
+     ],
+     "style": "ball",
+     "step": 2
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.42,
+      0.7
+     ],
+     "style": "movement",
+     "step": 2
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.16,
+      0.08
+     ],
+     "style": "ball",
+     "step": 3
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.46,
+      0.6
+     ],
+     "style": "movement",
+     "step": 3
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.16,
+      0.08
+     ],
+     "style": "movement",
+     "step": 3
+    }
+   ]
+  },
+  "source": "generated"
+ },
+ {
+  "slug": "self-start-king-of-the-court",
+  "name": "Self-Start King of the Court",
+  "summary": "Runs a winner-stays-on singles game where the challenger starts every point with a drop-hit, so no basket or feeder is needed and nobody waits long.",
+  "skill_focus": [
+   "games",
+   "tactical"
+  ],
+  "levels": [
+   "improver",
+   "intermediate",
+   "advanced"
+  ],
+  "age_groups": [
+   "junior",
+   "adult"
+  ],
+  "court_space": "full_court",
+  "intensity": "high",
+  "players_min": 3,
+  "players_max": 4,
+  "duration_min": 10,
+  "duration_max": 15,
+  "equipment": [],
+  "setup": "The king stands on the far baseline. The first challenger stands on the near baseline with three balls; the other players queue behind the near baseline, outside the doubles sideline, keeping score and gathering loose balls.",
+  "instructions": [
+   "The challenger drop-hits to start the point; play it out on the full singles court.",
+   "If the challenger wins, they become king and the old king goes to the back of the queue. If the king wins, the challenger goes to the back of the queue and the next challenger steps in immediately.",
+   "The king scores 1 for each point won; challengers score nothing for losing.",
+   "First to 7 points as king wins the game; play three games.",
+   "Between games the player with the fewest points collects the balls while the others swap ends."
+  ],
+  "coaching_points": [
+   "Challenger: start the point deep and cross-court; do not try to win it with the first ball.",
+   "King: recover to the middle after every shot; the next challenger is fresh.",
+   "Next challenger: be on the baseline with a ball in hand before the previous point ends.",
+   "Queue: call the score out loud after every point."
+  ],
+  "progressions": [
+   "The challenger must start with a serve instead of a drop-hit.",
+   "The king must win two points in a row before scoring.",
+   "The challenger may only win with a ball that lands beyond the service line."
+  ],
+  "regressions": [
+   "The king starts each point with a cooperative drop-hit to the challenger.",
+   "Play on half the court, deuce side only, so rallies are shorter.",
+   "First to 5 as king."
+  ],
+  "court_diagram": {
+   "court": "full",
+   "players": [
+    {
+     "id": "P1",
+     "x": 0.5,
+     "y": 0.05,
+     "label": "King"
+    },
+    {
+     "id": "P2",
+     "x": 0.5,
+     "y": 0.95,
+     "label": "Challenger"
+    },
+    {
+     "id": "P3",
+     "x": 1.1,
+     "y": 0.96,
+     "label": "Queue"
+    }
+   ],
+   "equipment": [],
+   "paths": [
+    {
+     "from": "P2",
+     "to": [
+      0.3,
+      0.1
+     ],
+     "style": "ball",
+     "step": 1
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.3,
+      0.1
+     ],
+     "style": "movement",
+     "step": 1
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.75,
+      0.9
+     ],
+     "style": "ball",
+     "step": 2
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.75,
+      0.9
+     ],
+     "style": "movement",
+     "step": 2
+    },
+    {
+     "from": "P3",
+     "to": [
+      0.5,
+      0.95
+     ],
+     "style": "movement",
+     "step": 3
+    }
+   ]
+  },
+  "source": "generated"
+ },
+ {
+  "slug": "two-diagonal-doubles-rally",
+  "name": "Two-Diagonal Doubles Rally",
+  "summary": "Keeps four players hitting at once by running two cross-court rallies on the same court, one on each diagonal, with a combined count.",
+  "skill_focus": [
+   "forehand",
+   "backhand",
+   "tactical"
+  ],
+  "levels": [
+   "improver",
+   "intermediate"
+  ],
+  "age_groups": [
+   "junior",
+   "adult"
+  ],
+  "court_space": "full_court",
+  "intensity": "medium",
+  "players_min": 4,
+  "players_max": 4,
+  "duration_min": 8,
+  "duration_max": 12,
+  "equipment": [],
+  "setup": "Two players on each baseline, one in each half. The deuce-side pair rallies with each other diagonally, and the ad-side pair rallies on the other diagonal, at the same time. Two balls per diagonal.",
+  "instructions": [
+   "Both diagonals start together on a call of 'go'; each pair rallies cross-court, keeping the ball in its own half.",
+   "Each pair counts its own balls; when one rally breaks, that pair restarts while the other keeps going.",
+   "After two minutes add the counts of both pairs; then all four players rotate one position clockwise so everyone gets a new partner and the other wing.",
+   "Four rotations so every player rallies from every corner.",
+   "Last round: the two pairs race; the first diagonal to 20 wins and the losers collect."
+  ],
+  "coaching_points": [
+   "Keep your ball inside your own half; the other rally is a metre away.",
+   "Height over the net, deep into the corner; the angle stays shallow so nobody collides.",
+   "Recover only as far as the centre line of your half.",
+   "Call 'ball' if a loose ball rolls into the other rally."
+  ],
+  "progressions": [
+   "Both rallies must land beyond the service line.",
+   "On 'switch', the pairs change diagonals mid-rally without stopping.",
+   "Turn one diagonal into live points while the other stays cooperative, then swap."
+  ],
+  "regressions": [
+   "Rally from the service lines first, then move back.",
+   "Count only balls that clear the net, wherever they land.",
+   "One diagonal rallies while the other rests for 30 seconds, then swap."
+  ],
+  "court_diagram": {
+   "court": "full",
+   "players": [
+    {
+     "id": "P1",
+     "x": 0.75,
+     "y": 0.95,
+     "label": "A"
+    },
+    {
+     "id": "P2",
+     "x": 0.25,
+     "y": 0.05,
+     "label": "B"
+    },
+    {
+     "id": "P3",
+     "x": 0.25,
+     "y": 0.95,
+     "label": "C"
+    },
+    {
+     "id": "P4",
+     "x": 0.75,
+     "y": 0.05,
+     "label": "D"
+    }
+   ],
+   "equipment": [],
+   "paths": [
+    {
+     "from": "P1",
+     "to": "P2",
+     "style": "ball",
+     "step": 1
+    },
+    {
+     "from": "P3",
+     "to": "P4",
+     "style": "ball",
+     "step": 1
+    },
+    {
+     "from": "P2",
+     "to": "P1",
+     "style": "ball",
+     "step": 2
+    },
+    {
+     "from": "P4",
+     "to": "P3",
+     "style": "ball",
+     "step": 2
+    }
+   ]
+  },
+  "source": "generated"
+ },
+ {
+  "slug": "serve-return-volley-triangle",
+  "name": "Serve, Return, Volley Triangle",
+  "summary": "Rotates three players through server, returner and net player so every point trains a serve, a return and a first volley at once.",
+  "skill_focus": [
+   "serve",
+   "return",
+   "volley"
+  ],
+  "levels": [
+   "intermediate"
+  ],
+  "age_groups": [
+   "junior",
+   "adult"
+  ],
+  "court_space": "full_court",
+  "intensity": "medium",
+  "players_min": 3,
+  "players_max": 3,
+  "duration_min": 10,
+  "duration_max": 14,
+  "equipment": [],
+  "setup": "Server behind the near baseline on the deuce side with three balls. Returner on the far baseline in the deuce court. Net player on the near service line in the ad half, as the server's doubles partner. Half the court on the returner's side is in play: the deuce half, doubles alley included.",
+  "instructions": [
+   "Server serves to the deuce box; the returner returns cross-court into the deuce half.",
+   "The net player moves across and volleys the return; the point is played out inside the deuce half with the server covering behind.",
+   "Score: returner 1 for a return the volleyer cannot touch, net player 1 for a volley that wins the point, server 1 if the point is won with the server's own shot.",
+   "After three serves rotate: server to net, net to returner, returner to server.",
+   "Play until someone reaches 10, then repeat from the ad side."
+  ],
+  "coaching_points": [
+   "Net player: split step as the returner strikes and move forward, not sideways.",
+   "Returner: low and cross-court; make the volleyer play up.",
+   "Server: serve, then hold the baseline to cover the lob and the deep return.",
+   "Net player: first volley deep down the middle; only angle it when the ball is above the net."
+  ],
+  "progressions": [
+   "The returner may lob the net player; a successful lob scores 2.",
+   "The net player may poach the return across the centre line.",
+   "Add a fourth player as the returner's partner and play full doubles points."
+  ],
+  "regressions": [
+   "The return must be cooperative to the volleyer for the first round.",
+   "Serve from the service line for the first rotation.",
+   "Score 1 to whoever wins the point, regardless of how."
+  ],
+  "court_diagram": {
+   "court": "full",
+   "players": [
+    {
+     "id": "P1",
+     "x": 0.6,
+     "y": 0.98,
+     "label": "Server"
+    },
+    {
+     "id": "P2",
+     "x": 0.3,
+     "y": 0.06,
+     "label": "Returner"
+    },
+    {
+     "id": "P3",
+     "x": 0.3,
+     "y": 0.72,
+     "label": "Net"
+    }
+   ],
+   "equipment": [],
+   "paths": [
+    {
+     "from": "P1",
+     "to": [
+      0.4,
+      0.3
+     ],
+     "style": "ball",
+     "step": 1
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.62,
+      0.66
+     ],
+     "style": "ball",
+     "step": 2
+    },
+    {
+     "from": "P3",
+     "to": [
+      0.6,
+      0.64
+     ],
+     "style": "movement",
+     "step": 2
+    },
+    {
+     "from": "P3",
+     "to": [
+      0.2,
+      0.1
+     ],
+     "style": "ball",
+     "step": 3
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.2,
+      0.1
+     ],
+     "style": "movement",
+     "step": 3
+    }
+   ]
+  },
+  "source": "generated"
+ },
+ {
+  "slug": "cross-or-line-call-points",
+  "name": "Cross or Line Call Points",
+  "summary": "Sharpens shot selection by making the receiver of the starting ball call 'cross' or 'line' before it bounces and play the first shot where they called.",
+  "skill_focus": [
+   "tactical",
+   "forehand",
+   "backhand"
+  ],
+  "levels": [
+   "intermediate",
+   "advanced"
+  ],
+  "age_groups": [
+   "junior",
+   "adult"
+  ],
+  "court_space": "full_court",
+  "intensity": "medium",
+  "players_min": 2,
+  "players_max": 2,
+  "duration_min": 10,
+  "duration_max": 14,
+  "equipment": [],
+  "setup": "Both players on their baseline, full singles court, three balls with the starter. Points alternate who starts.",
+  "instructions": [
+   "The starter drop-hits a medium-pace ball to either corner.",
+   "Before the ball bounces, the receiver calls 'cross' or 'line' and must hit the first ball there; then the point is live.",
+   "A first ball that goes to the other direction loses the point even if it lands in.",
+   "First to 11, change ends, swap who starts first.",
+   "Second game: the starter calls the direction for the receiver instead."
+  ],
+  "coaching_points": [
+   "Make the call as the ball leaves the starter's racket; late calls mean late feet.",
+   "Cross when you are pulled wide, line when the ball is short and in front of you.",
+   "After a line ball, recover towards the centre quickly; the reply is coming cross-court.",
+   "Say the call loud enough that your partner can judge it."
+  ],
+  "progressions": [
+   "Both the first and second shots must be called.",
+   "The starter may start with a serve, and the return is the called shot.",
+   "The called shot must land beyond the service line."
+  ],
+  "regressions": [
+   "The receiver calls after the bounce.",
+   "The starter hits every ball to the same corner for a whole game.",
+   "A wrong direction is a replay, not a lost point, for the first game."
+  ],
+  "court_diagram": {
+   "court": "full",
+   "players": [
+    {
+     "id": "P1",
+     "x": 0.5,
+     "y": 0.95,
+     "label": "Starter"
+    },
+    {
+     "id": "P2",
+     "x": 0.5,
+     "y": 0.05,
+     "label": "Receiver"
+    }
+   ],
+   "equipment": [],
+   "paths": [
+    {
+     "from": "P1",
+     "to": [
+      0.78,
+      0.1
+     ],
+     "style": "ball",
+     "step": 1
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.78,
+      0.1
+     ],
+     "style": "movement",
+     "step": 1
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.82,
+      0.9
+     ],
+     "style": "ball",
+     "step": 2
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.82,
+      0.9
+     ],
+     "style": "movement",
+     "step": 2
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.3,
+      0.1
+     ],
+     "style": "ball",
+     "step": 3
+    }
+   ]
+  },
+  "source": "generated"
+ },
+ {
+  "slug": "half-court-handicap-games",
+  "name": "Half-Court Handicap Games",
+  "summary": "Keeps two players of different levels competing by giving the weaker player a head start in every game and shrinking the court to one half.",
+  "skill_focus": [
+   "games",
+   "tactical"
+  ],
+  "levels": [
+   "improver",
+   "intermediate"
+  ],
+  "age_groups": [
+   "junior",
+   "adult"
+  ],
+  "court_space": "half_court",
+  "intensity": "low",
+  "players_min": 2,
+  "players_max": 2,
+  "duration_min": 10,
+  "duration_max": 15,
+  "equipment": [],
+  "setup": "Both players on their baseline on the deuce side. Every point is played in the deuce half of the singles court on both sides, centre line to singles sideline. Three balls with the server. Agree the handicap before the first game: the weaker player starts each game at 30-0.",
+  "instructions": [
+   "Play normal games with normal scoring, one serve each point, inside the half.",
+   "The weaker player starts every game at 30-0; the stronger player starts at love.",
+   "Servers alternate each game; the server drop-serves or serves, either is allowed.",
+   "Play a set to 4 games, then swap to the ad half and adjust the handicap if the set was one-sided.",
+   "Whoever loses the set collects the balls and chooses the next handicap."
+  ],
+  "coaching_points": [
+   "Stronger player: play the point with height and depth; the half rewards patience.",
+   "Weaker player: aim for the middle of your half; the sideline is a trap.",
+   "Both: recover to the middle of the half, not the middle of the court.",
+   "Serve to the T of your half; the wide serve has no room here."
+  ],
+  "progressions": [
+   "Handicap changes to 15-0 and the stronger player must win the point with a ball beyond the service line.",
+   "Play with the full singles width but the weaker player starts at 40-0.",
+   "Add a rule that the stronger player may not hit a winner before the fourth shot."
+  ],
+  "regressions": [
+   "The weaker player starts at 40-0.",
+   "The stronger player must hit every ball beyond the service line or lose the point.",
+   "Play to 3 games and swap halves more often."
+  ],
+  "court_diagram": {
+   "court": "full",
+   "players": [
+    {
+     "id": "P1",
+     "x": 0.7,
+     "y": 0.95,
+     "label": "A"
+    },
+    {
+     "id": "P2",
+     "x": 0.3,
+     "y": 0.05,
+     "label": "B"
+    }
+   ],
+   "equipment": [],
+   "paths": [
+    {
+     "from": "P1",
+     "to": [
+      0.3,
+      0.12
+     ],
+     "style": "ball",
+     "step": 1
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.68,
+      0.88
+     ],
+     "style": "ball",
+     "step": 2
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.2,
+      0.3
+     ],
+     "style": "ball",
+     "step": 3
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.2,
+      0.3
+     ],
+     "style": "movement",
+     "step": 3
+    }
+   ]
+  },
+  "source": "generated"
+ },
+ {
+  "slug": "alley-bonus-doubles",
+  "name": "Alley Bonus Doubles",
+  "summary": "Rewards angles and width in doubles by scoring any ball that lands in the alley as a double point.",
+  "skill_focus": [
+   "games",
+   "tactical",
+   "volley"
+  ],
+  "levels": [
+   "improver",
+   "intermediate",
+   "advanced"
+  ],
+  "age_groups": [
+   "junior",
+   "adult"
+  ],
+  "court_space": "full_court",
+  "intensity": "medium",
+  "players_min": 4,
+  "players_max": 4,
+  "duration_min": 10,
+  "duration_max": 15,
+  "equipment": [],
+  "setup": "Two doubles pairs on the full doubles court, one up and one back on each side. Three balls with the serving pair. Normal serving rotation.",
+  "instructions": [
+   "Play doubles points with normal rules and one-serve serving.",
+   "Any winning shot that lands in either alley scores 2 points instead of 1; a shot that lands in the alley but is returned scores nothing extra.",
+   "Games are first to 7 points; play a set of 4 games.",
+   "After every game both pairs swap sides of the court and the net players swap with their partners.",
+   "Losing pair collects the balls and serves first in the next game."
+  ],
+  "coaching_points": [
+   "Net player: angle the volley across, not deep; the alley is beside you, not behind them.",
+   "Baseliner: hit cross-court with height to open the alley on the second ball.",
+   "Cover your own alley when your partner is pulled wide.",
+   "Serve wide to pull the returner off the court and open the far alley."
+  ],
+  "progressions": [
+   "Only volleys and overheads earn the alley bonus.",
+   "Serve and both up on every point.",
+   "Alley balls score 3, but a ball that lands in the alley and out scores minus 1."
+  ],
+  "regressions": [
+   "Any ball landing in the alley scores 2 whether or not it is returned.",
+   "Both pairs play two back for the first game.",
+   "Play games to 5 points so pairs swap sides more often."
+  ],
+  "court_diagram": {
+   "court": "full",
+   "players": [
+    {
+     "id": "P1",
+     "x": 0.68,
+     "y": 0.96,
+     "label": "Server"
+    },
+    {
+     "id": "P2",
+     "x": 0.3,
+     "y": 0.66,
+     "label": "Net"
+    },
+    {
+     "id": "P3",
+     "x": 0.3,
+     "y": 0.06,
+     "label": "Returner"
+    },
+    {
+     "id": "P4",
+     "x": 0.7,
+     "y": 0.3,
+     "label": "Net"
+    }
+   ],
+   "equipment": [],
+   "paths": [
+    {
+     "from": "P1",
+     "to": [
+      0.14,
+      0.3
+     ],
+     "style": "ball",
+     "step": 1
+    },
+    {
+     "from": "P3",
+     "to": [
+      0.14,
+      0.3
+     ],
+     "style": "movement",
+     "step": 1
+    },
+    {
+     "from": "P3",
+     "to": [
+      0.4,
+      0.7
+     ],
+     "style": "ball",
+     "step": 2
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.06,
+      0.2
+     ],
+     "style": "ball",
+     "step": 3
+    }
+   ]
+  },
+  "source": "generated"
+ },
+ {
+  "slug": "rotating-partner-tiebreaks",
+  "name": "Rotating Partner Tiebreaks",
+  "summary": "Gives four players a competitive finish by playing three fast doubles tiebreaks with every possible pairing and scoring each player individually.",
+  "skill_focus": [
+   "games",
+   "tactical"
+  ],
+  "levels": [
+   "improver",
+   "intermediate",
+   "advanced"
+  ],
+  "age_groups": [
+   "junior",
+   "adult"
+  ],
+  "court_space": "full_court",
+  "intensity": "medium",
+  "players_min": 4,
+  "players_max": 4,
+  "duration_min": 12,
+  "duration_max": 15,
+  "equipment": [],
+  "setup": "Full doubles court, two pairs. Three balls with the serving pair. Write the three pairings before you start: with players A, B, C and D the tiebreaks are AB v CD, AC v BD, AD v BC.",
+  "instructions": [
+   "Play a seven-point tiebreak with normal serving rotation, one serve per point.",
+   "Each player on the winning pair scores 1; each player on the losing pair scores 0. If the tiebreak reaches 6-6, next point wins.",
+   "Change partners for the second tiebreak, and again for the third, so everyone plays with everyone.",
+   "Change ends after every tiebreak; the losing pair collects the balls.",
+   "The player with 3 wins is the champion; a tie is decided by a four-player sudden-death point started with a drop-hit."
+  ],
+  "coaching_points": [
+   "One serve means margin: spin it in, then play the point.",
+   "First ball after the return goes deep down the middle; win the point on the next one.",
+   "Net player: move on every ball, even the ones you cannot reach.",
+   "Talk before each point: who takes the middle, who takes the lob."
+  ],
+  "progressions": [
+   "Play each tiebreak to 10 points instead of 7.",
+   "Both players of the serving pair must be at the net by the second shot.",
+   "Second serves are allowed but a double fault costs 2 points."
+  ],
+  "regressions": [
+   "Play each tiebreak to 5 points so all three fit in ten minutes.",
+   "Drop-hit starts instead of serves.",
+   "Play two back on every point for the first tiebreak."
+  ],
+  "court_diagram": {
+   "court": "full",
+   "players": [
+    {
+     "id": "P1",
+     "x": 0.68,
+     "y": 0.96,
+     "label": "A"
+    },
+    {
+     "id": "P2",
+     "x": 0.3,
+     "y": 0.66,
+     "label": "B"
+    },
+    {
+     "id": "P3",
+     "x": 0.3,
+     "y": 0.06,
+     "label": "C"
+    },
+    {
+     "id": "P4",
+     "x": 0.7,
+     "y": 0.3,
+     "label": "D"
+    }
+   ],
+   "equipment": [],
+   "paths": [
+    {
+     "from": "P1",
+     "to": [
+      0.36,
+      0.3
+     ],
+     "style": "ball",
+     "step": 1
+    },
+    {
+     "from": "P3",
+     "to": [
+      0.7,
+      0.9
+     ],
+     "style": "ball",
+     "step": 2
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.5,
+      0.1
+     ],
+     "style": "ball",
+     "step": 3
+    },
+    {
+     "from": "P4",
+     "to": [
+      0.5,
+      0.14
+     ],
+     "style": "movement",
+     "step": 3
+    }
+   ]
+  },
+  "source": "generated"
+ }
+]

@@ -1,0 +1,1136 @@
+[
+  {
+    "slug": "serve-and-return-depth-ladder",
+    "name": "Serve and Return Depth Ladder",
+    "summary": "Pairs the serve with the return by scoring a serve in the box and a return that lands beyond the service line, so both players practise on every point.",
+    "skill_focus": [
+      "serve",
+      "return"
+    ],
+    "levels": [
+      "improver",
+      "intermediate"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 10,
+    "duration_max": 14,
+    "equipment": [],
+    "setup": "Server behind the baseline on the deuce side with three balls in the pocket. Returner on the far baseline in the deuce court, a step inside the singles sideline. Both players collect their own balls at the end of each set of six.",
+    "instructions": [
+      "Server serves six balls to the deuce box; the returner returns every one cross-court.",
+      "Server scores 1 for each serve in the box; returner scores 1 for each return that lands beyond the service line, 2 if it also lands in the outer half of the deuce court.",
+      "After six serves, collect the balls together and swap roles.",
+      "Two sets each from the deuce side, then two sets each from the ad side.",
+      "Final round: same scoring, but the point is played out after the return and the winner adds 1."
+    ],
+    "coaching_points": [
+      "Server: toss in front, reach up, land inside the court.",
+      "Returner: split step as the ball is tossed, not as it is struck.",
+      "Returner: shorten the backswing and drive through; the serve gives you the pace.",
+      "Server: same routine before every ball, bounce, breathe, toss."
+    ],
+    "progressions": [
+      "Only second serves, so the returner attacks and the server holds margin.",
+      "Returns must land beyond the service line and within a racket length of the singles sideline.",
+      "Add a third player who plays the point out against the returner while the server watches the landing spots."
+    ],
+    "regressions": [
+      "Server serves from the service line for the first two sets.",
+      "Any return that clears the net and lands in scores 1.",
+      "Returner starts a metre inside the baseline for a shorter reaction."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.58,
+          "y": 0.98,
+          "label": "Server"
+        },
+        {
+          "id": "P2",
+          "x": 0.3,
+          "y": 0.06,
+          "label": "Returner"
+        }
+      ],
+      "equipment": [],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.36,
+            0.3
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.36,
+            0.3
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.7,
+            0.9
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P2",
+          "to": "P2",
+          "style": "movement",
+          "step": 3
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "second-serve-only-points",
+    "name": "Second-Serve Only Points",
+    "summary": "Builds a reliable second serve under pressure by playing points where every point starts with one serve and a fault loses it outright.",
+    "skill_focus": [
+      "serve",
+      "return",
+      "tactical"
+    ],
+    "levels": [
+      "intermediate",
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 12,
+    "duration_max": 15,
+    "equipment": [],
+    "setup": "Full singles court. Server behind the baseline with three balls; returner on the far baseline. Normal deuce and ad alternation. Balls are collected after every third point by whoever lost it.",
+    "instructions": [
+      "Play points with one serve only: a fault is a lost point, no second ball.",
+      "Serve a game of four points, then swap server. Keep a running score to 10 games.",
+      "The returner must return cross-court on the first ball; after that the point is open.",
+      "A double bounce, a let or a ball hitting the net cord is replayed.",
+      "Last three games: the server calls 'wide' or 'T' before tossing and must hit that zone or the point is lost."
+    ],
+    "coaching_points": [
+      "Toss slightly behind the head so the racket brushes up the back of the ball.",
+      "Aim a metre inside the service line; margin is the whole point.",
+      "Same swing speed as a first serve; the spin, not the arm, makes it safe.",
+      "Returner: stand a step inside the baseline and take the ball early."
+    ],
+    "progressions": [
+      "Serves must land beyond the T's halfway mark or they are called short and lost.",
+      "The returner may attack the return down the line and play the point to a finish.",
+      "The server must also win the point within four shots or it goes to the returner."
+    ],
+    "regressions": [
+      "A fault loses the point only on deuce-side points; ad-side points get a second serve.",
+      "Play games of two points so the server gets more turns.",
+      "Serve from a metre inside the baseline until three games are won."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.56,
+          "y": 0.98,
+          "label": "Server"
+        },
+        {
+          "id": "P2",
+          "x": 0.34,
+          "y": 0.06,
+          "label": "Returner"
+        }
+      ],
+      "equipment": [],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.42,
+            0.28
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.42,
+            0.28
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.72,
+            0.88
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.72,
+            0.88
+          ],
+          "style": "movement",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.2,
+            0.1
+          ],
+          "style": "ball",
+          "step": 3
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "three-ball-serving-race",
+    "name": "Three-Ball Serving Race",
+    "summary": "Groups the serve into sets of three at called targets on the painted lines, with partners returning balls across the net between sets so nobody stops moving.",
+    "skill_focus": [
+      "serve"
+    ],
+    "levels": [
+      "improver",
+      "intermediate"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "half_court",
+    "intensity": "low",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": [],
+    "setup": "One or two servers behind the near baseline on the deuce side, three balls each. The other players stand behind the far baseline, level with the deuce box, to gather the served balls and hit them back over the net to the servers between sets. Targets are the lines: 'T' means within a racket length of the centre line, 'wide' means within a racket length of the singles sideline.",
+    "instructions": [
+      "Each server calls a target, T or wide, then serves all three balls at it.",
+      "Score 1 for a serve in the box and 2 for a serve in the called zone; the gatherers judge and call the scores.",
+      "After three balls the gatherers hit the balls back over the net and everyone swaps roles.",
+      "Six sets each, alternating deuce and ad boxes.",
+      "Race: first player to 20 points wins; a double fault set of three costs 2 points."
+    ],
+    "coaching_points": [
+      "Say the target out loud, then look at it once before the toss.",
+      "T serve: toss a little more in front and swing straight through the ball.",
+      "Wide serve: brush up and across the outside of the ball; the swing path changes, the toss barely does.",
+      "Three serves at the same rhythm: bounce, breathe, toss, every time."
+    ],
+    "progressions": [
+      "Zones shrink to half a racket length from the line.",
+      "The second serve of each set must be a second serve with spin, or it scores nothing.",
+      "Add 'body' as a third target: within a racket length either side of the box's centre."
+    ],
+    "regressions": [
+      "Score 1 for any serve in the box and 1 bonus for the zone.",
+      "Serve from the service line for the first three sets.",
+      "Drop the double-fault penalty."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.58,
+          "y": 0.98,
+          "label": "Server"
+        },
+        {
+          "id": "P2",
+          "x": 0.3,
+          "y": -0.05,
+          "label": "Gatherer"
+        }
+      ],
+      "equipment": [],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.47,
+            0.25
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.15,
+            0.25
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.46,
+            0.26
+          ],
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.4,
+            0.25
+          ],
+          "style": "movement",
+          "step": 4
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.6,
+            0.92
+          ],
+          "style": "ball",
+          "step": 5
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "serve-plus-one-forehand",
+    "name": "Serve Plus One Forehand",
+    "summary": "Links the serve to the first groundstroke by having the returner send the ball back cross-court so the server can step around and hit a forehand into the open court.",
+    "skill_focus": [
+      "serve",
+      "forehand",
+      "tactical"
+    ],
+    "levels": [
+      "intermediate",
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 10,
+    "duration_max": 14,
+    "equipment": [],
+    "setup": "Server behind the baseline on the deuce side with three balls. Returner on the far baseline in the deuce court. The returner's job for the first rounds is cooperative: a medium-pace cross-court return to the middle of the server's half.",
+    "instructions": [
+      "Server serves; the returner returns cross-court cooperatively to the middle of the court.",
+      "Server steps around and hits a forehand into the returner's open backhand corner, then the point is played out.",
+      "Play five serves, collect the balls together, then swap roles.",
+      "Round two from the ad side: the return comes to the middle and the forehand goes inside-out to the deuce corner.",
+      "Round three: the return may go anywhere; the server still has to hit a forehand as the plus-one or the point is lost."
+    ],
+    "coaching_points": [
+      "Land the serve inside the court and take two small steps to the middle before the return arrives.",
+      "Decide 'forehand' before the return bounces and move early to get around it.",
+      "Plus-one goes deep to the open corner, not for a winner.",
+      "Returner: keep the cooperative return waist high and in the middle; you are making the drill work."
+    ],
+    "progressions": [
+      "The plus-one must land beyond the service line or the point is lost.",
+      "The returner may return down the line on one of the five serves without warning.",
+      "Serve and plus-one, then the server must approach the net on the third shot."
+    ],
+    "regressions": [
+      "Server serves from the service line so the plus-one comes sooner.",
+      "The returner returns down the middle every time, no cross-court.",
+      "Skip playing the point out; stop after the plus-one and reset."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.58,
+          "y": 0.98,
+          "label": "Server"
+        },
+        {
+          "id": "P2",
+          "x": 0.3,
+          "y": 0.06,
+          "label": "Returner"
+        }
+      ],
+      "equipment": [],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.4,
+            0.3
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.5,
+            0.94
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.5,
+            0.86
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.36,
+            0.9
+          ],
+          "style": "movement",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.78,
+            0.08
+          ],
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.78,
+            0.08
+          ],
+          "style": "movement",
+          "step": 3
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "service-line-volley-count",
+    "name": "Service-Line Volley Count",
+    "summary": "Builds soft, compact volleys by rallying volley to volley from the service lines and counting only balls that stay in the air.",
+    "skill_focus": [
+      "volley"
+    ],
+    "levels": [
+      "improver",
+      "intermediate"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "net_area",
+    "intensity": "low",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 6,
+    "duration_max": 10,
+    "equipment": [],
+    "setup": "Both players stand on their own service line, opposite each other in the middle of the court, three balls with the starter. With four players, the second pair uses the other half of the court at the same time.",
+    "instructions": [
+      "Player A hand-tosses a ball to themselves and volleys it gently to Player B; volley the ball back and forth without a bounce.",
+      "Count every volley; a bounce or a miss resets the count. Target 20.",
+      "After 20, both players take one step closer to the net and go again.",
+      "Third round: alternate forehand and backhand volleys by volleying to the partner's left, then right.",
+      "Last 2 minutes: one player volleys everything at the partner's feet, who has to dig it up and keep it going."
+    ],
+    "coaching_points": [
+      "Racket head above the wrist, hands out in front, no backswing.",
+      "Step across with the opposite foot as you punch the ball.",
+      "Aim for your partner's chest so the rally stays alive.",
+      "Split step every time the partner touches the ball."
+    ],
+    "progressions": [
+      "Play the count from inside the service line, a racket length from the net.",
+      "One player may volley a drop volley once per rally; the partner must reach it and continue.",
+      "Turn it into points: first to 7, a volley that bounces twice on the partner's side wins the point."
+    ],
+    "regressions": [
+      "Allow one bounce and keep counting.",
+      "Stand two racket lengths behind the service line and use a longer swing at first.",
+      "Volley forehand to forehand only for the first round."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.77,
+          "label": "A"
+        },
+        {
+          "id": "P2",
+          "x": 0.5,
+          "y": 0.23,
+          "label": "B"
+        }
+      ],
+      "equipment": [],
+      "paths": [
+        {
+          "from": "P1",
+          "to": "P2",
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": "P1",
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.42,
+            0.24
+          ],
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.42,
+            0.24
+          ],
+          "style": "movement",
+          "step": 3
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "short-ball-approach-and-close",
+    "name": "Short Ball, Approach and Close",
+    "summary": "Rehearses the approach shot and first volley by having the partner deliberately hit a short ball out of a live rally, then playing the point from the net.",
+    "skill_focus": [
+      "volley",
+      "movement",
+      "tactical"
+    ],
+    "levels": [
+      "intermediate"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 10,
+    "duration_max": 14,
+    "equipment": [],
+    "setup": "Both players on their baseline in the middle of the court, three balls with the starter. Player A is the attacker for five rallies, Player B the baseliner.",
+    "instructions": [
+      "Player B drop-hits to start; rally down the middle for at least three balls.",
+      "Player B then hits a ball deliberately short, landing inside the service box.",
+      "Player A moves in, hits the approach shot down the line and keeps coming to the net.",
+      "Player B tries to pass or lob; the point is played out.",
+      "Five points, then swap roles. Keep score across three rounds each."
+    ],
+    "coaching_points": [
+      "Approach: carioca or shuffle through the shot, keep moving after contact.",
+      "Approach down the line so your recovery to the net is short.",
+      "Split step just before the passing shot is struck, not while running.",
+      "First volley deep to the same side, then close another two steps."
+    ],
+    "progressions": [
+      "The short ball may come at any time, not after three balls.",
+      "The approach must be a slice.",
+      "The attacker must win the point at the net within two volleys."
+    ],
+    "regressions": [
+      "The baseliner calls 'short' before hitting the short ball.",
+      "The baseliner hits a cooperative first pass so the volley is easy, then plays live.",
+      "Play the drill from the service lines with mini-tennis pace."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.95,
+          "label": "A"
+        },
+        {
+          "id": "P2",
+          "x": 0.5,
+          "y": 0.05,
+          "label": "B"
+        }
+      ],
+      "equipment": [],
+      "paths": [
+        {
+          "from": "P2",
+          "to": [
+            0.6,
+            0.68
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.62,
+            0.72
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.85,
+            0.08
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.66,
+            0.6
+          ],
+          "style": "movement",
+          "step": 2
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.85,
+            0.08
+          ],
+          "style": "movement",
+          "step": 2
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.3,
+            0.62
+          ],
+          "style": "ball",
+          "step": 3
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "lob-and-overhead-loop",
+    "name": "Lob and Overhead Loop",
+    "summary": "Keeps the overhead in a continuous loop by having the baseliner lob every ball and the net player smash it back deep enough to be lobbed again.",
+    "skill_focus": [
+      "overhead",
+      "volley"
+    ],
+    "levels": [
+      "intermediate",
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": [],
+    "setup": "Player A stands a step inside the service line in the middle of the court. Player B stands on the far baseline with three balls. No markers.",
+    "instructions": [
+      "Player B drop-hits a lob over Player A.",
+      "Player A backs up, hits an overhead at three-quarter pace deep to Player B, and recovers to the service line.",
+      "Player B lobs the overhead back; the loop continues. Count consecutive overheads landing beyond the far service line.",
+      "After 3 minutes swap roles.",
+      "Final round: the overhead may be hit at full pace to either corner and the point is played out."
+    ],
+    "coaching_points": [
+      "Turn sideways and point the free hand at the ball as you back up.",
+      "Cross-step back, never backpedal facing the net.",
+      "Contact above and slightly in front of the head; reach up, do not let it drop.",
+      "Three-quarter pace deep beats full pace into the net."
+    ],
+    "progressions": [
+      "The lobber may lob to either side without warning.",
+      "Overheads must land beyond the far service line and within a racket length of a sideline.",
+      "Add a second lob immediately after the overhead so the net player has to reset twice in a row."
+    ],
+    "regressions": [
+      "The lob is hit softly and high so the net player has time.",
+      "The net player lets the lob bounce before hitting the overhead.",
+      "Start the net player on the service line and let them hit the overhead from wherever it comes down."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.72,
+          "label": "A"
+        },
+        {
+          "id": "P2",
+          "x": 0.5,
+          "y": 0.05,
+          "label": "B"
+        }
+      ],
+      "equipment": [],
+      "paths": [
+        {
+          "from": "P2",
+          "to": [
+            0.5,
+            0.82
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.5,
+            0.82
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.45,
+            0.1
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": "P1",
+          "style": "movement",
+          "step": 3
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.5,
+            0.84
+          ],
+          "style": "ball",
+          "step": 3
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "serve-and-volley-points",
+    "name": "Serve and Volley Points",
+    "summary": "Forces the serve-and-volley pattern by requiring the server to hit the first volley from inside the service line or lose the point.",
+    "skill_focus": [
+      "serve",
+      "volley",
+      "tactical"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 10,
+    "duration_max": 15,
+    "equipment": [],
+    "setup": "Full singles court. Server behind the baseline with three balls, returner on the far baseline. The service line is the marker: the server's first volley must be struck from inside it.",
+    "instructions": [
+      "Server serves and follows the serve to the net on every point.",
+      "If the server's first shot after the serve is hit from behind the service line, or is allowed to bounce, the point goes to the returner.",
+      "The returner tries to pass, lob or dip the return at the server's feet.",
+      "Games of four points, swap server, play to 8 games.",
+      "Last two games: second serves also have to be followed in."
+    ],
+    "coaching_points": [
+      "Serve up the middle to cut off the angles for the return.",
+      "Three or four running steps, then split step as the returner makes contact.",
+      "First volley deep down the middle; win the point on the second volley.",
+      "Returner: aim the return low at the feet; a passing shot only if the volleyer stops moving."
+    ],
+    "progressions": [
+      "The first volley must land beyond the service line.",
+      "The server must win within three shots after the serve.",
+      "The returner may also come in behind the return; first to the net wins the mid-court battle."
+    ],
+    "regressions": [
+      "The returner returns cooperatively at waist height for the first two games.",
+      "The first volley may be hit from anywhere in front of the baseline.",
+      "Serve from the service line so the run to the net is shorter."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.55,
+          "y": 0.98,
+          "label": "Server"
+        },
+        {
+          "id": "P2",
+          "x": 0.4,
+          "y": 0.06,
+          "label": "Returner"
+        }
+      ],
+      "equipment": [],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.46,
+            0.27
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.52,
+            0.7
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.5,
+            0.66
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.2,
+            0.1
+          ],
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.2,
+            0.1
+          ],
+          "style": "movement",
+          "step": 3
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "return-beyond-the-line",
+    "name": "Return Beyond the Line",
+    "summary": "Makes the return of serve a target shot by scoring only returns that land beyond the service line, with the waiting player judging and keeping score.",
+    "skill_focus": [
+      "return",
+      "serve"
+    ],
+    "levels": [
+      "intermediate"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 4,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": [],
+    "setup": "Server behind the near baseline with three balls; returner on the far baseline in the deuce court. Any extra players stand beside the far baseline, outside the doubles sideline, judging the landing spot and gathering balls. With four players, run two servers and two returners on the same court, one pair per half.",
+    "instructions": [
+      "Server serves three balls to the deuce box; the returner returns each one cross-court.",
+      "A return that lands beyond the service line scores 1; beyond it and within two racket lengths of the baseline scores 2; anything else scores nothing.",
+      "After three serves everyone rotates one place: server to judge, judge to returner, returner to server. With two players the server and returner simply swap.",
+      "Repeat from the ad box.",
+      "First player to 12 points wins; a return into the net costs 1."
+    ],
+    "coaching_points": [
+      "Split step as the toss goes up, land as the serve is struck.",
+      "Compact backswing, meet the ball in front and let the serve's pace do the work.",
+      "Aim high over the middle of the net; depth is the target, not the corner.",
+      "Recover to the middle after the return even though the point is over; the habit matters."
+    ],
+    "progressions": [
+      "The server may serve to either box without telling the returner.",
+      "Returns must land cross-court beyond the service line; down the line scores nothing.",
+      "Play the point out after every scoring return, winner gets 1 more."
+    ],
+    "regressions": [
+      "Any return that lands in scores 1, beyond the service line scores 2.",
+      "The server serves at three-quarter pace.",
+      "The returner starts a step inside the baseline."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.58,
+          "y": 0.98,
+          "label": "Server"
+        },
+        {
+          "id": "P2",
+          "x": 0.3,
+          "y": 0.06,
+          "label": "Returner"
+        },
+        {
+          "id": "P3",
+          "x": 1.1,
+          "y": 0.1,
+          "label": "Judge"
+        }
+      ],
+      "equipment": [],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.38,
+            0.3
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.38,
+            0.3
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.7,
+            0.92
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P2",
+          "to": "P2",
+          "style": "movement",
+          "step": 3
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "both-up-doubles-points",
+    "name": "Both Up Doubles Points",
+    "summary": "Drills the serving team's move to the net in doubles by making both server and partner reach the net by their second shot or forfeit the point.",
+    "skill_focus": [
+      "volley",
+      "tactical",
+      "serve"
+    ],
+    "levels": [
+      "intermediate",
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "high",
+    "players_min": 4,
+    "players_max": 4,
+    "duration_min": 10,
+    "duration_max": 15,
+    "equipment": [],
+    "setup": "Two doubles pairs, full doubles court. Server behind the baseline with three balls, partner at the net; returner on the far baseline, returner's partner on the far service line. Serving pair changes every four points.",
+    "instructions": [
+      "Play normal doubles points with one rule: by the time the serving pair hits its second shot, both of them must be inside the service line.",
+      "If either server or partner is behind the service line on that shot, the point goes to the returning pair.",
+      "Returners try to keep the ball low or lob over the incoming pair.",
+      "Four points per server, all four players serve, then rotate partners and play again.",
+      "Score by pair across the round; losing pair collects the balls."
+    ],
+    "coaching_points": [
+      "Server: serve, three steps, split step at the return's contact.",
+      "Net partner: move forward and towards the middle as the serve is struck; close the gap.",
+      "First volley deep and down the middle, no angles yet.",
+      "Returners: low and slow beats hard and high against a pair at the net."
+    ],
+    "progressions": [
+      "Both up by the FIRST shot after the serve, so the server must serve and volley.",
+      "The returning pair must also come in behind the return; first team to the net usually wins.",
+      "Second serves count too, no free points for a fault."
+    ],
+    "regressions": [
+      "Only the server has to be inside the service line by the second shot.",
+      "The returners return cooperatively at waist height until the first volley.",
+      "Both up by the third shot instead of the second."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.68,
+          "y": 0.98,
+          "label": "Server"
+        },
+        {
+          "id": "P2",
+          "x": 0.3,
+          "y": 0.62,
+          "label": "Partner"
+        },
+        {
+          "id": "P3",
+          "x": 0.28,
+          "y": 0.06,
+          "label": "Returner"
+        },
+        {
+          "id": "P4",
+          "x": 0.7,
+          "y": 0.24,
+          "label": "R partner"
+        }
+      ],
+      "equipment": [],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.36,
+            0.3
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.66,
+            0.7
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.36,
+            0.58
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P3",
+          "to": [
+            0.62,
+            0.66
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.5,
+            0.1
+          ],
+          "style": "ball",
+          "step": 3
+        }
+      ]
+    },
+    "source": "generated"
+  }
+]

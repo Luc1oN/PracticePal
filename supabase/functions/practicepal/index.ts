@@ -24,6 +24,10 @@ const RATE_LIMITS = { ip: 40, client: 12 }
 // The only equipment the app lets players declare. Anything else is "none".
 const EQUIPMENT = ['basket', 'cones']
 
+// Default thinking mode for full generation (see callClaude). Measured on
+// 4 players / 60 min: adaptive ≈ 55-110s. Set after the A/B below.
+const DEFAULT_THINK: 'off' | 'low' | 'adaptive' = 'adaptive'
+
 function corsHeaders(origin: string | null): Record<string, string> {
   const isLocal = origin && /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)
   const allow = isLocal ? origin! : GH_PAGES_ORIGIN
@@ -133,6 +137,7 @@ async function logGeneration(authHeader: string | null, body: Record<string, unk
       focus: body.focus || null,
       variation: body.variation || null,
       equipment: Array.isArray(body.equipment) ? body.equipment : [],
+      mode: body.mode === 'compose' ? 'compose' : 'generate',
       plan,
     })
   } catch (logErr) {
@@ -175,11 +180,19 @@ async function checkRateLimits(req: Request, clientId: string): Promise<{ ok: bo
   }
 }
 
-async function callClaude(apiKey: string, prompt: string, maxTokens: number) {
+// Thinking is on (adaptive) by default on this model and its tokens count
+// against max_tokens and the clock. For structured JSON with an explicit
+// rulebook it mostly adds latency, so callers choose: 'off' (no thinking),
+// 'low' (adaptive at low effort) or 'adaptive' (the model decides).
+type Think = 'off' | 'low' | 'adaptive'
+async function callClaude(apiKey: string, prompt: string, maxTokens: number, think: Think = 'adaptive') {
+  const payload: Record<string, unknown> = { model: MODEL, max_tokens: maxTokens, messages: [{ role: 'user', content: prompt }] }
+  if (think === 'off') payload.thinking = { type: 'disabled' }
+  if (think === 'low') payload.output_config = { effort: 'low' }
   const resp = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
     headers: { 'x-api-key': apiKey, 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
-    body: JSON.stringify({ model: MODEL, max_tokens: maxTokens, messages: [{ role: 'user', content: prompt }] }),
+    body: JSON.stringify(payload),
   })
   if (!resp.ok) {
     const detail = await resp.text().catch(() => '')
@@ -251,6 +264,147 @@ function sanitizeKit(k: unknown, equipment: string[]): string[] {
   return out
 }
 
+// ── Composition: build the session from the vetted drill library ──────────
+// Instead of inventing every drill, pick from real, reviewed drills (with
+// their diagrams) and let the model sequence, time and voice them. Falls
+// back to full generation when the library can't serve the request.
+const FOCUS_SKILLS: Array<[RegExp, string[]]> = [
+  [/serve|serving|toss|second serve|first serve/i, ['serve']],
+  [/return/i, ['return']],
+  [/volley|net play|net game|at the net|approach|overhead|smash/i, ['volley', 'overhead']],
+  [/forehand/i, ['forehand']],
+  [/backhand/i, ['backhand']],
+  [/footwork|movement|legs|fitness|conditioning/i, ['movement', 'conditioning']],
+  [/doubles|pattern|tactic|strategy|decision|point play|construct/i, ['tactical']],
+  [/consisten|rally|depth|rhythm/i, ['forehand', 'backhand']],
+  [/game|fun|compet/i, ['games']],
+]
+
+type DrillRow = {
+  id: string; slug: string; name: string; summary: string; skill_focus: string[]; levels: string[]
+  court_space: string; intensity: string; players_min: number; players_max: number
+  duration_min: number; duration_max: number; equipment: string[]; equipment_level: string
+  needs_feeder: boolean; styles: string[]; setup: string; instructions: string[]
+  coaching_points: string[]; court_diagram: unknown
+}
+
+async function tryCompose(args: {
+  personaId: string; persona: { name: string; brief: string }; players: number; courts: number
+  duration: number; level: string; focus: string; equipment: string[]; mode: 'auto' | 'any'
+  apiKey: string; ballRule: string; kit: string; framing: string; think: Think
+}): Promise<Record<string, any> | null> {
+  const t0 = Date.now()
+  try {
+    const supabaseUrl = Deno.env.get('SUPABASE_URL')
+    const serviceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')
+    if (!supabaseUrl || !serviceKey) return null
+    const db = createClient(supabaseUrl, serviceKey)
+    const basket = args.equipment.includes('basket')
+    const cones = args.equipment.includes('cones')
+
+    let q = db.from('drills')
+      .select('id,slug,name,summary,skill_focus,levels,court_space,intensity,players_min,players_max,duration_min,duration_max,equipment,equipment_level,needs_feeder,styles,setup,instructions,coaching_points,court_diagram')
+      .contains('levels', [args.level.toLowerCase()])
+      .contains('styles', [args.personaId])
+      .lte('players_min', args.players)
+      .neq('court_space', 'off_court')
+      .limit(80)
+    if (args.mode === 'auto') q = q.eq('is_vetted', true)
+    if (!basket) q = q.eq('needs_feeder', false)
+    if (basket && cones) { /* anything */ }
+    else if (basket) q = q.in('equipment_level', ['none', 'full']).not('equipment', 'cs', '{cones}').not('equipment', 'cs', '{throwdowns}')
+    else if (cones) q = q.in('equipment_level', ['none', 'basic'])
+    else q = q.eq('equipment_level', 'none')
+    const { data, error } = await q
+    if (error || !data) { console.error('compose query failed', error); return null }
+    const rows = data as DrillRow[]
+    const MIN = args.mode === 'auto' ? 8 : 4
+    if (rows.length < MIN) { console.log('compose: too few candidates', rows.length); return null }
+
+    // Rank: focus match first, then whether the group size fits without rotation.
+    const wanted = new Set<string>()
+    for (const [re, skills] of FOCUS_SKILLS) if (re.test(args.focus)) skills.forEach((s) => wanted.add(s))
+    const score = (r: DrillRow) =>
+      (r.skill_focus.some((s) => wanted.has(s)) ? 3 : 0) +
+      (args.players <= r.players_max ? 1 : 0) +
+      (r.skill_focus.includes('warmup') || r.skill_focus.includes('games') ? 1 : 0)
+    const ranked = [...rows].sort((a, b) => score(b) - score(a))
+    const catalogue = ranked.slice(0, 40)
+    const bySlug = new Map(catalogue.map((r) => [r.slug, r]))
+    const lines = catalogue.map((r) =>
+      `${r.slug} | ${r.name} | ${r.summary} | skills: ${r.skill_focus.join('/')} | players ${r.players_min}-${r.players_max} | ${r.duration_min}-${r.duration_max} min | ${r.court_space.replace(/_/g, ' ')} | ${r.intensity}`)
+
+    const prompt = `${args.framing}
+
+Session parameters:
+- Players: ${args.players}
+- Courts: ${args.courts}
+- Duration: ${args.duration} minutes
+- Level: ${args.level}
+- Focus: ${args.focus || '(none given — choose something appropriate for the level and style)'}
+
+${args.ballRule}
+
+${args.kit}
+
+You are composing tonight's session from a LIBRARY of reviewed drills. Use ONLY drills from this catalogue, referenced by their id (the first column). Do not invent drills — the one exception is the warm-up and the finisher, which you may write yourself if nothing in the catalogue fits (then set "drill": null).
+
+CATALOGUE (id | name | what it develops | skills | players | minutes | court space | intensity):
+${lines.join('\n')}
+
+Build 4–7 blocks covering exactly 0 to ${args.duration} minutes, no gaps or overlaps. First block: a short hitting warm-up (a catalogue warm-up, or your own mini-tennis start). Last block: a competitive finisher game (a catalogue games drill or your own). In between, drills that build towards the focus in a sensible order for the ${args.persona.name} style. Give each drill minutes inside or close to its own range. Never use the same drill twice. Adapt every drill to ${args.players} player${args.players === 1 ? '' : 's'} on ${args.courts} court${args.courts > 1 ? 's' : ''} — say how they rotate or run in parallel.
+
+For each block write four crisp facets (aim: 4-8 words, the why; drill: one clipped telegraphic sentence, the concrete mechanic as THIS group runs it; cycle: short phrase on who swaps and when, or null; target: short numeric goal, or null) and one cue in the style's voice (or null).
+
+Name the session: a punchy, memorable 2–4 word title (never "Session", never the style's name).
+
+Return ONLY minified JSON, no preamble, no fences, exactly:
+{"title":"...","kit":["Racquets and balls"],"timeline":[{"drill":"catalogue-id-or-null","start":0,"end":10,"title":"short block name","aim":"...","drill_text":"...","cycle":null,"target":null,"cue":null}],"rotation":{"summary":"1-3 sentences on how ${args.players} players rotate through the session","needs_diagram":${args.players > 4 ? 'true' : 'false'}},"finisher":{"title":"name of the final game","description":"2-3 sentences: rules, scoring, bragging rights"}}`
+
+    const r = await callClaude(args.apiKey, prompt, 3500, args.think)
+    if (r.error) return null
+    const plan = extractJson(r.raw, r.stop) as Record<string, any>
+    if (!plan.title || !Array.isArray(plan.timeline) || !plan.timeline.length) return null
+
+    let libraryBlocks = 0
+    plan.timeline = plan.timeline.map((b: Record<string, any>) => {
+      const row = typeof b.drill === 'string' ? bySlug.get(b.drill) : undefined
+      const out: Record<string, any> = {
+        start: b.start, end: b.end, title: b.title, aim: b.aim, drill: b.drill_text ?? b.drill_desc ?? '',
+        cycle: b.cycle ?? null, target: b.target ?? null, cue: b.cue ?? null, diagram: 'none', scene: null,
+      }
+      if (row) {
+        libraryBlocks += 1
+        out.drill_id = row.id
+        out.slug = row.slug
+        out.library_name = row.name
+        out.setup = row.setup
+        out.steps = row.instructions
+        out.points = row.coaching_points
+        out.court_diagram = row.court_diagram
+        if (!out.drill) out.drill = row.summary
+      }
+      return out
+    })
+    if (libraryBlocks < 3) { console.log('compose: model used too few library drills', libraryBlocks); return null }
+    plan.timeline = normaliseTimeline(plan.timeline, args.duration)
+    plan.kit = sanitizeKit(plan.kit, args.equipment)
+    if (plan.finisher && typeof plan.finisher === 'object') {
+      const last = plan.timeline[plan.timeline.length - 1]
+      plan.finisher.diagram = 'none'
+      plan.finisher.scene = null
+      if (last?.court_diagram) plan.finisher.court_diagram = last.court_diagram
+    }
+    plan.mode = 'compose'
+    plan.library_blocks = libraryBlocks
+    console.log('compose ok', { candidates: rows.length, libraryBlocks, ms: Date.now() - t0 })
+    return plan
+  } catch (err) {
+    console.error('compose failed (falling back to generation)', err)
+    return null
+  }
+}
+
 Deno.serve(async (req: Request) => {
   const cors = corsHeaders(req.headers.get('Origin'))
   if (req.method === 'OPTIONS') return new Response('ok', { headers: cors })
@@ -274,6 +428,8 @@ Deno.serve(async (req: Request) => {
     level?: string
     focus?: string
     equipment?: unknown
+    compose?: string
+    think?: string
     variation?: string
     previousTitle?: string
     clientId?: string
@@ -357,6 +513,28 @@ Return ONLY the minified JSON object for the replacement block — no wrapper, n
     }
   }
 
+  // ── Composition first: real drills from the reviewed library ─────────────
+  // 'auto' (default) uses vetted drills only and falls back to generation
+  // when the library can't serve the request; 'any' is the hidden test mode
+  // that composes from unvetted rows too; 'off' skips the library.
+  const composeMode = body.compose === 'any' || body.compose === 'off' ? body.compose : 'auto'
+  // Hidden knob for measuring the thinking trade-off; the defaults below are
+  // what real users get.
+  const think: Think = body.think === 'off' || body.think === 'low' || body.think === 'adaptive' ? body.think : DEFAULT_THINK
+  if (composeMode !== 'off' && !variation) {
+    const composed = await tryCompose({
+      personaId: PERSONAS[body.persona ?? ''] ? (body.persona as string) : 'technician',
+      persona, players, courts, duration, level: level as string, focus, equipment,
+      mode: composeMode, apiKey, ballRule, kit, framing, think: body.think ? think : 'off',
+    })
+    if (composed) {
+      const bg = logGeneration(req.headers.get('Authorization'), { ...body, players, courts, duration, level, focus, equipment, variation, mode: 'compose' }, composed)
+      // @ts-ignore - EdgeRuntime is available in the Supabase Deno runtime
+      if (typeof EdgeRuntime !== 'undefined') EdgeRuntime.waitUntil(bg)
+      return json({ plan: composed })
+    }
+  }
+
   const VARIATIONS: Record<string, string> = {
     easier: 'Make this a gentler, lower-intensity version: simpler drills, more cooperative starts, less pressure.',
     harder: 'Make this a tougher version: faster progressions, more live-ball pressure, higher standards.',
@@ -417,8 +595,10 @@ Return ONLY valid JSON, no preamble, no markdown fences. OUTPUT MINIFIED JSON �
 The finisher object must describe the SAME game as the last timeline block. Note the finisher keeps a normal prose "description" — only timeline blocks use the aim/drill/cycle/target facets.`
 
   try {
-    const r = await callClaude(apiKey, prompt, 12000)
+    const t0 = Date.now()
+    const r = await callClaude(apiKey, prompt, 12000, think)
     if (r.error) return json({ error: 'The generator could not be reached right now. Try again in a moment.' }, 502)
+    console.log('generate', { think, ms: Date.now() - t0, stop: r.stop, out: r.usage?.output_tokens })
     const plan = extractJson(r.raw, r.stop) as Record<string, any>
 
     if (!plan.title || !Array.isArray(plan.timeline) || plan.timeline.length === 0) {

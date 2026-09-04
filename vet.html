@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>PracticePal · Drill review</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg0: #081F17; --bg1: #0C2A1E; --chalk: #F7F3E8; --chalk-muted: #C2CDBA; --chalk-faint: #8A9C8C; --chalk-soft: #D8DFD1;
+    --purple: #57268B; --purple-hi: #A374DC; --gold: #C9A445; --gold-hi: #E8CF86; --lawn: #63B57F; --red: #E28A73;
+    --glass-hi: rgba(247,243,232,0.06); --glass-lo: rgba(247,243,232,0.015); --stroke: rgba(247,243,232,0.10); --stroke-soft: rgba(247,243,232,0.07);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: var(--bg0); }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg0); color: var(--chalk); line-height: 1.5; min-height: 100vh; }
+  .frame { max-width: 640px; margin: 0 auto; padding: 18px 18px 140px; }
+  h1 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 24px; }
+  h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 24px; line-height: 1.15; margin: 4px 0 6px; }
+  .top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+  .top .who { font-size: 12.5px; color: var(--chalk-faint); }
+  .card { background: linear-gradient(180deg, var(--glass-hi), var(--glass-lo)); border: 1px solid var(--stroke); border-radius: 16px; padding: 18px; margin-bottom: 14px; }
+  .sub { color: var(--chalk-muted); font-size: 14px; }
+  .lab { font-size: 10.5px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--chalk-faint); margin: 14px 0 5px; }
+  input, textarea, select { width: 100%; font: inherit; color: var(--chalk); background: rgba(4,14,10,.4); border: 1px solid var(--stroke); border-radius: 10px; padding: 11px 13px; }
+  textarea { min-height: 64px; resize: vertical; }
+  .btn { font: inherit; font-weight: 600; cursor: pointer; border-radius: 12px; padding: 13px 14px; border: 1px solid var(--stroke); background: var(--glass-hi); color: var(--chalk); }
+  .btn.primary { background: linear-gradient(180deg, #6A35A8, #4A2180); border-color: rgba(163,116,220,.5); }
+  .btn.approve { background: linear-gradient(180deg, #3E8E5C, #2D6B44); border-color: rgba(99,181,127,.55); }
+  .btn.reject { color: var(--red); border-color: rgba(226,138,115,.45); }
+  .btn:disabled { opacity: .5; cursor: default; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { font-size: 12px; padding: 4px 10px; border-radius: 99px; border: 1px solid var(--stroke); color: var(--chalk-muted); background: var(--glass-hi); }
+  .chip.toggle { cursor: pointer; }
+  .chip.on { border-color: color-mix(in srgb, var(--gold) 65%, transparent); color: var(--gold-hi); background: color-mix(in srgb, var(--gold) 12%, transparent); }
+  .chip.warn { border-color: rgba(226,138,115,.5); color: var(--red); }
+  ol, ul { padding-left: 20px; font-size: 14.5px; color: var(--chalk-soft); }
+  li { margin-bottom: 5px; }
+  p.body { font-size: 14.5px; color: var(--chalk-soft); }
+  .diag { display: grid; place-items: center; padding: 8px 0 4px; }
+  .diag svg { width: min(100%, 300px); height: auto; }
+  .diag-warn { font-size: 12px; color: var(--red); text-align: center; }
+  .progress { height: 6px; border-radius: 99px; background: var(--stroke-soft); overflow: hidden; margin: 6px 0 16px; }
+  .progress i { display: block; height: 100%; background: var(--gold); width: 0; transition: width .3s ease; }
+  .actions { position: fixed; left: 0; right: 0; bottom: 0; padding: 12px 18px calc(14px + env(safe-area-inset-bottom)); background: linear-gradient(180deg, transparent, var(--bg0) 40%); display: flex; gap: 10px; max-width: 640px; margin: 0 auto; }
+  .actions .btn { flex: 1; }
+  .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .toast { position: fixed; left: 50%; top: 14px; transform: translateX(-50%); background: var(--chalk); color: var(--bg0); padding: 10px 16px; border-radius: 99px; font-weight: 600; font-size: 14px; opacity: 0; transition: opacity .2s; pointer-events: none; z-index: 9; }
+  .toast.on { opacity: 1; }
+  .err { color: var(--red); font-size: 13.5px; margin-top: 8px; }
+  .kbd { font-size: 12px; color: var(--chalk-faint); text-align: center; margin-top: 8px; }
+  .done { text-align: center; padding: 40px 0; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="frame">
+  <div class="top"><h1>Drill review</h1><span class="who" id="who"></span></div>
+
+  <section class="card" id="auth">
+    <h2>Sign in</h2>
+    <p class="sub">Only the reviewer account can see and approve drills.</p>
+    <div class="lab">Email</div><input id="email" type="email" autocomplete="email" inputmode="email">
+    <div class="lab">Password</div><input id="password" type="password" autocomplete="current-password">
+    <div style="margin-top:14px"><button class="btn primary" id="signInBtn" style="width:100%">Sign in</button></div>
+    <div class="err" id="authErr" hidden></div>
+  </section>
+
+  <section id="review" hidden>
+    <div class="row" style="justify-content:space-between">
+      <span class="sub" id="counts"></span>
+      <select id="order" style="width:auto">
+        <option value="nokit">No-kit and two-player first</option>
+        <option value="stroke">Strokes first</option>
+        <option value="any">Any order</option>
+      </select>
+    </div>
+    <div class="progress"><i id="bar"></i></div>
+
+    <article class="card" id="card"></article>
+
+    <div class="card">
+      <div class="lab">Diagram</div>
+      <label class="row"><input type="checkbox" id="diagOk" checked style="width:auto"> <span class="sub">The diagram shows the drill the text describes</span></label>
+      <div class="lab">Tags (tap to change)</div>
+      <div class="chips" id="styleChips"></div>
+      <div class="row" style="margin-top:10px">
+        <span class="sub">Kit level</span>
+        <select id="kitLevel" style="width:auto"><option value="none">none (racquets and balls)</option><option value="basic">basic (cones, targets)</option><option value="full">full (basket, machine)</option></select>
+        <label class="row"><input type="checkbox" id="needsFeeder" style="width:auto"> <span class="sub">Needs a feeder</span></label>
+      </div>
+      <div class="lab">Note (optional)</div>
+      <textarea id="note" placeholder="What is wrong, or what to change"></textarea>
+    </div>
+    <div class="kbd">Keys: A approve · N needs work · S skip</div>
+    <div class="done" id="done" hidden><h2>All caught up</h2><p class="sub">Nothing left in this queue.</p></div>
+  </section>
+</div>
+
+<div class="actions" id="actions" hidden>
+  <button class="btn reject" id="rejectBtn">Needs work</button>
+  <button class="btn" id="skipBtn">Skip</button>
+  <button class="btn approve" id="approveBtn">Approve</button>
+</div>
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.115.0/dist/umd/supabase.js"></script>
+<script src="court-diagram.js?v=2"></script>
+<script>
+const SUPABASE_URL = 'https://tfnlygofikamyoscdrik.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRmbmx5Z29maWthbXlvc2NkcmlrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEwMTUxNzIsImV4cCI6MjA5NjU5MTE3Mn0.6uTGpXK_BpnQcxTbWbrB_uu_iRBqWxWSvN5PLw797WE';
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const STYLES = ['technician', 'tactician', 'grinder', 'entertainer'];
+let queue = [], skipped = [], current = null, vettedCount = 0, totalCount = 0;
+
+function toast(msg) { const t = $('toast'); t.textContent = msg; t.classList.add('on'); clearTimeout(toast.t); toast.t = setTimeout(() => t.classList.remove('on'), 1800); }
+
+async function signIn() {
+  $('authErr').hidden = true;
+  const { error } = await sb.auth.signInWithPassword({ email: $('email').value.trim(), password: $('password').value });
+  if (error) { $('authErr').textContent = error.message; $('authErr').hidden = false; }
+}
+
+async function start(session) {
+  $('who').textContent = session.user.email;
+  $('auth').hidden = true; $('review').hidden = false; $('actions').hidden = false;
+  await loadQueue();
+}
+
+function priority(d) {
+  const order = $('order').value;
+  const kit = { none: 0, basic: 1, full: 2 }[d.equipment_level] ?? 2;
+  if (order === 'stroke') return (d.skill_focus.some((s) => ['forehand', 'backhand', 'serve', 'return', 'volley', 'overhead'].includes(s)) ? 0 : 1) * 10 + kit;
+  if (order === 'any') return 0;
+  return kit * 10 + (d.needs_feeder ? 3 : 0) + Math.min(d.players_min, 4);
+}
+
+async function loadQueue() {
+  const { data, error } = await sb.from('drills').select('*').is('reviewed_at', null).eq('is_vetted', false);
+  if (error) { toast('Could not load drills: ' + error.message); return; }
+  const counts = await sb.from('drills').select('id, is_vetted', { count: 'exact' });
+  totalCount = counts.count ?? 0;
+  vettedCount = (counts.data || []).filter((r) => r.is_vetted).length;
+  queue = (data || []).sort((a, b) => priority(a) - priority(b) || a.name.localeCompare(b.name));
+  skipped = [];
+  next();
+}
+
+function next() {
+  current = queue.shift() || null;
+  if (!current && skipped.length) { queue = skipped; skipped = []; current = queue.shift(); }
+  paint();
+}
+
+function chip(t, cls = '') { return `<span class="chip ${cls}">${esc(t)}</span>`; }
+
+function paint() {
+  const left = queue.length + skipped.length + (current ? 1 : 0);
+  $('counts').textContent = `${vettedCount} approved · ${left} to review · ${totalCount} in the library`;
+  $('bar').style.width = `${totalCount ? Math.round((vettedCount / totalCount) * 100) : 0}%`;
+  if (!current) { $('card').hidden = true; $('done').hidden = false; $('actions').hidden = true; return; }
+  $('done').hidden = true; $('card').hidden = false; $('actions').hidden = false;
+  const d = current;
+  let diag = '<p class="sub">Off-court drill, no diagram.</p>';
+  let warn = '';
+  if (d.court_diagram && typeof renderCourtDiagram === 'function') {
+    try {
+      const el = renderCourtDiagram(d.court_diagram, { animate: true });
+      if (el) { diag = el.outerHTML; const w = el.getAttribute('data-warnings'); if (w && w !== '[]') warn = `<div class="diag-warn">Renderer notes: ${esc(w)}</div>`; }
+    } catch (e) { diag = `<p class="diag-warn">Diagram failed to render: ${esc(e.message)}</p>`; }
+  }
+  $('card').innerHTML = `
+    <div class="chips">${chip(d.skill_focus.join(' · '))}${chip(d.levels.join(' · '))}${chip(`${d.players_min}–${d.players_max} players`)}${chip(`${d.duration_min}–${d.duration_max} min`)}${chip(d.court_space.replace(/_/g, ' '))}${chip(d.intensity)}${d.equipment.length ? chip('kit: ' + d.equipment.join(', '), 'warn') : chip('no kit', 'on')}</div>
+    <h2>${esc(d.name)}</h2>
+    <p class="sub">${esc(d.summary)}</p>
+    <div class="lab">Setup</div><p class="body">${esc(d.setup)}</p>
+    <div class="lab">How it runs</div><ol>${d.instructions.map((s) => `<li>${esc(s)}</li>`).join('')}</ol>
+    <div class="lab">Cues</div><ul>${d.coaching_points.map((s) => `<li>${esc(s)}</li>`).join('')}</ul>
+    <div class="lab">Harder</div><ul>${d.progressions.map((s) => `<li>${esc(s)}</li>`).join('')}</ul>
+    <div class="lab">Easier</div><ul>${d.regressions.map((s) => `<li>${esc(s)}</li>`).join('')}</ul>
+    <div class="lab">Diagram</div><div class="diag">${diag}</div>${warn}`;
+  $('diagOk').checked = !!d.court_diagram;
+  $('kitLevel').value = d.equipment_level || 'none';
+  $('needsFeeder').checked = !!d.needs_feeder;
+  $('note').value = d.review_note || '';
+  const styles = new Set(d.styles || []);
+  $('styleChips').innerHTML = STYLES.map((st) => `<span class="chip toggle ${styles.has(st) ? 'on' : ''}" data-s="${st}">${st}</span>`).join('');
+  $('styleChips').querySelectorAll('.chip').forEach((c) => c.addEventListener('click', () => c.classList.toggle('on')));
+  window.scrollTo({ top: 0 });
+}
+
+function tagsFromForm() {
+  return {
+    diagram_ok: current.court_diagram ? $('diagOk').checked : null,
+    equipment_level: $('kitLevel').value,
+    needs_feeder: $('needsFeeder').checked,
+    styles: [...$('styleChips').querySelectorAll('.chip.on')].map((c) => c.dataset.s),
+    review_note: $('note').value.trim() || null,
+    reviewed_at: new Date().toISOString(),
+  };
+}
+
+async function decide(approve) {
+  if (!current) return;
+  const btns = [$('approveBtn'), $('rejectBtn'), $('skipBtn')];
+  btns.forEach((b) => { b.disabled = true; });
+  const patch = { ...tagsFromForm(), is_vetted: approve };
+  const { error } = await sb.from('drills').update(patch).eq('id', current.id);
+  btns.forEach((b) => { b.disabled = false; });
+  if (error) { toast('Not saved: ' + error.message); return; }
+  if (approve) vettedCount += 1;
+  totalCount = totalCount; // unchanged
+  toast(approve ? `Approved: ${current.name}` : `Marked needs work: ${current.name}`);
+  next();
+}
+
+function skip() { if (!current) return; skipped.push(current); next(); }
+
+$('signInBtn').addEventListener('click', signIn);
+$('password').addEventListener('keydown', (e) => { if (e.key === 'Enter') signIn(); });
+$('approveBtn').addEventListener('click', () => decide(true));
+$('rejectBtn').addEventListener('click', () => decide(false));
+$('skipBtn').addEventListener('click', skip);
+$('order').addEventListener('change', loadQueue);
+document.addEventListener('keydown', (e) => {
+  if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)) return;
+  if (e.key === 'a' || e.key === 'A') decide(true);
+  if (e.key === 'n' || e.key === 'N') decide(false);
+  if (e.key === 's' || e.key === 'S') skip();
+});
+sb.auth.onAuthStateChange((_event, session) => { if (session) start(session); });
+sb.auth.getSession().then(({ data }) => { if (data.session) start(data.session); });
+</script>
+</body>
+</html>

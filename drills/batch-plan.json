@@ -224,5 +224,23 @@
     "n_two_player": 5,
     "small_space": "half_court",
     "n_small_space": 1
+  },
+  {
+    "batch": 26,
+    "skill_focus": "beginner fundamentals (no kit, 2 players)",
+    "level": "beginner, improver",
+    "count": 12,
+    "n_two_player": 12,
+    "small_space": "service_boxes",
+    "n_small_space": 2
+  },
+  {
+    "batch": 27,
+    "skill_focus": "tactical/conditioning gap fill (no kit, 2 players)",
+    "level": "beginner to advanced",
+    "count": 9,
+    "n_two_player": 9,
+    "small_space": "half_court",
+    "n_small_space": 2
   }
 ]

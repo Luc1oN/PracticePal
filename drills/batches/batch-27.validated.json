@@ -1,0 +1,1023 @@
+[
+  {
+    "slug": "hit-where-they-are-not",
+    "name": "Hit Where They Are Not",
+    "summary": "Gives a beginner their first tactical idea by scoring only the balls hit into the half of the court their partner has just left.",
+    "skill_focus": [
+      "tactical",
+      "forehand",
+      "backhand"
+    ],
+    "levels": [
+      "beginner",
+      "improver"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "half_court",
+    "intensity": "low",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": [],
+    "setup": "Both players midway between service line and baseline, full singles width in play. Three balls with the starter. The centre mark divides each court into two halves, which is the only reference the drill needs.",
+    "instructions": [
+      "Rally cooperatively down the middle to begin, then the starter opens the point with a ball to one side.",
+      "From then on, score a point every time you hit into the half your partner is not standing in when you strike.",
+      "The rally keeps going after a scoring shot; play for two minutes and compare totals.",
+      "Second round: you must say 'open' out loud as you hit into the empty half.",
+      "Third round: play it as points to seven, where a ball into the empty half that is not returned wins outright."
+    ],
+    "coaching_points": [
+      "Look up at your partner's position as the ball comes to you, not after you hit.",
+      "The open half is usually the one they just ran from.",
+      "Aim two metres inside the sideline; the space is big, the line is not needed.",
+      "Recover to the centre mark so your own halves stay even."
+    ],
+    "progressions": [
+      "Shrink the scoring zone to the outer third of each side.",
+      "Require the ball to land beyond the service line to score.",
+      "Add a rule that two scoring shots in a row wins the point outright."
+    ],
+    "regressions": [
+      "Play in the service boxes so the distances are shorter.",
+      "Let the partner stand still and simply name the open half aloud.",
+      "Count any ball that crosses the centre line as a scoring ball."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.88,
+          "label": "A"
+        },
+        {
+          "id": "P2",
+          "x": 0.3,
+          "y": 0.12,
+          "label": "B"
+        }
+      ],
+      "equipment": [],
+      "paths": [
+        {
+          "from": "P2",
+          "to": [
+            0.7,
+            0.84
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.7,
+            0.86
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.74,
+            0.16
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.72,
+            0.14
+          ],
+          "style": "movement",
+          "step": 3
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "pick-your-serve-side",
+    "name": "Pick Your Serve Side",
+    "summary": "Starts tactical thinking at the serve by making a beginner choose and call which half of the box to aim at before every ball.",
+    "skill_focus": [
+      "serve",
+      "tactical"
+    ],
+    "levels": [
+      "beginner",
+      "improver"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "half_court",
+    "intensity": "low",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 8,
+    "duration_max": 10,
+    "equipment": [],
+    "setup": "Server behind the baseline on the deuce side with three balls. Partner stands in the diagonal service box, off to one side, to watch where the ball lands and call it. Each service box is treated as two halves, the half nearer the centre line and the half nearer the sideline.",
+    "instructions": [
+      "Before each serve, the server calls 'middle' or 'outside' for which half of the box they are aiming at.",
+      "Serve three balls, then the partner reports how many landed in the called half.",
+      "Score two for the called half, one for anywhere else in the box, nothing for a fault.",
+      "Swap roles after every set of three and play to twenty points.",
+      "Last round: the partner calls the target a moment before the server tosses."
+    ],
+    "coaching_points": [
+      "Choose the half before you start your routine, not during the toss.",
+      "Toss slightly further out in front for the outside half.",
+      "Keep the same swing for both halves; only the aim changes.",
+      "Partner: call the landing spot before the ball bounces twice."
+    ],
+    "progressions": [
+      "Shrink the target to a third of the box rather than a half.",
+      "Require the server to alternate halves on every ball.",
+      "Add a returner who plays the ball back, and the point is played out."
+    ],
+    "regressions": [
+      "Serve underarm from the service line.",
+      "Score one point for any serve in the box regardless of the call.",
+      "Allow two attempts at each called target."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.6,
+          "y": 0.98,
+          "label": "Server"
+        },
+        {
+          "id": "P2",
+          "x": 0.1,
+          "y": 0.3,
+          "label": "Caller"
+        }
+      ],
+      "equipment": [],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.42,
+            0.32
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.2,
+            0.34
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.4,
+            0.3
+          ],
+          "style": "ball",
+          "step": 3
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "twenty-ball-beginner-blocks",
+    "name": "Twenty-Ball Blocks",
+    "summary": "Builds beginner stamina through hitting alone by working in blocks of twenty balls with short rests, so the legs and the rally grow together.",
+    "skill_focus": [
+      "conditioning",
+      "forehand",
+      "backhand"
+    ],
+    "levels": [
+      "beginner",
+      "improver"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "half_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": [],
+    "setup": "Both players midway between service line and baseline on the deuce half, which is the only area used. Three balls with the starter, collected between blocks.",
+    "instructions": [
+      "Rally cooperatively in the deuce half and count to twenty balls as a pair, as fast as you can keep it in.",
+      "When you reach twenty, or the rally breaks, rest for thirty seconds and start a new block.",
+      "Complete four blocks, writing down how many balls each block reached.",
+      "Blocks five and six move to the ad half so the other wing does the work.",
+      "Last block: no rest, straight into it, and see whether the count holds up."
+    ],
+    "coaching_points": [
+      "Split your feet apart every time your partner strikes the ball.",
+      "Keep the ball high over the net when you are tired; height is easier than power.",
+      "Recover to the middle of your half between every shot, even in the last block.",
+      "Breathe out as you hit rather than holding your breath."
+    ],
+    "progressions": [
+      "Extend the block from twenty balls to thirty-five.",
+      "Cut the rest between blocks from thirty seconds to fifteen.",
+      "Use the full singles width so the running doubles."
+    ],
+    "regressions": [
+      "Shorten the block to ten balls with a full minute of rest.",
+      "Play the blocks inside the service boxes.",
+      "Allow the ball to bounce twice without ending the count."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.68,
+          "y": 0.88,
+          "label": "A"
+        },
+        {
+          "id": "P2",
+          "x": 0.32,
+          "y": 0.12,
+          "label": "B"
+        }
+      ],
+      "equipment": [],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.3,
+            0.18
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.7,
+            0.82
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.7,
+            0.86
+          ],
+          "style": "movement",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.34,
+            0.16
+          ],
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.68,
+            0.88
+          ],
+          "style": "movement",
+          "step": 4
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "heavy-ball-depth-window",
+    "name": "Heavy Ball Depth Window",
+    "summary": "Sharpens an advanced player's margin by demanding every rally ball pass through a high window over the net and still land in the back third.",
+    "skill_focus": [
+      "forehand",
+      "backhand"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 10,
+    "duration_max": 15,
+    "equipment": [],
+    "setup": "Both players on the baseline, rallying cross-court on the deuce diagonal. Three balls with the starter. The window is judged by eye: the ball must cross at least two racket lengths above the net tape, and land beyond the halfway point between service line and baseline.",
+    "instructions": [
+      "Rally cross-court with heavy topspin, both conditions live from the first ball.",
+      "Either player calls 'low' the moment a ball crosses under the window, which ends the count.",
+      "Count consecutive balls that satisfy both height and depth; aim for fifteen.",
+      "Swap to the ad diagonal after five minutes and repeat.",
+      "Final round: keep the window but add pace, so the ball must be heavy rather than merely safe."
+    ],
+    "coaching_points": [
+      "Swing from below the ball, finishing high over the shoulder.",
+      "The racket face stays closed through contact; height comes from the path, not the face.",
+      "Contact out in front with the body turning through, not pushing forward.",
+      "Recover a step behind the baseline so you can take the next ball rising."
+    ],
+    "progressions": [
+      "Raise the window to three racket lengths above the tape.",
+      "Require the ball to land within two metres of the baseline.",
+      "Play the same conditions inside live points to eleven."
+    ],
+    "regressions": [
+      "Judge only the height and ignore the depth condition.",
+      "Drop the target from fifteen consecutive balls to eight.",
+      "Rally down the middle rather than cross-court."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.74,
+          "y": 0.95,
+          "label": "A"
+        },
+        {
+          "id": "P2",
+          "x": 0.26,
+          "y": 0.05,
+          "label": "B"
+        }
+      ],
+      "equipment": [],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.26,
+            0.1
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.74,
+            0.9
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.24,
+            0.08
+          ],
+          "style": "ball",
+          "step": 3
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "slice-drive-alternation",
+    "name": "Slice and Drive Alternation",
+    "summary": "Builds advanced backhand variety by alternating a sliced ball and a driven ball in the same rally without losing depth on either.",
+    "skill_focus": [
+      "backhand",
+      "forehand"
+    ],
+    "levels": [
+      "advanced",
+      "intermediate"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "cross_court_channel",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 10,
+    "duration_max": 14,
+    "equipment": [],
+    "setup": "Both right-handers stand in their ad corner on the baseline so the diagonal runs backhand to backhand. Three balls with the starter. Depth is judged against the service line.",
+    "instructions": [
+      "Player A alternates: one sliced backhand, one driven backhand, repeating through the rally.",
+      "Player B drives every ball back to the same corner so the pattern can continue.",
+      "Both the slice and the drive must land beyond the service line, or the count resets.",
+      "Count complete slice and drive pairs; aim for eight, then swap roles.",
+      "Final round: both players alternate, so the rally changes shape on every ball."
+    ],
+    "coaching_points": [
+      "Slice: knuckles lead, racket travels from high to low behind the ball, chest stays tall.",
+      "Drive: same shoulder turn, but the racket drops below the ball before it comes up.",
+      "Take the slice earlier and the drive later; the contact points are not the same.",
+      "Do not change your grip pressure until the shoulders have turned."
+    ],
+    "progressions": [
+      "Slice must land within two metres of the baseline.",
+      "Alternate two slices then one drive to break the rhythm.",
+      "Play the alternation inside live cross-court points."
+    ],
+    "regressions": [
+      "Alternate every second rally instead of every ball.",
+      "Drop the depth condition on the sliced ball.",
+      "Rally from a metre inside the baseline at slower pace."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.26,
+          "y": 0.95,
+          "label": "A"
+        },
+        {
+          "id": "P2",
+          "x": 0.74,
+          "y": 0.05,
+          "label": "B"
+        }
+      ],
+      "equipment": [],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.74,
+            0.12
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.26,
+            0.88
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.76,
+            0.1
+          ],
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.26,
+            0.9
+          ],
+          "style": "ball",
+          "step": 4
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "first-strike-handicap-duel",
+    "name": "First Strike Handicap Duel",
+    "summary": "A competitive advanced game where the server must win the point inside four shots or hand it over, rewarding early aggression.",
+    "skill_focus": [
+      "games",
+      "serve",
+      "tactical"
+    ],
+    "levels": [
+      "advanced"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 10,
+    "duration_max": 15,
+    "equipment": [],
+    "setup": "Full singles court, one serve per point, three balls with the server. Count the shots aloud from the serve: serve is one, return is two, and so on.",
+    "instructions": [
+      "The server must win the point on or before the fourth shot; if the rally reaches a fifth shot the returner takes the point.",
+      "Play games of four points, alternating server, to a set of eight games.",
+      "The returner may do anything, including lobbing and slicing, to survive to the fifth ball.",
+      "Second set: the limit tightens to three shots for the server.",
+      "Final set: the returner must also win within six shots, so neither player can simply wait."
+    ],
+    "coaching_points": [
+      "Serve to open a side, then hit the next ball into the space it created.",
+      "Take the third ball early, inside the baseline, or the clock beats you.",
+      "Returner: height and depth are your friends; every extra ball is a point.",
+      "Call the shot count aloud so the pressure is shared."
+    ],
+    "progressions": [
+      "Reduce the server's limit to three shots from the start.",
+      "Require the winning shot to land beyond the service line.",
+      "Play the whole set with second serves only."
+    ],
+    "regressions": [
+      "Give the server six shots rather than four.",
+      "Allow two serves for each point.",
+      "Play games of two points so the server role rotates faster."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.58,
+          "y": 0.98,
+          "label": "Server"
+        },
+        {
+          "id": "P2",
+          "x": 0.34,
+          "y": 0.05,
+          "label": "Returner"
+        }
+      ],
+      "equipment": [],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.2,
+            0.3
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.22,
+            0.28
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.6,
+            0.86
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.6,
+            0.88
+          ],
+          "style": "movement",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.84,
+            0.14
+          ],
+          "style": "ball",
+          "step": 3
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "three-corner-recovery-grind",
+    "name": "Three-Corner Recovery Grind",
+    "summary": "An advanced conditioning rally where one player covers three corners in sequence while the other holds the middle, all of it live ball.",
+    "skill_focus": [
+      "conditioning",
+      "movement",
+      "forehand",
+      "backhand"
+    ],
+    "levels": [
+      "advanced",
+      "intermediate"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 8,
+    "duration_max": 12,
+    "equipment": [],
+    "setup": "The worker starts at the centre mark of their baseline. The controller stands at the centre of their own baseline with three balls and hits every ball themselves. The three corners are the deuce corner, the ad corner, and a short ball inside the service box.",
+    "instructions": [
+      "The controller sends the ball deuce corner, then ad corner, then short into the service box, repeating that order.",
+      "The worker returns every ball down the middle and recovers through the centre mark each time.",
+      "Run for ninety seconds, counting clean returns, then swap roles.",
+      "Three rounds each, with ninety seconds of rest between.",
+      "Last round: the controller may change the order without warning."
+    ],
+    "coaching_points": [
+      "Take the first step before the ball has bounced on your side.",
+      "On the short ball, take it early and move through it rather than stopping.",
+      "Return down the middle with height; the middle buys the recovery time.",
+      "Cross-step to the corners, side step back to the centre."
+    ],
+    "progressions": [
+      "Extend the round from ninety seconds to two minutes.",
+      "Require the returns to land beyond the far service line.",
+      "Add a fourth corner by pushing the short ball wide as well."
+    ],
+    "regressions": [
+      "Shorten the round to forty-five seconds.",
+      "Drop the short ball and use the two deep corners only.",
+      "Let the controller hit at three-quarter pace inside the singles lines."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.95,
+          "label": "Worker"
+        },
+        {
+          "id": "P2",
+          "x": 0.5,
+          "y": 0.05,
+          "label": "Controller"
+        }
+      ],
+      "equipment": [],
+      "paths": [
+        {
+          "from": "P2",
+          "to": [
+            0.82,
+            0.9
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.82,
+            0.92
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.5,
+            0.12
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.5,
+            0.95
+          ],
+          "style": "movement",
+          "step": 3
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.18,
+            0.9
+          ],
+          "style": "ball",
+          "step": 4
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.18,
+            0.92
+          ],
+          "style": "movement",
+          "step": 4
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.6,
+            0.66
+          ],
+          "style": "ball",
+          "step": 5
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.6,
+            0.68
+          ],
+          "style": "movement",
+          "step": 5
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "no-rest-rally-intervals",
+    "name": "No-Rest Rally Intervals",
+    "summary": "Holds two advanced players at high ball speed for fixed intervals, with the rest measured in seconds rather than points.",
+    "skill_focus": [
+      "conditioning",
+      "forehand",
+      "backhand"
+    ],
+    "levels": [
+      "advanced",
+      "intermediate"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "high",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 10,
+    "duration_max": 14,
+    "equipment": [],
+    "setup": "Both players on their baselines, full singles court. Three balls each in a pocket so a broken rally restarts within a second. One player keeps time out loud.",
+    "instructions": [
+      "Rally at full intensity down the middle and to both corners for sixty seconds without stopping.",
+      "If the ball goes out, the nearest player drop-hits a new one immediately; the clock does not stop.",
+      "Rest for thirty seconds, then repeat, for six intervals in total.",
+      "Count total balls struck across all six intervals as a pair and write it down.",
+      "Final interval: ninety seconds, and try to hold the same ball speed to the end."
+    ],
+    "coaching_points": [
+      "Recover to the centre before you look up at the next ball.",
+      "Shorten the backswing as you tire rather than slowing the swing down.",
+      "Take the ball on the rise so the rally keeps its pace.",
+      "Breathe on every contact, out on the hit."
+    ],
+    "progressions": [
+      "Extend each interval from sixty to ninety seconds.",
+      "Cut the rest from thirty seconds to fifteen.",
+      "Require every ball to land beyond the service line."
+    ],
+    "regressions": [
+      "Shorten the interval to thirty seconds with a full minute of rest.",
+      "Rally down the middle only, with no corners.",
+      "Reduce the set from six intervals to three."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.95,
+          "label": "A"
+        },
+        {
+          "id": "P2",
+          "x": 0.5,
+          "y": 0.05,
+          "label": "B"
+        }
+      ],
+      "equipment": [],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.2,
+            0.12
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.22,
+            0.1
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.8,
+            0.9
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.78,
+            0.92
+          ],
+          "style": "movement",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.5,
+            0.1
+          ],
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.5,
+            0.08
+          ],
+          "style": "movement",
+          "step": 3
+        }
+      ]
+    },
+    "source": "generated"
+  },
+  {
+    "slug": "two-shot-shot-clock",
+    "name": "Two-Shot Shot Clock",
+    "summary": "An advanced game of sudden pressure where every point restarts after six balls, so neither player can settle into a long rally.",
+    "skill_focus": [
+      "games",
+      "tactical"
+    ],
+    "levels": [
+      "advanced",
+      "intermediate"
+    ],
+    "age_groups": [
+      "junior",
+      "adult"
+    ],
+    "court_space": "full_court",
+    "intensity": "medium",
+    "players_min": 2,
+    "players_max": 2,
+    "duration_min": 10,
+    "duration_max": 15,
+    "equipment": [],
+    "setup": "Full singles court, points started with a drop-hit from alternating players. One player counts every strike out loud from one to six.",
+    "instructions": [
+      "Play the point normally, but if a sixth ball is struck the point is void and replayed.",
+      "That means whoever is going to win must construct it inside five shots.",
+      "Play to eleven points, replaying every void point immediately with no rest.",
+      "Second game: a void point scores against whoever was last to hit, so passivity is punished.",
+      "Third game: the limit drops to four balls."
+    ],
+    "coaching_points": [
+      "Use the first ball to move them, not to win outright.",
+      "By the third ball you should be inside the baseline or they should be.",
+      "When the count reaches four, take the first ball above net height.",
+      "Call the count clearly; both players play differently once they hear five."
+    ],
+    "progressions": [
+      "Drop the limit to four balls from the first game.",
+      "Void points score against the last hitter throughout.",
+      "Require the point to start with a serve rather than a drop-hit."
+    ],
+    "regressions": [
+      "Raise the limit to nine balls.",
+      "Play void points as simple replays with no penalty.",
+      "Play to seven points instead of eleven."
+    ],
+    "court_diagram": {
+      "court": "full",
+      "players": [
+        {
+          "id": "P1",
+          "x": 0.5,
+          "y": 0.95,
+          "label": "A"
+        },
+        {
+          "id": "P2",
+          "x": 0.5,
+          "y": 0.05,
+          "label": "B"
+        }
+      ],
+      "equipment": [],
+      "paths": [
+        {
+          "from": "P1",
+          "to": [
+            0.24,
+            0.14
+          ],
+          "style": "ball",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.26,
+            0.12
+          ],
+          "style": "movement",
+          "step": 1
+        },
+        {
+          "from": "P2",
+          "to": [
+            0.76,
+            0.86
+          ],
+          "style": "ball",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.74,
+            0.88
+          ],
+          "style": "movement",
+          "step": 2
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.18,
+            0.2
+          ],
+          "style": "ball",
+          "step": 3
+        },
+        {
+          "from": "P1",
+          "to": [
+            0.5,
+            0.62
+          ],
+          "style": "movement",
+          "step": 4
+        }
+      ]
+    },
+    "source": "generated"
+  }
+]

@@ -323,7 +323,10 @@ async function tryCompose(args: {
     const { data, error } = await q
     if (error || !data) { console.error('compose query failed', error); return null }
     const rows = data as DrillRow[]
-    const MIN = args.mode === 'auto' ? 8 : 4
+    // 6 is enough to build a 4-7 block session with a warm-up and finisher
+    // written around it. Below that the same drills would repeat every time,
+    // so generating fresh is the better answer.
+    const MIN = args.mode === 'auto' ? 6 : 4
     if (rows.length < MIN) { console.log('compose: too few candidates', rows.length); return null }
 
     // Rank: focus match first, then whether the group size fits without rotation.

@@ -669,6 +669,24 @@
      ],
      "style": "ball",
      "step": 3
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.32,
+      0.6
+     ],
+     "style": "movement",
+     "step": 4
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.18,
+      0.12
+     ],
+     "style": "ball",
+     "step": 5
     }
    ]
   },
@@ -776,10 +794,19 @@
      "from": "P2",
      "to": [
       0.5,
-      0.84
+      0.82
      ],
      "style": "ball",
-     "step": 3
+     "step": 4
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.5,
+      0.82
+     ],
+     "style": "movement",
+     "step": 4
     }
    ]
   },
@@ -981,15 +1008,6 @@
     {
      "from": "P2",
      "to": [
-      0.38,
-      0.3
-     ],
-     "style": "movement",
-     "step": 1
-    },
-    {
-     "from": "P2",
-     "to": [
       0.7,
       0.92
      ],
@@ -998,7 +1016,10 @@
     },
     {
      "from": "P2",
-     "to": "P2",
+     "to": [
+      0.5,
+      0.06
+     ],
      "style": "movement",
      "step": 3
     }

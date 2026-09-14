@@ -3,9 +3,18 @@
   "slug": "service-line-gate-rally",
   "name": "Service-Line Gate Rally",
   "summary": "Builds depth from both wings by counting only cross-court rally balls that land between the service line and the baseline.",
-  "skill_focus": ["forehand", "backhand"],
-  "levels": ["improver", "intermediate"],
-  "age_groups": ["junior", "adult"],
+  "skill_focus": [
+   "forehand",
+   "backhand"
+  ],
+  "levels": [
+   "improver",
+   "intermediate"
+  ],
+  "age_groups": [
+   "junior",
+   "adult"
+  ],
   "court_space": "full_court",
   "intensity": "low",
   "players_min": 2,
@@ -40,14 +49,48 @@
   "court_diagram": {
    "court": "full",
    "players": [
-    {"id": "P1", "x": 0.72, "y": 0.95, "label": "A"},
-    {"id": "P2", "x": 0.28, "y": 0.05, "label": "B"}
+    {
+     "id": "P1",
+     "x": 0.72,
+     "y": 0.95,
+     "label": "A"
+    },
+    {
+     "id": "P2",
+     "x": 0.28,
+     "y": 0.05,
+     "label": "B"
+    }
    ],
    "equipment": [],
    "paths": [
-    {"from": "P1", "to": [0.3, 0.12], "style": "ball", "step": 1},
-    {"from": "P2", "to": [0.7, 0.88], "style": "ball", "step": 2},
-    {"from": "P1", "to": [0.3, 0.1], "style": "ball", "step": 3}
+    {
+     "from": "P1",
+     "to": [
+      0.3,
+      0.12
+     ],
+     "style": "ball",
+     "step": 1
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.7,
+      0.88
+     ],
+     "style": "ball",
+     "step": 2
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.3,
+      0.1
+     ],
+     "style": "ball",
+     "step": 3
+    }
    ]
   },
   "source": "generated"
@@ -56,9 +99,18 @@
   "slug": "alley-lane-down-the-line",
   "name": "Alley Lane Down the Line",
   "summary": "Grooves the down-the-line shot by rallying inside the lane between the singles and doubles sidelines with nothing but the painted lines as the target.",
-  "skill_focus": ["forehand", "backhand"],
-  "levels": ["intermediate", "advanced"],
-  "age_groups": ["junior", "adult"],
+  "skill_focus": [
+   "forehand",
+   "backhand"
+  ],
+  "levels": [
+   "intermediate",
+   "advanced"
+  ],
+  "age_groups": [
+   "junior",
+   "adult"
+  ],
   "court_space": "cross_court_channel",
   "intensity": "medium",
   "players_min": 2,
@@ -93,14 +145,48 @@
   "court_diagram": {
    "court": "full",
    "players": [
-    {"id": "P1", "x": 0.9, "y": 0.95, "label": "A"},
-    {"id": "P2", "x": 0.9, "y": 0.05, "label": "B"}
+    {
+     "id": "P1",
+     "x": 0.9,
+     "y": 0.95,
+     "label": "A"
+    },
+    {
+     "id": "P2",
+     "x": 0.9,
+     "y": 0.05,
+     "label": "B"
+    }
    ],
    "equipment": [],
    "paths": [
-    {"from": "P1", "to": [0.92, 0.14], "style": "ball", "step": 1},
-    {"from": "P2", "to": [0.92, 0.86], "style": "ball", "step": 2},
-    {"from": "P1", "to": [0.93, 0.12], "style": "ball", "step": 3}
+    {
+     "from": "P1",
+     "to": [
+      0.92,
+      0.14
+     ],
+     "style": "ball",
+     "step": 1
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.92,
+      0.86
+     ],
+     "style": "ball",
+     "step": 2
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.93,
+      0.12
+     ],
+     "style": "ball",
+     "step": 3
+    }
    ]
   },
   "source": "generated"
@@ -109,9 +195,19 @@
   "slug": "two-cross-one-line",
   "name": "Two Cross, One Line",
   "summary": "Trains the change of direction by rallying two balls cross-court and the third down the line, with both players recovering to cover the new angle.",
-  "skill_focus": ["forehand", "backhand", "tactical"],
-  "levels": ["intermediate", "advanced"],
-  "age_groups": ["junior", "adult"],
+  "skill_focus": [
+   "forehand",
+   "backhand",
+   "tactical"
+  ],
+  "levels": [
+   "intermediate",
+   "advanced"
+  ],
+  "age_groups": [
+   "junior",
+   "adult"
+  ],
   "court_space": "full_court",
   "intensity": "medium",
   "players_min": 2,
@@ -146,17 +242,72 @@
   "court_diagram": {
    "court": "full",
    "players": [
-    {"id": "P1", "x": 0.7, "y": 0.95, "label": "A"},
-    {"id": "P2", "x": 0.32, "y": 0.05, "label": "B"}
+    {
+     "id": "P1",
+     "x": 0.7,
+     "y": 0.95,
+     "label": "A"
+    },
+    {
+     "id": "P2",
+     "x": 0.32,
+     "y": 0.05,
+     "label": "B"
+    }
    ],
    "equipment": [],
    "paths": [
-    {"from": "P2", "to": "P1", "style": "ball", "step": 1},
-    {"from": "P1", "to": [0.3, 0.12], "style": "ball", "step": 2},
-    {"from": "P2", "to": [0.7, 0.88], "style": "ball", "step": 3},
-    {"from": "P1", "to": [0.82, 0.1], "style": "ball", "step": 4},
-    {"from": "P2", "to": [0.82, 0.1], "style": "movement", "step": 4},
-    {"from": "P1", "to": [0.5, 0.95], "style": "movement", "step": 5}
+    {
+     "from": "P2",
+     "to": "P1",
+     "style": "ball",
+     "step": 1
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.3,
+      0.12
+     ],
+     "style": "ball",
+     "step": 2
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.7,
+      0.88
+     ],
+     "style": "ball",
+     "step": 3
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.82,
+      0.1
+     ],
+     "style": "ball",
+     "step": 4
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.82,
+      0.1
+     ],
+     "style": "movement",
+     "step": 4
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.5,
+      0.95
+     ],
+     "style": "movement",
+     "step": 5
+    }
    ]
   },
   "source": "generated"
@@ -165,9 +316,17 @@
   "slug": "inside-out-runaround-rally",
   "name": "Inside-Out Runaround Rally",
   "summary": "Develops the run-around forehand by rallying inside-out from the backhand corner against a partner who keeps feeding the backhand side with live balls.",
-  "skill_focus": ["forehand", "movement"],
-  "levels": ["advanced"],
-  "age_groups": ["junior", "adult"],
+  "skill_focus": [
+   "forehand",
+   "movement"
+  ],
+  "levels": [
+   "advanced"
+  ],
+  "age_groups": [
+   "junior",
+   "adult"
+  ],
   "court_space": "full_court",
   "intensity": "high",
   "players_min": 2,
@@ -202,16 +361,75 @@
   "court_diagram": {
    "court": "full",
    "players": [
-    {"id": "P1", "x": 0.5, "y": 0.95, "label": "A"},
-    {"id": "P2", "x": 0.72, "y": 0.06, "label": "B"}
+    {
+     "id": "P1",
+     "x": 0.5,
+     "y": 0.95,
+     "label": "A"
+    },
+    {
+     "id": "P2",
+     "x": 0.72,
+     "y": 0.06,
+     "label": "B"
+    }
    ],
    "equipment": [],
    "paths": [
-    {"from": "P2", "to": [0.26, 0.9], "style": "ball", "step": 1},
-    {"from": "P1", "to": [0.2, 0.96], "style": "movement", "step": 1},
-    {"from": "P1", "to": [0.72, 0.1], "style": "ball", "step": 2},
-    {"from": "P1", "to": [0.42, 0.95], "style": "movement", "step": 3},
-    {"from": "P2", "to": [0.26, 0.9], "style": "ball", "step": 3}
+    {
+     "from": "P2",
+     "to": [
+      0.26,
+      0.9
+     ],
+     "style": "ball",
+     "step": 1
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.2,
+      0.96
+     ],
+     "style": "movement",
+     "step": 1
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.72,
+      0.1
+     ],
+     "style": "ball",
+     "step": 2
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.42,
+      0.95
+     ],
+     "style": "movement",
+     "step": 3
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.26,
+      0.9
+     ],
+     "style": "ball",
+     "step": 4
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.24,
+      0.93
+     ],
+     "style": "movement",
+     "step": 4
+    }
    ]
   },
   "source": "generated"
@@ -220,9 +438,18 @@
   "slug": "short-long-rhythm-rally",
   "name": "Short-Long Rhythm Rally",
   "summary": "Teaches control of length by alternating a ball inside the service box with a ball beyond the service line, so both players practise taking pace off and adding it.",
-  "skill_focus": ["forehand", "backhand"],
-  "levels": ["improver", "intermediate"],
-  "age_groups": ["junior", "adult"],
+  "skill_focus": [
+   "forehand",
+   "backhand"
+  ],
+  "levels": [
+   "improver",
+   "intermediate"
+  ],
+  "age_groups": [
+   "junior",
+   "adult"
+  ],
   "court_space": "full_court",
   "intensity": "medium",
   "players_min": 2,
@@ -257,16 +484,63 @@
   "court_diagram": {
    "court": "full",
    "players": [
-    {"id": "P1", "x": 0.7, "y": 0.93, "label": "A"},
-    {"id": "P2", "x": 0.3, "y": 0.07, "label": "B"}
+    {
+     "id": "P1",
+     "x": 0.7,
+     "y": 0.93,
+     "label": "A"
+    },
+    {
+     "id": "P2",
+     "x": 0.3,
+     "y": 0.07,
+     "label": "B"
+    }
    ],
    "equipment": [],
    "paths": [
-    {"from": "P1", "to": [0.32, 0.33], "style": "ball", "step": 1},
-    {"from": "P2", "to": [0.32, 0.33], "style": "movement", "step": 1},
-    {"from": "P2", "to": [0.7, 0.88], "style": "ball", "step": 2},
-    {"from": "P2", "to": "P2", "style": "movement", "step": 3},
-    {"from": "P1", "to": [0.3, 0.1], "style": "ball", "step": 3}
+    {
+     "from": "P1",
+     "to": [
+      0.32,
+      0.33
+     ],
+     "style": "ball",
+     "step": 1
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.32,
+      0.33
+     ],
+     "style": "movement",
+     "step": 1
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.7,
+      0.88
+     ],
+     "style": "ball",
+     "step": 2
+    },
+    {
+     "from": "P2",
+     "to": "P2",
+     "style": "movement",
+     "step": 3
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.3,
+      0.1
+     ],
+     "style": "ball",
+     "step": 3
+    }
    ]
   },
   "source": "generated"
@@ -275,9 +549,16 @@
   "slug": "backhand-corner-count",
   "name": "Backhand Corner Count",
   "summary": "Isolates the cross-court backhand by rallying backhand to backhand from the ad corners with a running count that only resets on an error.",
-  "skill_focus": ["backhand"],
-  "levels": ["improver"],
-  "age_groups": ["junior", "adult"],
+  "skill_focus": [
+   "backhand"
+  ],
+  "levels": [
+   "improver"
+  ],
+  "age_groups": [
+   "junior",
+   "adult"
+  ],
   "court_space": "cross_court_channel",
   "intensity": "low",
   "players_min": 2,
@@ -312,14 +593,48 @@
   "court_diagram": {
    "court": "full",
    "players": [
-    {"id": "P1", "x": 0.26, "y": 0.95, "label": "A"},
-    {"id": "P2", "x": 0.74, "y": 0.05, "label": "B"}
+    {
+     "id": "P1",
+     "x": 0.26,
+     "y": 0.95,
+     "label": "A"
+    },
+    {
+     "id": "P2",
+     "x": 0.74,
+     "y": 0.05,
+     "label": "B"
+    }
    ],
    "equipment": [],
    "paths": [
-    {"from": "P1", "to": [0.74, 0.12], "style": "ball", "step": 1},
-    {"from": "P2", "to": [0.26, 0.88], "style": "ball", "step": 2},
-    {"from": "P1", "to": [0.72, 0.1], "style": "ball", "step": 3}
+    {
+     "from": "P1",
+     "to": [
+      0.74,
+      0.12
+     ],
+     "style": "ball",
+     "step": 1
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.26,
+      0.88
+     ],
+     "style": "ball",
+     "step": 2
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.72,
+      0.1
+     ],
+     "style": "ball",
+     "step": 3
+    }
    ]
   },
   "source": "generated"
@@ -328,9 +643,18 @@
   "slug": "four-then-live-half-court",
   "name": "Four Then Live, Half Court",
   "summary": "Combines rhythm and competition by playing points that must start with four cooperative cross-court balls before either player may go for it, all inside one half of the court.",
-  "skill_focus": ["forehand", "backhand", "tactical"],
-  "levels": ["intermediate"],
-  "age_groups": ["junior", "adult"],
+  "skill_focus": [
+   "forehand",
+   "backhand",
+   "tactical"
+  ],
+  "levels": [
+   "intermediate"
+  ],
+  "age_groups": [
+   "junior",
+   "adult"
+  ],
   "court_space": "half_court",
   "intensity": "high",
   "players_min": 2,
@@ -365,16 +689,66 @@
   "court_diagram": {
    "court": "full",
    "players": [
-    {"id": "P1", "x": 0.7, "y": 0.95, "label": "A"},
-    {"id": "P2", "x": 0.3, "y": 0.05, "label": "B"}
+    {
+     "id": "P1",
+     "x": 0.7,
+     "y": 0.95,
+     "label": "A"
+    },
+    {
+     "id": "P2",
+     "x": 0.3,
+     "y": 0.05,
+     "label": "B"
+    }
    ],
    "equipment": [],
    "paths": [
-    {"from": "P1", "to": [0.3, 0.12], "style": "ball", "step": 1},
-    {"from": "P2", "to": [0.7, 0.88], "style": "ball", "step": 2},
-    {"from": "P1", "to": [0.14, 0.3], "style": "ball", "step": 3},
-    {"from": "P2", "to": [0.14, 0.3], "style": "movement", "step": 3},
-    {"from": "P2", "to": [0.86, 0.72], "style": "ball", "step": 4}
+    {
+     "from": "P1",
+     "to": [
+      0.3,
+      0.12
+     ],
+     "style": "ball",
+     "step": 1
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.7,
+      0.88
+     ],
+     "style": "ball",
+     "step": 2
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.14,
+      0.3
+     ],
+     "style": "ball",
+     "step": 3
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.14,
+      0.3
+     ],
+     "style": "movement",
+     "step": 3
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.86,
+      0.72
+     ],
+     "style": "ball",
+     "step": 4
+    }
    ]
   },
   "source": "generated"
@@ -383,9 +757,18 @@
   "slug": "deep-ball-denial-points",
   "name": "Deep-Ball Denial Points",
   "summary": "Punishes short balls in live points by awarding the point to the opponent the moment a rally ball lands inside the service line.",
-  "skill_focus": ["forehand", "backhand", "tactical"],
-  "levels": ["advanced"],
-  "age_groups": ["junior", "adult"],
+  "skill_focus": [
+   "forehand",
+   "backhand",
+   "tactical"
+  ],
+  "levels": [
+   "advanced"
+  ],
+  "age_groups": [
+   "junior",
+   "adult"
+  ],
   "court_space": "full_court",
   "intensity": "high",
   "players_min": 2,
@@ -420,17 +803,66 @@
   "court_diagram": {
    "court": "full",
    "players": [
-    {"id": "P1", "x": 0.55, "y": 0.95, "label": "A"},
-    {"id": "P2", "x": 0.45, "y": 0.05, "label": "B"}
+    {
+     "id": "P1",
+     "x": 0.55,
+     "y": 0.95,
+     "label": "A"
+    },
+    {
+     "id": "P2",
+     "x": 0.45,
+     "y": 0.05,
+     "label": "B"
+    }
    ],
    "equipment": [],
    "paths": [
-    {"from": "P1", "to": [0.3, 0.1], "style": "ball", "step": 1},
-    {"from": "P2", "to": [0.3, 0.1], "style": "movement", "step": 1},
-    {"from": "P2", "to": [0.78, 0.08], "style": "movement", "step": 2},
-    {"from": "P2", "to": [0.7, 0.9], "style": "ball", "step": 2},
-    {"from": "P1", "to": [0.7, 0.9], "style": "movement", "step": 2},
-    {"from": "P1", "to": [0.2, 0.08], "style": "ball", "step": 3}
+    {
+     "from": "P1",
+     "to": [
+      0.3,
+      0.1
+     ],
+     "style": "ball",
+     "step": 1
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.3,
+      0.1
+     ],
+     "style": "movement",
+     "step": 1
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.7,
+      0.9
+     ],
+     "style": "ball",
+     "step": 2
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.7,
+      0.9
+     ],
+     "style": "movement",
+     "step": 2
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.2,
+      0.08
+     ],
+     "style": "ball",
+     "step": 3
+    }
    ]
   },
   "source": "generated"
@@ -439,9 +871,18 @@
   "slug": "call-your-zone-rally",
   "name": "Call Your Zone Rally",
   "summary": "Sharpens length control by making each player announce short, middle or deep before every shot and then landing the ball in that band of the court.",
-  "skill_focus": ["forehand", "backhand"],
-  "levels": ["improver", "intermediate"],
-  "age_groups": ["junior", "adult"],
+  "skill_focus": [
+   "forehand",
+   "backhand"
+  ],
+  "levels": [
+   "improver",
+   "intermediate"
+  ],
+  "age_groups": [
+   "junior",
+   "adult"
+  ],
   "court_space": "full_court",
   "intensity": "medium",
   "players_min": 2,
@@ -476,16 +917,63 @@
   "court_diagram": {
    "court": "full",
    "players": [
-    {"id": "P1", "x": 0.5, "y": 0.95, "label": "A"},
-    {"id": "P2", "x": 0.5, "y": 0.05, "label": "B"}
+    {
+     "id": "P1",
+     "x": 0.5,
+     "y": 0.95,
+     "label": "A"
+    },
+    {
+     "id": "P2",
+     "x": 0.5,
+     "y": 0.05,
+     "label": "B"
+    }
    ],
    "equipment": [],
    "paths": [
-    {"from": "P1", "to": [0.5, 0.35], "style": "ball", "step": 1},
-    {"from": "P2", "to": [0.5, 0.35], "style": "movement", "step": 1},
-    {"from": "P2", "to": [0.5, 0.92], "style": "ball", "step": 2},
-    {"from": "P2", "to": "P2", "style": "movement", "step": 3},
-    {"from": "P1", "to": [0.5, 0.6], "style": "ball", "step": 3}
+    {
+     "from": "P1",
+     "to": [
+      0.5,
+      0.35
+     ],
+     "style": "ball",
+     "step": 1
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.5,
+      0.35
+     ],
+     "style": "movement",
+     "step": 1
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.5,
+      0.92
+     ],
+     "style": "ball",
+     "step": 2
+    },
+    {
+     "from": "P2",
+     "to": "P2",
+     "style": "movement",
+     "step": 3
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.5,
+      0.06
+     ],
+     "style": "ball",
+     "step": 4
+    }
    ]
   },
   "source": "generated"
@@ -494,9 +982,19 @@
   "slug": "rally-to-ten-then-play",
   "name": "Rally to Ten, Then Play",
   "summary": "Turns a cooperative rally into a live point at ball ten, so consistency earns the right to compete and every point starts with real rhythm.",
-  "skill_focus": ["forehand", "backhand", "games"],
-  "levels": ["improver", "intermediate"],
-  "age_groups": ["junior", "adult"],
+  "skill_focus": [
+   "forehand",
+   "backhand",
+   "games"
+  ],
+  "levels": [
+   "improver",
+   "intermediate"
+  ],
+  "age_groups": [
+   "junior",
+   "adult"
+  ],
   "court_space": "full_court",
   "intensity": "medium",
   "players_min": 2,
@@ -531,17 +1029,75 @@
   "court_diagram": {
    "court": "full",
    "players": [
-    {"id": "P1", "x": 0.5, "y": 0.95, "label": "A"},
-    {"id": "P2", "x": 0.5, "y": 0.05, "label": "B"}
+    {
+     "id": "P1",
+     "x": 0.5,
+     "y": 0.95,
+     "label": "A"
+    },
+    {
+     "id": "P2",
+     "x": 0.5,
+     "y": 0.05,
+     "label": "B"
+    }
    ],
    "equipment": [],
    "paths": [
-    {"from": "P1", "to": [0.5, 0.1], "style": "ball", "step": 1},
-    {"from": "P2", "to": [0.52, 0.9], "style": "ball", "step": 2},
-    {"from": "P1", "to": [0.16, 0.15], "style": "ball", "step": 3},
-    {"from": "P2", "to": [0.16, 0.15], "style": "movement", "step": 3},
-    {"from": "P2", "to": [0.86, 0.9], "style": "ball", "step": 4},
-    {"from": "P1", "to": [0.86, 0.9], "style": "movement", "step": 4}
+    {
+     "from": "P1",
+     "to": [
+      0.5,
+      0.1
+     ],
+     "style": "ball",
+     "step": 1
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.52,
+      0.9
+     ],
+     "style": "ball",
+     "step": 2
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.16,
+      0.15
+     ],
+     "style": "ball",
+     "step": 3
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.16,
+      0.15
+     ],
+     "style": "movement",
+     "step": 3
+    },
+    {
+     "from": "P2",
+     "to": [
+      0.86,
+      0.9
+     ],
+     "style": "ball",
+     "step": 4
+    },
+    {
+     "from": "P1",
+     "to": [
+      0.86,
+      0.9
+     ],
+     "style": "movement",
+     "step": 4
+    }
    ]
   },
   "source": "generated"

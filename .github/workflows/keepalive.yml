@@ -5,36 +5,52 @@
 # counts as activity. If the read fails, this job fails and GitHub emails
 # the workflow's author — that email IS the alert.
 #
+# GitHub in turn switches OFF scheduled workflows in any repo with no
+# commits for 60 days. That happened on 13 Nov 2026 and the daily ping
+# silently stopped. The `heartbeat` job below commits one tiny file on the
+# 1st of each month so the repo never looks idle. Pushes made with the
+# built-in GITHUB_TOKEN do not trigger other workflows, so it never
+# redeploys the app.
+#
 # The key below is the public "anon" key, the same one shipped in index.html.
 # It can only do what any visitor's browser can do.
 name: Keep Supabase awake
 
 on:
   schedule:
-    - cron: '23 7 * * *'   # every day, 07:23 UTC
+    - cron: '23 7 * * *'   # every day, 07:23 UTC: ping the database
+    - cron: '41 6 1 * *'   # 1st of each month, 06:41 UTC: heartbeat commit
   workflow_dispatch:
+    inputs:
+      heartbeat:
+        description: 'Also write the monthly heartbeat commit now'
+        type: boolean
+        default: false
 
 jobs:
   ping:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    permissions:
+      contents: read
     env:
       PROJECT: https://tfnlygofikamyoscdrik.supabase.co
       ANON: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRmbmx5Z29maWthbXlvc2NkcmlrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEwMTUxNzIsImV4cCI6MjA5NjU5MTE3Mn0.6uTGpXK_BpnQcxTbWbrB_uu_iRBqWxWSvN5PLw797WE
     steps:
-      - name: Read from the database through the public API
+      - name: Read a real row from the database through the public API
         run: |
           set -uo pipefail
+          # Approved drills are readable by anyone, so a healthy database
+          # returns at least one row. An empty answer counts as a failure.
           for attempt in 1 2 3; do
             code=$(curl -s -o /tmp/body -w '%{http_code}' --max-time 20 \
-              "$PROJECT/rest/v1/practicepal_shared?select=id&limit=1" \
+              "$PROJECT/rest/v1/drills?select=slug&limit=1" \
               -H "apikey: $ANON" -H "Authorization: Bearer $ANON")
-            echo "attempt $attempt: HTTP $code"
-            if [ "$code" = "200" ]; then exit 0; fi
+            echo "attempt $attempt: HTTP $code $(head -c 80 /tmp/body)"
+            if [ "$code" = "200" ] && grep -q '"slug"' /tmp/body; then exit 0; fi
             sleep 30
           done
-          echo "::error::Supabase did not answer with HTTP 200 after 3 attempts — the project may be paused or down. Open https://supabase.com/dashboard/project/tfnlygofikamyoscdrik"
-          cat /tmp/body || true
+          echo "::error::Supabase did not return a drill after 3 attempts — the project may be paused or down. Open https://supabase.com/dashboard/project/tfnlygofikamyoscdrik"
           exit 1
       - name: Check the session generator is reachable
         run: |
@@ -42,3 +58,21 @@ jobs:
             "$PROJECT/functions/v1/practicepal" -H "Origin: https://app.practicepal.ie")
           echo "edge function preflight: HTTP $code"
           [ "$code" = "200" ] || { echo "::error::Edge function preflight failed (HTTP $code)"; exit 1; }
+
+  heartbeat:
+    if: github.event.schedule == '41 6 1 * *' || (github.event_name == 'workflow_dispatch' && inputs.heartbeat)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Commit the monthly heartbeat
+        run: |
+          printf 'Last heartbeat: %s\n\nWritten monthly by .github/workflows/keepalive.yml so GitHub never\ndisables the daily Supabase keep-alive for 60 days of repo inactivity.\n' \
+            "$(date -u +%Y-%m-%dT%H:%MZ)" > .github/heartbeat
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/heartbeat
+          git commit -m "Monthly heartbeat: keep scheduled workflows enabled [skip ci]"
+          git push

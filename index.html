@@ -1797,8 +1797,9 @@ ICONS.muted = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
 
 // Bump APP_VERSION with every deploy that changes what people see; the first
 // line of WHATS_NEW is shown once as a toast, the rest in the menu.
-const APP_VERSION = '2026.09.04';
+const APP_VERSION = '2026.11.24';
 const WHATS_NEW = [
+  'Share links work again: whoever you send one to opens your exact session',
   'Tell the app what kit you have — sessions now assume racquets and balls only',
   'Compact drill cards with a court thumbnail; tap a card for the full detail',
   'Daylight mode on the plan screen (sun icon on the session card)',
@@ -4488,18 +4489,35 @@ function planAsText() {
 
 // Publish the session once (snapshot table) and reuse the link — anyone who
 // opens it gets the real session in PracticePal, diagrams and all.
+// A v4 UUID. crypto.randomUUID is missing on older phones (iOS before 15.4),
+// so fall back to building one from random bytes.
+function uuid4() {
+  if (crypto.randomUUID) return crypto.randomUUID();
+  const b = crypto.getRandomValues(new Uint8Array(16));
+  b[6] = (b[6] & 0x0f) | 0x40;
+  b[8] = (b[8] & 0x3f) | 0x80;
+  const h = [...b].map((x) => x.toString(16).padStart(2, '0')).join('');
+  return `${h.slice(0, 8)}-${h.slice(8, 12)}-${h.slice(12, 16)}-${h.slice(16, 20)}-${h.slice(20)}`;
+}
+
+// Shared sessions can be saved by anyone but never listed or read back from
+// the table (that would let anyone browse everyone's sessions). So the id is
+// chosen here before saving, rather than asked for afterwards, and links are
+// opened one at a time through get_shared_plan.
 async function ensureShareLink() {
   if (state.plan._sid) return `${location.origin}${location.pathname}?s=${state.plan._sid}`;
   try {
-    const { data, error } = await sb.from('practicepal_shared').insert({
+    const id = uuid4();
+    const { error } = await sb.from('practicepal_shared').insert({
+      id,
       user_id: currentUser?.id || null,
       inputs: state.sessionInputs,
       plan: state.plan,
-    }).select('id').single();
-    if (error || !data) return null;
-    state.plan._sid = data.id;
-    return `${location.origin}${location.pathname}?s=${data.id}`;
-  } catch { return null; }
+    });
+    if (error) { console.warn('Share link not saved', error.message); return null; }
+    state.plan._sid = id;
+    return `${location.origin}${location.pathname}?s=${id}`;
+  } catch (err) { console.warn('Share link not saved', err); return null; }
 }
 
 async function share() {
@@ -4522,7 +4540,7 @@ async function tryLoadShared() {
   if (!sid) return false;
   history.replaceState(null, '', location.pathname);
   try {
-    const { data, error } = await sb.from('practicepal_shared').select('inputs, plan').eq('id', sid).single();
+    const { data, error } = await sb.rpc('get_shared_plan', { p_id: sid }).maybeSingle();
     if (error || !data) { toast('That shared session link didn’t work.'); return false; }
     state.plan = data.plan;
     state.sessionInputs = data.inputs;

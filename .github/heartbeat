@@ -1,0 +1,4 @@
+Last heartbeat: 2026-11-24T22:49Z
+
+Written monthly by .github/workflows/keepalive.yml so GitHub never
+disables the daily Supabase keep-alive for 60 days of repo inactivity.
